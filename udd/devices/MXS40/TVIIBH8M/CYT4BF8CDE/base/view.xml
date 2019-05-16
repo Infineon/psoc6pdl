@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<baseview>
+  <shortsiliconid>0xE5D7</shortsiliconid>
+  <familyid>0x103</familyid>
+  <major>1</major>
+  <minor>1</minor>
+  <mcu>CortexM0p,CortexM4F</mcu>
+  <vendor>Cypress</vendor>
+  <flash>8585216</flash>
+  <ram>1048576</ram>
+  <package>176-TEQFP</package>
+  <pins>176</pins>
+  <minvoltage>3000</minvoltage>
+  <maxvoltage>5500</maxvoltage>
+  <description>The CYT4BF8CDE device.</description>
+</baseview>

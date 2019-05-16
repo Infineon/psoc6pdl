@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<baseview>
+  <shortsiliconid>0xE391</shortsiliconid>
+  <familyid>0x101</familyid>
+  <major>2</major>
+  <minor>1</minor>
+  <mcu>CortexM0p,CortexM4F</mcu>
+  <vendor>Cypress</vendor>
+  <flash>1114112</flash>
+  <ram>98304</ram>
+  <package>80-LQFP</package>
+  <pins>80</pins>
+  <minvoltage>3000</minvoltage>
+  <maxvoltage>5500</maxvoltage>
+  <description>The CYT2BG4BAS device.</description>
+</baseview>
