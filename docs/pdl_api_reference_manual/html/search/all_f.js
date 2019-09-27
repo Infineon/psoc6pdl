@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['protocol_20status_20register_20_28psr_29_20masks',['Protocol Status Register (PSR) masks',['../group__group__canfd__last__state__masks.html',1,'']]],
   ['profile_20_20_20_20_20_20_28energy_20profiler_29',['Profile      (Energy Profiler)',['../group__group__energy__profiler.html',1,'']]],
   ['pin_20drive_20mode',['Pin drive mode',['../group__group__gpio__drive_modes.html',1,'']]],
   ['pin_20drive_20strength',['Pin drive strength',['../group__group__gpio__drive_strength.html',1,'']]],
@@ -50,6 +51,7 @@ var searchData=
   ['polynomial',['polynomial',['../structcy__stc__dma__crc__config__t.html#a84cf8dc8c5dc4635a7bbac59e1d13b23',1,'cy_stc_dma_crc_config_t']]],
   ['power',['power',['../structcy__stc__lpcomp__config__t.html#a88d9af26c01c9a718c3ba06d0b28d064',1,'cy_stc_lpcomp_config_t']]],
   ['preemptable',['preemptable',['../structcy__stc__dma__channel__config__t.html#aab3204617ecee2a57b1f76832966227d',1,'cy_stc_dma_channel_config_t::preemptable()'],['../structcy__stc__usbfs__dev__drv__dma__config__t.html#ad56cf82bf86a753636472f6e96cde426',1,'cy_stc_usbfs_dev_drv_dma_config_t::preemptable()']]],
+  ['prescaler',['prescaler',['../structcy__stc__canfd__bitrate__t.html#a799cba48b1e361b3c36d0e6c45bbde9b',1,'cy_stc_canfd_bitrate_t']]],
   ['previtm',['prevItm',['../structcy__stc__syspm__callback__t.html#ac4dd0cc8f5d4e92eefae3d10df920a56',1,'cy_stc_syspm_callback_t']]],
   ['prime',['prime',['../structcy__stc__crypto__ecc__dp__type.html#a4ec7bbd0ab6b5dbdf61a80986138730e',1,'cy_stc_crypto_ecc_dp_type']]],
   ['priority',['priority',['../structcy__stc__dma__channel__config__t.html#a9a07d731b77cdc04d104cb227392377f',1,'cy_stc_dma_channel_config_t::priority()'],['../structcy__stc__dmac__channel__config__t.html#a7691072c2bdd9072cf34bc6fcc3d4808',1,'cy_stc_dmac_channel_config_t::priority()'],['../structcy__stc__usbfs__dev__drv__dma__config__t.html#aa9ba4d61849d4461f028cad67a7a1956',1,'cy_stc_usbfs_dev_drv_dma_config_t::priority()']]],

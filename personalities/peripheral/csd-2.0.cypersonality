@@ -36,18 +36,9 @@
   </ExposedMembers>
   <Parameters>
     <!-- PDL documentation -->
-    <ParamDoc id="pdlDoc" name="CSD Driver" group="Documentation" 
-            default="file:///`${cy_libs_path(&quot;psoc6sw&quot;)}`/docs/pdl_api_reference_manual/html/group__group__csd.html" 
-            linkText="Open CSD Driver Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
-    <ParamDoc id="capSenseDoc" name="CapSense Middleware" group="Documentation" 
-            default="file:///`${cy_libs_path(&quot;psoc6sw&quot;)}`/docs/capsense_api_reference_manual/html/index.html" 
-            linkText="Open CapSense Documentation" visible="true" desc="Opens the CapSense Middleware Library Documentation" />
-    <ParamDoc id="csdAdcDoc" name="CSDADC Middleware" group="Documentation" 
-            default="file:///`${cy_libs_path(&quot;psoc6sw&quot;)}`/docs/csdadc_api_reference_manual/html/index.html" 
-            linkText="Open CSDADC Documentation" visible="true" desc="Opens the CSDADC Middleware Library Documentation" />
-    <ParamDoc id="csdIdacDoc" name="CSDIDAC Middleware" group="Documentation" 
-            default="file:///`${cy_libs_path(&quot;psoc6sw&quot;)}`/docs/csdidac_api_reference_manual/html/index.html" 
-            linkText="Open CSDIDAC Documentation" visible="true" desc="Opens the CSDIDAC Middleware Library Documentation" />
+    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" 
+            default="file:///`${cy_libs_path()}`/docs/pdl_api_reference_manual/html/group__group__csd.html" 
+            linkText="Open CSD Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
 
     <!-- ExposedMember -->
     <ParamBool id="suppressAmuxCodeGen" name="Suppress Amuxbus Configuration Code Generation" group="Internal" default="true" 
@@ -101,7 +92,7 @@
     </Repeat>
 
     <!-- External tools -->
-    <ParamString id="cfgFileName" name="cfgFileName" group="External Tools" default="cycfg_capsense.cycapsense" visible="false" editable="false" desc="" />
+    <ParamString id="cfgFileName" name="cfgFileName" group="External Tools" default="design.cycapsense" visible="false" editable="false" desc="" />
     <ParamString id="cfgFilePath" name="cfgFilePath" group="External Tools" default="`${cy_design_path() . &quot;/&quot; . cfgFileName}`" visible="false" editable="false" desc="" />
     <ParamCustom id="CapSenseConfigurator" name="CapSense Configurator" group="External Tools" default="0" 
             path="`${cy_tools_path(&quot;capsense-configurator&quot;) . &quot;/capsense-configurator&quot;}`" 
@@ -119,7 +110,7 @@
     <ParamBool id="CsdAdcEnable" name="Enable CSDADC" group="CSDADC" default="false" visible="true" editable="true" 
             desc="Enables the CSDADC function of the CSD hardware block. The CSD ADC middleware must be enabled in the Middleware Selector" />
     <ParamRange id="numChannels" name="Number of Input Channels" group="CSDADC" default="1" min="1" max="32" resolution="1" 
-            visible="`${CsdAdcEnable}`" editable="true" desc="The number of channels to scan" />
+            visible="`${CsdAdcEnable}`" editable="true" desc="The number of channels to scan. After changing the number, check the pins assignments of all enabled CSD features (CapSense, CSDADC, CSDIDAC)." />
     <ParamChoice id="resolution" name="Resolution" group="CSDADC" default="CY_CSDADC_RESOLUTION_10BIT" visible="`${CsdAdcEnable}`" editable="true" 
             desc="Configures the CSDADC resolution" >
       <Entry name="8 bit" value="CY_CSDADC_RESOLUTION_8BIT" visible="true" />
@@ -143,7 +134,7 @@
             min="1" max="255" resolution="1" visible="`${CsdAdcEnable}`" editable="true" 
             desc="CSD HW block clock divider. It will owerwrite the specified peripheral clock divider that is set on the Peripheral-Clocks tab." />
     <ParamRange id="csdClkFreq" name="CSD HW Block Input Frequency (Hz)" group="CSDADC" 
-            default="`${(((periClkOk &amp;&amp; CsdAdcEnable) ? getExposedMember(periClkRsc, &quot;frequency&quot;) : 1) / operClkDivider)}`" 
+            default="`${((periClkOk &amp;&amp; CsdAdcEnable) ? ((getExposedMember(periClkRsc, &quot;frequency&quot;))/operClkDivider) : 1)}`"
             min="1" max="50000000" resolution="1" visible="`${CsdAdcEnable}`" editable="false" 
             desc="CSD HW Block Input Frequency in Hz. For reliable block operation, the frequency should not exceed 50 MHz. " />
     <ParamRange id="azTime" name="Auto-Zero Time (us)" group="CSDADC" default="5" min="1" max="20" resolution="1" 

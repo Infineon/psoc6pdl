@@ -39,7 +39,7 @@
   </ExposedMembers>
   <Parameters>
     <!-- PDL documentation -->
-    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path(&quot;psoc6sw&quot;)}`/docs/pdl_api_reference_manual/html/group__group__ble__clk.html" linkText="Open BLE ECO Clock Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
+    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path()}`/docs/pdl_api_reference_manual/html/group__group__ble__clk.html" linkText="Open BLE ECO Clock Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
 
     <ParamChoice id="ecoFrequency" name="Frequency" group="General" default="32000000" visible="true" editable="true" desc="ECO Frequency">
       <Entry name="16 MHz" value="16000000" visible="true" />

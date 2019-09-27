@@ -37,7 +37,7 @@
 
   <Parameters>
     <!-- PDL documentation -->
-    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path(&quot;psoc6sw&quot;)}`/docs/pdl_api_reference_manual/html/group__group__scb__uart.html" linkText="Open UART (SCB) Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
+    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path()}`/docs/pdl_api_reference_manual/html/group__group__scb__uart.html" linkText="Open UART (SCB) Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
 
     <!-- General -->
     <ParamChoice id="ComMode" name="Com Mode" group="General" default="CY_SCB_UART_STANDARD" visible="true" editable="true" desc="This parameter defines the sub-mode of UART as: Standard, SmartCard or IrDA.">
@@ -360,6 +360,8 @@
   <ConfigFirmware>
     <ConfigInclude value="cy_scb_uart.h" include="true" />
     <ConfigInclude value="cy_sysclk.h" include="`${pclkOk}`" />
+    <ConfigInclude value="cyhal_hwmgr.h" include="true" guard="defined (CY_USING_HAL)" />
+    
     <ConfigDefine name="`${INST_NAME}`_HW" value="SCB`${InstNumber}`" public="true" include="true" />
     <ConfigDefine name="`${INST_NAME}`_IRQ" value="scb_`${InstNumber}`_interrupt_IRQn" public="true" include="true" />
     <ConfigStruct name="`${INST_NAME}`_config" type="cy_stc_scb_uart_config_t" const="`${inFlash}`" public="true" include="true">
@@ -395,6 +397,14 @@
       <Member name="txFifoTriggerLevel"  value="`${TxTriggerLevel}`UL" />
       <Member name="txFifoIntEnableMask" value="`${TxIntrMask}`UL" />
     </ConfigStruct>
-  <ConfigInstruction value="Cy_SysClk_PeriphAssignDivider(`${pclkDst}`, `${getExposedMember(sourceClock, &quot;clockSel&quot;)}`);" include="`${pclkOk}`" />
+    
+    <ConfigStruct name="`${INST_NAME}`_obj" type="cyhal_resource_inst_t" const="true" public="true" include="true" guard="defined (CY_USING_HAL)">
+      <Member name="type" value="CYHAL_RSC_SCB" />
+      <Member name="block_num" value="`${getInstNumber(&quot;scb&quot;)}`U" />
+      <Member name="channel_num" value="0U" />
+    </ConfigStruct>
+    
+    <ConfigInstruction value="Cy_SysClk_PeriphAssignDivider(`${pclkDst}`, `${getExposedMember(sourceClock, &quot;clockSel&quot;)}`);" include="`${pclkOk}`" />
+    <ConfigInstruction value="cyhal_hwmgr_reserve(&amp;`${INST_NAME}`_obj);" include="true" guard="defined (CY_USING_HAL)" />
   </ConfigFirmware>
 </Personality>

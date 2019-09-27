@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['protocol_20status_20register_20_28psr_29_20masks',['Protocol Status Register (PSR) masks',['../group__group__canfd__last__state__masks.html',1,'']]],
   ['profile_20_20_20_20_20_20_28energy_20profiler_29',['Profile      (Energy Profiler)',['../group__group__energy__profiler.html',1,'']]],
   ['pin_20drive_20mode',['Pin drive mode',['../group__group__gpio__drive_modes.html',1,'']]],
   ['pin_20drive_20strength',['Pin drive strength',['../group__group__gpio__drive_strength.html',1,'']]],

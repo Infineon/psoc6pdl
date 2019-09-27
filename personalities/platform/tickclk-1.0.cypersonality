@@ -37,7 +37,7 @@
   </ExposedMembers>
   <Parameters>
     <!-- PDL documentation -->
-    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path(&quot;psoc6sw&quot;)}`/docs/pdl_api_reference_manual/html/group__group__arm__system__timer.html" linkText="Open SysTick Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
+    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path()}`/docs/pdl_api_reference_manual/html/group__group__arm__system__timer.html" linkText="Open SysTick Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
 
     <ParamChoice id="sourceClock" name="Source Clock" group="General" default="imo" visible="true" editable="true" desc="The clock source selection">
       <Entry name="CLK_LF" value="lfclk" visible="true"/>

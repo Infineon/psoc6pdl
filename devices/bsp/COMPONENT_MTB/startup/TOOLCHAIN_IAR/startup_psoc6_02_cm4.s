@@ -287,6 +287,15 @@ Cy_OnResetUser
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
+;; Weak function for OS-specific customization
+;;
+        PUBWEAK cy_toolchain_init
+        SECTION .text:CODE:REORDER:NOROOT(2)
+cy_toolchain_init
+        BX LR
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
 ;; Define strong version to return zero for
 ;; __iar_program_start to skip data sections
 ;; initialization.
@@ -331,8 +340,8 @@ intvec_copy
         STR r0, [r1]
         dsb
 
-        ; Enable the FPU if used
-        LDR     R0, =Cy_SystemInitFpuEnable
+        ; OS-specific low-level initialization
+        LDR     R0, =cy_toolchain_init
         BLX     R0
 
         ; Initialize data sections

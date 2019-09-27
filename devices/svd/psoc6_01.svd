@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator version: 1.5.0.1274 -->
+<!-- Generator version: 1.5.0.1287 -->
 <device schemaVersion="1.3" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="CMSIS-SVD.xsd">
   <vendor>Cypress Semiconductor</vendor>
   <vendorID>Cypress</vendorID>
@@ -4977,6 +4977,31 @@ Note that it is possible to define different access control for multiple protect
               </field>
             </fields>
           </register>
+          <register>
+            <dim>127</dim>
+            <dimIncrement>4</dimIncrement>
+            <name>MS_CTL_READ_MIR[%s]</name>
+            <description>Master control read mirror</description>
+            <addressOffset>0x4</addressOffset>
+            <size>32</size>
+            <access>read-only</access>
+            <resetValue>0x0</resetValue>
+            <resetMask>0xF000F</resetMask>
+            <fields>
+              <field>
+                <name>PC</name>
+                <description>Read-only mirror of MS_CTL.PC</description>
+                <bitRange>[3:0]</bitRange>
+                <access>read-only</access>
+              </field>
+              <field>
+                <name>PC_SAVED</name>
+                <description>Read-only mirror of MS_CTL.PC_SAVED</description>
+                <bitRange>[19:16]</bitRange>
+                <access>read-only</access>
+              </field>
+            </fields>
+          </register>
           <cluster>
             <dim>8</dim>
             <dimIncrement>32</dimIncrement>
@@ -9142,9 +9167,9 @@ Ffll = (FLL_MULT)  * (Fref / REFERENCE_DIV) / (OUTPUT_DIV+1)</description>
               <name>FLL_ENABLE</name>
               <description>Master enable for FLL.  The FLL requires firmware sequencing when enabling, disabling, and entering/exiting DEEPSLEEP.
 
-To enable the FLL, first enable the CCO by writing CLK_FLL_CONFIG4.CCO_ENABLE=1 and wait until CLK_FLL_STATUS.CCO_READY==1.  Next, ensure the reference clock has stabilized and CLK_FLL_CONFIG3.BYPASS_SEL=FLL_REF.  Next, write FLL_ENABLE=1 and wait until CLK_FLL_STATUS.LOCKED==1.  Finally, write CLK_FLL_CONFIG3.BYPASS_SEL=FLL_OUT to switch to the FLL output.
+To enable the FLL, first enable the CCO by writing CLK_FLL_CONFIG4.CCO_ENABLE=1 and wait until CLK_FLL_STATUS.CCO_READY==1.  Next, ensure the reference clock has stabilized and CLK_FLL_CONFIG3.BYPASS_SEL=FLL_REF.  Next, write FLL_ENABLE=1 and wait until CLK_FLL_STATUS.LOCKED==1.  Finally, write CLK_FLL_CONFIG3.BYPASS_SEL=FLL_OUT to switch to the FLL output.  It takes seven reference clock cycles plus four FLL output cycles to switch to the FLL output.  Do not disable the FLL before this time completes.
 
-To disable the FLL, first ensure the processor is operating from a different clock than clk_path0.  If the muxes are changed, wait four FLL output clock cycles for it to complete.  Next, write CLK_FLL_CONFIG3.BYPASS_SEL=FLL_REF and read the same register to ensure the write completes.  Then, wait at least six FLL reference clock cycles and disable it with FLL_ENABLE=0.  Lastly, disable the CCO by writing CLK_FLL_CONFIG4.CCO_ENABLE=0.
+To disable the FLL, write CLK_FLL_CONFIG3.BYPASS_SEL=FLL_REF and (optionally) read the same register to ensure the write completes.  Then, wait at least seven FLL reference clock cycles before disabling it with FLL_ENABLE=0.  Lastly, disable the CCO by writing CLK_FLL_CONFIG4.CCO_ENABLE=0.
 
 Before entering DEEPSLEEP, either disable the FLL using above sequence or use the following procedure to deselect/select it before/after DEEPSLEEP.  Before entering DEEPSLEEP, write CLK_FLL_CONFIG3.BYPASS_SEL=FLL_REF to change the FLL to use its reference clock.  After DEEPSLEEP wakeup, wait until CLK_FLL_STATUS.LOCKED==1 and then write CLK_FLL_CONFIG3.BYPASS_SEL=FLL_OUT to switch to the FLL output.
 
@@ -9245,7 +9270,7 @@ Before entering DEEPSLEEP, either disable the FLL using above sequence or use th
             </field>
             <field>
               <name>BYPASS_SEL</name>
-              <description>Bypass mux located just after FLL output.</description>
+              <description>Bypass mux located just after FLL output.  See FLL_ENABLE description for instructions on how to use this field when enabling/disabling the FLL.</description>
               <bitRange>[29:28]</bitRange>
               <access>read-write</access>
               <enumeratedValues>
@@ -10262,7 +10287,7 @@ After enabling the WCO software must wait until STATUS.WCO_OK=1 before configuri
             </field>
             <field>
               <name>VBACKUP_MEAS</name>
-              <description>Connect vbackup supply to the vbackup_meas output for measurement by an ADC attached to amuxbusa_adft_vddd.  The vbackup_meas signal is scaled by 40 percent so it is within the supply range of the ADC.</description>
+              <description>Connect vbackup supply to the vbackup_meas output for measurement by an ADC attached to amuxbusa_adft_vddd.  The vbackup_meas signal is scaled to 10 percent of vbackup, so it is within the supply range of the ADC.</description>
               <bitRange>[19:19]</bitRange>
               <access>read-write</access>
             </field>
@@ -13961,61 +13986,65 @@ When D_OUT_EN = 0:
             <fields>
               <field>
                 <name>VTRIP_SEL0_0</name>
-                <description>Configures the pin 0 input buffer mode (trip points and hysteresis)</description>
+                <description>N/A</description>
                 <bitRange>[0:0]</bitRange>
                 <access>read-write</access>
                 <enumeratedValues>
                   <enumeratedValue>
                     <name>CMOS</name>
-                    <description>Input buffer compatible with CMOS and I2C interfaces</description>
+                    <description>S40E: {CFG_IN_GPIO5V.VTRIP_SEL0_1, CFG_IN.VTRIP_SEL0_0}
+0,0: CMOS
+0,1: TTL
+1,0: input buffer is compatible with automotive.
+1,1: input buffer is compatible with automotvie</description>
                     <value>0</value>
                   </enumeratedValue>
                   <enumeratedValue>
                     <name>TTL</name>
-                    <description>Input buffer compatible with TTL and MediaLB interfaces</description>
+                    <description>N/A</description>
                     <value>1</value>
                   </enumeratedValue>
                 </enumeratedValues>
               </field>
               <field>
                 <name>VTRIP_SEL1_0</name>
-                <description>Configures the pin 1 input buffer mode (trip points and hysteresis)</description>
+                <description>N/A</description>
                 <bitRange>[1:1]</bitRange>
                 <access>read-write</access>
               </field>
               <field>
                 <name>VTRIP_SEL2_0</name>
-                <description>Configures the pin 2 input buffer mode (trip points and hysteresis)</description>
+                <description>N/A</description>
                 <bitRange>[2:2]</bitRange>
                 <access>read-write</access>
               </field>
               <field>
                 <name>VTRIP_SEL3_0</name>
-                <description>Configures the pin 3 input buffer mode (trip points and hysteresis)</description>
+                <description>N/A</description>
                 <bitRange>[3:3]</bitRange>
                 <access>read-write</access>
               </field>
               <field>
                 <name>VTRIP_SEL4_0</name>
-                <description>Configures the pin 4 input buffer mode (trip points and hysteresis)</description>
+                <description>N/A</description>
                 <bitRange>[4:4]</bitRange>
                 <access>read-write</access>
               </field>
               <field>
                 <name>VTRIP_SEL5_0</name>
-                <description>Configures the pin 5 input buffer mode (trip points and hysteresis)</description>
+                <description>N/A</description>
                 <bitRange>[5:5]</bitRange>
                 <access>read-write</access>
               </field>
               <field>
                 <name>VTRIP_SEL6_0</name>
-                <description>Configures the pin 6 input buffer mode (trip points and hysteresis)</description>
+                <description>N/A</description>
                 <bitRange>[6:6]</bitRange>
                 <access>read-write</access>
               </field>
               <field>
                 <name>VTRIP_SEL7_0</name>
-                <description>Configures the pin 7 input buffer mode (trip points and hysteresis)</description>
+                <description>N/A</description>
                 <bitRange>[7:7]</bitRange>
                 <access>read-write</access>
               </field>
@@ -32326,8 +32355,8 @@ Note:
               <field>
                 <name>DP_BIG</name>
                 <description>Select the resister value if POWER_CTL.DP_EN='1'. This bit is valid in GPIO.
-'0' : The resister value is from 900 to1575 oHm pull up on the DP.
-'1' : The resister value is from 1425 to 3090 oHm pull up on the DP</description>
+'0' : The resister value is from 900 to1575Ohmpull up on the DP.
+'1' : The resister value is from 1425 to 3090Ohmpull up on the DP</description>
                 <bitRange>[17:17]</bitRange>
                 <access>read-write</access>
               </field>
@@ -32348,8 +32377,8 @@ Note:
               <field>
                 <name>DM_BIG</name>
                 <description>Select the resister value if POWER_CTL.DM_EN='1'. This bit is valid in GPIO.
-'0' : The resister value is from 900 to1575 oHm pull up on the DM.
-'1' : The resister value is from 1425 to 3090 oHm pull up on the DM</description>
+'0' : The resister value is from 900 to1575Ohmpull up on the DM.
+'1' : The resister value is from 1425 to 3090Ohmpull up on the DM</description>
                 <bitRange>[20:20]</bitRange>
                 <access>read-write</access>
               </field>
@@ -36783,7 +36812,7 @@ This allows a SCB UART transmitter to communicate with its receiver counterpart.
           <fields>
             <field>
               <name>STOP_BITS</name>
-              <description>Stop bits. STOP_BITS + 1 is the duration of the stop period in terms of haf bit periods. Valid range is [1, 7]; i.e. a stop period should last at least one bit period.</description>
+              <description>Stop bits. STOP_BITS + 1 is the duration of the stop period in terms of half bit periods. Valid range is [1, 7]; i.e. a stop period should last at least one bit period.</description>
               <bitRange>[2:0]</bitRange>
               <access>read-write</access>
             </field>
@@ -36818,7 +36847,7 @@ This allows a SCB UART transmitter to communicate with its receiver counterpart.
           <fields>
             <field>
               <name>STOP_BITS</name>
-              <description>Stop bits. STOP_BITS + 1 is the duration of the stop period in terms of haf bit periods. Valid range is [1, 7]; i.e. a stop period should last at least one bit period. 
+              <description>Stop bits. STOP_BITS + 1 is the duration of the stop period in terms of half bit periods. Valid range is [1, 7]; i.e. a stop period should last at least one bit period. 
 
 If STOP_BITS is '1', stop bits error detection is NOT performed. If STOP_BITS is in [2, 7], stop bits error detection is performed and the associated interrupt cause INTR_RX.FRAME_ERROR is set to '1' if an error is detected. In other words, the receiver supports data frames with a 1 bit period stop bit sequence, but requires at least 1.5 bit period stop bit sequences to detect errors. 
 
@@ -36944,7 +36973,7 @@ During SCB reset (Hibernate system power mode), RTS output signal is '1'. This r
 '0': Disabled. The UART transmitter ignores the CTS input signal and transmits when a data frame is available for transmission in the TX FIFO or the TX shift register.
 '1': Enabled. The UART transmitter uses CTS input signal to qualify the transmission of data. It transmits when CTS input signal is active and a data frame is available for transmission in the TX FIFO or the TX shift register.
 
-If UART_CTRL.LOOPBACK is '1', the CTS input signal is driven by the RTS output signal locally in SCB (both signals are subjected to signal polarity changes are indicated by RTS_POLARITY and CTS_POLARITY).</description>
+If UART_CTRL.LOOPBACK is '1', the CTS input signal is driven by the RTS output signal locally in SCB (both signals are subjected to signal polarity changes as indicated by RTS_POLARITY and CTS_POLARITY).</description>
               <bitRange>[25:25]</bitRange>
               <access>read-write</access>
             </field>
@@ -37073,7 +37102,7 @@ For multi-master systems, BUS_BUSY can be used to detect an idle bus before a ma
             </field>
             <field>
               <name>I2C_EC_BUSY</name>
-              <description>Inidicates whether the externally clocked logic is potentially accessing the EZ memory and/or updating BASE_ADDR or CURR_ADDR (this is only possible in EZ and CMD_RESP mode). This bit can be used by the CPU to determine whether BASE_ADDR and CURR_ADDR are reliable.</description>
+              <description>Inidicates whether the externally clocked logic is potentially accessing the EZ memory and/or updating BASE_EZ_ADDR or CURR_EZ_ADDR (this is only possible in EZ and CMD_RESP mode). This bit can be used by the CPU to determine whether BASE_EZ_ADDR and CURR_EZ_ADDR are reliable.</description>
               <bitRange>[1:1]</bitRange>
               <access>read-only</access>
             </field>
@@ -37232,72 +37261,6 @@ Before going to deepsleep this field should be set to 0. It should be re-enabled
               <name>SDA_OUT_FILT_SEL</name>
               <description>N/A</description>
               <bitRange>[29:28]</bitRange>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>DDFT_CTRL</name>
-          <description>Digital DfT control</description>
-          <addressOffset>0x100</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0x0</resetValue>
-          <resetMask>0x770011</resetMask>
-          <fields>
-            <field>
-              <name>DDFT_IN0_SEL</name>
-              <description>Specifies signal that is connected to 'ddft_in[0]' (digital DfT input signal 0):
-'0': not used
-'1': used as 'i2c_scl_in' in I2C mode, as 'spi_clk_in' in SPI mode</description>
-              <bitRange>[0:0]</bitRange>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>DDFT_IN1_SEL</name>
-              <description>Specifies signal that is connected to 'ddft_in[1]' (digital DfT input signal 0):
-'0': not used
-'1': used as 'i2c_sda_in' in I2C mode, as 'spi_mosi_in' in SPI mode</description>
-              <bitRange>[4:4]</bitRange>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>DDFT_OUT0_SEL</name>
-              <description>Specifies signal that is connected to 'ddft_out[0]' (digital DfT output signal 0):
-In I2C mode (CTRL.MODE=0),
-'0': Constant '0'. 
-'1': 'ec_busy_pp'.
-'2': 'rst_i2c_start_stop_n'.
-'3': 'rst_i2c_start_stop_n'.
-'4': 'i2c_scl_in_qual'.
-'5': 'i2c_sda_out_prel'.
-'6'-'7': Undefined.
-in SPI mode (CTRL.MODE=1),
-'0': Constant '0'. 
-'1': 'rst_spi_n'
-'2': 'rst_spi_stop_n'
-'3'-'7': Undefined.</description>
-              <bitRange>[18:16]</bitRange>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>DDFT_OUT1_SEL</name>
-              <description>Specifies signal that is connected to 'ddft_out[1]' (digital DfT output signal 1):
-In I2C mode (CTRL.MODE=0),
-'0': Constant '0'. 
-'1': 'clk_ff_sram'.
-'2': 'rst_i2c_n'.
-'3': 'rst_i2c_stop_n'.
-'4': 'i2c_sda_in_qual'.
-'5': 'i2c_sda_out'.
-'6': 'event_i2c_ec_wake_up_ddft' from I2CS_IC
-'7': Undefined.
-In SPI mode (CTRL.MODE=1),
-'0': Constant '0'. 
-'1': 'spi_start_detect'
-'2': 'spi_stop_detect'
-'3'-'7': Undefined.</description>
-              <bitRange>[22:20]</bitRange>
               <access>read-write</access>
             </field>
           </fields>

@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['interrupt_20line_20selection_20masks',['Interrupt line selection masks',['../group__group__canfd__interrupt__line__masks.html',1,'']]],
   ['initialization_20functions',['Initialization Functions',['../group__group__ctb__functions__init.html',1,'']]],
   ['interrupt_20functions',['Interrupt Functions',['../group__group__ctb__functions__interrupts.html',1,'']]],
   ['initialization_20functions',['Initialization Functions',['../group__group__ctdac__functions__init.html',1,'']]],

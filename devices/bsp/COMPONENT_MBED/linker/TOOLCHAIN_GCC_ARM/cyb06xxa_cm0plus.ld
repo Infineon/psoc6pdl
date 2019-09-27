@@ -41,7 +41,7 @@ GROUP(-lgcc -lc -lnosys)
 ENTRY(Reset_Handler)
 
 #if !defined(MBED_ROM_START)
-  #define MBED_ROM_START    0x101C0000
+  #define MBED_ROM_START    0x101CFC00
 #endif
 
 /* MBED_APP_START is being  used by the bootloader build script and
@@ -65,7 +65,7 @@ ENTRY(Reset_Handler)
 #endif
 
 #if !defined(MBED_RAM_START)
-  #define MBED_RAM_START    0x08080000
+  #define MBED_RAM_START    0x080D8000
 #endif
 
 #if !defined(MBED_RAM_SIZE)

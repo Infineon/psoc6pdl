@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['cy_5fen_5faccept_5fnon_5fmatching_5fframes_5ft',['cy_en_accept_non_matching_frames_t',['../group__group__canfd__enums.html#ga5ce2c01ca9806831dc539727d173e59c',1,'cy_canfd.h']]],
   ['cy_5fen_5fble_5fbless_5fxtal_5fclk_5fdiv_5fconfig_5fllclk_5fdiv_5ft',['cy_en_ble_bless_xtal_clk_div_config_llclk_div_t',['../group__group__ble__clk__data__type.html#ga6abe5c57a14b4d33cdc0f4d61392bcfb',1,'cy_ble_clk.h']]],
   ['cy_5fen_5fble_5feco_5ffreq_5ft',['cy_en_ble_eco_freq_t',['../group__group__ble__clk__data__type.html#ga90f34ffaefcfb39107f8f60a2a910b10',1,'cy_ble_clk.h']]],
   ['cy_5fen_5fble_5feco_5fstatus_5ft',['cy_en_ble_eco_status_t',['../group__group__ble__clk__data__type.html#ga4a2842fd4c8c89b7b02871bf0398e000',1,'cy_ble_clk.h']]],
@@ -7,6 +8,24 @@ var searchData=
   ['cy_5fen_5fble_5feco_5fvoltage_5freg_5ft',['cy_en_ble_eco_voltage_reg_t',['../group__group__ble__clk__data__type.html#ga0b65a546765caf85918c9f06e66d25fb',1,'cy_ble_clk.h']]],
   ['cy_5fen_5fble_5fmxd_5fradio_5fclk_5fbuf_5famp_5ft',['cy_en_ble_mxd_radio_clk_buf_amp_t',['../group__group__ble__clk__data__type.html#ga439b5366e925c5e8e3e1f88e4e04843f',1,'cy_ble_clk.h']]],
   ['cy_5fen_5fble_5fmxd_5fradio_5fclk_5fdiv_5ft',['cy_en_ble_mxd_radio_clk_div_t',['../group__group__ble__clk__data__type.html#gacac097104dc7260c8d3bedd0286b3730',1,'cy_ble_clk.h']]],
+  ['cy_5fen_5fcanfd_5fanmf_5ft',['cy_en_canfd_anmf_t',['../group__group__canfd__enums.html#ga53b444c143bea1570c083fd63289e2e1',1,'cy_canfd.h']]],
+  ['cy_5fen_5fcanfd_5fbuffer_5fdata_5fsize_5ft',['cy_en_canfd_buffer_data_size_t',['../group__group__canfd__enums.html#ga597fe2f69a8484277fd481ac5384ca7c',1,'cy_canfd.h']]],
+  ['cy_5fen_5fcanfd_5fefec_5ft',['cy_en_canfd_efec_t',['../group__group__canfd__enums.html#ga54cac9dc6e3b4b0ad9f833420dcd0d85',1,'cy_canfd.h']]],
+  ['cy_5fen_5fcanfd_5feft_5ft',['cy_en_canfd_eft_t',['../group__group__canfd__enums.html#ga572525e185ea030f605f74679256f342',1,'cy_canfd.h']]],
+  ['cy_5fen_5fcanfd_5fesi_5ft',['cy_en_canfd_esi_t',['../group__group__canfd__enums.html#ga24bb5c7075c10594b4e276520f64f779',1,'cy_canfd.h']]],
+  ['cy_5fen_5fcanfd_5fext_5fid_5ffilter_5ftype_5ft',['cy_en_canfd_ext_id_filter_type_t',['../group__group__canfd__enums.html#gafb095a2005403c5acd155b3ebf1f6307',1,'cy_canfd.h']]],
+  ['cy_5fen_5fcanfd_5ffdf_5ft',['cy_en_canfd_fdf_t',['../group__group__canfd__enums.html#ga9a9a243726110708a6e61d77b7a86d1e',1,'cy_canfd.h']]],
+  ['cy_5fen_5fcanfd_5ffifo_5fmode_5ft',['cy_en_canfd_fifo_mode_t',['../group__group__canfd__enums.html#ga0017b4985b8b86ca85b9dca5d532803e',1,'cy_canfd.h']]],
+  ['cy_5fen_5fcanfd_5fid_5ffilter_5felement_5fconfig_5ft',['cy_en_canfd_id_filter_element_config_t',['../group__group__canfd__enums.html#ga771a5a0d147e2e0938fc18cf1ec68a7b',1,'cy_canfd.h']]],
+  ['cy_5fen_5fcanfd_5flec_5ft',['cy_en_canfd_LEC_t',['../group__group__canfd__enums.html#ga8f3d57cafe365ef6e8de050a9b987eea',1,'cy_canfd.h']]],
+  ['cy_5fen_5fcanfd_5fpsr_5fact_5ft',['cy_en_canfd_PSR_ACT_t',['../group__group__canfd__enums.html#ga25bedb1e6fd90abd96302a83bc35a613',1,'cy_canfd.h']]],
+  ['cy_5fen_5fcanfd_5frtr_5ft',['cy_en_canfd_rtr_t',['../group__group__canfd__enums.html#ga9dc2150b5a115fd87cd60f538f7281ce',1,'cy_canfd.h']]],
+  ['cy_5fen_5fcanfd_5fsfec_5ft',['cy_en_canfd_sfec_t',['../group__group__canfd__enums.html#gae5fe195a7883e282b211bc54e10977f0',1,'cy_canfd.h']]],
+  ['cy_5fen_5fcanfd_5fsft_5ft',['cy_en_canfd_sft_t',['../group__group__canfd__enums.html#ga21b68fc58e117edbae073d981342566a',1,'cy_canfd.h']]],
+  ['cy_5fen_5fcanfd_5fstatus_5ft',['cy_en_canfd_status_t',['../group__group__canfd__enums.html#ga8e8bd7856fdc3566bbe2d0c43270c187',1,'cy_canfd.h']]],
+  ['cy_5fen_5fcanfd_5fstd_5fid_5ffilter_5ftype_5ft',['cy_en_canfd_std_id_filter_type_t',['../group__group__canfd__enums.html#ga616df3b493be1168046594c1f814b08f',1,'cy_canfd.h']]],
+  ['cy_5fen_5fcanfd_5ftx_5fbuffer_5fstatus_5ft',['cy_en_canfd_tx_buffer_status_t',['../group__group__canfd__enums.html#gacbbb27d497c2038e14006f059b5a9705',1,'cy_canfd.h']]],
+  ['cy_5fen_5fcanfd_5fxtd_5ft',['cy_en_canfd_xtd_t',['../group__group__canfd__enums.html#ga511e4ae64e16189bfe2e5828ae2d9f25',1,'cy_canfd.h']]],
   ['cy_5fen_5fclkbak_5fin_5fsources_5ft',['cy_en_clkbak_in_sources_t',['../group__group__sysclk__clk__bak__enums.html#gae43abac127a973232c6e4c1adbde0497',1,'cy_sysclk.h']]],
   ['cy_5fen_5fclkhf_5fcsv_5fsupervisor_5fclock_5ft',['cy_en_clkhf_csv_supervisor_clock_t',['../group__group__sysclk__clk__hf__enums.html#gaed3bacfb02a54b2946be011df3e1b6fa',1,'cy_sysclk.h']]],
   ['cy_5fen_5fclkhf_5fdividers_5ft',['cy_en_clkhf_dividers_t',['../group__group__sysclk__clk__hf__enums.html#gadfbf0caf87af7cd757648124fb17d1d4',1,'cy_sysclk.h']]],
@@ -216,7 +235,7 @@ var searchData=
   ['cy_5fen_5fsmartio_5fluttr_5ft',['cy_en_smartio_luttr_t',['../group__group__smartio__enums.html#ga057185e00625a60b6ee8f788b55f6413',1,'cy_smartio.h']]],
   ['cy_5fen_5fsmartio_5fstatus_5ft',['cy_en_smartio_status_t',['../group__group__smartio__enums.html#ga539e453be0c4fdbcba47609451495f13',1,'cy_smartio.h']]],
   ['cy_5fen_5fsmartio_5ftrnum_5ft',['cy_en_smartio_trnum_t',['../group__group__smartio__enums.html#gada9635df8a567b5f23ff07ada7f11e52',1,'cy_smartio.h']]],
-  ['cy_5fen_5fsmif_5fcache_5fen_5ft',['cy_en_smif_cache_en_t',['../group__group__smif__enums.html#gab87e475678ceb469a370830058938c48',1,'cy_smif.h']]],
+  ['cy_5fen_5fsmif_5fcache_5ft',['cy_en_smif_cache_t',['../group__group__smif__enums.html#gaf7e001d5a1821a56324e8898913b21ef',1,'cy_smif.h']]],
   ['cy_5fen_5fsmif_5fclk_5fselect_5ft',['cy_en_smif_clk_select_t',['../group__group__smif__enums.html#ga6a2149f74b63ec4ebc76b99a9eb633d2',1,'cy_smif.h']]],
   ['cy_5fen_5fsmif_5fdata_5fselect_5ft',['cy_en_smif_data_select_t',['../group__group__smif__enums.html#ga6d9ba2ef785b94cf542c573a51a0eb58',1,'cy_smif.h']]],
   ['cy_5fen_5fsmif_5ferror_5fevent_5ft',['cy_en_smif_error_event_t',['../group__group__smif__enums.html#gaf2f886b17b9d40712b212e704665341e',1,'cy_smif.h']]],
@@ -262,5 +281,6 @@ var searchData=
   ['cy_5fen_5fusbfs_5fdev_5fdrv_5fstatus_5ft',['cy_en_usbfs_dev_drv_status_t',['../group__group__usbfs__dev__drv__enums.html#gace2573b482baf5a2a0f796b72cc244ac',1,'cy_usbfs_dev_drv.h']]],
   ['cy_5fen_5fusbfs_5fdev_5fep_5faccess_5ft',['cy_en_usbfs_dev_ep_access_t',['../group__group__usbfs__dev__drv__enums.html#ga332943f4c8b1dd76803ac661a276d0b5',1,'cy_usbfs_dev_drv.h']]],
   ['cy_5fen_5fwco_5fbypass_5fmodes_5ft',['cy_en_wco_bypass_modes_t',['../group__group__sysclk__wco__enums.html#ga54c5465a9f694e1e71cf1ca2598d2fd7',1,'cy_sysclk.h']]],
-  ['cy_5fen_5fwco_5fcsv_5fsupervisor_5fclock_5ft',['cy_en_wco_csv_supervisor_clock_t',['../group__group__sysclk__wco__enums.html#ga61ab0f624ae81133554f706fa80c8b07',1,'cy_sysclk.h']]]
+  ['cy_5fen_5fwco_5fcsv_5fsupervisor_5fclock_5ft',['cy_en_wco_csv_supervisor_clock_t',['../group__group__sysclk__wco__enums.html#ga61ab0f624ae81133554f706fa80c8b07',1,'cy_sysclk.h']]],
+  ['cy_5fstc_5fcanfd_5ftest_5fmode_5ft',['cy_stc_canfd_test_mode_t',['../group__group__canfd__enums.html#gac301ff6eab794c7f718822ef7c289483',1,'cy_canfd.h']]]
 ];

@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cyb06xxa_cm4_dual.ld
-* \version 2.50
+* \version 2.60
 *
 * Linker file for the GNU C compiler.
 *
@@ -41,7 +41,7 @@ GROUP(-lgcc -lc -lnosys)
 ENTRY(Reset_Handler)
 
 #if !defined(MBED_ROM_START)
-  #define MBED_ROM_START    0x10000000
+  #define MBED_ROM_START    0x10000400
 #endif
 
 /* MBED_APP_START is being  used by the bootloader build script and
@@ -53,7 +53,7 @@ ENTRY(Reset_Handler)
 #endif
 
 #if !defined(MBED_ROM_SIZE)
-  #define MBED_ROM_SIZE     0x00200000
+  #define MBED_ROM_SIZE     0x001CFC00
 #endif
 
 /* MBED_APP_SIZE is being  used by the bootloader build script and
@@ -69,13 +69,14 @@ ENTRY(Reset_Handler)
 #endif
 
 #if !defined(MBED_RAM_SIZE)
-  #define MBED_RAM_SIZE     0x00080000
+  #define MBED_RAM_SIZE     0x000D8000
 #endif
 
 #if !defined(MBED_BOOT_STACK_SIZE)
     #define MBED_BOOT_STACK_SIZE 0x400
 #endif
 
+/* Size of the stack section at the end of CM4 SRAM */
 STACK_SIZE = MBED_BOOT_STACK_SIZE;
 
 /* Force symbol to be entered in the output file as an undefined symbol. Doing
@@ -118,13 +119,6 @@ MEMORY
     efuse             (r)     : ORIGIN = 0x90700000, LENGTH = 0x100000     /*   1 MB */
 }
 
-/* Size and start address of the Cortex-M0+ application image */
-FLASH_CM0P_SIZE  = 0x40000;
-FLASH_CM0P_START = ORIGIN(flash) + LENGTH(flash) - FLASH_CM0P_SIZE;
-/* Size and start address of the Cortex-M4 application image */
-FLASH_CM4_SIZE   = LENGTH(flash) - FLASH_CM0P_SIZE;
-FLASH_CM4_START  = ORIGIN(flash);
-
 /* Library configurations */
 GROUP(libgcc.a libc.a libm.a libnosys.a)
 
@@ -164,17 +158,8 @@ GROUP(libgcc.a libc.a libm.a libnosys.a)
 
 SECTIONS
 {
-     /* Cortex-M0+ application image */
-    .cy_m0p_image FLASH_CM0P_START :
-    {
-        . = ALIGN(4);
-        __cy_m0p_code_start = . ;
-        KEEP(*(.cy_m0p_image))
-        __cy_m0p_code_end = . ;
-    } > flash
-
-    /* Cortex-M4 application image */
-    .text FLASH_CM4_START :
+    /* Cortex-M4 application flash area */
+    .text ORIGIN(flash) :
     {
         . = ALIGN(4);
         __Vectors = . ;
@@ -290,7 +275,6 @@ SECTIONS
         KEEP(*(.init_array))
         PROVIDE_HIDDEN (__init_array_end = .);
 
-
         . = ALIGN(4);
         /* finit data */
         PROVIDE_HIDDEN (__fini_array_start = .);
@@ -351,7 +335,7 @@ SECTIONS
         __HeapLimit = .;
     } > ram
 
-    
+
     /* Set stack top to end of RAM, and stack limit move down by
      * size of stack_dummy section */
     __StackTop = ORIGIN(ram) + LENGTH(ram);
@@ -404,7 +388,7 @@ SECTIONS
         KEEP(*(.cy_toc_part2))
     } > sflash_toc_2
 
-    
+
     /* Supervisory Flash: Table of Content # 2 Copy */
     .cy_rtoc_part2 :
     {

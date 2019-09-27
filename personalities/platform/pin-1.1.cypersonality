@@ -34,7 +34,7 @@
   <ExposedMembers/>
   <Parameters>
     <!-- PDL documentation -->
-    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path(&quot;psoc6sw&quot;)}`/docs/pdl_api_reference_manual/html/group__group__gpio.html" linkText="Open GPIO Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
+    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path()}`/docs/pdl_api_reference_manual/html/group__group__gpio.html" linkText="Open GPIO Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
 
     <!--General-->
     <ParamChoice id="DriveModes" name="Drive Mode" group="General" default="CY_GPIO_DM_ANALOG" visible="true" editable="true" desc="The Drive Mode parameter configures the pin provide to one of the eight available pin drive modes. Please see the device DS for more details on each drive mode." >
@@ -141,6 +141,8 @@
   <ConfigFirmware>
     <ConfigInclude value="cy_gpio.h" include="true" />
     <ConfigInclude value="cycfg_routing.h" include="`${hasDigitalConnection}`" />
+    <ConfigInclude value="cyhal_hwmgr.h" include="true" guard="defined (CY_USING_HAL)" />
+    
     <ConfigDefine name="`${INST_NAME}`_PORT" value="GPIO_PRT`${port}`" public="true" include="true" />
     <ConfigDefine name="`${INST_NAME}`_PORT_NUM" value="`${port}`U" public="true" include="true" />
     <ConfigDefine name="`${INST_NAME}`_PIN" value="`${pin}`U" public="true" include="true" />
@@ -150,6 +152,33 @@
     <ConfigDefine name="`${blockName . &quot;_HSIOM&quot;}`" value="HSIOM_SEL_GPIO" public="true" include="true" preventOverride="true" />
     <ConfigDefine name="`${INST_NAME}`_HSIOM" value="`${blockName . &quot;_HSIOM&quot;}`" public="true" include="`${!(INST_NAME eq blockName)}`" />
     <ConfigDefine name="`${INST_NAME}`_IRQ" value="ioss_interrupts_gpio_`${port}`_IRQn" public="true" include="true" />
+    <ConfigDefine name="`${INST_NAME}`_HAL_PORT_PIN" value="`${&quot;P&quot; . port . &quot;_&quot; . pin}`" public="true" include="true" guard="defined (CY_USING_HAL)"/>
+    <ConfigDefine name="`${INST_NAME}`_HAL_IRQ" value="`${(isrTrigger eq CY_GPIO_INTR_DISABLE) ? &quot;CYHAL_GPIO_IRQ_NONE&quot; :
+                                                          (isrTrigger eq CY_GPIO_INTR_RISING) ? &quot;CYHAL_GPIO_IRQ_RISE&quot; : 
+                                                          (isrTrigger eq CY_GPIO_INTR_FALLING) ? &quot;CYHAL_GPIO_IRQ_FALL&quot; : &quot;CYHAL_GPIO_IRQ_BOTH&quot;}`" 
+                                                public="true" include="true" guard="defined (CY_USING_HAL)" />
+    <ConfigDefine name="`${INST_NAME}`_HAL_DIR" value="`${((DriveModes eq CY_GPIO_DM_HIGHZ) || (DriveModes eq CY_GPIO_DM_ANALOG)) ? &quot;CYHAL_GPIO_DIR_INPUT &quot; :
+                                                          ((DriveModes eq CY_GPIO_DM_STRONG_IN_OFF) ||
+                                                           (DriveModes eq CY_GPIO_DM_OD_DRIVESLOW_IN_OFF) ||
+                                                           (DriveModes eq CY_GPIO_DM_OD_DRIVESHIGH_IN_OFF) ||
+                                                           (DriveModes eq CY_GPIO_DM_PULLUP_IN_OFF) ||
+                                                           (DriveModes eq CY_GPIO_DM_PULLDOWN_IN_OFF) ||
+                                                           (DriveModes eq CY_GPIO_DM_PULLUP_DOWN_IN_OFF)) ? &quot;CYHAL_GPIO_DIR_OUTPUT &quot; : &quot;CYHAL_GPIO_DIR_BIDIRECTIONAL &quot;}`" 
+                                                public="true" include="true" guard="defined (CY_USING_HAL)" />
+    <ConfigDefine name="`${INST_NAME}`_HAL_DRIVEMODE" value="`${(DriveModes eq CY_GPIO_DM_HIGHZ) ? &quot;CYHAL_GPIO_DRIVE_NONE&quot; :
+                                                                (DriveModes eq CY_GPIO_DM_ANALOG) ? &quot;CYHAL_GPIO_DRIVE_ANALOG&quot; :
+                                                               ((DriveModes eq CY_GPIO_DM_PULLUP_IN_OFF) ||
+                                                                (DriveModes eq CY_GPIO_DM_PULLUP)) ? &quot;CYHAL_GPIO_DRIVE_PULLUP&quot; :
+                                                               ((DriveModes eq CY_GPIO_DM_PULLDOWN_IN_OFF) ||
+                                                                (DriveModes eq CY_GPIO_DM_PULLDOWN)) ? &quot;CYHAL_GPIO_DRIVE_PULLDOWN&quot; :
+                                                               ((DriveModes eq CY_GPIO_DM_OD_DRIVESLOW_IN_OFF) ||
+                                                                (DriveModes eq CY_GPIO_DM_OD_DRIVESLOW)) ? &quot;CYHAL_GPIO_DRIVE_OPENDRAINDRIVESLOW&quot; :
+                                                               ((DriveModes eq CY_GPIO_DM_OD_DRIVESHIGH_IN_OFF) ||
+                                                                (DriveModes eq CY_GPIO_DM_OD_DRIVESHIGH)) ? &quot;CYHAL_GPIO_DRIVE_OPENDRAINDRIVESHIGH&quot; :
+                                                               ((DriveModes eq CY_GPIO_DM_STRONG_IN_OFF) ||
+                                                                (DriveModes eq CY_GPIO_DM_STRONG)) ? &quot;CYHAL_GPIO_DRIVE_STRONG&quot; : &quot;CYHAL_GPIO_DRIVE_PULLUPDOWN&quot;}`"
+                                                      public="true" include="true" guard="defined (CY_USING_HAL)" />
+    
     <ConfigStruct name="`${INST_NAME}`_config" type="cy_stc_gpio_pin_config_t" const="`${inFlash}`" public="true" include="true">
       <Member name="outVal" value="`${initialState}`" />
       <Member name="driveMode" value="`${DriveModes}`" />
@@ -167,6 +196,14 @@
       <Member name="vrefSel" value="`${hasSIO ? sioRef : &quot;0UL&quot;}`" />
       <Member name="vohSel" value="`${hasSIO ? sioVoltage : &quot;0UL&quot;}`" />
     </ConfigStruct>
+    
+    <ConfigStruct name="`${INST_NAME}`_obj" type="cyhal_resource_inst_t" const="true" public="true" include="true" guard="defined (CY_USING_HAL)">
+      <Member name="type" value="CYHAL_RSC_GPIO" />
+      <Member name="block_num" value="`${INST_NAME}`_PORT_NUM" />
+      <Member name="channel_num" value="`${INST_NAME}`_PIN" />
+    </ConfigStruct>
+    
     <ConfigInstruction value="Cy_GPIO_Pin_Init(`${INST_NAME}`_PORT, `${INST_NAME}`_PIN, &amp;`${INST_NAME}`_config);" include="`${!skipConfigCodeGen}`"/>
+    <ConfigInstruction value="cyhal_hwmgr_reserve(&amp;`${INST_NAME}`_obj);" include="true" guard="defined (CY_USING_HAL)" />
   </ConfigFirmware>
 </Personality>

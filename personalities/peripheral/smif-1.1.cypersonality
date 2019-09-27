@@ -34,7 +34,7 @@
   <ExposedMembers />
   <Parameters>
     <!-- PDL documentation -->
-    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path(&quot;psoc6sw&quot;)}`/docs/pdl_api_reference_manual/html/group__group__smif.html" linkText="Open SMIF Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
+    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path()}`/docs/pdl_api_reference_manual/html/group__group__smif.html" linkText="Open SMIF Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
 
     <!-- Clocks -->
     <ParamSignal port="clk_hf[0]" name="HF Clock" group="Clocks" visible="true" desc="High frequency source clock" canBeEmpty="false" />
@@ -53,7 +53,7 @@
 
   
     <!-- External tools -->
-    <ParamString id="cfgFileName" name="cfgFileName" group="External Tools" default="cycfg_qspi_memslot.cyqspi" visible="false" editable="false" desc="" />
+    <ParamString id="cfgFileName" name="cfgFileName" group="External Tools" default="design.cyqspi" visible="false" editable="false" desc="" />
     <ParamString id="cfgFilePath" name="cfgFilePath" group="External Tools" default="`${cy_design_path() . &quot;/&quot; . cfgFileName}`" visible="false" editable="false" desc="" />
     
     <ParamCustom id="configurator" name="QSPI Configurator" group="External Tools" default="0" path="`${cy_tools_path(&quot;qspi-configurator&quot;) . &quot;/qspi-configurator&quot;}`" modal="false" visible="true" editable="true" desc="Launch QSPI Configurator tool">
@@ -211,6 +211,8 @@
     
     <ConfigInclude value="cy_smif.h" include="true" />
     <ConfigInclude value="cycfg_qspi_memslot.h" include="true" />
+    <ConfigInclude value="cyhal_hwmgr.h" include="true" guard="defined (CY_USING_HAL)" />
+    
     <ConfigDefine name="`${INST_NAME}`_HW" value="SMIF`${InstNumber}`" public="true" include="true" />
     <ConfigDefine name="`${INST_NAME}`_IRQ" value="smif_interrupt_IRQn" public="true" include="true" />
     <ConfigDefine name="`${INST_NAME}`_MEMORY_MODE_ALIGMENT_ERROR" value="`${isrAlignment ? &quot;(1UL)&quot; : &quot;(0UL)&quot;}`" public="true" include="true" />
@@ -239,5 +241,13 @@
       <Member name="rxClockSel" value="(uint32_t)CY_SMIF_SEL_INV_INTERNAL_CLK" />
       <Member name="blockEvent" value="(uint32_t)CY_SMIF_BUS_ERROR" />
     </ConfigStruct>
+
+    <ConfigStruct name="`${INST_NAME}`_obj" type="cyhal_resource_inst_t" const="true" public="true" include="true" guard="defined (CY_USING_HAL)">
+      <Member name="type" value="CYHAL_RSC_SMIF" />
+      <Member name="block_num" value="`${getInstNumber(&quot;smif&quot;)}`U" />
+      <Member name="channel_num" value="0U" />
+    </ConfigStruct>
+    
+    <ConfigInstruction value="cyhal_hwmgr_reserve(&amp;`${INST_NAME}`_obj);" include="true" guard="defined (CY_USING_HAL)" />
   </ConfigFirmware>
 </Personality>

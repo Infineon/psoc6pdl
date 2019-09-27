@@ -37,7 +37,7 @@
   </ExposedMembers>
   <Parameters>
     <!-- PDL documentation -->
-    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path(&quot;psoc6sw&quot;)}`/docs/pdl_api_reference_manual/html/group__group__sysclk__clk__slow.html" linkText="Open Slow Clock Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
+    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path()}`/docs/pdl_api_reference_manual/html/group__group__sysclk__clk__slow.html" linkText="Open Slow Clock Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
 
     <!-- Source clock -->
     <ParamString id="sourceClockRsc" name="Source Clock" group="Internal" default="srss[0].clock[0].periclk[0]" visible="false" editable="false" desc="" />

@@ -34,7 +34,7 @@
   <ExposedMembers />
   <Parameters>
     <!-- PDL documentation -->
-    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path(&quot;psoc6sw&quot;)}`/docs/pdl_api_reference_manual/html/group__group__tcpwm__quaddec.html" linkText="Open Quadrature Decoder (TCPWM) Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
+    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path()}`/docs/pdl_api_reference_manual/html/group__group__tcpwm__quaddec.html" linkText="Open Quadrature Decoder (TCPWM) Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
   
     <!--General-->
     <ParamChoice id="CounterSize" name="Quadrature Decoder Resolution" group="General" default="`${(CNT.CNT_WIDTH eq 16) ? &quot;16&quot; : &quot;32&quot;}`" visible="true" editable="false" desc="Sets the resolution of the counter">
@@ -157,6 +157,8 @@
     <ConfigInclude value="cy_tcpwm_quaddec.h" include="true" />
     <ConfigInclude value="cy_sysclk.h" include="`${pclkOk}`" />
     <ConfigInclude value="cycfg_routing.h" include="true" />
+    <ConfigInclude value="cyhal_hwmgr.h" include="true" guard="defined (CY_USING_HAL)" />
+    
     <ConfigDefine name="`${INST_NAME}`_HW" value="TCPWM`${tcpwmInst}`" public="true" include="true" />
     <ConfigDefine name="`${INST_NAME}`_NUM" value="`${cntInst}`UL" public="true" include="true" />
     <ConfigDefine name="`${INST_NAME}`_MASK" value="(1UL &lt;&lt; `${cntInst}`)" public="true" include="true" />
@@ -172,6 +174,14 @@
       <Member name="phiAInput" value="`${(definePrefix . &quot;_COUNT_VALUE&quot;)}`" />
       <Member name="phiBInput" value="`${(definePrefix . &quot;_START_VALUE&quot;)}`" />
     </ConfigStruct>
+    
+    <ConfigStruct name="`${INST_NAME}`_obj" type="cyhal_resource_inst_t" const="true" public="true" include="true" guard="defined (CY_USING_HAL)">
+      <Member name="type" value="CYHAL_RSC_TCPWM" />
+      <Member name="block_num" value="`${getInstNumber(&quot;tcpwm&quot;)}`U" />
+      <Member name="channel_num" value="`${getInstNumber(&quot;cnt&quot;)}`U" />
+    </ConfigStruct>
+    
     <ConfigInstruction value="Cy_SysClk_PeriphAssignDivider(`${pclkDst}`, `${getExposedMember(pclk, &quot;clockSel&quot;)}`);" include="`${pclkOk}`" />
+    <ConfigInstruction value="cyhal_hwmgr_reserve(&amp;`${INST_NAME}`_obj);" include="true" guard="defined (CY_USING_HAL)" />
   </ConfigFirmware>
 </Personality>

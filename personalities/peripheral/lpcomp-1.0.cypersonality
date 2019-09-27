@@ -34,7 +34,7 @@
   <ExposedMembers />
   <Parameters>
     <!-- PDL documentation -->
-    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path(&quot;psoc6sw&quot;)}`/docs/pdl_api_reference_manual/html/group__group__lpcomp.html" linkText="Open LPComp Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
+    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path()}`/docs/pdl_api_reference_manual/html/group__group__lpcomp.html" linkText="Open LPComp Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
   
     <ParamBool id="Hysteresis" name="Hysteresis" group="General" default="true" visible="true" editable="true" desc="Allows to add approximately 30 mV of hysteresis to the LPComp. This helps to ensure that slowly moving voltages or slightly noisy voltages will not cause the output of the LPComp to oscillate when the two input voltages are nearly equal." />
     <ParamChoice id="OutputConfiguration" name="Output Configuration" group="General" default="CY_LPCOMP_OUT_DIRECT" visible="true" editable="true" desc="Defines mode of the LPCOMP output: Direct, Synchronized, or Pulse." >
@@ -75,6 +75,8 @@
   </Parameters>
   <ConfigFirmware>
     <ConfigInclude value="cy_lpcomp.h" include="true" />
+    <ConfigInclude value="cyhal_hwmgr.h" include="true" guard="defined (CY_USING_HAL)" />
+    
     <!-- There can be only one instance of the LPComp block on a device -->
     <ConfigDefine name="`${INST_NAME . &quot;_HW&quot;}`" value="LPCOMP" public="true" include="true" />
     <ConfigDefine name="`${INST_NAME . &quot;_CHANNEL&quot;}`" value="CY_LPCOMP_CHANNEL_`${getInstNumber(&quot;comp&quot;)}`" public="true" include="true" />
@@ -85,5 +87,13 @@
       <Member name="power" value="`${PowerSpeed}`" />
       <Member name="intType" value="`${PulseInterruptConfiguration}`" />
     </ConfigStruct>
+    
+    <ConfigStruct name="`${INST_NAME}`_obj" type="cyhal_resource_inst_t" const="true" public="true" include="true" guard="defined (CY_USING_HAL)">
+      <Member name="type" value="CYHAL_RSC_LPCOMP" />
+      <Member name="block_num" value="`${getInstNumber(&quot;lpcomp&quot;)}`U" />
+      <Member name="channel_num" value="`${getInstNumber(&quot;comp&quot;)}`U" />
+    </ConfigStruct>
+    
+    <ConfigInstruction value="cyhal_hwmgr_reserve(&amp;`${INST_NAME}`_obj);" include="true" guard="defined (CY_USING_HAL)" />
   </ConfigFirmware>
 </Personality>

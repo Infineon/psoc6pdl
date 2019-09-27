@@ -1,6 +1,7 @@
 var modules =
 [
     [ "BLE ECO      (BLE ECO Clock)", "group__group__ble__clk.html", "group__group__ble__clk" ],
+    [ "CAN FD       (CAN with Flexible Data-Rate)", "group__group__canfd.html", "group__group__canfd" ],
     [ "Crypto       (Cryptography)", "group__group__crypto.html", "group__group__crypto" ],
     [ "CSD          (CapSense Sigma Delta)", "group__group__csd.html", "group__group__csd" ],
     [ "CTB          (Continuous Time Block)", "group__group__ctb.html", "group__group__ctb" ],

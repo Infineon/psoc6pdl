@@ -33,17 +33,8 @@
   </Dependencies>
   <ExposedMembers />
   <Parameters>
-    <!-- PDL documentation -->
-    <ParamDoc id="pdlDoc" name="BLE Middleware" group="Documentation" default="file:///`${cy_libs_path(&quot;psoc6sw&quot;)}`/docs/ble_api_reference_manual/html/index.html" linkText="Open BLE Documentation" visible="true" desc="Opens the BLE Middleware Library Documentation" />
-     
-    <!-- External tools -->
-    <ParamString id="cfgFileName" name="cfgFileName" group="External Tools" default="cycfg_ble.cybt" visible="false" editable="false" desc="" />
-    <ParamString id="cfgFilePath" name="cfgFilePath" group="External Tools" default="`${cy_design_path() . &quot;/&quot; . cfgFileName}`" visible="false" editable="false" desc="" />
-    <ParamCustom id="BleConfigurator" name="Bluetooth Configurator" group="External Tools" default="0" path="`${cy_tools_path(&quot;bt-configurator&quot;) . &quot;/bt-configurator&quot;}`" modal="true" visible="true" editable="true" desc="Launch Bluetooth Configurator">
-      <Arg value="`${&quot;--config=&quot; . cfgFilePath}`" />
-      <Arg value="`${&quot;--output-dir=&quot; . cy_codegen_path()}`" />
-      <Arg value="`${&quot;--device=PSoC6&quot;}`" />
-    </ParamCustom>
+    <!-- BLESS documentation on GitHub -->
+    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="https://cypresssemiconductorco.github.io/bless/ble_api_reference_manual/html/index.html" linkText="Open BLE Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
 
    <!-- Core Selector -->
     <ParamChoice id="BleCore" name="Target CPU core" group="Core Selector" default="4" visible="false" editable="false" desc="Configure the target CPU core for BLE middleware." >
@@ -104,13 +95,7 @@
   </Parameters>
   <DRCs />
   <ConfigFirmware>
-    <!-- External tools -->
-    <ConfigTool value="`${cy_tools_path(&quot;bt-configurator&quot;) . &quot;/bt-configurator&quot;}`" include="true">
-      <Arg value="`${&quot;--config=&quot; . cfgFilePath}`" />
-      <Arg value="`${&quot;--output-dir=&quot; . cy_codegen_path()}`" />
-      <Arg value="`${&quot;--device=PSoC6&quot;}`" />
-      <Arg value="`${&quot;--generate&quot;}`" />
-    </ConfigTool>
+    <ConfigInclude value="cyhal_hwmgr.h" include="true" guard="defined (CY_USING_HAL)" />
     
     <ConfigDefine name="CY_BLE_CORE_CORTEX_M4" value="4U" public="true" include="`${true}`" />
     <ConfigDefine name="CY_BLE_CORE_CORTEX_M0P" value="0U" public="true" include="`${true}`" />
@@ -118,5 +103,13 @@
     <ConfigDefine name="CY_BLE_CORE" value="`${BleCore}`U" public="true" include="`${true}`" preventOverride="true" />
     <ConfigDefine name="CY_BLE_SHARING_MODE" value="`${BleSharing}`U" public="true" include="`${(BleSharing != 0)}`" />
     <ConfigDefine name="CY_BLE_IRQ" value="bless_interrupt_IRQn" public="true" include="true" />
+    
+    <ConfigStruct name="`${INST_NAME}`_obj" type="cyhal_resource_inst_t" const="true" public="true" include="true" guard="defined (CY_USING_HAL)" >
+      <Member name="type" value="CYHAL_RSC_BLESS" />
+      <Member name="block_num" value="`${getInstNumber(&quot;bless&quot;)}`U" />
+      <Member name="channel_num" value="0U" />
+    </ConfigStruct>
+    
+    <ConfigInstruction value="cyhal_hwmgr_reserve(&amp;`${INST_NAME}`_obj);" include="true" guard="defined (CY_USING_HAL)" />
   </ConfigFirmware>
 </Personality>

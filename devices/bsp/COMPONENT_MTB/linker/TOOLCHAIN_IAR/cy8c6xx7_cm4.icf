@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cy8c6xx7_cm4.icf
-* \version 2.50
+* \version 2.60
 *
 * Linker file for the IAR compiler.
 *
@@ -54,7 +54,7 @@ define symbol __ICFEDIT_region_IRAM1_end__   = 0x08047780;
 define symbol __ICFEDIT_region_IROM1_start__ = 0x10000000;
 define symbol __ICFEDIT_region_IROM1_end__   = 0x10100000;
 
-/* The following symbols defines a 32K flash region used for EEPROM emulation. 
+/* The following symbols define a 32K flash region used for EEPROM emulation.
  * This region can also be used as the general purpose flash.
  * You can assign sections to this memory region for only one of the cores.
  * Note some middleware (e.g. BLE, Emulated EEPROM) can place their data into this memory region.
@@ -150,8 +150,10 @@ do not initialize  { section .noinit, section .intvec_ram };
 
 /*-Placement-*/
 
-/* Flash */
+/* Flash - Cortex-M4 application */
 place at start of IROM1_region  { block RO };
+
+/* Used for the digital signature of the secure application and the Bootloader SDK application. */
 ".cy_app_signature" : place at address (__ICFEDIT_region_IROM1_end__ - 0x200) { section .cy_app_signature };
 
 /* Emulated EEPROM Flash area */

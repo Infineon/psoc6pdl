@@ -34,7 +34,7 @@
   <ExposedMembers />
   <Parameters>
     <!-- PDL documentation -->
-    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path(&quot;psoc6sw&quot;)}`/docs/pdl_api_reference_manual/html/group__group__ctb.html" linkText="Open CTB Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
+    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path()}`/docs/pdl_api_reference_manual/html/group__group__ctb.html" linkText="Open CTB Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
 
     <ParamChoice id="power" name="Power" group="General" default="CY_CTB_POWER_HIGH" visible="true" editable="true" desc="This parameter provides a way to optimize speed versus power consumption." >      
       <Entry name="Low" value="CY_CTB_POWER_LOW" visible="true" />
@@ -103,6 +103,8 @@
   
   <ConfigFirmware>
     <ConfigInclude value="cy_ctb.h" include="true" />
+    <ConfigInclude value="cyhal_hwmgr.h" include="true" guard="defined (CY_USING_HAL)" />
+    
     <ConfigDefine name="`${INST_NAME}`_HW" value="CTBM`${instNum}`" public="true" include="true" />
     <ConfigDefine name="`${INST_NAME}`_IRQ" value="pass_interrupt_ctbs_IRQn" public="true" include="`${interruptEnable eq true}`" />
     <ConfigStruct name="`${INST_NAME . &quot;_config&quot;}`" type="cy_stc_ctb_opamp_config_t" const="`${inFlash}`" public="true" include="true">      
@@ -114,6 +116,14 @@
       <Member name="oaCompBypass" value="`${sync}`"/>
       <Member name="oaCompHyst" value="`${hysteresis ? &quot;CY_CTB_COMP_HYST_10MV&quot; : &quot;CY_CTB_COMP_HYST_DISABLE&quot;}`"/>
       <Member name="oaCompIntrEn" value="`${interruptEnable}`"/>       
-    </ConfigStruct>        
+    </ConfigStruct>
+
+    <ConfigStruct name="`${INST_NAME}`_obj" type="cyhal_resource_inst_t" const="true" public="true" include="true" guard="defined (CY_USING_HAL)">
+      <Member name="type" value="CYHAL_RSC_OPAMP" />
+      <Member name="block_num" value="`${getInstNumber(&quot;ctb&quot;)}`U" />
+      <Member name="channel_num" value="`${getInstNumber(&quot;oa&quot;)}`U" />
+    </ConfigStruct>
+    
+    <ConfigInstruction value="cyhal_hwmgr_reserve(&amp;`${INST_NAME}`_obj);" include="true" guard="defined (CY_USING_HAL)" />
   </ConfigFirmware>
 </Personality>

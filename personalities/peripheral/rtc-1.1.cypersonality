@@ -34,7 +34,7 @@
   <ExposedMembers />
   <Parameters>
     <!-- PDL documentation -->
-    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path(&quot;psoc6sw&quot;)}`/docs/pdl_api_reference_manual/html/group__group__rtc.html" linkText="Open RTC Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
+    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path()}`/docs/pdl_api_reference_manual/html/group__group__rtc.html" linkText="Open RTC Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
   
     <!--General-->
     <ParamChoice id="format" name="Date Format" group="General" default="0" visible="true" editable="true" desc="Stores the Date Format to use for display. Can choose from the following values: MM/DD/YYYY, DD/MM/YYYY, YYYY/MM/DD." >
@@ -216,6 +216,7 @@
   </DRCs>
   <ConfigFirmware>
     <ConfigInclude value="cy_rtc.h" include="true" />
+    <ConfigInclude value="cyhal_hwmgr.h" include="true" guard="defined (CY_USING_HAL)" />
 
     <ConfigDefine name="`${INST_NAME . &quot;_10_MONTH_OFFSET&quot;}`"          value="`${format ==  0 ? &quot;(28U)&quot; : format == 1 ? &quot;(20U)&quot; : &quot;(12U)&quot;}`" public="true" include="true" />
     <ConfigDefine name="`${INST_NAME . &quot;_MONTH_OFFSET&quot;}`"             value="`${format ==  0 ? &quot;(24U)&quot; : format == 1 ? &quot;(16U)&quot; : &quot;(8U)&quot;}`"  public="true" include="true" />
@@ -252,6 +253,13 @@
       <Member name="`${&quot;stopDst.dayOfWeek&quot;}`"    value="`${dstStopDayOfWeek}`" />
       <Member name="`${&quot;stopDst.month&quot;}`"        value="`${dstStopMonth}`" />
     </ConfigStruct>
-
+    
+    <ConfigStruct name="`${INST_NAME}`_obj" type="cyhal_resource_inst_t" const="true" public="true" include="true" guard="defined (CY_USING_HAL)">
+      <Member name="type" value="CYHAL_RSC_RTC" />
+      <Member name="block_num" value="0U" />
+      <Member name="channel_num" value="`${getInstNumber(&quot;rtc&quot;)}`U" />
+    </ConfigStruct>
+    
+    <ConfigInstruction value="cyhal_hwmgr_reserve(&amp;`${INST_NAME}`_obj);" include="true" guard="defined (CY_USING_HAL)" />
   </ConfigFirmware>
 </Personality>

@@ -88,11 +88,11 @@ $(document).ready(function(){initNavTree('group__group__smif__low__level__functi
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">General Description</h2>
-<p>Basic flow for read/write commands using <a class="el" href="group__group__smif__low__level__functions.html#gacc14b1fa349b5d4cd422db6569f0b137">Cy_SMIF_TransmitCommand</a> <a class="el" href="group__group__smif__low__level__functions.html#ga844fc7eb8b2f79e734a934b021616eaf">Cy_SMIF_TransmitData</a> <a class="el" href="group__group__smif__low__level__functions.html#ga1de0ddec4fed5235d2a6d82ed36a8224">Cy_SMIF_ReceiveData</a> <a class="el" href="group__group__smif__low__level__functions.html#gae40a30c84a9a5956d03279b9ee8c3999">Cy_SMIF_SendDummyCycles</a>. </p>
+<p>Basic flow for read/write commands using <a class="el" href="group__group__smif__low__level__functions.html#ga5abea630fca93c72faece8b23549cd11">Cy_SMIF_TransmitCommand</a>, <a class="el" href="group__group__smif__low__level__functions.html#gae84cdf32e45e492e80dea38f9d3a7586">Cy_SMIF_TransmitData</a>, <a class="el" href="group__group__smif__low__level__functions.html#ga1b365e1400ccd6580533a0c92deb48c7">Cy_SMIF_ReceiveData</a> and <a class="el" href="group__group__smif__low__level__functions.html#gae40a30c84a9a5956d03279b9ee8c3999">Cy_SMIF_SendDummyCycles</a>. </p>
 <div class="image">
 <img src="smif_1_0_p03_rw_cmd.png" alt="smif_1_0_p03_rw_cmd.png"/>
 </div>
-<p>The sequence of the PDL functions required in a read or write transaction is: <a class="el" href="group__group__smif__low__level__functions.html#gacc14b1fa349b5d4cd422db6569f0b137" title="This function transmits a command byte followed by a parameter which is typically an address field...">Cy_SMIF_TransmitCommand()</a> -&gt; <a class="el" href="group__group__smif__low__level__functions.html#gae40a30c84a9a5956d03279b9ee8c3999" title="This function sends dummy-clock cycles. ">Cy_SMIF_SendDummyCycles()</a> -&gt; <a class="el" href="group__group__smif__low__level__functions.html#ga1de0ddec4fed5235d2a6d82ed36a8224" title="This function implements the receive data phase in the memory command. ">Cy_SMIF_ReceiveData()</a>/Cy_SMIF_TransmitData() -&gt; <a class="el" href="group__group__smif__low__level__functions.html#ga58e965697047847ce906329eb6b5341c" title="This function provides the status of the IP block (False - not busy, True - busy). ">Cy_SMIF_BusyCheck()</a>. The address is sent as part of the <a class="el" href="group__group__smif__low__level__functions.html#gacc14b1fa349b5d4cd422db6569f0b137" title="This function transmits a command byte followed by a parameter which is typically an address field...">Cy_SMIF_TransmitCommand()</a> function. No separate function call is required. </p>
+<p>The sequence of the PDL functions required in a read or write transaction is: <a class="el" href="group__group__smif__low__level__functions.html#ga5abea630fca93c72faece8b23549cd11">Cy_SMIF_TransmitCommand()</a> -&gt; <a class="el" href="group__group__smif__low__level__functions.html#gae40a30c84a9a5956d03279b9ee8c3999">Cy_SMIF_SendDummyCycles()</a> -&gt; <a class="el" href="group__group__smif__low__level__functions.html#ga1b365e1400ccd6580533a0c92deb48c7">Cy_SMIF_ReceiveData()</a> / <a class="el" href="group__group__smif__low__level__functions.html#gae84cdf32e45e492e80dea38f9d3a7586">Cy_SMIF_TransmitData()</a> -&gt; <a class="el" href="group__group__smif__low__level__functions.html#ga58e965697047847ce906329eb6b5341c">Cy_SMIF_BusyCheck()</a>. The address is sent as part of the <a class="el" href="group__group__smif__low__level__functions.html#ga5abea630fca93c72faece8b23549cd11" title="This function transmits a command byte followed by a parameter which is typically an address field...">Cy_SMIF_TransmitCommand()</a> function. No separate function call is required. </p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
 API Reference</h2></td></tr>
@@ -117,27 +117,27 @@ Functions</h2></td></tr>
 <tr class="memitem:ga9d11d9c308bd61aa0050ed6cec4c734a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__group__smif__enums.html#ga2baa7c37d2cedf2e2c837facc753ab5d">cy_en_smif_mode_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__smif__low__level__functions.html#ga9d11d9c308bd61aa0050ed6cec4c734a">Cy_SMIF_GetMode</a> (<a class="el" href="struct_s_m_i_f___type.html">SMIF_Type</a> const *base)</td></tr>
 <tr class="memdesc:ga9d11d9c308bd61aa0050ed6cec4c734a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the mode of operation for the SMIF.  <a href="#ga9d11d9c308bd61aa0050ed6cec4c734a">More...</a><br /></td></tr>
 <tr class="separator:ga9d11d9c308bd61aa0050ed6cec4c734a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacc14b1fa349b5d4cd422db6569f0b137"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__group__smif__enums.html#ga75fb83c49239ece738cfba778165cb41">cy_en_smif_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__smif__low__level__functions.html#gacc14b1fa349b5d4cd422db6569f0b137">Cy_SMIF_TransmitCommand</a> (<a class="el" href="struct_s_m_i_f___type.html">SMIF_Type</a> *base, uint8_t cmd, <a class="el" href="group__group__smif__enums.html#gab71e4b1f4c80b3e8c82dd85570415e44">cy_en_smif_txfr_width_t</a> cmdTxfrWidth, uint8_t const cmdParam[], uint32_t paramSize, <a class="el" href="group__group__smif__enums.html#gab71e4b1f4c80b3e8c82dd85570415e44">cy_en_smif_txfr_width_t</a> paramTxfrWidth, <a class="el" href="group__group__smif__enums.html#gad776a0db9224477ab865254a32d9e312">cy_en_smif_slave_select_t</a> slaveSelect, uint32_t cmpltTxfr, <a class="el" href="structcy__stc__smif__context__t.html">cy_stc_smif_context_t</a> const *context)</td></tr>
-<tr class="memdesc:gacc14b1fa349b5d4cd422db6569f0b137"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function transmits a command byte followed by a parameter which is typically an address field.  <a href="#gacc14b1fa349b5d4cd422db6569f0b137">More...</a><br /></td></tr>
-<tr class="separator:gacc14b1fa349b5d4cd422db6569f0b137"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga844fc7eb8b2f79e734a934b021616eaf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__group__smif__enums.html#ga75fb83c49239ece738cfba778165cb41">cy_en_smif_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__smif__low__level__functions.html#ga844fc7eb8b2f79e734a934b021616eaf">Cy_SMIF_TransmitData</a> (<a class="el" href="struct_s_m_i_f___type.html">SMIF_Type</a> *base, uint8_t *txBuffer, uint32_t size, <a class="el" href="group__group__smif__enums.html#gab71e4b1f4c80b3e8c82dd85570415e44">cy_en_smif_txfr_width_t</a> transferWidth, <a class="el" href="group__group__smif__data__structures.html#ga13688dde62e8977a11ab69cf6b2c39b5">cy_smif_event_cb_t</a> TxCmpltCb, <a class="el" href="structcy__stc__smif__context__t.html">cy_stc_smif_context_t</a> *context)</td></tr>
-<tr class="memdesc:ga844fc7eb8b2f79e734a934b021616eaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used to transmit data using the SMIF interface.  <a href="#ga844fc7eb8b2f79e734a934b021616eaf">More...</a><br /></td></tr>
-<tr class="separator:ga844fc7eb8b2f79e734a934b021616eaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad4c5219afe69a6a6da4e2f4c1c16dced"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__group__smif__enums.html#ga75fb83c49239ece738cfba778165cb41">cy_en_smif_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__smif__low__level__functions.html#gad4c5219afe69a6a6da4e2f4c1c16dced">Cy_SMIF_TransmitDataBlocking</a> (<a class="el" href="struct_s_m_i_f___type.html">SMIF_Type</a> *base, uint8_t *txBuffer, uint32_t size, <a class="el" href="group__group__smif__enums.html#gab71e4b1f4c80b3e8c82dd85570415e44">cy_en_smif_txfr_width_t</a> transferWidth, <a class="el" href="structcy__stc__smif__context__t.html">cy_stc_smif_context_t</a> const *context)</td></tr>
-<tr class="memdesc:gad4c5219afe69a6a6da4e2f4c1c16dced"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function implements the transmit data phase in the memory command.  <a href="#gad4c5219afe69a6a6da4e2f4c1c16dced">More...</a><br /></td></tr>
-<tr class="separator:gad4c5219afe69a6a6da4e2f4c1c16dced"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1de0ddec4fed5235d2a6d82ed36a8224"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__group__smif__enums.html#ga75fb83c49239ece738cfba778165cb41">cy_en_smif_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__smif__low__level__functions.html#ga1de0ddec4fed5235d2a6d82ed36a8224">Cy_SMIF_ReceiveData</a> (<a class="el" href="struct_s_m_i_f___type.html">SMIF_Type</a> *base, uint8_t *rxBuffer, uint32_t size, <a class="el" href="group__group__smif__enums.html#gab71e4b1f4c80b3e8c82dd85570415e44">cy_en_smif_txfr_width_t</a> transferWidth, <a class="el" href="group__group__smif__data__structures.html#ga13688dde62e8977a11ab69cf6b2c39b5">cy_smif_event_cb_t</a> RxCmpltCb, <a class="el" href="structcy__stc__smif__context__t.html">cy_stc_smif_context_t</a> *context)</td></tr>
-<tr class="memdesc:ga1de0ddec4fed5235d2a6d82ed36a8224"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function implements the receive data phase in the memory command.  <a href="#ga1de0ddec4fed5235d2a6d82ed36a8224">More...</a><br /></td></tr>
-<tr class="separator:ga1de0ddec4fed5235d2a6d82ed36a8224"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5abea630fca93c72faece8b23549cd11"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__group__smif__enums.html#ga75fb83c49239ece738cfba778165cb41">cy_en_smif_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__smif__low__level__functions.html#ga5abea630fca93c72faece8b23549cd11">Cy_SMIF_TransmitCommand</a> (<a class="el" href="struct_s_m_i_f___type.html">SMIF_Type</a> *base, uint8_t cmd, <a class="el" href="group__group__smif__enums.html#gab71e4b1f4c80b3e8c82dd85570415e44">cy_en_smif_txfr_width_t</a> cmdTxfrWidth, uint8_t const cmdParam[], uint32_t paramSize, <a class="el" href="group__group__smif__enums.html#gab71e4b1f4c80b3e8c82dd85570415e44">cy_en_smif_txfr_width_t</a> paramTxfrWidth, <a class="el" href="group__group__smif__enums.html#gad776a0db9224477ab865254a32d9e312">cy_en_smif_slave_select_t</a> slaveSelect, uint32_t completeTxfr, <a class="el" href="structcy__stc__smif__context__t.html">cy_stc_smif_context_t</a> const *context)</td></tr>
+<tr class="memdesc:ga5abea630fca93c72faece8b23549cd11"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function transmits a command byte followed by a parameter which is typically an address field.  <a href="#ga5abea630fca93c72faece8b23549cd11">More...</a><br /></td></tr>
+<tr class="separator:ga5abea630fca93c72faece8b23549cd11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae84cdf32e45e492e80dea38f9d3a7586"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__group__smif__enums.html#ga75fb83c49239ece738cfba778165cb41">cy_en_smif_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__smif__low__level__functions.html#gae84cdf32e45e492e80dea38f9d3a7586">Cy_SMIF_TransmitData</a> (<a class="el" href="struct_s_m_i_f___type.html">SMIF_Type</a> *base, uint8_t const *txBuffer, uint32_t size, <a class="el" href="group__group__smif__enums.html#gab71e4b1f4c80b3e8c82dd85570415e44">cy_en_smif_txfr_width_t</a> transferWidth, <a class="el" href="group__group__smif__data__structures.html#ga13688dde62e8977a11ab69cf6b2c39b5">cy_smif_event_cb_t</a> TxCompleteCb, <a class="el" href="structcy__stc__smif__context__t.html">cy_stc_smif_context_t</a> *context)</td></tr>
+<tr class="memdesc:gae84cdf32e45e492e80dea38f9d3a7586"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used to transmit data using the SMIF interface.  <a href="#gae84cdf32e45e492e80dea38f9d3a7586">More...</a><br /></td></tr>
+<tr class="separator:gae84cdf32e45e492e80dea38f9d3a7586"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga60ce9afb095c14426f272a75ed51c9be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__group__smif__enums.html#ga75fb83c49239ece738cfba778165cb41">cy_en_smif_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__smif__low__level__functions.html#ga60ce9afb095c14426f272a75ed51c9be">Cy_SMIF_TransmitDataBlocking</a> (<a class="el" href="struct_s_m_i_f___type.html">SMIF_Type</a> *base, uint8_t const *txBuffer, uint32_t size, <a class="el" href="group__group__smif__enums.html#gab71e4b1f4c80b3e8c82dd85570415e44">cy_en_smif_txfr_width_t</a> transferWidth, <a class="el" href="structcy__stc__smif__context__t.html">cy_stc_smif_context_t</a> const *context)</td></tr>
+<tr class="memdesc:ga60ce9afb095c14426f272a75ed51c9be"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function implements the transmit data phase in the memory command.  <a href="#ga60ce9afb095c14426f272a75ed51c9be">More...</a><br /></td></tr>
+<tr class="separator:ga60ce9afb095c14426f272a75ed51c9be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1b365e1400ccd6580533a0c92deb48c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__group__smif__enums.html#ga75fb83c49239ece738cfba778165cb41">cy_en_smif_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__smif__low__level__functions.html#ga1b365e1400ccd6580533a0c92deb48c7">Cy_SMIF_ReceiveData</a> (<a class="el" href="struct_s_m_i_f___type.html">SMIF_Type</a> *base, uint8_t *rxBuffer, uint32_t size, <a class="el" href="group__group__smif__enums.html#gab71e4b1f4c80b3e8c82dd85570415e44">cy_en_smif_txfr_width_t</a> transferWidth, <a class="el" href="group__group__smif__data__structures.html#ga13688dde62e8977a11ab69cf6b2c39b5">cy_smif_event_cb_t</a> RxCompleteCb, <a class="el" href="structcy__stc__smif__context__t.html">cy_stc_smif_context_t</a> *context)</td></tr>
+<tr class="memdesc:ga1b365e1400ccd6580533a0c92deb48c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function implements the receive data phase in the memory command.  <a href="#ga1b365e1400ccd6580533a0c92deb48c7">More...</a><br /></td></tr>
+<tr class="separator:ga1b365e1400ccd6580533a0c92deb48c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga93c3033ff812c2342cea0657096a46b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__group__smif__enums.html#ga75fb83c49239ece738cfba778165cb41">cy_en_smif_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__smif__low__level__functions.html#ga93c3033ff812c2342cea0657096a46b9">Cy_SMIF_ReceiveDataBlocking</a> (<a class="el" href="struct_s_m_i_f___type.html">SMIF_Type</a> *base, uint8_t *rxBuffer, uint32_t size, <a class="el" href="group__group__smif__enums.html#gab71e4b1f4c80b3e8c82dd85570415e44">cy_en_smif_txfr_width_t</a> transferWidth, <a class="el" href="structcy__stc__smif__context__t.html">cy_stc_smif_context_t</a> const *context)</td></tr>
 <tr class="memdesc:ga93c3033ff812c2342cea0657096a46b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function implements the receive data phase in the memory command.  <a href="#ga93c3033ff812c2342cea0657096a46b9">More...</a><br /></td></tr>
 <tr class="separator:ga93c3033ff812c2342cea0657096a46b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae40a30c84a9a5956d03279b9ee8c3999"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__group__smif__enums.html#ga75fb83c49239ece738cfba778165cb41">cy_en_smif_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__smif__low__level__functions.html#gae40a30c84a9a5956d03279b9ee8c3999">Cy_SMIF_SendDummyCycles</a> (<a class="el" href="struct_s_m_i_f___type.html">SMIF_Type</a> *base, uint32_t cycles)</td></tr>
 <tr class="memdesc:gae40a30c84a9a5956d03279b9ee8c3999"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function sends dummy-clock cycles.  <a href="#gae40a30c84a9a5956d03279b9ee8c3999">More...</a><br /></td></tr>
 <tr class="separator:gae40a30c84a9a5956d03279b9ee8c3999"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga204a3b405014b0bda6bea07c210e6ecd"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__smif__low__level__functions.html#ga204a3b405014b0bda6bea07c210e6ecd">Cy_SMIF_GetTxfrStatus</a> (<a class="el" href="struct_s_m_i_f___type.html">SMIF_Type</a> *base, <a class="el" href="structcy__stc__smif__context__t.html">cy_stc_smif_context_t</a> const *context)</td></tr>
-<tr class="memdesc:ga204a3b405014b0bda6bea07c210e6ecd"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function provides the status of the transfer.  <a href="#ga204a3b405014b0bda6bea07c210e6ecd">More...</a><br /></td></tr>
-<tr class="separator:ga204a3b405014b0bda6bea07c210e6ecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9b1a6bbecbb57233ea612d39d53b8f4c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__smif__low__level__functions.html#ga9b1a6bbecbb57233ea612d39d53b8f4c">Cy_SMIF_GetTransferStatus</a> (<a class="el" href="struct_s_m_i_f___type.html">SMIF_Type</a> const *base, <a class="el" href="structcy__stc__smif__context__t.html">cy_stc_smif_context_t</a> const *context)</td></tr>
+<tr class="memdesc:ga9b1a6bbecbb57233ea612d39d53b8f4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function provides the status of the transfer.  <a href="#ga9b1a6bbecbb57233ea612d39d53b8f4c">More...</a><br /></td></tr>
+<tr class="separator:ga9b1a6bbecbb57233ea612d39d53b8f4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5428ca682fd56b837a1a3763fc2596b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__smif__low__level__functions.html#ga5428ca682fd56b837a1a3763fc2596b8">Cy_SMIF_Enable</a> (<a class="el" href="struct_s_m_i_f___type.html">SMIF_Type</a> *base, <a class="el" href="structcy__stc__smif__context__t.html">cy_stc_smif_context_t</a> *context)</td></tr>
 <tr class="memdesc:ga5428ca682fd56b837a1a3763fc2596b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the operation of the SMIF block.  <a href="#ga5428ca682fd56b837a1a3763fc2596b8">More...</a><br /></td></tr>
 <tr class="separator:ga5428ca682fd56b837a1a3763fc2596b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -186,21 +186,21 @@ Functions</h2></td></tr>
 <tr class="memitem:gaedbec6f968745b8f594dd4b32e91ceba"><td class="memItemLeft" align="right" valign="top">__STATIC_INLINE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__smif__low__level__functions.html#gaedbec6f968745b8f594dd4b32e91ceba">Cy_SMIF_Interrupt</a> (<a class="el" href="struct_s_m_i_f___type.html">SMIF_Type</a> *base, <a class="el" href="structcy__stc__smif__context__t.html">cy_stc_smif_context_t</a> *context)</td></tr>
 <tr class="memdesc:gaedbec6f968745b8f594dd4b32e91ceba"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Interrupt Service Routine for the SMIF.  <a href="#gaedbec6f968745b8f594dd4b32e91ceba">More...</a><br /></td></tr>
 <tr class="separator:gaedbec6f968745b8f594dd4b32e91ceba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab95452fe32620ce8ca095fc5a347edf2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__group__smif__enums.html#ga75fb83c49239ece738cfba778165cb41">cy_en_smif_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__smif__low__level__functions.html#gab95452fe32620ce8ca095fc5a347edf2">Cy_SMIF_CacheEnable</a> (<a class="el" href="struct_s_m_i_f___type.html">SMIF_Type</a> *base, <a class="el" href="group__group__smif__enums.html#gab87e475678ceb469a370830058938c48">cy_en_smif_cache_en_t</a> cacheType)</td></tr>
-<tr class="memdesc:gab95452fe32620ce8ca095fc5a347edf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used to enable the fast cache, the slow cache or both.  <a href="#gab95452fe32620ce8ca095fc5a347edf2">More...</a><br /></td></tr>
-<tr class="separator:gab95452fe32620ce8ca095fc5a347edf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7e1583db64ac408eb2e37e947950a42f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__group__smif__enums.html#ga75fb83c49239ece738cfba778165cb41">cy_en_smif_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__smif__low__level__functions.html#ga7e1583db64ac408eb2e37e947950a42f">Cy_SMIF_CacheDisable</a> (<a class="el" href="struct_s_m_i_f___type.html">SMIF_Type</a> *base, <a class="el" href="group__group__smif__enums.html#gab87e475678ceb469a370830058938c48">cy_en_smif_cache_en_t</a> cacheType)</td></tr>
-<tr class="memdesc:ga7e1583db64ac408eb2e37e947950a42f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used to disable the fast cache, the slow cache or both.  <a href="#ga7e1583db64ac408eb2e37e947950a42f">More...</a><br /></td></tr>
-<tr class="separator:ga7e1583db64ac408eb2e37e947950a42f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8fc18e9e7d677d7f2e0c1d1ac58f7fbb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__group__smif__enums.html#ga75fb83c49239ece738cfba778165cb41">cy_en_smif_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__smif__low__level__functions.html#ga8fc18e9e7d677d7f2e0c1d1ac58f7fbb">Cy_SMIF_CachePrefetchingEnable</a> (<a class="el" href="struct_s_m_i_f___type.html">SMIF_Type</a> *base, <a class="el" href="group__group__smif__enums.html#gab87e475678ceb469a370830058938c48">cy_en_smif_cache_en_t</a> cacheType)</td></tr>
-<tr class="memdesc:ga8fc18e9e7d677d7f2e0c1d1ac58f7fbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used to enable pre-fetching for the fast cache, the slow cache or both.  <a href="#ga8fc18e9e7d677d7f2e0c1d1ac58f7fbb">More...</a><br /></td></tr>
-<tr class="separator:ga8fc18e9e7d677d7f2e0c1d1ac58f7fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga99344c52b0b02300a3d8ed99e534a9ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__group__smif__enums.html#ga75fb83c49239ece738cfba778165cb41">cy_en_smif_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__smif__low__level__functions.html#ga99344c52b0b02300a3d8ed99e534a9ad">Cy_SMIF_CachePrefetchingDisable</a> (<a class="el" href="struct_s_m_i_f___type.html">SMIF_Type</a> *base, <a class="el" href="group__group__smif__enums.html#gab87e475678ceb469a370830058938c48">cy_en_smif_cache_en_t</a> cacheType)</td></tr>
-<tr class="memdesc:ga99344c52b0b02300a3d8ed99e534a9ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used to disable pre-fetching for the fast cache, the slow cache or both.  <a href="#ga99344c52b0b02300a3d8ed99e534a9ad">More...</a><br /></td></tr>
-<tr class="separator:ga99344c52b0b02300a3d8ed99e534a9ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga93036af50ddd10ec813f3e68dd4974d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__group__smif__enums.html#ga75fb83c49239ece738cfba778165cb41">cy_en_smif_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__smif__low__level__functions.html#ga93036af50ddd10ec813f3e68dd4974d3">Cy_SMIF_CacheInvalidate</a> (<a class="el" href="struct_s_m_i_f___type.html">SMIF_Type</a> *base, <a class="el" href="group__group__smif__enums.html#gab87e475678ceb469a370830058938c48">cy_en_smif_cache_en_t</a> cacheType)</td></tr>
-<tr class="memdesc:ga93036af50ddd10ec813f3e68dd4974d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used to invalidate/clear the fast cache, the slow cache or both.  <a href="#ga93036af50ddd10ec813f3e68dd4974d3">More...</a><br /></td></tr>
-<tr class="separator:ga93036af50ddd10ec813f3e68dd4974d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga28f06f761c260849fa8e37d7a3f858dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__group__smif__enums.html#ga75fb83c49239ece738cfba778165cb41">cy_en_smif_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__smif__low__level__functions.html#ga28f06f761c260849fa8e37d7a3f858dc">Cy_SMIF_CacheEnable</a> (<a class="el" href="struct_s_m_i_f___type.html">SMIF_Type</a> *base, <a class="el" href="group__group__smif__enums.html#gaf7e001d5a1821a56324e8898913b21ef">cy_en_smif_cache_t</a> cacheType)</td></tr>
+<tr class="memdesc:ga28f06f761c260849fa8e37d7a3f858dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used to enable the fast cache, the slow cache or both.  <a href="#ga28f06f761c260849fa8e37d7a3f858dc">More...</a><br /></td></tr>
+<tr class="separator:ga28f06f761c260849fa8e37d7a3f858dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacb0c1e80c19ef607a1efc70df6818ccb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__group__smif__enums.html#ga75fb83c49239ece738cfba778165cb41">cy_en_smif_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__smif__low__level__functions.html#gacb0c1e80c19ef607a1efc70df6818ccb">Cy_SMIF_CacheDisable</a> (<a class="el" href="struct_s_m_i_f___type.html">SMIF_Type</a> *base, <a class="el" href="group__group__smif__enums.html#gaf7e001d5a1821a56324e8898913b21ef">cy_en_smif_cache_t</a> cacheType)</td></tr>
+<tr class="memdesc:gacb0c1e80c19ef607a1efc70df6818ccb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used to disable the fast cache, the slow cache or both.  <a href="#gacb0c1e80c19ef607a1efc70df6818ccb">More...</a><br /></td></tr>
+<tr class="separator:gacb0c1e80c19ef607a1efc70df6818ccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0ff445110c019e30b942fb87878b32c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__group__smif__enums.html#ga75fb83c49239ece738cfba778165cb41">cy_en_smif_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__smif__low__level__functions.html#ga0ff445110c019e30b942fb87878b32c7">Cy_SMIF_CachePrefetchingEnable</a> (<a class="el" href="struct_s_m_i_f___type.html">SMIF_Type</a> *base, <a class="el" href="group__group__smif__enums.html#gaf7e001d5a1821a56324e8898913b21ef">cy_en_smif_cache_t</a> cacheType)</td></tr>
+<tr class="memdesc:ga0ff445110c019e30b942fb87878b32c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used to enable pre-fetching for the fast cache, the slow cache or both.  <a href="#ga0ff445110c019e30b942fb87878b32c7">More...</a><br /></td></tr>
+<tr class="separator:ga0ff445110c019e30b942fb87878b32c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabbb34fe2a90c311a2e1fa23c66a21c81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__group__smif__enums.html#ga75fb83c49239ece738cfba778165cb41">cy_en_smif_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__smif__low__level__functions.html#gabbb34fe2a90c311a2e1fa23c66a21c81">Cy_SMIF_CachePrefetchingDisable</a> (<a class="el" href="struct_s_m_i_f___type.html">SMIF_Type</a> *base, <a class="el" href="group__group__smif__enums.html#gaf7e001d5a1821a56324e8898913b21ef">cy_en_smif_cache_t</a> cacheType)</td></tr>
+<tr class="memdesc:gabbb34fe2a90c311a2e1fa23c66a21c81"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used to disable pre-fetching for the fast cache, the slow cache or both.  <a href="#gabbb34fe2a90c311a2e1fa23c66a21c81">More...</a><br /></td></tr>
+<tr class="separator:gabbb34fe2a90c311a2e1fa23c66a21c81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga72240c0ce8307c50b65c4fca45c9cd30"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__group__smif__enums.html#ga75fb83c49239ece738cfba778165cb41">cy_en_smif_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__smif__low__level__functions.html#ga72240c0ce8307c50b65c4fca45c9cd30">Cy_SMIF_CacheInvalidate</a> (<a class="el" href="struct_s_m_i_f___type.html">SMIF_Type</a> *base, <a class="el" href="group__group__smif__enums.html#gaf7e001d5a1821a56324e8898913b21ef">cy_en_smif_cache_t</a> cacheType)</td></tr>
+<tr class="memdesc:ga72240c0ce8307c50b65c4fca45c9cd30"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used to invalidate/clear the fast cache, the slow cache or both.  <a href="#ga72240c0ce8307c50b65c4fca45c9cd30">More...</a><br /></td></tr>
+<tr class="separator:ga72240c0ce8307c50b65c4fca45c9cd30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="gaea2684847f04e2e7e2c85cfe7fd37881"></a>
@@ -401,8 +401,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="gacc14b1fa349b5d4cd422db6569f0b137"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gacc14b1fa349b5d4cd422db6569f0b137">&#9670;&nbsp;</a></span>Cy_SMIF_TransmitCommand()</h2>
+<a id="ga5abea630fca93c72faece8b23549cd11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5abea630fca93c72faece8b23549cd11">&#9670;&nbsp;</a></span>Cy_SMIF_TransmitCommand()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -453,7 +453,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>cmpltTxfr</em>, </td>
+          <td class="paramname"><em>completeTxfr</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -470,7 +470,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>This function transmits a command byte followed by a parameter which is typically an address field. </p>
-<p>The transfer is implemented using the TX FIFO. This function also asserts the slave select line. A command to a memory device generally starts with a command byte transmission. This function sets up the slave lines for the rest of the command structure. The <a class="el" href="group__group__smif__low__level__functions.html#gacc14b1fa349b5d4cd422db6569f0b137">Cy_SMIF_TransmitCommand</a> is called before <a class="el" href="group__group__smif__low__level__functions.html#ga844fc7eb8b2f79e734a934b021616eaf">Cy_SMIF_TransmitData</a> or <a class="el" href="group__group__smif__low__level__functions.html#ga1de0ddec4fed5235d2a6d82ed36a8224">Cy_SMIF_ReceiveData</a> is called. When enabled, the cmpltTxfr parameter in the function will de-assert the slave select line at the end of the function execution.</p>
+<p>The transfer is implemented using the TX FIFO. This function also asserts the slave select line. A command to a memory device generally starts with a command byte transmission. This function sets up the slave lines for the rest of the command structure. The <a class="el" href="group__group__smif__low__level__functions.html#ga5abea630fca93c72faece8b23549cd11">Cy_SMIF_TransmitCommand</a> is called before <a class="el" href="group__group__smif__low__level__functions.html#gae84cdf32e45e492e80dea38f9d3a7586">Cy_SMIF_TransmitData</a> or <a class="el" href="group__group__smif__low__level__functions.html#ga1b365e1400ccd6580533a0c92deb48c7">Cy_SMIF_ReceiveData</a> is called. When enabled, the completeTxfr parameter in the function will de-assert the slave select line at the end of the function execution.</p>
 <dl class="section note"><dt>Note</dt><dd>This function blocks until all the command and associated parameters have been transmitted over the SMIF block or timeout expire.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -481,7 +481,7 @@ Functions</h2></td></tr>
     <tr><td class="paramname">paramSize</td><td>The size of the cmdParam array.</td></tr>
     <tr><td class="paramname">paramTxfrWidth</td><td>The width of parameter transfer <a class="el" href="group__group__smif__enums.html#gab71e4b1f4c80b3e8c82dd85570415e44">cy_en_smif_txfr_width_t</a>.</td></tr>
     <tr><td class="paramname">slaveSelect</td><td>Denotes the number of the slave device to which the transfer is made. (0, 1, 2 or 4 - the bit defines which slave to enable) Two-bit enable is possible only for the Double Quad SPI mode.</td></tr>
-    <tr><td class="paramname">cmpltTxfr</td><td>Specifies if the slave select line must be de-asserted after transferring the last byte in the parameter array. Typically, this field is set to 0 when this function succeed through <a class="el" href="group__group__smif__low__level__functions.html#ga844fc7eb8b2f79e734a934b021616eaf">Cy_SMIF_TransmitData</a> or <a class="el" href="group__group__smif__low__level__functions.html#ga1de0ddec4fed5235d2a6d82ed36a8224">Cy_SMIF_ReceiveData</a>.</td></tr>
+    <tr><td class="paramname">completeTxfr</td><td>Specifies if the slave select line must be de-asserted after transferring the last byte in the parameter array. Typically, this field is set to 0 when this function succeed through <a class="el" href="group__group__smif__low__level__functions.html#gae84cdf32e45e492e80dea38f9d3a7586">Cy_SMIF_TransmitData</a> or <a class="el" href="group__group__smif__low__level__functions.html#ga1b365e1400ccd6580533a0c92deb48c7">Cy_SMIF_ReceiveData</a>.</td></tr>
     <tr><td class="paramname">context</td><td>Passes a configuration structure that contains the transfer parameters of the SMIF block.</td></tr>
   </table>
   </dd>
@@ -495,8 +495,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga844fc7eb8b2f79e734a934b021616eaf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga844fc7eb8b2f79e734a934b021616eaf">&#9670;&nbsp;</a></span>Cy_SMIF_TransmitData()</h2>
+<a id="gae84cdf32e45e492e80dea38f9d3a7586"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae84cdf32e45e492e80dea38f9d3a7586">&#9670;&nbsp;</a></span>Cy_SMIF_TransmitData()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -510,7 +510,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramtype">uint8_t const *&#160;</td>
           <td class="paramname"><em>txBuffer</em>, </td>
         </tr>
         <tr>
@@ -529,7 +529,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="group__group__smif__data__structures.html#ga13688dde62e8977a11ab69cf6b2c39b5">cy_smif_event_cb_t</a>&#160;</td>
-          <td class="paramname"><em>TxCmpltCb</em>, </td>
+          <td class="paramname"><em>TxCompleteCb</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -546,8 +546,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>This function is used to transmit data using the SMIF interface. </p>
-<p>This function uses the TX Data FIFO to implement the transmit functionality. The function sets up an interrupt to trigger the TX Data FIFO and uses that interrupt to fill the TX Data FIFO until all the data is transmitted. At the end of the transmission, the TxCmpltCb is executed.</p>
-<dl class="section note"><dt>Note</dt><dd>This function is to be preceded by <a class="el" href="group__group__smif__low__level__functions.html#gacc14b1fa349b5d4cd422db6569f0b137">Cy_SMIF_TransmitCommand</a> where the slave select is selected. The slave is de-asserted at the end of a transmit. The function triggers the transfer and the transfer itself utilizes the interrupt for FIFO operations in the background. Thus, frequent interrupts will be executed after this function is triggered. Since this API is non-blocking and sets up the interrupt to act on the data FIFO, ensure there will be no another instance of the function called before the current instance has completed execution.</dd></dl>
+<p>This function uses the TX Data FIFO to implement the transmit functionality. The function sets up an interrupt to trigger the TX Data FIFO and uses that interrupt to fill the TX Data FIFO until all the data is transmitted. At the end of the transmission, the TxCompleteCb is executed.</p>
+<dl class="section note"><dt>Note</dt><dd>This function is to be preceded by <a class="el" href="group__group__smif__low__level__functions.html#ga5abea630fca93c72faece8b23549cd11">Cy_SMIF_TransmitCommand</a> where the slave select is selected. The slave is de-asserted at the end of a transmit. The function triggers the transfer and the transfer itself utilizes the interrupt for FIFO operations in the background. Thus, frequent interrupts will be executed after this function is triggered. Since this API is non-blocking and sets up the interrupt to act on the data FIFO, ensure there will be no another instance of the function called before the current instance has completed execution.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">base</td><td>Holds the base address of the SMIF block registers.</td></tr>
@@ -555,12 +555,12 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>If the user provides a NULL pointer in this function and does not handle the FIFO transaction, this could either stall or timeout the operation. The transfer statuses returned by <a class="el" href="group__group__smif__low__level__functions.html#ga204a3b405014b0bda6bea07c210e6ecd">Cy_SMIF_GetTxfrStatus</a> are no longer valid.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>If the user provides a NULL pointer in this function and does not handle the FIFO transaction, this could either stall or timeout the operation. The transfer statuses returned by <a class="el" href="group__group__smif__low__level__functions.html#ga9b1a6bbecbb57233ea612d39d53b8f4c">Cy_SMIF_GetTransferStatus</a> are no longer valid.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">size</td><td>The size of txBuffer. Must be &gt; 0 and not greater than 65536.</td></tr>
     <tr><td class="paramname">transferWidth</td><td>The width of transfer <a class="el" href="group__group__smif__enums.html#gab71e4b1f4c80b3e8c82dd85570415e44">cy_en_smif_txfr_width_t</a>.</td></tr>
-    <tr><td class="paramname">TxCmpltCb</td><td>The callback executed at the end of a transmission. NULL interpreted as no callback.</td></tr>
+    <tr><td class="paramname">TxCompleteCb</td><td>The callback executed at the end of a transmission. NULL interpreted as no callback.</td></tr>
     <tr><td class="paramname">context</td><td>Passes a configuration structure that contains the transfer parameters of the SMIF block.</td></tr>
   </table>
   </dd>
@@ -573,8 +573,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="gad4c5219afe69a6a6da4e2f4c1c16dced"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad4c5219afe69a6a6da4e2f4c1c16dced">&#9670;&nbsp;</a></span>Cy_SMIF_TransmitDataBlocking()</h2>
+<a id="ga60ce9afb095c14426f272a75ed51c9be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga60ce9afb095c14426f272a75ed51c9be">&#9670;&nbsp;</a></span>Cy_SMIF_TransmitDataBlocking()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -588,7 +588,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramtype">uint8_t const *&#160;</td>
           <td class="paramname"><em>txBuffer</em>, </td>
         </tr>
         <tr>
@@ -627,7 +627,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>If the user provides a NULL pointer in this function and does not handle the FIFO transaction, this could either stall or timeout the operation. The transfer statuses returned by <a class="el" href="group__group__smif__low__level__functions.html#ga204a3b405014b0bda6bea07c210e6ecd">Cy_SMIF_GetTxfrStatus</a> are no longer valid.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>If the user provides a NULL pointer in this function and does not handle the FIFO transaction, this could either stall or timeout the operation. The transfer statuses returned by <a class="el" href="group__group__smif__low__level__functions.html#ga9b1a6bbecbb57233ea612d39d53b8f4c">Cy_SMIF_GetTransferStatus</a> are no longer valid.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">size</td><td>The size of txBuffer. Must be &gt; 0 and not greater than 65536.</td></tr>
@@ -646,8 +646,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga1de0ddec4fed5235d2a6d82ed36a8224"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1de0ddec4fed5235d2a6d82ed36a8224">&#9670;&nbsp;</a></span>Cy_SMIF_ReceiveData()</h2>
+<a id="ga1b365e1400ccd6580533a0c92deb48c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1b365e1400ccd6580533a0c92deb48c7">&#9670;&nbsp;</a></span>Cy_SMIF_ReceiveData()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -680,7 +680,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="group__group__smif__data__structures.html#ga13688dde62e8977a11ab69cf6b2c39b5">cy_smif_event_cb_t</a>&#160;</td>
-          <td class="paramname"><em>RxCmpltCb</em>, </td>
+          <td class="paramname"><em>RxCompleteCb</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -698,7 +698,7 @@ Functions</h2></td></tr>
 
 <p>This function implements the receive data phase in the memory command. </p>
 <p>The data is received into the RX Data FIFO using the RX_COUNT command. This function sets up the interrupt to trigger on the RX Data FIFO level, and the data is fetched from the RX Data FIFO to the rxBuffer as it gets filled. This function does not block until completion. The completion will trigger the call back function.</p>
-<dl class="section note"><dt>Note</dt><dd>This function is to be preceded by <a class="el" href="group__group__smif__low__level__functions.html#gacc14b1fa349b5d4cd422db6569f0b137">Cy_SMIF_TransmitCommand</a>. The slave select is de-asserted at the end of the receive. The function triggers the transfer and the transfer itself utilizes the interrupt for FIFO operations in the background. Thus, frequent interrupts will be executed after this function is triggered. This API is non-blocking and sets up the interrupt to act on the data FIFO, ensure there will be no another instance of the function called before the current instance has completed execution.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function is to be preceded by <a class="el" href="group__group__smif__low__level__functions.html#ga5abea630fca93c72faece8b23549cd11">Cy_SMIF_TransmitCommand</a>. The slave select is de-asserted at the end of the receive. The function triggers the transfer and the transfer itself utilizes the interrupt for FIFO operations in the background. Thus, frequent interrupts will be executed after this function is triggered. This API is non-blocking and sets up the interrupt to act on the data FIFO, ensure there will be no another instance of the function called before the current instance has completed execution.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">base</td><td>Holds the base address of the SMIF block registers.</td></tr>
@@ -706,12 +706,12 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>If the user provides a NULL pointer in this function and does not handle the FIFO transaction, this could either stall or timeout the operation. The transfer statuses returned by <a class="el" href="group__group__smif__low__level__functions.html#ga204a3b405014b0bda6bea07c210e6ecd">Cy_SMIF_GetTxfrStatus</a> are no longer valid.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>If the user provides a NULL pointer in this function and does not handle the FIFO transaction, this could either stall or timeout the operation. The transfer statuses returned by <a class="el" href="group__group__smif__low__level__functions.html#ga9b1a6bbecbb57233ea612d39d53b8f4c">Cy_SMIF_GetTransferStatus</a> are no longer valid.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">size</td><td>The size of data to be received. Must be &gt; 0 and not greater than 65536.</td></tr>
     <tr><td class="paramname">transferWidth</td><td>The width of transfer <a class="el" href="group__group__smif__enums.html#gab71e4b1f4c80b3e8c82dd85570415e44">cy_en_smif_txfr_width_t</a>.</td></tr>
-    <tr><td class="paramname">RxCmpltCb</td><td>The callback executed at the end of a reception. NULL interpreted as no callback.</td></tr>
+    <tr><td class="paramname">RxCompleteCb</td><td>The callback executed at the end of a reception. NULL interpreted as no callback.</td></tr>
     <tr><td class="paramname">context</td><td>Passes a configuration structure that contains the transfer parameters of the SMIF block.</td></tr>
   </table>
   </dd>
@@ -772,7 +772,7 @@ Functions</h2></td></tr>
 
 <p>This function implements the receive data phase in the memory command. </p>
 <p>The data is received into the RX Data FIFO using the RX_COUNT command. This function blocks until completion. The function does not use the interrupts and will use CPU to monitor the FIFO status and move data accordingly. The function returns only on completion.</p>
-<dl class="section note"><dt>Note</dt><dd>This function is to be preceded by <a class="el" href="group__group__smif__low__level__functions.html#gacc14b1fa349b5d4cd422db6569f0b137">Cy_SMIF_TransmitCommand</a>. The slave select is de-asserted at the end of the receive. Ensure there is no another transfers.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function is to be preceded by <a class="el" href="group__group__smif__low__level__functions.html#ga5abea630fca93c72faece8b23549cd11">Cy_SMIF_TransmitCommand</a>. The slave select is de-asserted at the end of the receive. Ensure there is no another transfers.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">base</td><td>Holds the base address of the SMIF block registers.</td></tr>
@@ -780,7 +780,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>If the user provides a NULL pointer in this function and does not handle the FIFO transaction, this could either stall or timeout the operation. The transfer statuses returned by <a class="el" href="group__group__smif__low__level__functions.html#ga204a3b405014b0bda6bea07c210e6ecd">Cy_SMIF_GetTxfrStatus</a> are no longer valid.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>If the user provides a NULL pointer in this function and does not handle the FIFO transaction, this could either stall or timeout the operation. The transfer statuses returned by <a class="el" href="group__group__smif__low__level__functions.html#ga9b1a6bbecbb57233ea612d39d53b8f4c">Cy_SMIF_GetTransferStatus</a> are no longer valid.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">size</td><td>The size of data to be received. Must be &gt; 0 and not greater than 65536.</td></tr>
@@ -828,7 +828,7 @@ Functions</h2></td></tr>
 
 <p>This function sends dummy-clock cycles. </p>
 <p>The data lines are tri-stated during the dummy cycles.</p>
-<dl class="section note"><dt>Note</dt><dd>This function is to be preceded by <a class="el" href="group__group__smif__low__level__functions.html#gacc14b1fa349b5d4cd422db6569f0b137">Cy_SMIF_TransmitCommand</a>.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function is to be preceded by <a class="el" href="group__group__smif__low__level__functions.html#ga5abea630fca93c72faece8b23549cd11">Cy_SMIF_TransmitCommand</a>.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">base</td><td>Holds the base address of the SMIF block registers.</td></tr>
@@ -845,16 +845,16 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga204a3b405014b0bda6bea07c210e6ecd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga204a3b405014b0bda6bea07c210e6ecd">&#9670;&nbsp;</a></span>Cy_SMIF_GetTxfrStatus()</h2>
+<a id="ga9b1a6bbecbb57233ea612d39d53b8f4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9b1a6bbecbb57233ea612d39d53b8f4c">&#9670;&nbsp;</a></span>Cy_SMIF_GetTransferStatus()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t Cy_SMIF_GetTxfrStatus </td>
+          <td class="memname">uint32_t Cy_SMIF_GetTransferStatus </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_s_m_i_f___type.html">SMIF_Type</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_s_m_i_f___type.html">SMIF_Type</a> const *&#160;</td>
           <td class="paramname"><em>base</em>, </td>
         </tr>
         <tr>
@@ -872,7 +872,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>This function provides the status of the transfer. </p>
-<p>This function is used to poll for the status of the TransmitData or receiveData function. When this function is called to determine the status of ongoing <a class="el" href="group__group__smif__low__level__functions.html#ga1de0ddec4fed5235d2a6d82ed36a8224">Cy_SMIF_ReceiveData()</a> or <a class="el" href="group__group__smif__low__level__functions.html#ga844fc7eb8b2f79e734a934b021616eaf">Cy_SMIF_TransmitData()</a>, the returned status is only valid if the functions passed a non-NULL buffer to transmit or receive respectively. If the pointer passed to <a class="el" href="group__group__smif__low__level__functions.html#ga1de0ddec4fed5235d2a6d82ed36a8224">Cy_SMIF_ReceiveData()</a> or <a class="el" href="group__group__smif__low__level__functions.html#ga844fc7eb8b2f79e734a934b021616eaf">Cy_SMIF_TransmitData()</a> is a NULL, then the code/DMA outside this driver will take care of the transfer and the Cy_GetTxfrStatus() will return an erroneous result.</p>
+<p>This function is used to poll for the status of the TransmitData or receiveData function. When this function is called to determine the status of ongoing <a class="el" href="group__group__smif__low__level__functions.html#ga1b365e1400ccd6580533a0c92deb48c7">Cy_SMIF_ReceiveData()</a> or <a class="el" href="group__group__smif__low__level__functions.html#gae84cdf32e45e492e80dea38f9d3a7586">Cy_SMIF_TransmitData()</a>, the returned status is only valid if the functions passed a non-NULL buffer to transmit or receive respectively. If the pointer passed to <a class="el" href="group__group__smif__low__level__functions.html#ga1b365e1400ccd6580533a0c92deb48c7">Cy_SMIF_ReceiveData()</a> or <a class="el" href="group__group__smif__low__level__functions.html#gae84cdf32e45e492e80dea38f9d3a7586">Cy_SMIF_TransmitData()</a> is a NULL, then the code/DMA outside this driver will take care of the transfer and the Cy_GetTxfrStatus() will return an erroneous result.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">base</td><td>Holds the base address of the SMIF block registers.</td></tr>
@@ -1368,7 +1368,7 @@ This is a blocking API. The API waits for encryption completion. Will exit if a 
 <li><a class="el" href="group__group__smif__enums.html#gga75fb83c49239ece738cfba778165cb41a858bf399de59819187ec0b3d8913107b">CY_SMIF_BAD_PARAM</a></li>
 </ul>
 </dd></dl>
-<dl class="section user"><dt>Function Usage</dt><dd><div class="fragment"><div class="line">    <span class="comment">/* Scenario:  Encrypt data in the txBuffer[] before writing data into the memory at the address=0x2000. */</span></div><div class="line"></div><div class="line">    <a class="code" href="structcy__stc__smif__context__t.html">cy_stc_smif_context_t</a> SMIF_context;  <span class="comment">/* This is a shared context structure.</span></div><div class="line"><span class="comment">                                          * It must be global</span></div><div class="line"><span class="comment">                                          */</span></div><div class="line"></div><div class="line"><span class="preprocessor">    #define MEMTEST_AES_KEY_SIZE (16)    </span><span class="comment">/* The AES key length */</span><span class="preprocessor"></span></div><div class="line"><span class="preprocessor">    #define PACKET_SIZE          (32u)   </span><span class="comment">/* The memory Read/Write packet */</span><span class="preprocessor"></span></div><div class="line"></div><div class="line">    <span class="comment">/* Data to encrypt */</span></div><div class="line">    uint8_t txBuffer[PACKET_SIZE] = {1u, 2u, 3u, 4u, 5u, 6u, 7u, 8u,</div><div class="line">                                     9u, 10u, 11u, 12u, 13u, 14u, 15u, 16u,</div><div class="line">                                     17u, 18u, 19u, 20u, 21u, 22u, 23u, 24u,</div><div class="line">                                     25u, 26u, 27u, 28u, 29u, 30u, 31u, 32u};</div><div class="line">    uint32_t address = 0x2000uL;  <span class="comment">/* The address to write data to  */</span></div><div class="line"></div><div class="line">    <span class="comment">/* The AES key.</span></div><div class="line"><span class="comment">    * Writing of the AES key should be from secure area of the code   </span></div><div class="line"><span class="comment">    */</span></div><div class="line">    uint8_t key[MEMTEST_AES_KEY_SIZE] = {0x54u, 0x68u, 0x61u, 0x74u, 0x73u, 0x20u, 0x6Du, 0x79u,</div><div class="line">                                         0x20u, 0x4Bu, 0x75u, 0x6Eu, 0x67u, 0x20u, 0x46u, 0x75u};</div><div class="line"></div><div class="line">    <span class="comment">/* Fill the key field in secure area of the code. */</span></div><div class="line">    SMIF-&gt;CRYPTO_KEY0 = Cy_SMIF_PackBytesArray(&amp;key[CY_SMIF_CRYPTO_FIRST_WORD], CY_SMIF_FOUR_BYTES);</div><div class="line">    SMIF-&gt;CRYPTO_KEY1 = Cy_SMIF_PackBytesArray(&amp;key[CY_SMIF_CRYPTO_SECOND_WORD], CY_SMIF_FOUR_BYTES);</div><div class="line">    SMIF-&gt;CRYPTO_KEY2 = Cy_SMIF_PackBytesArray(&amp;key[CY_SMIF_CRYPTO_THIRD_WORD] , CY_SMIF_FOUR_BYTES);</div><div class="line">    SMIF-&gt;CRYPTO_KEY3 = Cy_SMIF_PackBytesArray(&amp;key[CY_SMIF_CRYPTO_FOURTH_WORD], CY_SMIF_FOUR_BYTES);</div><div class="line"></div><div class="line">    <span class="comment">/* Encrypt data in txBuffer */</span></div><div class="line">    <span class="keywordflow">if</span> (<a class="code" href="group__group__smif__enums.html#gga75fb83c49239ece738cfba778165cb41af59dcc9751976e423239cac212df16cc">CY_SMIF_SUCCESS</a> != <a class="code" href="group__group__smif__low__level__functions.html#ga91a32005b94591adb8fd7daa1068ddbc">Cy_SMIF_Encrypt</a>(SMIF, address, txBuffer, <span class="keyword">sizeof</span>(txBuffer), &amp;SMIF_context))</div><div class="line">    {</div><div class="line">        <span class="comment">/* Insert error handling */</span></div><div class="line">    }</div><div class="line">    </div><div class="line">    <span class="comment">/* The second call of Cy_SMIF_Encrypt() decrypts data in txBuffer */</span></div><div class="line">    <span class="keywordflow">if</span> (<a class="code" href="group__group__smif__enums.html#gga75fb83c49239ece738cfba778165cb41af59dcc9751976e423239cac212df16cc">CY_SMIF_SUCCESS</a> != <a class="code" href="group__group__smif__low__level__functions.html#ga91a32005b94591adb8fd7daa1068ddbc">Cy_SMIF_Encrypt</a>(SMIF, address, txBuffer, <span class="keyword">sizeof</span>(txBuffer), &amp;SMIF_context))</div><div class="line">    {</div><div class="line">        <span class="comment">/* Insert error handling */</span></div><div class="line">    }</div><div class="line">    </div></div><!-- fragment --></dd></dl>
+<dl class="section user"><dt>Function Usage</dt><dd><div class="fragment"><div class="line">    <span class="comment">/* Scenario:  Encrypt data in the txBuffer[] before writing data into the memory at the address=0x2000. */</span></div><div class="line"></div><div class="line">    <a class="code" href="structcy__stc__smif__context__t.html">cy_stc_smif_context_t</a> SMIF_context;  <span class="comment">/* This is a shared context structure.</span></div><div class="line"><span class="comment">                                          * It must be global</span></div><div class="line"><span class="comment">                                          */</span></div><div class="line"></div><div class="line"><span class="preprocessor">    #define MEMTEST_AES_KEY_SIZE (16U)   </span><span class="comment">/* The AES key length */</span><span class="preprocessor"></span></div><div class="line"><span class="preprocessor">    #define PACKET_SIZE          (32U)   </span><span class="comment">/* The memory Read/Write packet */</span><span class="preprocessor"></span></div><div class="line"></div><div class="line">    <span class="comment">/* Data to encrypt */</span></div><div class="line">    uint8_t txBuffer[PACKET_SIZE] = {1U, 2U, 3U, 4U, 5U, 6U, 7U, 8U,</div><div class="line">                                     9U, 10U, 11U, 12U, 13U, 14U, 15U, 16U,</div><div class="line">                                     17U, 18U, 19U, 20U, 21U, 22U, 23U, 24U,</div><div class="line">                                     25U, 26U, 27U, 28U, 29U, 30U, 31U, 32U};</div><div class="line">    uint32_t address = 0x2000UL;  <span class="comment">/* The address to write data to  */</span></div><div class="line"></div><div class="line">    <span class="comment">/* The AES key.</span></div><div class="line"><span class="comment">    * Writing of the AES key should be from secure area of the code   </span></div><div class="line"><span class="comment">    */</span></div><div class="line">    uint8_t key[MEMTEST_AES_KEY_SIZE] = {0x54U, 0x68U, 0x61U, 0x74U, 0x73U, 0x20U, 0x6DU, 0x79U,</div><div class="line">                                         0x20U, 0x4BU, 0x75U, 0x6EU, 0x67U, 0x20U, 0x46U, 0x75U};</div><div class="line"></div><div class="line">    <span class="comment">/* Fill the key field in secure area of the code. */</span></div><div class="line">    SMIF-&gt;CRYPTO_KEY0 = Cy_SMIF_PackBytesArray(&amp;key[CY_SMIF_CRYPTO_FIRST_WORD], <span class="keyword">true</span>);</div><div class="line">    SMIF-&gt;CRYPTO_KEY1 = Cy_SMIF_PackBytesArray(&amp;key[CY_SMIF_CRYPTO_SECOND_WORD], <span class="keyword">true</span>);</div><div class="line">    SMIF-&gt;CRYPTO_KEY2 = Cy_SMIF_PackBytesArray(&amp;key[CY_SMIF_CRYPTO_THIRD_WORD], <span class="keyword">true</span>);</div><div class="line">    SMIF-&gt;CRYPTO_KEY3 = Cy_SMIF_PackBytesArray(&amp;key[CY_SMIF_CRYPTO_FOURTH_WORD], <span class="keyword">true</span>);</div><div class="line"></div><div class="line">    <span class="comment">/* Encrypt data in txBuffer */</span></div><div class="line">    <span class="keywordflow">if</span> (<a class="code" href="group__group__smif__enums.html#gga75fb83c49239ece738cfba778165cb41af59dcc9751976e423239cac212df16cc">CY_SMIF_SUCCESS</a> != <a class="code" href="group__group__smif__low__level__functions.html#ga91a32005b94591adb8fd7daa1068ddbc">Cy_SMIF_Encrypt</a>(SMIF, address, txBuffer, <span class="keyword">sizeof</span>(txBuffer), &amp;SMIF_context))</div><div class="line">    {</div><div class="line">        <span class="comment">/* Insert error handling */</span></div><div class="line">    }</div><div class="line">    </div><div class="line">    <span class="comment">/* The second call of Cy_SMIF_Encrypt() decrypts data in txBuffer */</span></div><div class="line">    <span class="keywordflow">if</span> (<a class="code" href="group__group__smif__enums.html#gga75fb83c49239ece738cfba778165cb41af59dcc9751976e423239cac212df16cc">CY_SMIF_SUCCESS</a> != <a class="code" href="group__group__smif__low__level__functions.html#ga91a32005b94591adb8fd7daa1068ddbc">Cy_SMIF_Encrypt</a>(SMIF, address, txBuffer, <span class="keyword">sizeof</span>(txBuffer), &amp;SMIF_context))</div><div class="line">    {</div><div class="line">        <span class="comment">/* Insert error handling */</span></div><div class="line">    }</div><div class="line">    </div></div><!-- fragment --></dd></dl>
 
 </div>
 </div>
@@ -1444,8 +1444,8 @@ This is a blocking API. The API waits for encryption completion. Will exit if a 
 
 </div>
 </div>
-<a id="gab95452fe32620ce8ca095fc5a347edf2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab95452fe32620ce8ca095fc5a347edf2">&#9670;&nbsp;</a></span>Cy_SMIF_CacheEnable()</h2>
+<a id="ga28f06f761c260849fa8e37d7a3f858dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga28f06f761c260849fa8e37d7a3f858dc">&#9670;&nbsp;</a></span>Cy_SMIF_CacheEnable()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1459,7 +1459,7 @@ This is a blocking API. The API waits for encryption completion. Will exit if a 
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group__group__smif__enums.html#gab87e475678ceb469a370830058938c48">cy_en_smif_cache_en_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="group__group__smif__enums.html#gaf7e001d5a1821a56324e8898913b21ef">cy_en_smif_cache_t</a>&#160;</td>
           <td class="paramname"><em>cacheType</em>&#160;</td>
         </tr>
         <tr>
@@ -1474,7 +1474,7 @@ This is a blocking API. The API waits for encryption completion. Will exit if a 
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">base</td><td>Holds the base address of the SMIF block registers.</td></tr>
-    <tr><td class="paramname">cacheType</td><td>Holds the type of the cache to be modified. <a class="el" href="group__group__smif__enums.html#gab87e475678ceb469a370830058938c48">cy_en_smif_cache_en_t</a></td></tr>
+    <tr><td class="paramname">cacheType</td><td>Holds the type of the cache to be modified. <a class="el" href="group__group__smif__enums.html#gaf7e001d5a1821a56324e8898913b21ef">cy_en_smif_cache_t</a></td></tr>
   </table>
   </dd>
 </dl>
@@ -1486,8 +1486,8 @@ This is a blocking API. The API waits for encryption completion. Will exit if a 
 
 </div>
 </div>
-<a id="ga7e1583db64ac408eb2e37e947950a42f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga7e1583db64ac408eb2e37e947950a42f">&#9670;&nbsp;</a></span>Cy_SMIF_CacheDisable()</h2>
+<a id="gacb0c1e80c19ef607a1efc70df6818ccb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacb0c1e80c19ef607a1efc70df6818ccb">&#9670;&nbsp;</a></span>Cy_SMIF_CacheDisable()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1501,7 +1501,7 @@ This is a blocking API. The API waits for encryption completion. Will exit if a 
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group__group__smif__enums.html#gab87e475678ceb469a370830058938c48">cy_en_smif_cache_en_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="group__group__smif__enums.html#gaf7e001d5a1821a56324e8898913b21ef">cy_en_smif_cache_t</a>&#160;</td>
           <td class="paramname"><em>cacheType</em>&#160;</td>
         </tr>
         <tr>
@@ -1516,7 +1516,7 @@ This is a blocking API. The API waits for encryption completion. Will exit if a 
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">base</td><td>Holds the base address of the SMIF block registers.</td></tr>
-    <tr><td class="paramname">cacheType</td><td>Holds the type of the cache to be modified. <a class="el" href="group__group__smif__enums.html#gab87e475678ceb469a370830058938c48">cy_en_smif_cache_en_t</a></td></tr>
+    <tr><td class="paramname">cacheType</td><td>Holds the type of the cache to be modified. <a class="el" href="group__group__smif__enums.html#gaf7e001d5a1821a56324e8898913b21ef">cy_en_smif_cache_t</a></td></tr>
   </table>
   </dd>
 </dl>
@@ -1528,8 +1528,8 @@ This is a blocking API. The API waits for encryption completion. Will exit if a 
 
 </div>
 </div>
-<a id="ga8fc18e9e7d677d7f2e0c1d1ac58f7fbb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8fc18e9e7d677d7f2e0c1d1ac58f7fbb">&#9670;&nbsp;</a></span>Cy_SMIF_CachePrefetchingEnable()</h2>
+<a id="ga0ff445110c019e30b942fb87878b32c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0ff445110c019e30b942fb87878b32c7">&#9670;&nbsp;</a></span>Cy_SMIF_CachePrefetchingEnable()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1543,7 +1543,7 @@ This is a blocking API. The API waits for encryption completion. Will exit if a 
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group__group__smif__enums.html#gab87e475678ceb469a370830058938c48">cy_en_smif_cache_en_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="group__group__smif__enums.html#gaf7e001d5a1821a56324e8898913b21ef">cy_en_smif_cache_t</a>&#160;</td>
           <td class="paramname"><em>cacheType</em>&#160;</td>
         </tr>
         <tr>
@@ -1558,7 +1558,7 @@ This is a blocking API. The API waits for encryption completion. Will exit if a 
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">base</td><td>Holds the base address of the SMIF block registers.</td></tr>
-    <tr><td class="paramname">cacheType</td><td>Holds the type of the cache to be modified. <a class="el" href="group__group__smif__enums.html#gab87e475678ceb469a370830058938c48">cy_en_smif_cache_en_t</a></td></tr>
+    <tr><td class="paramname">cacheType</td><td>Holds the type of the cache to be modified. <a class="el" href="group__group__smif__enums.html#gaf7e001d5a1821a56324e8898913b21ef">cy_en_smif_cache_t</a></td></tr>
   </table>
   </dd>
 </dl>
@@ -1570,8 +1570,8 @@ This is a blocking API. The API waits for encryption completion. Will exit if a 
 
 </div>
 </div>
-<a id="ga99344c52b0b02300a3d8ed99e534a9ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga99344c52b0b02300a3d8ed99e534a9ad">&#9670;&nbsp;</a></span>Cy_SMIF_CachePrefetchingDisable()</h2>
+<a id="gabbb34fe2a90c311a2e1fa23c66a21c81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabbb34fe2a90c311a2e1fa23c66a21c81">&#9670;&nbsp;</a></span>Cy_SMIF_CachePrefetchingDisable()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1585,7 +1585,7 @@ This is a blocking API. The API waits for encryption completion. Will exit if a 
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group__group__smif__enums.html#gab87e475678ceb469a370830058938c48">cy_en_smif_cache_en_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="group__group__smif__enums.html#gaf7e001d5a1821a56324e8898913b21ef">cy_en_smif_cache_t</a>&#160;</td>
           <td class="paramname"><em>cacheType</em>&#160;</td>
         </tr>
         <tr>
@@ -1600,7 +1600,7 @@ This is a blocking API. The API waits for encryption completion. Will exit if a 
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">base</td><td>Holds the base address of the SMIF block registers.</td></tr>
-    <tr><td class="paramname">cacheType</td><td>Holds the type of the cache to be modified. <a class="el" href="group__group__smif__enums.html#gab87e475678ceb469a370830058938c48">cy_en_smif_cache_en_t</a></td></tr>
+    <tr><td class="paramname">cacheType</td><td>Holds the type of the cache to be modified. <a class="el" href="group__group__smif__enums.html#gaf7e001d5a1821a56324e8898913b21ef">cy_en_smif_cache_t</a></td></tr>
   </table>
   </dd>
 </dl>
@@ -1612,8 +1612,8 @@ This is a blocking API. The API waits for encryption completion. Will exit if a 
 
 </div>
 </div>
-<a id="ga93036af50ddd10ec813f3e68dd4974d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga93036af50ddd10ec813f3e68dd4974d3">&#9670;&nbsp;</a></span>Cy_SMIF_CacheInvalidate()</h2>
+<a id="ga72240c0ce8307c50b65c4fca45c9cd30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga72240c0ce8307c50b65c4fca45c9cd30">&#9670;&nbsp;</a></span>Cy_SMIF_CacheInvalidate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1627,7 +1627,7 @@ This is a blocking API. The API waits for encryption completion. Will exit if a 
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group__group__smif__enums.html#gab87e475678ceb469a370830058938c48">cy_en_smif_cache_en_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="group__group__smif__enums.html#gaf7e001d5a1821a56324e8898913b21ef">cy_en_smif_cache_t</a>&#160;</td>
           <td class="paramname"><em>cacheType</em>&#160;</td>
         </tr>
         <tr>
@@ -1642,7 +1642,7 @@ This is a blocking API. The API waits for encryption completion. Will exit if a 
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">base</td><td>Holds the base address of the SMIF block registers.</td></tr>
-    <tr><td class="paramname">cacheType</td><td>Holds the type of the cache to be modified. <a class="el" href="group__group__smif__enums.html#gab87e475678ceb469a370830058938c48">cy_en_smif_cache_en_t</a></td></tr>
+    <tr><td class="paramname">cacheType</td><td>Holds the type of the cache to be modified. <a class="el" href="group__group__smif__enums.html#gaf7e001d5a1821a56324e8898913b21ef">cy_en_smif_cache_t</a></td></tr>
   </table>
   </dd>
 </dl>

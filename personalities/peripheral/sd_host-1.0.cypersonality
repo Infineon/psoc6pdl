@@ -34,7 +34,7 @@
   <ExposedMembers />
   <Parameters>
     <!-- PDL documentation -->
-    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path(&quot;psoc6sw&quot;)}`/docs/pdl_api_reference_manual/html/group__group__sd__host.html" linkText="Open SD Host Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
+    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path()}`/docs/pdl_api_reference_manual/html/group__group__sd__host.html" linkText="Open SD Host Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
 
     <!-- Timing -->
     <ParamSignal port="clk_hf[0]" name="Clock" group="Timing" visible="true" desc="Input clock source of the SDHC block." canBeEmpty="false" />
@@ -285,6 +285,8 @@
   
   <ConfigFirmware>
     <ConfigInclude value="cy_sd_host.h" include="true" />
+    <ConfigInclude value="cyhal_hwmgr.h" include="true" guard="defined (CY_USING_HAL)" />
+    
     <ConfigDefine name="`${INST_NAME . &quot;_HW&quot;}`" value="SDHC`${InstNumber}`" public="true" include="true" />
     <ConfigDefine name="`${INST_NAME}`_IRQ" value="sdhc_`${InstNumber}`_interrupt_general_IRQn" public="true" include="true" />
     <ConfigVariable name="`${INST_NAME . &quot;_cardCapacity&quot;}`" type="cy_en_sd_host_card_capacity_t" const="false" value="CY_SD_HOST_SDSC" public="true" include="true" />
@@ -304,5 +306,13 @@
       <Member name="rca" value="&amp;`${INST_NAME . &quot;_rca&quot;}`" />
       <Member name="cardCapacity" value="&amp;`${INST_NAME . &quot;_cardCapacity&quot;}`" />
     </ConfigStruct>
+    
+    <ConfigStruct name="`${INST_NAME}`_obj" type="cyhal_resource_inst_t" const="true" public="true" include="true" guard="defined (CY_USING_HAL)">
+      <Member name="type" value="CYHAL_RSC_SDHC" />
+      <Member name="block_num" value="`${getInstNumber(&quot;sdhc&quot;)}`U" />
+      <Member name="channel_num" value="0U" />
+    </ConfigStruct>
+    
+    <ConfigInstruction value="cyhal_hwmgr_reserve(&amp;`${INST_NAME}`_obj);" include="true" guard="defined (CY_USING_HAL)" />
   </ConfigFirmware>
 </Personality>

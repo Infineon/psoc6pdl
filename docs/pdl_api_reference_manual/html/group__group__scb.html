@@ -126,6 +126,8 @@ Changelog</h1>
 <tr>
 <th>Version</th><th>Changes</th><th>Reason for Change </th></tr>
 <tr>
+<td>2.30.1 </td><td>Added header guards CY_IP_MXSCB. </td><td>To enable the PDL compilation with wounded out IP blocks.  </td></tr>
+<tr>
 <td rowspan="5">2.30 </td><td>Fixed MISRA violation. </td><td>MISRA compliance.  </td></tr>
 <tr>
 <td>Changed values CY_SCB_SPI_CPHA0_CPOL1 and CY_SCB_SPI_CPHA1_CPOL0 in enum <a class="el" href="group__group__scb__spi__enums.html#gab34eae51343cebfec7c447a573cdf0ba">cy_en_scb_spi_sclk_mode_t</a>. </td><td>The incorrect values in <a class="el" href="group__group__scb__spi__enums.html#gab34eae51343cebfec7c447a573cdf0ba">cy_en_scb_spi_sclk_mode_t</a> caused incorrect initialization of the combination of phases and polarity: "CHPA = 0, CPOL = 1" and "CHPA = 1, CPOL = 0".   </td></tr>

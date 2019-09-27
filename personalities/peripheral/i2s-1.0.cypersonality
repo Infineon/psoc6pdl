@@ -34,7 +34,7 @@
   <ExposedMembers />
   <Parameters>
     <!-- PDL documentation -->
-    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path(&quot;psoc6sw&quot;)}`/docs/pdl_api_reference_manual/html/group__group__i2s.html" linkText="Open I2S Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
+    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path()}`/docs/pdl_api_reference_manual/html/group__group__i2s.html" linkText="Open I2S Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
 
     <!-- Timing -->
     <ParamSignal port="clock[0]" name="Clock" group="Timing" visible="true" desc="Input clock source" canBeEmpty="false" />
@@ -294,6 +294,7 @@
 
   <ConfigFirmware>
     <ConfigInclude value="cy_i2s.h" include="true" />
+    <ConfigInclude value="cyhal_hwmgr.h" include="true" guard="defined (CY_USING_HAL)" />
     
     <ConfigDefine name="`${INST_NAME}`_HW" value="I2S`${InstNumber}`" public="true" include="true" />
     <ConfigDefine name="`${INST_NAME}`_IRQ" value="audioss_`${InstNumber}`_interrupt_i2s_IRQn" public="true" include="true" />
@@ -331,7 +332,14 @@
       <Member name="rxSignExtension"       value="`${rxSignExtension}`" />
       <Member name="rxFifoTriggerLevel"    value="`${rxFifoTriggerLevel}`" />
     </ConfigStruct>
-
+    
+    <ConfigStruct name="`${INST_NAME}`_obj" type="cyhal_resource_inst_t" const="true" public="true" include="true" guard="defined (CY_USING_HAL)">
+      <Member name="type" value="CYHAL_RSC_I2S" />
+      <Member name="block_num" value="`${getInstNumber(&quot;audioss&quot;)}`U" />
+      <Member name="channel_num" value="0U" />
+    </ConfigStruct>
+    
+    <ConfigInstruction value="cyhal_hwmgr_reserve(&amp;`${INST_NAME}`_obj);" include="true" guard="defined (CY_USING_HAL)" />
   </ConfigFirmware>
 
 </Personality>

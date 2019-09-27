@@ -1,6 +1,8 @@
 var searchData=
 [
   ['enumerated_20types',['Enumerated Types',['../group__group__ble__clk__data__type.html',1,'']]],
+  ['enumerated_20types',['Enumerated Types',['../group__group__canfd__enums.html',1,'']]],
+  ['error_20interrupt_20masks',['Error Interrupt masks',['../group__group__canfd__error__interrupt__masks.html',1,'']]],
   ['enumerated_20types',['Enumerated Types',['../group__group__crypto__lld__asymmetric__enums.html',1,'']]],
   ['enumerated_20types',['Enumerated Types',['../group__group__csd__enums.html',1,'']]],
   ['enumerated_20types',['Enumerated Types',['../group__group__ctb__enums.html',1,'']]],

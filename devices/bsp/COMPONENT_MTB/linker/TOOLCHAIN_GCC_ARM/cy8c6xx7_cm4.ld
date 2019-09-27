@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cy8c6xx7_cm4.ld
-* \version 2.50
+* \version 2.60
 *
 * Linker file for the GNU C compiler.
 *
@@ -40,6 +40,7 @@ SEARCH_DIR(.)
 GROUP(-lgcc -lc -lnosys)
 ENTRY(Reset_Handler)
 
+/* Size of the stack section at the end of CM4 SRAM */
 STACK_SIZE = 0x1000;
 
 /* Force symbol to be entered in the output file as an undefined symbol. Doing
@@ -50,13 +51,12 @@ STACK_SIZE = 0x1000;
 */
 EXTERN(Reset_Handler)
 
-
 /* The MEMORY section below describes the location and size of blocks of memory in the target.
 * Use this section to specify the memory regions available for allocation.
 */
 MEMORY
 {
-    /* The ram and flash regions control RAM and flash memory allocation for the CM4 core. 
+    /* The ram and flash regions control RAM and flash memory allocation for the CM4 core.
      * Note that 2176 bytes of RAM (at the end of the SRAM) are reserved for system use.
      * Using this memory region for other purposes will lead to unexpected behavior.
      */
@@ -68,18 +68,17 @@ MEMORY
      * Note some middleware (e.g. BLE, Emulated EEPROM) can place their data into this memory region.
      * Therefore, repurposing this memory region will prevent such middleware from operation.
      */
-    em_eeprom         (rx)    : ORIGIN = 0x14000000, LENGTH = 0x8000          /*  32 KB */
-    
-    /* The following regions define device specific memory regions and must not be changed. */
-    sflash_user_data  (rx)    : ORIGIN = 0x16000800, LENGTH = 0x800           /* Supervisory flash: User data */
-    sflash_nar        (rx)    : ORIGIN = 0x16001A00, LENGTH = 0x200           /* Supervisory flash: Normal Access Restrictions (NAR) */
-    sflash_public_key (rx)    : ORIGIN = 0x16005A00, LENGTH = 0xC00           /* Supervisory flash: Public Key */
-    sflash_toc_2      (rx)    : ORIGIN = 0x16007C00, LENGTH = 0x200           /* Supervisory flash: Table of Content # 2 */
-    sflash_rtoc_2     (rx)    : ORIGIN = 0x16007E00, LENGTH = 0x200           /* Supervisory flash: Table of Content # 2 Copy */
-    xip               (rx)    : ORIGIN = 0x18000000, LENGTH = 0x8000000       /* 128 MB */
-    efuse             (r)     : ORIGIN = 0x90700000, LENGTH = 0x100000        /*   1 MB */
-}
+    em_eeprom         (rx)    : ORIGIN = 0x14000000, LENGTH = 0x8000       /*  32 KB */
 
+    /* The following regions define device specific memory regions and must not be changed. */
+    sflash_user_data  (rx)    : ORIGIN = 0x16000800, LENGTH = 0x800        /* Supervisory flash: User data */
+    sflash_nar        (rx)    : ORIGIN = 0x16001A00, LENGTH = 0x200        /* Supervisory flash: Normal Access Restrictions (NAR) */
+    sflash_public_key (rx)    : ORIGIN = 0x16005A00, LENGTH = 0xC00        /* Supervisory flash: Public Key */
+    sflash_toc_2      (rx)    : ORIGIN = 0x16007C00, LENGTH = 0x200        /* Supervisory flash: Table of Content # 2 */
+    sflash_rtoc_2     (rx)    : ORIGIN = 0x16007E00, LENGTH = 0x200        /* Supervisory flash: Table of Content # 2 Copy */
+    xip               (rx)    : ORIGIN = 0x18000000, LENGTH = 0x8000000    /* 128 MB */
+    efuse             (r)     : ORIGIN = 0x90700000, LENGTH = 0x100000     /*   1 MB */
+}
 
 /* Library configurations */
 GROUP(libgcc.a libc.a libm.a libnosys.a)
@@ -120,7 +119,7 @@ GROUP(libgcc.a libc.a libm.a libnosys.a)
 
 SECTIONS
 {
-    /* Cortex-M4 application image */
+    /* Cortex-M4 application flash area */
     .text :
     {
         /* Cortex-M4 flash vector table */
@@ -236,7 +235,6 @@ SECTIONS
         KEEP(*(SORT(.init_array.*)))
         KEEP(*(.init_array))
         PROVIDE_HIDDEN (__init_array_end = .);
-
 
         . = ALIGN(4);
         /* finit data */
@@ -359,8 +357,8 @@ SECTIONS
     {
         KEEP(*(.cy_toc_part2))
     } > sflash_toc_2
-    
-    
+
+
     /* Supervisory Flash: Table of Content # 2 Copy */
     .cy_rtoc_part2 :
     {

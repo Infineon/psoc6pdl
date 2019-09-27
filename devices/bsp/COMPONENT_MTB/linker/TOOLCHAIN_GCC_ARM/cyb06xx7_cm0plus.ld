@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cyb06xx7_cm0plus.ld
-* \version 2.50
+* \version 2.60
 *
 * Linker file for the GNU C compiler.
 *
@@ -40,6 +40,7 @@ SEARCH_DIR(.)
 GROUP(-lgcc -lc -lnosys)
 ENTRY(Reset_Handler)
 
+/* Size of the stack section at the end of CM0+ SRAM */
 STACK_SIZE = 0x1000;
 
 /* Force symbol to be entered in the output file as an undefined symbol. Doing
@@ -62,8 +63,8 @@ MEMORY
      * Your changes must be aligned with the corresponding memory regions for the CM4 core in 'xx_cm4_dual.ld',
      * where 'xx' is the device group; for example, 'cy8c6xx7_cm4_dual.ld'.
      */
-    ram               (rwx)   : ORIGIN = 0x08024000, LENGTH = 0x23800
-    flash             (rx)    : ORIGIN = 0x100C0000, LENGTH = 0x40000
+    ram               (rwx)   : ORIGIN = 0x08020000, LENGTH = 0x27800
+    flash             (rx)    : ORIGIN = 0x100D0000, LENGTH = 0x30000
 
     /* This is a 32K flash region used for EEPROM emulation. This region can also be used as the general purpose flash.
      * You can assign sections to this memory region for only one of the cores.
@@ -126,6 +127,7 @@ SECTIONS
         KEEP(*(.cy_app_header))
     } > flash
 
+    /* Cortex-M0+ application flash area */
     .text :
     {
         . = ALIGN(4);
@@ -298,7 +300,7 @@ SECTIONS
         __end__ = .;
         end = __end__;
         KEEP(*(.heap*))
-		. = ORIGIN(ram) + LENGTH(ram) - STACK_SIZE;
+        . = ORIGIN(ram) + LENGTH(ram) - STACK_SIZE;
         __HeapLimit = .;
     } > ram
 
@@ -356,7 +358,7 @@ SECTIONS
         KEEP(*(.cy_toc_part2))
     } > sflash_toc_2
 
-    
+
     /* Supervisory Flash: Table of Content # 2 Copy */
     .cy_rtoc_part2 :
     {

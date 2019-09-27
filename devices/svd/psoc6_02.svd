@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator version: 1.5.0.1274 -->
+<!-- Generator version: 1.5.0.1287 -->
 <device schemaVersion="1.3" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="CMSIS-SVD.xsd">
   <vendor>Cypress Semiconductor</vendor>
   <vendorID>Cypress</vendorID>
@@ -55,8 +55,8 @@
           <fields>
             <field>
               <name>TIMEOUT</name>
-              <description>This field specifies a number of peripheral group (clk_group) clock cycles. If an AHB-Lite bus transfer takes more than the specified number of cycles (timeout detection), the bus transfer is terminated with an AHB-Lite bus error and a fault is generated (and possibly recorded in the fault report structure(s)).
-'0x0000'-'0xfffe': Number of peripheral group clock cycles.
+              <description>This field specifies a number of clock cycles (clk_slow). If an AHB-Lite bus transfer takes more than the specified number of cycles (timeout detection), the bus transfer is terminated with an AHB-Lite bus error and a fault is generated (and possibly recorded in the fault report structure(s)).
+'0x0000'-'0xfffe': Number of clock cycles.
 '0xffff': This value is the default/reset value and specifies that no timeout detection is performed: a bus transfer will never be terminated and a fault will never be generated.</description>
               <bitRange>[15:0]</bitRange>
               <access>read-write</access>
@@ -5182,7 +5182,7 @@ The SRAM contents will be retained in DeepSleep system power mode.</description>
           <fields>
             <field>
               <name>UP</name>
-              <description>Number clock cycles delay needed after power domain power up</description>
+              <description>Number clock cycles (clk_slow) delay needed after power domain power up</description>
               <bitRange>[9:0]</bitRange>
               <access>read-write</access>
             </field>
@@ -6016,14 +6016,14 @@ DATA1[31:28]: '0': decoder or peripheral bus error, other: undefined.</descripti
                   <enumeratedValue>
                     <name>FLASHC_MAIN_BUS_ERROR</name>
                     <description>Flash controller, main interface, bus error:
-FAULT_DATA0[26:0]: Violating address.
+FAULT_DATA0[26:0]: Violating address. Append 5'b00010 as most significant bits to derive 32-bit system address.
 FAULT_DATA1[11:8]: Master identifier.</description>
                     <value>48</value>
                   </enumeratedValue>
                   <enumeratedValue>
                     <name>FLASHC_MAIN_C_ECC</name>
                     <description>Flash controller, main interface, correctable ECC error:
-DATA[26:0]: Violating address.
+DATA[26:0]: Violating address.  Append 5'b00010 as most significant bits to derive 32-bit system address.
 DATA1[7:0]: Syndrome of 64-bit word (at address offset 0x00).
 DATA1[15:8]: Syndrome of 64-bit word (at address offset 0x08).
 DATA1[23:16]: Syndrome of 64-bit word (at address offset 0x10).
@@ -6038,14 +6038,14 @@ DATA1[31:24]: Syndrome of 64-bit word (at address offset 0x18).</description>
                   <enumeratedValue>
                     <name>FLASHC_WORK_BUS_ERROR</name>
                     <description>Flash controller, work interface, bus error.
-FAULT_DATA0[26:0]: Violating address.
+FAULT_DATA0[26:0]: Violating address. Append 5'b00010 as most significant bits to derive 32-bit system address.
 FAULT_DATA1[11:8]: Master identifier.</description>
                     <value>51</value>
                   </enumeratedValue>
                   <enumeratedValue>
                     <name>FLASHC_WORK_C_ECC</name>
                     <description>Flash controller, work interface, correctable ECC error:
-DATA0[26:0]: Violating address.
+DATA0[26:0]: Violating address.  Append 5'b00010 as most significant bits to derive 32-bit system address.
 DATA1[6:0]: Syndrome of 32-bit word.</description>
                     <value>52</value>
                   </enumeratedValue>
@@ -7838,6 +7838,31 @@ Note: this field is NOT used by the DW controllers, DMA controller and CRYPTO co
 Note: this field is ONLY used by the CM0+.</description>
                 <bitRange>[19:16]</bitRange>
                 <access>read-write</access>
+              </field>
+            </fields>
+          </register>
+          <register>
+            <dim>127</dim>
+            <dimIncrement>4</dimIncrement>
+            <name>MS_CTL_READ_MIR[%s]</name>
+            <description>Master control read mirror</description>
+            <addressOffset>0x4</addressOffset>
+            <size>32</size>
+            <access>read-only</access>
+            <resetValue>0x0</resetValue>
+            <resetMask>0xF000F</resetMask>
+            <fields>
+              <field>
+                <name>PC</name>
+                <description>Read-only mirror of MS_CTL.PC</description>
+                <bitRange>[3:0]</bitRange>
+                <access>read-only</access>
+              </field>
+              <field>
+                <name>PC_SAVED</name>
+                <description>Read-only mirror of MS_CTL.PC_SAVED</description>
+                <bitRange>[19:16]</bitRange>
+                <access>read-only</access>
               </field>
             </fields>
           </register>
@@ -12441,9 +12466,9 @@ Ffll = (FLL_MULT)  * (Fref / REFERENCE_DIV) / (OUTPUT_DIV+1)</description>
               <name>FLL_ENABLE</name>
               <description>Master enable for FLL.  The FLL requires firmware sequencing when enabling, disabling, and entering/exiting DEEPSLEEP.
 
-To enable the FLL, first enable the CCO by writing CLK_FLL_CONFIG4.CCO_ENABLE=1 and wait until CLK_FLL_STATUS.CCO_READY==1.  Next, ensure the reference clock has stabilized and CLK_FLL_CONFIG3.BYPASS_SEL=FLL_REF.  Next, write FLL_ENABLE=1 and wait until CLK_FLL_STATUS.LOCKED==1.  Finally, write CLK_FLL_CONFIG3.BYPASS_SEL=FLL_OUT to switch to the FLL output.
+To enable the FLL, first enable the CCO by writing CLK_FLL_CONFIG4.CCO_ENABLE=1 and wait until CLK_FLL_STATUS.CCO_READY==1.  Next, ensure the reference clock has stabilized and CLK_FLL_CONFIG3.BYPASS_SEL=FLL_REF.  Next, write FLL_ENABLE=1 and wait until CLK_FLL_STATUS.LOCKED==1.  Finally, write CLK_FLL_CONFIG3.BYPASS_SEL=FLL_OUT to switch to the FLL output.  It takes seven reference clock cycles plus four FLL output cycles to switch to the FLL output.  Do not disable the FLL before this time completes.
 
-To disable the FLL, first ensure the processor is operating from a different clock than clk_path0.  If the muxes are changed, wait four FLL output clock cycles for it to complete.  Next, write CLK_FLL_CONFIG3.BYPASS_SEL=FLL_REF and read the same register to ensure the write completes.  Then, wait at least six FLL reference clock cycles and disable it with FLL_ENABLE=0.  Lastly, disable the CCO by writing CLK_FLL_CONFIG4.CCO_ENABLE=0.
+To disable the FLL, write CLK_FLL_CONFIG3.BYPASS_SEL=FLL_REF and (optionally) read the same register to ensure the write completes.  Then, wait at least seven FLL reference clock cycles before disabling it with FLL_ENABLE=0.  Lastly, disable the CCO by writing CLK_FLL_CONFIG4.CCO_ENABLE=0.
 
 Before entering DEEPSLEEP, either disable the FLL using above sequence or use the following procedure to deselect/select it before/after DEEPSLEEP.  Before entering DEEPSLEEP, write CLK_FLL_CONFIG3.BYPASS_SEL=FLL_REF to change the FLL to use its reference clock.  After DEEPSLEEP wakeup, wait until CLK_FLL_STATUS.LOCKED==1 and then write CLK_FLL_CONFIG3.BYPASS_SEL=FLL_OUT to switch to the FLL output.
 
@@ -12544,7 +12569,7 @@ Before entering DEEPSLEEP, either disable the FLL using above sequence or use th
             </field>
             <field>
               <name>BYPASS_SEL</name>
-              <description>Bypass mux located just after FLL output.</description>
+              <description>Bypass mux located just after FLL output.  See FLL_ENABLE description for instructions on how to use this field when enabling/disabling the FLL.</description>
               <bitRange>[29:28]</bitRange>
               <access>read-write</access>
               <enumeratedValues>
@@ -13561,7 +13586,7 @@ After enabling the WCO software must wait until STATUS.WCO_OK=1 before configuri
             </field>
             <field>
               <name>VBACKUP_MEAS</name>
-              <description>Connect vbackup supply to the vbackup_meas output for measurement by an ADC attached to amuxbusa_adft_vddd.  The vbackup_meas signal is scaled by 40 percent so it is within the supply range of the ADC.</description>
+              <description>Connect vbackup supply to the vbackup_meas output for measurement by an ADC attached to amuxbusa_adft_vddd.  The vbackup_meas signal is scaled to 10 percent of vbackup, so it is within the supply range of the ADC.</description>
               <bitRange>[19:19]</bitRange>
               <access>read-write</access>
             </field>
@@ -14236,7 +14261,9 @@ When '1', the parity (ECC_CTL.PARITY) is used when a full 32-bit write is done t
             </field>
             <field>
               <name>ENABLED</name>
-              <description>N/A</description>
+              <description>IP enable:
+'0': Disabled. Disabling the IP activates the IP's Active logic reset: Active logic and non-retention MMIO registers are reset (retention MMIO registers are not affected).
+'1': Enabled.</description>
               <bitRange>[31:31]</bitRange>
               <access>read-write</access>
             </field>
@@ -14333,7 +14360,7 @@ When '1', the parity (ECC_CTL.PARITY) is used when a full 32-bit write is done t
           <fields>
             <field>
               <name>DATA</name>
-              <description>N/A</description>
+              <description>Copy of DESCR_CTL of the currently active descriptor.</description>
               <bitRange>[31:0]</bitRange>
               <access>read-only</access>
             </field>
@@ -14350,7 +14377,7 @@ When '1', the parity (ECC_CTL.PARITY) is used when a full 32-bit write is done t
           <fields>
             <field>
               <name>DATA</name>
-              <description>N/A</description>
+              <description>Copy of DESCR_SRC of the currently active descriptor.</description>
               <bitRange>[31:0]</bitRange>
               <access>read-only</access>
             </field>
@@ -14367,7 +14394,7 @@ When '1', the parity (ECC_CTL.PARITY) is used when a full 32-bit write is done t
           <fields>
             <field>
               <name>DATA</name>
-              <description>N/A</description>
+              <description>Copy of DESCR_DST of the currently active descriptor.</description>
               <bitRange>[31:0]</bitRange>
               <access>read-only</access>
             </field>
@@ -14384,7 +14411,7 @@ When '1', the parity (ECC_CTL.PARITY) is used when a full 32-bit write is done t
           <fields>
             <field>
               <name>DATA</name>
-              <description>N/A</description>
+              <description>Copy of DESCR_X_CTL of the currently active descriptor.</description>
               <bitRange>[31:0]</bitRange>
               <access>read-only</access>
             </field>
@@ -14401,7 +14428,7 @@ When '1', the parity (ECC_CTL.PARITY) is used when a full 32-bit write is done t
           <fields>
             <field>
               <name>DATA</name>
-              <description>N/A</description>
+              <description>Copy of DESCR_Y_CTL of the currently active descriptor.</description>
               <bitRange>[31:0]</bitRange>
               <access>read-only</access>
             </field>
@@ -14418,7 +14445,7 @@ When '1', the parity (ECC_CTL.PARITY) is used when a full 32-bit write is done t
           <fields>
             <field>
               <name>ADDR</name>
-              <description>N/A</description>
+              <description>Copy of DESCR_NEXT_PTR of the currently active descriptor.</description>
               <bitRange>[31:2]</bitRange>
               <access>read-only</access>
             </field>
@@ -14435,7 +14462,7 @@ When '1', the parity (ECC_CTL.PARITY) is used when a full 32-bit write is done t
           <fields>
             <field>
               <name>SRC_ADDR</name>
-              <description>N/A</description>
+              <description>Current address of source location.</description>
               <bitRange>[31:0]</bitRange>
               <access>read-only</access>
             </field>
@@ -14452,7 +14479,7 @@ When '1', the parity (ECC_CTL.PARITY) is used when a full 32-bit write is done t
           <fields>
             <field>
               <name>DST_ADDR</name>
-              <description>N/A</description>
+              <description>Current address of destination location.</description>
               <bitRange>[31:0]</bitRange>
               <access>read-only</access>
             </field>
@@ -14622,43 +14649,79 @@ Note: This field is combinatorially derived from CRC_LFSR_CTL.LFSR32, CRC_CTL.RE
             <fields>
               <field>
                 <name>P</name>
-                <description>N/A</description>
+                <description>User/privileged access control:
+'0': user mode.
+'1': privileged mode.
+
+This field is set with the user/privileged access control of the transaction that writes this register; i.e.  the 'write data' is ignored and instead the access control is inherited from the write transaction (note the field attributes should be HW:RW, SW:R).
+
+All transactions for this channel use the P field for the user/privileged access control ('hprot[1]').</description>
                 <bitRange>[0:0]</bitRange>
                 <access>read-write</access>
               </field>
               <field>
                 <name>NS</name>
-                <description>N/A</description>
+                <description>Secure/on-secure access control:
+'0': secure.
+'1': non-secure.
+
+This field is set with the secure/non-secure access control of the transaction that writes this register; i.e.  the 'write data' is ignored and instead the access control is inherited from the write transaction (note the field attributes should be HW:RW, SW:R).
+
+All transactions for this channel use the NS field for the secure/non-secure access control ('hprot[4]').</description>
                 <bitRange>[1:1]</bitRange>
                 <access>read-write</access>
               </field>
               <field>
                 <name>B</name>
-                <description>N/A</description>
+                <description>Non-bufferable/bufferable access control:
+'0': non-bufferable.
+'1': bufferable.
+
+This field is used to indicate to an AMBA bridge that a write transaction can complete without waiting for the destination to accept the write transaction data.
+
+All transactions for this channel uses the B field for the non-bufferable/bufferable access control ('hprot[2]').</description>
                 <bitRange>[2:2]</bitRange>
                 <access>read-write</access>
               </field>
               <field>
                 <name>PC</name>
-                <description>N/A</description>
+                <description>Protection context.
+
+This field is set with the protection context of the transaction that writes this register;  i.e.  the 'write data' is ignored and instead the context is inherited from the write transaction (note the field attributes should be HW:RW, SW:R).
+
+All transactions for this channel uses the PC field for the protection context.</description>
                 <bitRange>[7:4]</bitRange>
                 <access>read-write</access>
               </field>
               <field>
                 <name>PRIO</name>
-                <description>N/A</description>
+                <description>Channel priority:
+'0': highest priority.
+'1'
+'2'
+'3': lowest priority.
+
+Channels with the same priority constitute a priority group. Priority decoding determines the highest priority pending channel. This channel is determined as follows. First, the highest priority group with pending channels is identified. Second, within this priority group, round robin arbitration is applied. Round robin arbitration (within a priority group) gives the highest priority to the lower channel indices (within the priority group).</description>
                 <bitRange>[9:8]</bitRange>
                 <access>read-write</access>
               </field>
               <field>
                 <name>PREEMPTABLE</name>
-                <description>N/A</description>
+                <description>Specifies if the channel is preemptable.
+'0': Not preemptable.
+'1': Preemptable. This field allows higher priority pending channels (from a higher priority group; i.e. an active channel can NOT be preempted by a pending channel in the same priority group) to preempt the active channel in between 'single transfers' (a 1D transfer consists out of X_COUNT single transfers; a 2D transfer consists out of X_COUNT*Y_COUNT single transfers). Preemption will NOT affect the pending status of channel. As a result, after completion of a higher priority activated channel, the current channel may be reactivated.</description>
                 <bitRange>[11:11]</bitRange>
                 <access>read-write</access>
               </field>
               <field>
                 <name>ENABLED</name>
-                <description>N/A</description>
+                <description>Channel enable:
+'0': Disabled. The channel's trigger is ignored and the channel cannot be made pending and therefore cannot be made active. If a pending channel is disabled, the channel is made non pending. If the activate channel is disabled, the channel is de-activated (bus transactions are completed). 
+'1': Enabled.
+
+SW sets this field to '1' to enable a specific channel.
+
+HW sets this field to '0' on an error interrupt cause (the specific error is specified by CH_STATUS.INTR_CAUSE).</description>
                 <bitRange>[31:31]</bitRange>
                 <access>read-write</access>
               </field>
@@ -14675,13 +14738,25 @@ Note: This field is combinatorially derived from CRC_LFSR_CTL.LFSR32, CRC_CTL.RE
             <fields>
               <field>
                 <name>INTR_CAUSE</name>
-                <description>N/A</description>
+                <description>Specifies the source of the interrupt cause:
+'0': NO_INTR
+'1': COMPLETION
+'2': SRC_BUS_ERROR
+'3': DST_BUS_ERROR
+'4': SRC_MISAL
+'5': DST_MISAL
+'6': CURR_PTR_NULL
+'7': ACTIVE_CH_DISABLED
+'8': DESCR_BUS_ERROR
+'9'-'15': Not used.
+
+For error related interrupt causes (INTR_CAUSE is '2', '3', ..., '8'), the channel is disabled (HW sets CH_CTL.ENABLED to '0').</description>
                 <bitRange>[3:0]</bitRange>
                 <access>read-only</access>
               </field>
               <field>
                 <name>PENDING</name>
-                <description>N/A</description>
+                <description>Specifies pending DW channels; i.e. enabled channels whose trigger got activated. This field includes all channels that are in the pending state (not scheduled) or active state (scheduled and performing data transfer(s)).</description>
                 <bitRange>[31:31]</bitRange>
                 <access>read-only</access>
               </field>
@@ -14698,13 +14773,21 @@ Note: This field is combinatorially derived from CRC_LFSR_CTL.LFSR32, CRC_CTL.RE
             <fields>
               <field>
                 <name>X_IDX</name>
-                <description>N/A</description>
+                <description>Specifies the X loop index. In the range of [0, X_COUNT], with X_COUNT taken from the current descriptor. 
+
+Note: HW sets this field to '0' when it updates the current descriptor pointer CH_CURR_PTR with DESCR_NEXT_PTR after execution of the current descriptor. 
+
+Note: SW should set this field to '0' when it updates CH_CURR_PTR.</description>
                 <bitRange>[7:0]</bitRange>
                 <access>read-write</access>
               </field>
               <field>
                 <name>Y_IDX</name>
-                <description>N/A</description>
+                <description>Specifies the Y loop index, with X_COUNT taken from the current descriptor. 
+
+Note: HW sets this field to '0' when it updates the current descriptor pointer CH_CURR_PTR with DESCR_NEXT_PTR after execution of the current descriptor. 
+
+Note: SW should set this field to '0' when it updates CH_CURR_PTR.</description>
                 <bitRange>[15:8]</bitRange>
                 <access>read-write</access>
               </field>
@@ -14721,7 +14804,11 @@ Note: This field is combinatorially derived from CRC_LFSR_CTL.LFSR32, CRC_CTL.RE
             <fields>
               <field>
                 <name>ADDR</name>
-                <description>N/A</description>
+                <description>Address of current descriptor. When this field is '0', there is no valid descriptor.
+
+Note: HW updates the current descriptor pointer CH_CURR_PTR with DESCR_NEXT_PTR after execution of the current descriptor. 
+
+Note: Typically, when SW updates the current descriptor pointer CH_CURR_PTR, it also sets CH_IDX.X_IDX and CH_IDX.Y_IDX to '0'.</description>
                 <bitRange>[31:2]</bitRange>
                 <access>read-write</access>
               </field>
@@ -14738,7 +14825,7 @@ Note: This field is combinatorially derived from CRC_LFSR_CTL.LFSR32, CRC_CTL.RE
             <fields>
               <field>
                 <name>CH</name>
-                <description>N/A</description>
+                <description>Set to '1', when event (as specified by CH_STATUS.INTR_CAUSE) is detected. Write INTR.CH field with '1', to clear bit. Write INTR_SET.CH field with '1', to set bit.</description>
                 <bitRange>[0:0]</bitRange>
                 <access>read-write</access>
               </field>
@@ -14755,7 +14842,7 @@ Note: This field is combinatorially derived from CRC_LFSR_CTL.LFSR32, CRC_CTL.RE
             <fields>
               <field>
                 <name>CH</name>
-                <description>N/A</description>
+                <description>Write INTR_SET field with '1' to set corresponding INTR.CH field (a write of '0' has no effect).</description>
                 <bitRange>[0:0]</bitRange>
                 <access>read-write</access>
               </field>
@@ -14772,7 +14859,7 @@ Note: This field is combinatorially derived from CRC_LFSR_CTL.LFSR32, CRC_CTL.RE
             <fields>
               <field>
                 <name>CH</name>
-                <description>N/A</description>
+                <description>Mask for corresponding field in INTR register.</description>
                 <bitRange>[0:0]</bitRange>
                 <access>read-write</access>
               </field>
@@ -14789,7 +14876,7 @@ Note: This field is combinatorially derived from CRC_LFSR_CTL.LFSR32, CRC_CTL.RE
             <fields>
               <field>
                 <name>CH</name>
-                <description>N/A</description>
+                <description>Logical and of corresponding INTR and INTR_MASK fields.</description>
                 <bitRange>[0:0]</bitRange>
                 <access>read-only</access>
               </field>
@@ -18165,61 +18252,61 @@ When D_OUT_EN = 0:
             <fields>
               <field>
                 <name>VTRIP_SEL0_0</name>
-                <description>Configures the pin 0 input buffer mode (trip points and hysteresis)</description>
+                <description>N/A</description>
                 <bitRange>[0:0]</bitRange>
                 <access>read-write</access>
                 <enumeratedValues>
                   <enumeratedValue>
                     <name>CMOS</name>
-                    <description>Input buffer compatible with CMOS and I2C interfaces</description>
+                    <description>S40E full encoding is shown in CFG_IN_AUTOLVL.VTRIP_SEL0_1</description>
                     <value>0</value>
                   </enumeratedValue>
                   <enumeratedValue>
                     <name>TTL</name>
-                    <description>Input buffer compatible with TTL and MediaLB interfaces</description>
+                    <description>S40E full encoding is shown in CFG_IN_AUTOLVL.VTRIP_SEL0_1</description>
                     <value>1</value>
                   </enumeratedValue>
                 </enumeratedValues>
               </field>
               <field>
                 <name>VTRIP_SEL1_0</name>
-                <description>Configures the pin 1 input buffer mode (trip points and hysteresis)</description>
+                <description>N/A</description>
                 <bitRange>[1:1]</bitRange>
                 <access>read-write</access>
               </field>
               <field>
                 <name>VTRIP_SEL2_0</name>
-                <description>Configures the pin 2 input buffer mode (trip points and hysteresis)</description>
+                <description>N/A</description>
                 <bitRange>[2:2]</bitRange>
                 <access>read-write</access>
               </field>
               <field>
                 <name>VTRIP_SEL3_0</name>
-                <description>Configures the pin 3 input buffer mode (trip points and hysteresis)</description>
+                <description>N/A</description>
                 <bitRange>[3:3]</bitRange>
                 <access>read-write</access>
               </field>
               <field>
                 <name>VTRIP_SEL4_0</name>
-                <description>Configures the pin 4 input buffer mode (trip points and hysteresis)</description>
+                <description>N/A</description>
                 <bitRange>[4:4]</bitRange>
                 <access>read-write</access>
               </field>
               <field>
                 <name>VTRIP_SEL5_0</name>
-                <description>Configures the pin 5 input buffer mode (trip points and hysteresis)</description>
+                <description>N/A</description>
                 <bitRange>[5:5]</bitRange>
                 <access>read-write</access>
               </field>
               <field>
                 <name>VTRIP_SEL6_0</name>
-                <description>Configures the pin 6 input buffer mode (trip points and hysteresis)</description>
+                <description>N/A</description>
                 <bitRange>[6:6]</bitRange>
                 <access>read-write</access>
               </field>
               <field>
                 <name>VTRIP_SEL7_0</name>
-                <description>Configures the pin 7 input buffer mode (trip points and hysteresis)</description>
+                <description>N/A</description>
                 <bitRange>[7:7]</bitRange>
                 <access>read-write</access>
               </field>
@@ -18513,7 +18600,7 @@ e) VREF_SEL=10/11, VOH_SEL=[1-7]  -&gt; Input buffer functions as LVTTL input bu
 0,0: CMOS
 0,1: TTL
 1,0: input buffer is compatible with automotive.
-1,1: input buffer is compatible with MediaLB.</description>
+1,1: input buffer is compatible with automotvie</description>
                 <bitRange>[0:0]</bitRange>
                 <access>read-write</access>
                 <enumeratedValues>
@@ -18523,8 +18610,8 @@ e) VREF_SEL=10/11, VOH_SEL=[1-7]  -&gt; Input buffer functions as LVTTL input bu
                     <value>0</value>
                   </enumeratedValue>
                   <enumeratedValue>
-                    <name>AUTO_OR_MediaLB</name>
-                    <description>Input buffer compatible with AUTO/MediaLB (elevated Vil) interfaces when used along with CFG_IN.VTRIP_SEL0_0.</description>
+                    <name>AUTO</name>
+                    <description>Input buffer compatible with AUTO (elevated Vil) interfaces when used along with CFG_IN.VTRIP_SEL0_0.</description>
                     <value>1</value>
                   </enumeratedValue>
                 </enumeratedValues>
@@ -28024,8 +28111,8 @@ Note:
               <field>
                 <name>DP_BIG</name>
                 <description>Select the resister value if POWER_CTL.DP_EN='1'. This bit is valid in GPIO.
-'0' : The resister value is from 900 to1575 oHm pull up on the DP.
-'1' : The resister value is from 1425 to 3090 oHm pull up on the DP</description>
+'0' : The resister value is from 900 to1575Ohmpull up on the DP.
+'1' : The resister value is from 1425 to 3090Ohmpull up on the DP</description>
                 <bitRange>[17:17]</bitRange>
                 <access>read-write</access>
               </field>
@@ -28046,8 +28133,8 @@ Note:
               <field>
                 <name>DM_BIG</name>
                 <description>Select the resister value if POWER_CTL.DM_EN='1'. This bit is valid in GPIO.
-'0' : The resister value is from 900 to1575 oHm pull up on the DM.
-'1' : The resister value is from 1425 to 3090 oHm pull up on the DM</description>
+'0' : The resister value is from 900 to1575Ohmpull up on the DM.
+'1' : The resister value is from 1425 to 3090Ohmpull up on the DM</description>
                 <bitRange>[20:20]</bitRange>
                 <access>read-write</access>
               </field>
@@ -36912,7 +36999,7 @@ This allows a SCB UART transmitter to communicate with its receiver counterpart.
           <fields>
             <field>
               <name>STOP_BITS</name>
-              <description>Stop bits. STOP_BITS + 1 is the duration of the stop period in terms of haf bit periods. Valid range is [1, 7]; i.e. a stop period should last at least one bit period.</description>
+              <description>Stop bits. STOP_BITS + 1 is the duration of the stop period in terms of half bit periods. Valid range is [1, 7]; i.e. a stop period should last at least one bit period.</description>
               <bitRange>[2:0]</bitRange>
               <access>read-write</access>
             </field>
@@ -36947,7 +37034,7 @@ This allows a SCB UART transmitter to communicate with its receiver counterpart.
           <fields>
             <field>
               <name>STOP_BITS</name>
-              <description>Stop bits. STOP_BITS + 1 is the duration of the stop period in terms of haf bit periods. Valid range is [1, 7]; i.e. a stop period should last at least one bit period. 
+              <description>Stop bits. STOP_BITS + 1 is the duration of the stop period in terms of half bit periods. Valid range is [1, 7]; i.e. a stop period should last at least one bit period. 
 
 If STOP_BITS is '1', stop bits error detection is NOT performed. If STOP_BITS is in [2, 7], stop bits error detection is performed and the associated interrupt cause INTR_RX.FRAME_ERROR is set to '1' if an error is detected. In other words, the receiver supports data frames with a 1 bit period stop bit sequence, but requires at least 1.5 bit period stop bit sequences to detect errors. 
 
@@ -37073,7 +37160,7 @@ During SCB reset (Hibernate system power mode), RTS output signal is '1'. This r
 '0': Disabled. The UART transmitter ignores the CTS input signal and transmits when a data frame is available for transmission in the TX FIFO or the TX shift register.
 '1': Enabled. The UART transmitter uses CTS input signal to qualify the transmission of data. It transmits when CTS input signal is active and a data frame is available for transmission in the TX FIFO or the TX shift register.
 
-If UART_CTRL.LOOPBACK is '1', the CTS input signal is driven by the RTS output signal locally in SCB (both signals are subjected to signal polarity changes are indicated by RTS_POLARITY and CTS_POLARITY).</description>
+If UART_CTRL.LOOPBACK is '1', the CTS input signal is driven by the RTS output signal locally in SCB (both signals are subjected to signal polarity changes as indicated by RTS_POLARITY and CTS_POLARITY).</description>
               <bitRange>[25:25]</bitRange>
               <access>read-write</access>
             </field>
@@ -37202,7 +37289,7 @@ For multi-master systems, BUS_BUSY can be used to detect an idle bus before a ma
             </field>
             <field>
               <name>I2C_EC_BUSY</name>
-              <description>Inidicates whether the externally clocked logic is potentially accessing the EZ memory and/or updating BASE_ADDR or CURR_ADDR (this is only possible in EZ and CMD_RESP mode). This bit can be used by the CPU to determine whether BASE_ADDR and CURR_ADDR are reliable.</description>
+              <description>Inidicates whether the externally clocked logic is potentially accessing the EZ memory and/or updating BASE_EZ_ADDR or CURR_EZ_ADDR (this is only possible in EZ and CMD_RESP mode). This bit can be used by the CPU to determine whether BASE_EZ_ADDR and CURR_EZ_ADDR are reliable.</description>
               <bitRange>[1:1]</bitRange>
               <access>read-only</access>
             </field>
@@ -37361,72 +37448,6 @@ Before going to deepsleep this field should be set to 0. It should be re-enabled
               <name>SDA_OUT_FILT_SEL</name>
               <description>N/A</description>
               <bitRange>[29:28]</bitRange>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>DDFT_CTRL</name>
-          <description>Digital DfT control</description>
-          <addressOffset>0x100</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0x0</resetValue>
-          <resetMask>0x770011</resetMask>
-          <fields>
-            <field>
-              <name>DDFT_IN0_SEL</name>
-              <description>Specifies signal that is connected to 'ddft_in[0]' (digital DfT input signal 0):
-'0': not used
-'1': used as 'i2c_scl_in' in I2C mode, as 'spi_clk_in' in SPI mode</description>
-              <bitRange>[0:0]</bitRange>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>DDFT_IN1_SEL</name>
-              <description>Specifies signal that is connected to 'ddft_in[1]' (digital DfT input signal 0):
-'0': not used
-'1': used as 'i2c_sda_in' in I2C mode, as 'spi_mosi_in' in SPI mode</description>
-              <bitRange>[4:4]</bitRange>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>DDFT_OUT0_SEL</name>
-              <description>Specifies signal that is connected to 'ddft_out[0]' (digital DfT output signal 0):
-In I2C mode (CTRL.MODE=0),
-'0': Constant '0'. 
-'1': 'ec_busy_pp'.
-'2': 'rst_i2c_start_stop_n'.
-'3': 'rst_i2c_start_stop_n'.
-'4': 'i2c_scl_in_qual'.
-'5': 'i2c_sda_out_prel'.
-'6'-'7': Undefined.
-in SPI mode (CTRL.MODE=1),
-'0': Constant '0'. 
-'1': 'rst_spi_n'
-'2': 'rst_spi_stop_n'
-'3'-'7': Undefined.</description>
-              <bitRange>[18:16]</bitRange>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>DDFT_OUT1_SEL</name>
-              <description>Specifies signal that is connected to 'ddft_out[1]' (digital DfT output signal 1):
-In I2C mode (CTRL.MODE=0),
-'0': Constant '0'. 
-'1': 'clk_ff_sram'.
-'2': 'rst_i2c_n'.
-'3': 'rst_i2c_stop_n'.
-'4': 'i2c_sda_in_qual'.
-'5': 'i2c_sda_out'.
-'6': 'event_i2c_ec_wake_up_ddft' from I2CS_IC
-'7': Undefined.
-In SPI mode (CTRL.MODE=1),
-'0': Constant '0'. 
-'1': 'spi_start_detect'
-'2': 'spi_stop_detect'
-'3'-'7': Undefined.</description>
-              <bitRange>[22:20]</bitRange>
               <access>read-write</access>
             </field>
           </fields>

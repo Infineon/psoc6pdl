@@ -37,7 +37,7 @@
   <ExposedMembers />  
   <Parameters>
     <!-- PDL documentation -->
-    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path(&quot;psoc6sw&quot;)}`/docs/pdl_api_reference_manual/html/group__group__scb__ezi2c.html" linkText="Open EZI2C (SCB) Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
+    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path()}`/docs/pdl_api_reference_manual/html/group__group__scb__ezi2c.html" linkText="Open EZI2C (SCB) Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
   
     <ParamChoice id="DataRate" name="Data Rate (kbps)" group="General" default="100" visible="true" editable="true" desc="Data rate that EZI2C operates.">
       <Entry name="100" value="100" visible="true" />
@@ -123,6 +123,8 @@
   <ConfigFirmware>
     <ConfigInclude value="cy_scb_ezi2c.h" include="true" />
     <ConfigInclude value="cy_sysclk.h" include="`${pclkOk}`" />
+    <ConfigInclude value="cyhal_hwmgr.h" include="true" guard="defined (CY_USING_HAL)" />
+    
     <ConfigDefine name="`${INST_NAME}`_HW" value="SCB`${InstNumber}`" public="true" include="true" />
     <ConfigDefine name="`${INST_NAME}`_IRQ" value="scb_`${InstNumber}`_interrupt_IRQn" public="true" include="true" />
     <ConfigStruct name="`${INST_NAME}`_config" type="cy_stc_scb_ezi2c_config_t" const="`${inFlash}`" public="true" include="true">
@@ -131,7 +133,15 @@
       <Member name="slaveAddress2" value="`${(NumOfAddr ne CY_SCB_EZI2C_ONE_ADDRESS) ? SlaveAddress2 : &quot;0&quot;}`U" />
       <Member name="subAddressSize" value="`${SubAddrSize}`" />
       <Member name="enableWakeFromSleep" value="`${EnableWakeup ? &quot;true&quot; : &quot;false&quot;}`" />
-    </ConfigStruct>    
+    </ConfigStruct>  
+
+    <ConfigStruct name="`${INST_NAME}`_obj" type="cyhal_resource_inst_t" const="true" public="true" include="true" guard="defined (CY_USING_HAL)">
+      <Member name="type" value="CYHAL_RSC_SCB" />
+      <Member name="block_num" value="`${getInstNumber(&quot;scb&quot;)}`U" />
+      <Member name="channel_num" value="0U" />
+    </ConfigStruct>
+        
     <ConfigInstruction value="Cy_SysClk_PeriphAssignDivider(`${pclkDst}`, `${getExposedMember(sourceClock, &quot;clockSel&quot;)}`);" include="`${pclkOk}`" />
+    <ConfigInstruction value="cyhal_hwmgr_reserve(&amp;`${INST_NAME}`_obj);" include="true" guard="defined (CY_USING_HAL)" />
   </ConfigFirmware>
 </Personality>

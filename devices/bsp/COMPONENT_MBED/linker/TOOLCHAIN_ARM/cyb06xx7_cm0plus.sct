@@ -43,7 +43,7 @@
 ;******************************************************************************/
 
 #if !defined(MBED_ROM_START)
-  #define MBED_ROM_START    0x100C0000
+  #define MBED_ROM_START    0x100CFC00
 #endif
 
 ;* MBED_APP_START is being  used by the bootloader build script and
@@ -67,7 +67,7 @@
 #endif
 
 #if !defined(MBED_RAM_START)
-  #define MBED_RAM_START    0x08024000
+  #define MBED_RAM_START    0x08020000
 #endif
 
 #if !defined(MBED_RAM_SIZE)
@@ -171,7 +171,7 @@ LR_IROM1 FLASH_START (FLASH_SIZE - 0x8000)
     RW_RAM_DATA +0
     {
         * (.cy_ramfunc)
-        .ANY (+RW, +ZI)
+        * (+RW, +ZI)
     }
 
     ; Place variables in the section that should not be initialized during the

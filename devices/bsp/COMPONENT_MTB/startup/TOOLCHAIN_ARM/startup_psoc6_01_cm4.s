@@ -33,8 +33,10 @@
                 EXPORT  __Vectors_End
                 EXPORT  __Vectors_Size
 
-                IMPORT |Image$$ARM_LIB_STACK$$Base|
-__Vectors       DCD    |Image$$ARM_LIB_STACK$$Base| ; Top of Stack
+                IMPORT |Image$$ARM_LIB_STACK$$ZI$$Base|
+                IMPORT |Image$$ARM_LIB_STACK$$ZI$$Length|
+                
+__Vectors       DCD    |Image$$ARM_LIB_STACK$$ZI$$Base| + |Image$$ARM_LIB_STACK$$ZI$$Length| ; Top of Stack
 
                 DCD     Reset_Handler             ; Reset Handler
 
@@ -259,7 +261,7 @@ Vectors_Copy
                 ; Enable the FPU if used
                 LDR     R0, =Cy_SystemInitFpuEnable
                 BLX     R0
-
+                
                 LDR     R0, =__main
                 BLX     R0
 

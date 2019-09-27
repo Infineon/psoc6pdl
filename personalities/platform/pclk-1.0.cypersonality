@@ -42,7 +42,7 @@
   </ExposedMembers>
   <Parameters>
     <!-- PDL documentation -->
-    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path(&quot;psoc6sw&quot;)}`/docs/pdl_api_reference_manual/html/group__group__sysclk__clk__peripheral.html" linkText="Open Peripherals Clock Dividers Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
+    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path()}`/docs/pdl_api_reference_manual/html/group__group__sysclk__clk__peripheral.html" linkText="Open Peripherals Clock Dividers Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
 
     <!-- Get the name of the source clock resource, i.e. CLK_PERI -->
     <ParamString id="sourceClockRsc" name="Source Clock Resource" group="Internal" default="srss[0].clock[0].periclk[0]" visible="false" editable="false" desc="" />
@@ -99,11 +99,21 @@
   
   <ConfigFirmware>
     <ConfigInclude value="cy_sysclk.h" include="true" />
+    <ConfigInclude value="cyhal_hwmgr.h" include="true" guard="defined (CY_USING_HAL)" />
+    
     <ConfigDefine name="`${INST_NAME}`_HW" value="`${typeApiConst}`" public="true" include="true" />
     <ConfigDefine name="`${INST_NAME}`_NUM" value="`${number}`U" public="true" include="true" />
+    
+    <ConfigStruct name="`${INST_NAME}`_obj" type="cyhal_resource_inst_t" const="true" public="true" include="true" guard="defined (CY_USING_HAL)">
+      <Member name="type" value="CYHAL_RSC_CLOCK" />
+      <Member name="block_num" value="`${INST_NAME}`_HW" />
+      <Member name="channel_num" value="`${INST_NAME}`_NUM" />
+    </ConfigStruct>
+    
     <ConfigInstruction value="Cy_SysClk_PeriphDisableDivider(`${clockSel}`);" include="true" />
     <ConfigInstruction value="Cy_SysClk_PeriphSetDivider(`${clockSel}`, `${intDivider-1}`U);" include="`${!isFractional}`" />
     <ConfigInstruction value="Cy_SysClk_PeriphSetFracDivider(`${clockSel}`, `${intDivider-1}`U, `${fracDivider}`U);" include="`${isFractional}`" />
     <ConfigInstruction value="Cy_SysClk_PeriphEnableDivider(`${clockSel}`);" include="`${startOnReset}`" />
+    <ConfigInstruction value="cyhal_hwmgr_reserve(&amp;`${INST_NAME}`_obj);" include="true" guard="defined (CY_USING_HAL)" />
   </ConfigFirmware>
 </Personality>

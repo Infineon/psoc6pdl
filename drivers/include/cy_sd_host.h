@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cy_sd_host.h
-* \version 1.20
+* \version 1.30
 *
 *  This file provides constants and parameter values for 
 *  the SD Host Controller driver.
@@ -275,6 +275,11 @@
 * <table class="doxtable">
 *   <tr><th>Version</th><th>Changes</th><th>Reason for Change</th></tr>
 *   <tr>
+*     <td>1.30</td>
+*     <td>The internal function implementation is changed.</td>
+*     <td>Code efficiency enhancement, minor defect fixing.</td>
+*   </tr>
+*   <tr>
 *     <td rowspan="2"> 1.20</td>
 *     <td>Added the Cy_SD_Host_DeepSleepCallback() function.</td>
 *     <td>Driver maintenance.</td>
@@ -395,7 +400,7 @@ extern "C"
 #define CY_SD_HOST_DRV_VERSION_MAJOR       1
 
 /** Driver minor version */
-#define CY_SD_HOST_DRV_VERSION_MINOR       20
+#define CY_SD_HOST_DRV_VERSION_MINOR       30
 
 /******************************************************************************
 * API Constants
@@ -1501,8 +1506,7 @@ uint32_t Cy_SD_Host_GetCardStatus(SDHC_Type *base, cy_stc_sd_host_context_t cons
 cy_en_sd_host_status_t Cy_SD_Host_GetSdStatus(SDHC_Type *base, 
                                               uint32_t *sdStatus,
                                               cy_stc_sd_host_context_t const *context);
-uint32_t Cy_SD_Host_GetOcr(SDHC_Type *base,
-                           cy_stc_sd_host_context_t *context);
+uint32_t Cy_SD_Host_GetOcr(SDHC_Type *base, cy_stc_sd_host_context_t const *context);
 cy_en_sd_host_status_t Cy_SD_Host_GetCid(SDHC_Type *base, uint32_t *cid);
 cy_en_sd_host_status_t Cy_SD_Host_GetCsd(SDHC_Type *base, 
                                          uint32_t *csd, 

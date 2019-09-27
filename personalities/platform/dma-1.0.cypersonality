@@ -39,7 +39,7 @@
   </ExposedMembers>
   <Parameters>
     <!-- PDL documentation -->
-    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path(&quot;psoc6sw&quot;)}`/docs/pdl_api_reference_manual/html/group__group__dma.html" linkText="Open DMA Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
+    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path()}`/docs/pdl_api_reference_manual/html/group__group__dma.html" linkText="Open DMA Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
   
     <ParamString id="block" name="block number" group="Internal" default="`${&quot;dw0&quot; eq getBlockType(1) ? 0 : 1}`" visible="false" editable="false" desc="" />
     <ParamString id="base" name="base address" group="Internal" default="`${getBlockType(1)}`" visible="false" editable="false" desc="" />
@@ -149,10 +149,12 @@
   
   <ConfigFirmware>
     <ConfigInclude value="cy_dma.h" include="true" />
+    <ConfigInclude value="cyhal_hwmgr.h" include="true" guard="defined (CY_USING_HAL)" />
 
     <ConfigDefine name="`${INST_NAME . &quot;_HW&quot;}`" value="`${HWbase}`" public="true" include="true" />
-    <ConfigDefine name="`${INST_NAME . &quot;_CHANNEL&quot;}`" value="`${channel}`" public="true" include="true" />
+    <ConfigDefine name="`${INST_NAME . &quot;_CHANNEL&quot;}`" value="`${channel}`U" public="true" include="true" />
     <ConfigDefine name="`${INST_NAME}`_IRQ" value="cpuss_interrupts_dw`${block}`_`${channel}`_IRQn" public="true" include="true" />
+    
     <ConfigStruct name="`${INST_NAME . &quot;_&quot; . DESCR_NAME_$idx . &quot;_config&quot;}`" type="cy_stc_dma_descriptor_config_t" const="`${inFlash}`" public="true" include="`${NUM_OF_DESCRIPTORS &gt; $idx}`" repeatCount="256">
       <Member name="retrigger" value="`${TRIG_DEACT_$idx}`" />
       <Member name="interruptType" value="`${INTR_OUT_$idx}`" />
@@ -219,6 +221,13 @@
       <Member name="reminderXor" value="`${CRC_REMINDER_XOR}`" />
       <Member name="polynomial" value="`${CRC_POLYNOMIAL}`" />
     </ConfigStruct>
-
+    
+    <ConfigStruct name="`${INST_NAME}`_obj" type="cyhal_resource_inst_t" const="true" public="true" include="true" guard="defined (CY_USING_HAL)">
+      <Member name="type" value="CYHAL_RSC_DMA" />
+      <Member name="block_num" value="`${block}`U" />
+      <Member name="channel_num" value="`${INST_NAME}`_CHANNEL" />
+    </ConfigStruct>
+    
+    <ConfigInstruction value="cyhal_hwmgr_reserve(&amp;`${INST_NAME}`_obj);" include="true" guard="defined (CY_USING_HAL)" />
   </ConfigFirmware>
 </Personality>

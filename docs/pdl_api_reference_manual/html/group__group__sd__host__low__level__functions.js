@@ -34,7 +34,7 @@ var group__group__sd__host__low__level__functions =
     [ "Cy_SD_Host_WriteProtect", "group__group__sd__host__low__level__functions.html#ga49d3fcbc81b0856c61706015856337e9", null ],
     [ "Cy_SD_Host_GetCardStatus", "group__group__sd__host__low__level__functions.html#gacfa588e2d3797fab335cc8880d59d0ee", null ],
     [ "Cy_SD_Host_GetSdStatus", "group__group__sd__host__low__level__functions.html#ga64d07e5873b517f19aa6b556b9558e19", null ],
-    [ "Cy_SD_Host_GetOcr", "group__group__sd__host__low__level__functions.html#gadb352501094887729b07ee392ec71b76", null ],
+    [ "Cy_SD_Host_GetOcr", "group__group__sd__host__low__level__functions.html#gab7781c74903700d79ca818fc7f50af0b", null ],
     [ "Cy_SD_Host_GetCid", "group__group__sd__host__low__level__functions.html#ga696ef05ed804ae1fb21147bdded903a9", null ],
     [ "Cy_SD_Host_GetCsd", "group__group__sd__host__low__level__functions.html#ga19426622f0a7b92579030e0c954f4bc9", null ],
     [ "Cy_SD_Host_GetExtCsd", "group__group__sd__host__low__level__functions.html#ga695e1d4ea5e8fb972bc1feeadbb4e881", null ],

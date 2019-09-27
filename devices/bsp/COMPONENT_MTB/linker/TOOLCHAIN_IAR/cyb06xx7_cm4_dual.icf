@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cyb06xx7_cm4_dual.icf
-* \version 2.50
+* \version 2.60
 *
 * Linker file for the IAR compiler.
 *
@@ -54,12 +54,12 @@ define symbol __ICFEDIT_intvec_start__ = 0x00000000;
  */
 /* RAM */
 define symbol __ICFEDIT_region_IRAM1_start__ = 0x08000000;
-define symbol __ICFEDIT_region_IRAM1_end__   = 0x08024000;
+define symbol __ICFEDIT_region_IRAM1_end__   = 0x08020000;
 /* Flash */
-define symbol __ICFEDIT_region_IROM1_start__ = 0x10000000;
-define symbol __ICFEDIT_region_IROM1_end__   = 0x10100000;
+define symbol __ICFEDIT_region_IROM1_start__ = 0x10000400;
+define symbol __ICFEDIT_region_IROM1_end__   = 0x100D0000;
 
-/* The following symbols define a 32K flash region used for EEPROM emulation. 
+/* The following symbols define a 32K flash region used for EEPROM emulation.
  * This region can also be used as the general purpose flash.
  * You can assign sections to this memory region for only one of the cores.
  * Note some middleware (e.g. BLE, Emulated EEPROM) can place their data into this memory region.
@@ -127,9 +127,6 @@ if (!isdefinedsymbol(__HEAP_SIZE)) {
 }
 /**** End of ICF editor section. ###ICF###*/
 
-/* Size of the Cortex-M0+ application image */
-define symbol FLASH_CM0P_SIZE  = 0x40000;
-
 define memory mem with size = 4G;
 define region IROM1_region = mem:[from __ICFEDIT_region_IROM1_start__ to __ICFEDIT_region_IROM1_end__];
 define region IROM2_region = mem:[from __ICFEDIT_region_IROM2_start__ to __ICFEDIT_region_IROM2_end__];
@@ -146,7 +143,6 @@ define block CSTACK     with alignment = 8, size = __ICFEDIT_size_cstack__     {
 define block PROC_STACK with alignment = 8, size = __ICFEDIT_size_proc_stack__ { };
 define block HEAP       with expanding size, alignment = 8, minimum size = __ICFEDIT_size_heap__ { };
 define block HSTACK {block HEAP, block PROC_STACK, last block CSTACK};
-define block CM0P_RO with size = FLASH_CM0P_SIZE  { readonly section .cy_m0p_image };
 define block RO     {first section .intvec, readonly};
 
 /*-Initializations-*/
@@ -155,11 +151,10 @@ do not initialize  { section .noinit, section .intvec_ram };
 
 /*-Placement-*/
 
-/* Flash - Cortex-M0+ application image */
-place at end of IROM1_region  { block CM0P_RO };
+/* Flash - Cortex-M4 application */
+place at start of IROM1_region  { block RO };
 
-/* Flash - Cortex-M4 application image */
-place in          IROM1_region  { block RO };
+/* Used for the digital signature of the secure application and the Bootloader SDK application. */
 ".cy_app_signature" : place at address (__ICFEDIT_region_IROM1_end__ - 0x200) { section .cy_app_signature };
 
 /* Emulated EEPROM Flash area */
@@ -195,8 +190,7 @@ place at end   of IRAM1_region  { block HSTACK };
 ".cymeta" : place at address mem : 0x90500000 { readonly section .cymeta };
 
 
-keep {  section .cy_m0p_image,
-        section .cy_app_signature,
+keep {  section .cy_app_signature,
         section .cy_em_eeprom,
         section .cy_sflash_user_data,
         section .cy_sflash_nar,

@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cy8c6xx6_cm0plus.icf
-* \version 2.50
+* \version 2.60
 *
 * Linker file for the IAR compiler.
 *
@@ -59,7 +59,7 @@ define symbol __ICFEDIT_region_IRAM1_end__   = 0x08002000;
 define symbol __ICFEDIT_region_IROM1_start__ = 0x10000000;
 define symbol __ICFEDIT_region_IROM1_end__   = 0x10002000;
 
-/* The following symbols define a 32K flash region used for EEPROM emulation. 
+/* The following symbols define a 32K flash region used for EEPROM emulation.
  * This region can also be used as the general purpose flash.
  * You can assign sections to this memory region for only one of the cores.
  * Note some middleware (e.g. BLE, Emulated EEPROM) can place their data into this memory region.
@@ -153,7 +153,7 @@ do not initialize  { section .noinit, section .intvec_ram };
 
 /*-Placement-*/
 
-/* Flash */
+/* Flash - Cortex-M0+ application */
 ".cy_app_header" : place at start of IROM1_region  { section .cy_app_header };
 place in          IROM1_region  { block RO };
 

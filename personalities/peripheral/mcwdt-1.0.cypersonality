@@ -34,7 +34,7 @@
   <ExposedMembers />
   <Parameters>
     <!-- PDL documentation -->
-    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path(&quot;psoc6sw&quot;)}`/docs/pdl_api_reference_manual/html/group__group__mcwdt.html" linkText="Open MCWDT Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
+    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path()}`/docs/pdl_api_reference_manual/html/group__group__mcwdt.html" linkText="Open MCWDT Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
 
     <!--Counter0-->
     <ParamChoice id="C0ClearOnMatch" name="Clear on Match" group="Counter0" default="FREE_RUNNING" visible="true" editable="true" desc="Controls whether the counter is free running, with a period of 65,536 counts, or clear on match, where the period equals the match value + 1.">
@@ -79,6 +79,8 @@
   </Parameters>
   <ConfigFirmware>
     <ConfigInclude value="cy_mcwdt.h" include="true" />
+    <ConfigInclude value="cyhal_hwmgr.h" include="true" guard="defined (CY_USING_HAL)" />
+    
     <ConfigDefine name="`${INST_NAME}`_HW" value="MCWDT_STRUCT`${InstNumber}`" public="true" include="true" />
     <ConfigDefine name="`${INST_NAME}`_IRQ" value="srss_interrupt_mcwdt_`${InstNumber}`_IRQn" public="true" include="`${(C0Mode eq CY_MCWDT_MODE_INT) || (C0Mode eq CY_MCWDT_MODE_INT_RESET)|| (C1Mode eq CY_MCWDT_MODE_INT) || (C1Mode eq CY_MCWDT_MODE_INT_RESET) || (C2Mode eq CY_MCWDT_MODE_INT)}`" />
     <ConfigStruct name="`${INST_NAME . &quot;_config&quot;}`" type="cy_stc_mcwdt_config_t" const="`${inFlash}`" public="true" include="true">
@@ -93,5 +95,13 @@
       <Member name="c0c1Cascade" value="`${CascadeC0C1}`" />
       <Member name="c1c2Cascade" value="`${CascadeC1C2}`" />
     </ConfigStruct>
+
+    <ConfigStruct name="`${INST_NAME}`_obj" type="cyhal_resource_inst_t" const="true" public="true" include="true" guard="defined (CY_USING_HAL)">
+      <Member name="type" value="CYHAL_RSC_LPTIMER" />
+      <Member name="block_num" value="`${getInstNumber(&quot;mcwdt&quot;)}`U" />
+      <Member name="channel_num" value="0U" />
+    </ConfigStruct>
+    
+    <ConfigInstruction value="cyhal_hwmgr_reserve(&amp;`${INST_NAME}`_obj);" include="true" guard="defined (CY_USING_HAL)" />
   </ConfigFirmware>
 </Personality>

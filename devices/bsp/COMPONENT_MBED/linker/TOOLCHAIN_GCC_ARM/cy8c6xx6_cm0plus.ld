@@ -72,19 +72,20 @@ ENTRY(Reset_Handler)
   #define MBED_RAM_SIZE     0x00010000
 #endif
 
-#if !defined(MBED_PUBLIC_RAM_START)
-  #define MBED_PUBLIC_RAM_START    0x08047600
-#endif
-
 #if !defined(MBED_PUBLIC_RAM_SIZE)
   #define MBED_PUBLIC_RAM_SIZE     0x200
 #endif
 
+/* Size of the stack section at the end of CM0+ SRAM */
 #if !defined(MBED_BOOT_STACK_SIZE)
     #define MBED_BOOT_STACK_SIZE 0x400
 #endif
 
 STACK_SIZE = MBED_BOOT_STACK_SIZE;
+
+#if !defined(MBED_PUBLIC_RAM_START)
+  #define MBED_PUBLIC_RAM_START    (MBED_RAM_START + MBED_RAM_SIZE - STACK_SIZE - MBED_PUBLIC_RAM_SIZE)
+#endif
 
 /* Force symbol to be entered in the output file as an undefined symbol. Doing
 * this may, for example, trigger linking of additional modules from standard
@@ -171,6 +172,7 @@ SECTIONS
         KEEP(*(.cy_app_header))
     } > flash
 
+    /* Cortex-M0+ application flash area */
     .text :
     {
         . = ALIGN(4);
@@ -367,7 +369,7 @@ SECTIONS
     /* Set stack top to end of RAM, and stack limit move down by
      * size of stack_dummy section */
     __StackTop = ORIGIN(ram) + LENGTH(ram);
-        __StackLimit = __StackTop - STACK_SIZE;
+    __StackLimit = __StackTop - STACK_SIZE;
     PROVIDE(__stack = __StackTop);
 
     /* Check if data + heap + stack exceeds RAM limit */
@@ -408,7 +410,7 @@ SECTIONS
         KEEP(*(.cy_toc_part2))
     } > sflash_toc_2
 
-    
+
     /* Supervisory Flash: Table of Content # 2 Copy */
     .cy_rtoc_part2 :
     {

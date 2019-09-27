@@ -1,6 +1,7 @@
 var searchData=
 [
   ['functions',['Functions',['../group__group__ble__clk__functions.html',1,'']]],
+  ['functions',['Functions',['../group__group__canfd__functions.html',1,'']]],
   ['functions',['Functions',['../group__group__crypto__cli__srv__functions.html',1,'']]],
   ['functions',['Functions',['../group__group__crypto__lld__asymmetric__functions.html',1,'']]],
   ['functions',['Functions',['../group__group__crypto__lld__crc__functions.html',1,'']]],

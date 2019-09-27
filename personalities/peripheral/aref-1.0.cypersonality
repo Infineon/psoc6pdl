@@ -39,7 +39,7 @@
   </ExposedMembers>
   <Parameters>
     <!-- PDL documentation -->
-    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path(&quot;psoc6sw&quot;)}`/docs/pdl_api_reference_manual/html/group__group__sysanalog.html" linkText="Open SysAnalog Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
+    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path()}`/docs/pdl_api_reference_manual/html/group__group__sysanalog.html" linkText="Open SysAnalog Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
 
     <!--Internal-->
     <ParamBool id="hasCTB" name="hasCTB" group="Internal" default="`${hasBlock(&quot;pass[0].ctb[0].oa[0]&quot;)}`" visible="false" editable="false" desc="Check whether device has CTBs" />

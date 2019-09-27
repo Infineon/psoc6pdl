@@ -35,7 +35,7 @@
   <ExposedMembers />
   <Parameters>
     <!-- PDL documentation -->
-    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path(&quot;psoc6sw&quot;)}`/docs/pdl_api_reference_manual/html/group__group__sar.html" linkText="Open SAR Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
+    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path()}`/docs/pdl_api_reference_manual/html/group__group__sar.html" linkText="Open SAR Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
 
     <!-- Internal : HF clock query info -->
     <ParamBool id="isHFClkEnabled" name="Is Power Enabled" group="Internal" default="`${isBlockUsed(&quot;srss[0].clock[0].hfclk[0]&quot;)}`" visible="false" editable="false" desc="" />
@@ -272,6 +272,7 @@
 
       <ConfigInclude value="cy_sar.h" include="true" />
       <ConfigInclude value="cy_sysclk.h" include="`${pclkOk}`" />
+      <ConfigInclude value="cyhal_hwmgr.h" include="true" guard="defined (CY_USING_HAL)" />
 
       <ConfigDefine name="`${INST_NAME}`_HW" value="SAR" public="true" include="true" />
       <ConfigDefine name="`${INST_NAME}`_IRQ" value="pass_interrupt_sar_IRQn" public="true" include="true" />
@@ -352,7 +353,14 @@
         <Member name="vrefMvValue" value="`${INST_NAME}`_VREF_MV"/>
       </ConfigStruct>
       
+      <ConfigStruct name="`${INST_NAME}`_obj" type="cyhal_resource_inst_t" const="true" public="true" include="true" guard="defined (CY_USING_HAL)">
+        <Member name="type" value="CYHAL_RSC_ADC" />
+        <Member name="block_num" value="0" />
+        <Member name="channel_num" value="0" />
+      </ConfigStruct>
+      
       <ConfigInstruction value="Cy_SysClk_PeriphAssignDivider(`${pclkDst}`, `${getExposedMember(pclk, &quot;clockSel&quot;)}`);" include="`${pclkOk}`" />
+      <ConfigInstruction value="cyhal_hwmgr_reserve(&amp;`${INST_NAME}`_obj);" include="true" guard="defined (CY_USING_HAL)" />
 
   </ConfigFirmware>
 </Personality>

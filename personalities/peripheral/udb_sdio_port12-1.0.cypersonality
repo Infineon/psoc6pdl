@@ -37,24 +37,24 @@
     
     <ParamSignal port="clocks[0]" name="Clock" group="Inputs" visible="true" desc="The clock input that defines the operating frequency" canBeEmpty="false" />
     
-    <ParamSignal port="in_p[169]" name="Data Line Input 0" group="Inputs" visible="true" desc="Data Line Input 0" canBeEmpty="false"/>
-    <ParamSignal port="in_p[170]" name="Data Line Input 1" group="Inputs" visible="true" desc="Data Line Input 1" canBeEmpty="false"/>
-    <ParamSignal port="in_p[171]" name="Data Line Input 2" group="Inputs" visible="true" desc="Data Line Input 2" canBeEmpty="false"/>
-    <ParamSignal port="in_p[172]" name="Data Line Input 3" group="Inputs" visible="true" desc="Data Line Input 3" canBeEmpty="false"/>
-    <ParamSignal port="in_p[173]" name="Command Input" group="Inputs" visible="true" desc="Command Input" canBeEmpty="false"/>
+    <ParamSignal port="in_p[169]" name="Data Line Input 0" group="Inputs" visible="true" desc="Data Line Input 0" canBeEmpty="false" isDependency="true"/>
+    <ParamSignal port="in_p[170]" name="Data Line Input 1" group="Inputs" visible="true" desc="Data Line Input 1" canBeEmpty="false" isDependency="true"/>
+    <ParamSignal port="in_p[171]" name="Data Line Input 2" group="Inputs" visible="true" desc="Data Line Input 2" canBeEmpty="false" isDependency="true"/>
+    <ParamSignal port="in_p[172]" name="Data Line Input 3" group="Inputs" visible="true" desc="Data Line Input 3" canBeEmpty="false" isDependency="true"/>
+    <ParamSignal port="in_p[173]" name="Command Input" group="Inputs" visible="true" desc="Command Input" canBeEmpty="false" isDependency="true"/>
     
-    <ParamSignal port="port_if[57]" name="Data Line Output 0" group="Outputs" visible="true" desc="Data Line Output 0" canBeEmpty="false"/>
-    <ParamSignal port="port_if[58]" name="Data Line Output 1" group="Outputs" visible="true" desc="Data Line Output 1" canBeEmpty="false"/>
-    <ParamSignal port="port_if[59]" name="Data Line Output 2" group="Outputs" visible="true" desc="Data Line Output 2" canBeEmpty="false"/>
-    <ParamSignal port="port_if[60]" name="Data Line Output 3" group="Outputs" visible="true" desc="Data Line Output 3" canBeEmpty="false"/>
+    <ParamSignal port="port_if[57]" name="Data Line Output 0" group="Outputs" visible="true" desc="Data Line Output 0" canBeEmpty="false" isDependency="true"/>
+    <ParamSignal port="port_if[58]" name="Data Line Output 1" group="Outputs" visible="true" desc="Data Line Output 1" canBeEmpty="false" isDependency="true"/>
+    <ParamSignal port="port_if[59]" name="Data Line Output 2" group="Outputs" visible="true" desc="Data Line Output 2" canBeEmpty="false" isDependency="true"/>
+    <ParamSignal port="port_if[60]" name="Data Line Output 3" group="Outputs" visible="true" desc="Data Line Output 3" canBeEmpty="false" isDependency="true"/>
     
-    <ParamSignal port="port_oe[57]" name="Data Line Output Enable 0" group="Outputs" visible="true" desc="Data Line Output Enable 0" canBeEmpty="false"/>
-    <ParamSignal port="port_oe[58]" name="Data Line Output Enable 1" group="Outputs" visible="true" desc="Data Line Output Enable 1" canBeEmpty="false"/>
-    <ParamSignal port="port_oe[59]" name="Data Line Output Enable 2" group="Outputs" visible="true" desc="Data Line Output Enable 2" canBeEmpty="false"/>
-    <ParamSignal port="port_oe[60]" name="Data Line Output Enable 3" group="Outputs" visible="true" desc="Data Line Output Enable 3" canBeEmpty="false"/>
-    <ParamSignal port="port_if[61]" name="Command Output" group="Outputs" visible="true" desc="Command Output" canBeEmpty="false"/>
-    <ParamSignal port="port_oe[61]" name="Command Output Enable" group="Outputs" visible="true" desc="Command Output Enable" canBeEmpty="false"/>
-    <ParamSignal port="port_if[56]" name="SD Clock" group="Outputs" visible="true" desc="SD true" canBeEmpty="false"/>
+    <ParamSignal port="port_oe[57]" name="Data Line Output Enable 0" group="Outputs" visible="true" desc="Data Line Output Enable 0" canBeEmpty="false" isDependency="true"/>
+    <ParamSignal port="port_oe[58]" name="Data Line Output Enable 1" group="Outputs" visible="true" desc="Data Line Output Enable 1" canBeEmpty="false" isDependency="true"/>
+    <ParamSignal port="port_oe[59]" name="Data Line Output Enable 2" group="Outputs" visible="true" desc="Data Line Output Enable 2" canBeEmpty="false" isDependency="true"/>
+    <ParamSignal port="port_oe[60]" name="Data Line Output Enable 3" group="Outputs" visible="true" desc="Data Line Output Enable 3" canBeEmpty="false" isDependency="true"/>
+    <ParamSignal port="port_if[61]" name="Command Output" group="Outputs" visible="true" desc="Command Output" canBeEmpty="false" isDependency="true"/>
+    <ParamSignal port="port_oe[61]" name="Command Output Enable" group="Outputs" visible="true" desc="Command Output Enable" canBeEmpty="false" isDependency="true"/>
+    <ParamSignal port="port_if[56]" name="SD Clock" group="Outputs" visible="true" desc="SD true" canBeEmpty="false" isDependency="true"/>
     
     <ParamSignal port="out_p[117]" name="DMA Write" group="Outputs" visible="true" desc="DMA Write" canBeEmpty="true"/>
     <ParamSignal port="out_p[123]" name="DMA Read" group="Outputs" visible="true" desc="DMA Read" canBeEmpty="true"/>
@@ -74,7 +74,16 @@
   </DRCs>
   <ConfigFirmware>
     <ConfigInclude value="cy_sysclk.h" include="true" />
+    <ConfigInclude value="cyhal_hwmgr.h" include="true" guard="defined (CY_USING_HAL)" />
+    
+    <ConfigStruct name="`${INST_NAME}`_obj" type="cyhal_resource_inst_t" const="true" public="true" include="true" guard="defined (CY_USING_HAL)">
+      <Member name="type" value="CYHAL_RSC_UDB" />
+      <Member name="block_num" value="0U" />
+      <Member name="channel_num" value="0U" />
+    </ConfigStruct>
+    
     <ConfigInstruction value="Cy_SysClk_PeriphAssignDivider(PCLK_UDB_CLOCKS0, CY_SYSCLK_DIV_8_BIT, 0u);" include="true" />
     <!--<ConfigInstruction value="SDIO_Host_Config_UDBs();" include="true" />-->
+    <ConfigInstruction value="cyhal_hwmgr_reserve(&amp;`${INST_NAME}`_obj);" include="true" guard="defined (CY_USING_HAL)" />
   </ConfigFirmware>
 </Personality>

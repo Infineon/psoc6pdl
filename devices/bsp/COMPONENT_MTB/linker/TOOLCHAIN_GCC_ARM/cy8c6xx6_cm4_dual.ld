@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cy8c6xx6_cm4_dual.ld
-* \version 2.50
+* \version 2.60
 *
 * Linker file for the GNU C compiler.
 *
@@ -40,7 +40,11 @@ SEARCH_DIR(.)
 GROUP(-lgcc -lc -lnosys)
 ENTRY(Reset_Handler)
 
+/* Size of the stack section at the end of CM4 SRAM */
 STACK_SIZE = 0x1000;
+
+/* Size of the Cortex-M0+ application image at the start of FLASH */
+FLASH_CM0P_SIZE  = 0x2000;
 
 /* Force symbol to be entered in the output file as an undefined symbol. Doing
 * this may, for example, trigger linking of additional modules from standard
@@ -82,13 +86,6 @@ MEMORY
     efuse             (r)     : ORIGIN = 0x90700000, LENGTH = 0x100000     /*   1 MB */
 }
 
-/* Size and start address of the Cortex-M0+ application image */
-FLASH_CM0P_SIZE  = 0x2000;
-FLASH_CM0P_START = ORIGIN(flash);
-/* Size and start address of the Cortex-M4 application image */
-FLASH_CM4_SIZE   = LENGTH(flash) - FLASH_CM0P_SIZE;
-FLASH_CM4_START  = FLASH_CM0P_START + FLASH_CM0P_SIZE;
-
 /* Library configurations */
 GROUP(libgcc.a libc.a libm.a libnosys.a)
 
@@ -128,8 +125,8 @@ GROUP(libgcc.a libc.a libm.a libnosys.a)
 
 SECTIONS
 {
-     /* Cortex-M0+ application image */
-    .cy_m0p_image FLASH_CM0P_START :
+     /* Cortex-M0+ application flash image area */
+    .cy_m0p_image ORIGIN(flash) :
     {
         . = ALIGN(4);
         __cy_m0p_code_start = . ;
@@ -137,8 +134,11 @@ SECTIONS
         __cy_m0p_code_end = . ;
     } > flash
 
-    /* Cortex-M4 application image */
-    .text FLASH_CM4_START :
+    /* Check if .cy_m0p_image size exceeds FLASH_CM0P_SIZE */
+    ASSERT(__cy_m0p_code_end <= ORIGIN(flash) + FLASH_CM0P_SIZE, "CM0+ flash image overflows with CM4, increase FLASH_CM0P_SIZE")
+
+    /* Cortex-M4 application flash area */
+    .text ORIGIN(flash) + FLASH_CM0P_SIZE :
     {
         . = ALIGN(4);
         __Vectors = . ;
@@ -253,7 +253,6 @@ SECTIONS
         KEEP(*(SORT(.init_array.*)))
         KEEP(*(.init_array))
         PROVIDE_HIDDEN (__init_array_end = .);
-
 
         . = ALIGN(4);
         /* finit data */
@@ -377,7 +376,7 @@ SECTIONS
         KEEP(*(.cy_toc_part2))
     } > sflash_toc_2
 
-    
+
     /* Supervisory Flash: Table of Content # 2 Copy */
     .cy_rtoc_part2 :
     {

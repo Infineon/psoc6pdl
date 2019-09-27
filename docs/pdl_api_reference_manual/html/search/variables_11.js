@@ -17,6 +17,12 @@ var searchData=
   ['seqstart',['seqStart',['../structcy__stc__csd__config__t.html#a7ade567d6ee7189b392b98aadcece830',1,'cy_stc_csd_config_t']]],
   ['seqtime',['seqTime',['../structcy__stc__csd__config__t.html#aaa958f8272b5bbc4cf7032f9a5fb9df1',1,'cy_stc_csd_config_t']]],
   ['settlingcount',['settlingCount',['../structcy__stc__fll__manual__config__t.html#add75a5aff415c2167ceabdf7021e8494',1,'cy_stc_fll_manual_config_t']]],
+  ['sfec',['sfec',['../structcy__stc__id__filter__t.html#ae49aa325f209d5b23cd03b49f5161b23',1,'cy_stc_id_filter_t']]],
+  ['sfid1',['sfid1',['../structcy__stc__id__filter__t.html#a6f030ff362c3380842a2577f0072feec',1,'cy_stc_id_filter_t']]],
+  ['sfid2',['sfid2',['../structcy__stc__id__filter__t.html#a177c81285fdaca0fb49a5f33a2c0abcf',1,'cy_stc_id_filter_t']]],
+  ['sft',['sft',['../structcy__stc__id__filter__t.html#aeda974289f105fa951021d4d5ae5cc44',1,'cy_stc_id_filter_t']]],
+  ['sidfilter',['sidFilter',['../structcy__stc__canfd__sid__filter__config__t.html#a92e7899d38016cae127bf55e6796da3b',1,'cy_stc_canfd_sid_filter_config_t']]],
+  ['sidfilterconfig',['sidFilterConfig',['../structcy__stc__canfd__config__t.html#a5c9e57996362783bb00ebf6a976b4de5',1,'cy_stc_canfd_config_t']]],
   ['signextension',['signExtension',['../structcy__stc__pdm__pcm__config__t.html#a1953184d9bc890c149d3cb8188fbfaf2',1,'cy_stc_pdm_pcm_config_t']]],
   ['sincdecrate',['sincDecRate',['../structcy__stc__pdm__pcm__config__t.html#a00398a97f9e5f416f6d7c7bccd6f9518',1,'cy_stc_pdm_pcm_config_t']]],
   ['size',['size',['../structcy__stc__crypto__ecc__dp__type.html#a95be0f2a7f0744d067f269c57415982c',1,'cy_stc_crypto_ecc_dp_type::size()'],['../structcy__stc__smartio__ducfg__t.html#a169758fde19db126917fd2b4e30c2058',1,'cy_stc_smartio_ducfg_t::size()']]],
@@ -74,5 +80,6 @@ var searchData=
   ['swres',['swRes',['../structcy__stc__csd__config__t.html#a281b6bfe25d8c850c7085da59be6a4dd',1,'cy_stc_csd_config_t']]],
   ['swshieldsel',['swShieldSel',['../structcy__stc__csd__config__t.html#aac32affc0a38969d78085a5c701f8d48',1,'cy_stc_csd_config_t']]],
   ['symnum',['symNum',['../structcy__stc__seglcd__disp__t.html#a6df39e75cef81d3809897a2e23182168',1,'cy_stc_seglcd_disp_t']]],
+  ['syncjumpwidth',['syncJumpWidth',['../structcy__stc__canfd__bitrate__t.html#af0366ec649f3052303d8def51ec61147',1,'cy_stc_canfd_bitrate_t']]],
   ['systemcoreclock',['SystemCoreClock',['../group__group__system__config__globals.html#gaa3cd3e43291e81e795d642b79b6088e6',1,'SystemCoreClock():&#160;system_psoc6_cm0plus.c'],['../group__group__system__config__globals.html#gaa3cd3e43291e81e795d642b79b6088e6',1,'SystemCoreClock():&#160;system_psoc6_cm0plus.c'],['../group__group__system__config__globals.html#gaa3cd3e43291e81e795d642b79b6088e6',1,'SystemCoreClock():&#160;system_psoc6_cm4.c']]]
 ];

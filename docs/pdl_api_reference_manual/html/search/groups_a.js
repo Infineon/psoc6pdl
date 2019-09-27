@@ -1,6 +1,7 @@
 var searchData=
 [
   ['macros',['Macros',['../group__group__ble__clk__macros.html',1,'']]],
+  ['macros',['Macros',['../group__group__canfd__macros.html',1,'']]],
   ['macros',['Macros',['../group__group__crypto__cli__srv__macros.html',1,'']]],
   ['message_20authentication_20code_20_28cmac_2c_20hmac_29',['Message Authentication Code (CMAC, HMAC)',['../group__group__crypto__lld__mac.html',1,'']]],
   ['memory_20streaming_20functions',['Memory Streaming Functions',['../group__group__crypto__lld__mem.html',1,'']]],

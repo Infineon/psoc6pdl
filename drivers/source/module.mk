@@ -133,6 +133,7 @@ $(eval $(call \
 	$(lastword $(MAKEFILE_LIST)),\
 	$(PDL_SSRC)\
 	../include/cy_ble_clk.h\
+	../include/cy_canfd.h\
 	../include/cy_crypto.h\
 	../include/cy_crypto_common.h\
 	../include/cy_crypto_server.h\
@@ -222,6 +223,7 @@ $(eval $(call \
 	../include/cy_usbfs_dev_drv_reg.h\
 	../include/cy_wdt.h\
 	cy_ble_clk.c\
+	cy_canfd.c\
 	cy_crypto.c\
 	cy_crypto_server.c\
 	cy_crypto_core_hw.c\

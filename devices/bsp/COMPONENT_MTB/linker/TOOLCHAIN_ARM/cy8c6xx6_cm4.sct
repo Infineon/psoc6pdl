@@ -4,7 +4,7 @@
 
 ;*******************************************************************************
 ;* \file cy8c6xx6_cm4.sct
-;* \version 2.50
+;* \version 2.60
 ;*
 ;* Linker file for the ARMCC.
 ;*
@@ -55,9 +55,10 @@
 #define FLASH_START             0x10000000
 #define FLASH_SIZE              0x00080000
 
+; Size of the stack section at the end of CM4 SRAM
 #define STACK_SIZE              0x00001000
 
-; The following defines describe a 32K flash region used for EEPROM emulation. 
+; The following defines describe a 32K flash region used for EEPROM emulation.
 ; This region can also be used as the general purpose flash.
 ; You can assign sections to this memory region for only one of the cores.
 ; Note some middleware (e.g. BLE, Emulated EEPROM) can place their data into this memory region.
@@ -95,6 +96,7 @@
 #define EFUSE_SIZE              0x100000
 
 
+; Cortex-M4 application flash area
 LR_IROM1 FLASH_START FLASH_SIZE
 {
     ER_FLASH_VECTORS +0
@@ -116,7 +118,7 @@ LR_IROM1 FLASH_START FLASH_SIZE
     RW_RAM_DATA +0
     {
         * (.cy_ramfunc)
-        .ANY (+RW, +ZI)
+        * (+RW, +ZI)
     }
 
     ; Place variables in the section that should not be initialized during the
@@ -199,6 +201,7 @@ LR_SFLASH_RTOC_2 SFLASH_RTOC_2_START SFLASH_RTOC_2_SIZE
         * (.cy_rtoc_part2)
     }
 }
+
 
 ; Places the code in the Execute in Place (XIP) section. See the smif driver documentation for details.
 LR_EROM XIP_START XIP_SIZE

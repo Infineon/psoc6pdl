@@ -37,7 +37,7 @@
   </ExposedMembers>
   <Parameters>
     <!-- PDL documentation -->
-    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path(&quot;psoc6sw&quot;)}`/docs/pdl_api_reference_manual/html/group__group__sysclk__pilo.html" linkText="Open PILO Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
+    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path()}`/docs/pdl_api_reference_manual/html/group__group__sysclk__pilo.html" linkText="Open PILO Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
   
     <ParamRange id="frequency" name="Frequency" group="Internal" default="32768" min="32768" max="32768" resolution="1" visible="false" editable="false" desc="" />
     <ParamRange id="accuracy" name="Accuracy" group="Internal" default="2" min="2" max="2" resolution="1" visible="false" editable="false" desc="" />

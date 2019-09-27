@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Woundings xml_version="1" xmlns="http://cypress.com/xsd/cychipresourcewoundings_v1">
+  <BooleanWounding name="UDB_COUNT">
+    <Block name="udb"/>
+  </BooleanWounding>
+  <BooleanWounding name="CAN_FD">
+    <Block name="canfd.chan"/>
+  </BooleanWounding>
   <BooleanWounding name="CAPSENSE">
     <Block name="csd.csd"/>
   </BooleanWounding>

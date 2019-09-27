@@ -34,7 +34,7 @@
   <ExposedMembers />
   <Parameters>
     <!-- PDL documentation -->
-    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path(&quot;psoc6sw&quot;)}`/docs/pdl_api_reference_manual/html/group__group__pdm__pcm.html" linkText="Open PDM_PCM Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation." />
+    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path()}`/docs/pdl_api_reference_manual/html/group__group__pdm__pcm.html" linkText="Open PDM_PCM Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation." />
   
     <!-- Channels -->
     <ParamBool id="chanSwap" name="Channel Recording Swap" group="Channels" default="false" visible="true" editable="true" desc="Right-left channel recording swap." />
@@ -190,6 +190,7 @@
   <DRCs />
   <ConfigFirmware>
     <ConfigInclude value="cy_pdm_pcm.h" include="true" />
+    <ConfigInclude value="cyhal_hwmgr.h" include="true" guard="defined (CY_USING_HAL)" />
 
     <ConfigDefine name="`${INST_NAME}`_HW" value="PDM`${InstNumber}`" public="true" include="true" />
     <ConfigDefine name="`${INST_NAME}`_IRQ" value="audioss_`${InstNumber}`_interrupt_pdm_IRQn" public="true" include="true" />
@@ -214,5 +215,13 @@
       <Member name="dmaTriggerEnable"   value="`${rxFifoDmaEnable}`" />
       <Member name="interruptMask"      value="`${interruptMask}`" />
     </ConfigStruct>
+    
+    <ConfigStruct name="`${INST_NAME}`_obj" type="cyhal_resource_inst_t" const="true" public="true" include="true" guard="defined (CY_USING_HAL)">
+      <Member name="type" value="CYHAL_RSC_PDM" />
+      <Member name="block_num" value="`${getInstNumber(&quot;audioss&quot;)}`U" />
+      <Member name="channel_num" value="0U" />
+    </ConfigStruct>
+    
+    <ConfigInstruction value="cyhal_hwmgr_reserve(&amp;`${INST_NAME}`_obj);" include="true" guard="defined (CY_USING_HAL)" />
   </ConfigFirmware>
 </Personality>

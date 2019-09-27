@@ -37,7 +37,7 @@
   </ExposedMembers>
   <Parameters>
     <!-- PDL documentation -->
-    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path(&quot;psoc6sw&quot;)}`/docs/pdl_api_reference_manual/html/group__group__sysclk__ilo.html" linkText="Open ILO Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
+    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path()}`/docs/pdl_api_reference_manual/html/group__group__sysclk__ilo.html" linkText="Open ILO Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
 
     <ParamRange id="frequency" name="Frequency (kHz)" group="General" default="32000" min="32000" max="32000" resolution="1" visible="false" editable="false" desc="" />
     <ParamChoice id="accuracy" name="Accuracy" group="General" default="30" visible="false" editable="false" desc="">

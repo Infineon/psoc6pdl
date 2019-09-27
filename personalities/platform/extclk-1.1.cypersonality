@@ -38,7 +38,7 @@
   </ExposedMembers>
   <Parameters>
     <!-- PDL documentation -->
-    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path(&quot;psoc6sw&quot;)}`/docs/pdl_api_reference_manual/html/group__group__sysclk.html" linkText="Open System Clock Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
+    <ParamDoc id="pdlDoc" name="Configuration Help" group="Peripheral Documentation" default="file:///`${cy_libs_path()}`/docs/pdl_api_reference_manual/html/group__group__sysclk.html" linkText="Open System Clock Documentation" visible="true" desc="Opens the Peripheral Driver Library Documentation" />
   
     <ParamBool id="usingUlp" name="usingUlp" group="Internal" default="`${isBlockUsed(&quot;srss[0].power[0]&quot;) &amp;&amp; getExposedMember(&quot;srss[0].power[0]&quot;, &quot;usingUlp&quot;)}`" visible="false" editable="false" desc="" />
     <ParamString id="maxFrequency" name="Max Frequency (MHz)" group="Internal" default="`${getDeviceAttr(&quot;CPU_MAX_MHZ&quot;) &gt; 100 ? 100 : getDeviceAttr(&quot;CPU_MAX_MHZ&quot;)}`" visible="false" editable="false" desc="The maximum EXTCLK frequency" />

@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cyb06xxa_cm4_dual.ld
-* \version 2.50
+* \version 2.60
 *
 * Linker file for the GNU C compiler.
 *
@@ -40,6 +40,7 @@ SEARCH_DIR(.)
 GROUP(-lgcc -lc -lnosys)
 ENTRY(Reset_Handler)
 
+/* Size of the stack section at the end of CM4 SRAM */
 STACK_SIZE = 0x1000;
 
 /* Force symbol to be entered in the output file as an undefined symbol. Doing
@@ -62,8 +63,8 @@ MEMORY
      * Your changes must be aligned with the corresponding memory regions for CM0+ core in 'xx_cm0plus.ld',
      * where 'xx' is the device group; for example, 'cy8c6xx7_cm0plus.ld'.
      */
-    ram               (rwx)   : ORIGIN = 0x08000000, LENGTH = 0x80000
-    flash             (rx)    : ORIGIN = 0x10000000, LENGTH = 0x200000
+    ram               (rwx)   : ORIGIN = 0x08000000, LENGTH = 0xD8000
+    flash             (rx)    : ORIGIN = 0x10000400, LENGTH = 0x1CFC00
 
     /* This is a 32K flash region used for EEPROM emulation. This region can also be used as the general purpose flash.
      * You can assign sections to this memory region for only one of the cores.
@@ -81,13 +82,6 @@ MEMORY
     xip               (rx)    : ORIGIN = 0x18000000, LENGTH = 0x8000000    /* 128 MB */
     efuse             (r)     : ORIGIN = 0x90700000, LENGTH = 0x100000     /*   1 MB */
 }
-
-/* Size and start address of the Cortex-M0+ application image */
-FLASH_CM0P_SIZE  = 0x40000;
-FLASH_CM0P_START = ORIGIN(flash) + LENGTH(flash) - FLASH_CM0P_SIZE;
-/* Size and start address of the Cortex-M4 application image */
-FLASH_CM4_SIZE   = LENGTH(flash) - FLASH_CM0P_SIZE;
-FLASH_CM4_START  = ORIGIN(flash);
 
 /* Library configurations */
 GROUP(libgcc.a libc.a libm.a libnosys.a)
@@ -128,17 +122,8 @@ GROUP(libgcc.a libc.a libm.a libnosys.a)
 
 SECTIONS
 {
-     /* Cortex-M0+ application image */
-    .cy_m0p_image FLASH_CM0P_START :
-    {
-        . = ALIGN(4);
-        __cy_m0p_code_start = . ;
-        KEEP(*(.cy_m0p_image))
-        __cy_m0p_code_end = . ;
-    } > flash
-
-    /* Cortex-M4 application image */
-    .text FLASH_CM4_START :
+    /* Cortex-M4 application flash area */
+    .text ORIGIN(flash) :
     {
         . = ALIGN(4);
         __Vectors = . ;
@@ -253,7 +238,6 @@ SECTIONS
         KEEP(*(SORT(.init_array.*)))
         KEEP(*(.init_array))
         PROVIDE_HIDDEN (__init_array_end = .);
-
 
         . = ALIGN(4);
         /* finit data */
@@ -377,7 +361,7 @@ SECTIONS
         KEEP(*(.cy_toc_part2))
     } > sflash_toc_2
 
-    
+
     /* Supervisory Flash: Table of Content # 2 Copy */
     .cy_rtoc_part2 :
     {

@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cy8c6xx8_cm0plus.ld
-* \version 2.50
+* \version 2.60
 *
 * Linker file for the GNU C compiler.
 *
@@ -40,6 +40,7 @@ SEARCH_DIR(.)
 GROUP(-lgcc -lc -lnosys)
 ENTRY(Reset_Handler)
 
+/* Size of the stack section at the end of CM0+ SRAM */
 STACK_SIZE = 0x1000;
 
 /* Force symbol to be entered in the output file as an undefined symbol. Doing
@@ -126,6 +127,7 @@ SECTIONS
         KEEP(*(.cy_app_header))
     } > flash
 
+    /* Cortex-M0+ application flash area */
     .text :
     {
         . = ALIGN(4);
@@ -298,7 +300,7 @@ SECTIONS
         __end__ = .;
         end = __end__;
         KEEP(*(.heap*))
-		. = ORIGIN(ram) + LENGTH(ram) - STACK_SIZE;
+        . = ORIGIN(ram) + LENGTH(ram) - STACK_SIZE;
         __HeapLimit = .;
     } > ram
 
@@ -356,7 +358,7 @@ SECTIONS
         KEEP(*(.cy_toc_part2))
     } > sflash_toc_2
 
-    
+
     /* Supervisory Flash: Table of Content # 2 Copy */
     .cy_rtoc_part2 :
     {
