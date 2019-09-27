@@ -8,7 +8,7 @@ New Drivers
 
 Updated Drivers
 * [DMAC 1.10](https://cypresssemiconductorco.github.io/psoc6pdl/pdl_api_reference_manual/html/group__group__dmac.html)
-* [SD Host 1.30](https://cypresssemiconductorco.github.io/psoc6pdl/pdl_api_reference_manual/html/group__group__sd_host.html)
+* [SD Host 1.30](https://cypresssemiconductorco.github.io/psoc6pdl/pdl_api_reference_manual/html/group__group__sd__host.html)
 * [SMIF 1.40](https://cypresssemiconductorco.github.io/psoc6pdl/pdl_api_reference_manual/html/group__group__smif.html)
 * [Startup 2.60](https://cypresssemiconductorco.github.io/psoc6pdl/pdl_api_reference_manual/html/group__group__system__config.html)
 * [SysPm 4.30](https://cypresssemiconductorco.github.io/psoc6pdl/pdl_api_reference_manual/html/group__group__syspm.html)
@@ -19,7 +19,7 @@ Drivers with patch version updates
 * [CTB 1.10.1](https://cypresssemiconductorco.github.io/psoc6pdl/pdl_api_reference_manual/html/group__group__ctb.html)
 * [eFuse 1.10.1](https://cypresssemiconductorco.github.io/psoc6pdl/pdl_api_reference_manual/html/group__group__efuse.html)
 * [Flash 3.30.1](https://cypresssemiconductorco.github.io/psoc6pdl/pdl_api_reference_manual/html/group__group__flash.html)
-* [PDM_PCM 2.20.1](https://cypresssemiconductorco.github.io/psoc6pdl/pdl_api_reference_manual/html/group__group__pdm_pcm.html)
+* [PDM_PCM 2.20.1](https://cypresssemiconductorco.github.io/psoc6pdl/pdl_api_reference_manual/html/group__group__pdm__pcm.html)
 * [RTC 2.20.1](https://cypresssemiconductorco.github.io/psoc6pdl/pdl_api_reference_manual/html/group__group__rtc.html)
 * [SAR 1.20.1](https://cypresssemiconductorco.github.io/psoc6pdl/pdl_api_reference_manual/html/group__group__sar.html)
 * [SCB 2.30.1](https://cypresssemiconductorco.github.io/psoc6pdl/pdl_api_reference_manual/html/group__group__scb.html)
