@@ -1404,7 +1404,9 @@ Remember to acknowledge the FIFO buffer after reading one FIFO element.</dd></dl
 <dd>
 The function enables the "Message stored to Rx Buffer", "Rx FIFO 1 New Message" and "Rx FIFO 0 New Message" interrupt events only. Other interrupts can be configured with the <a class="el" href="group__group__canfd__functions.html#ga054d85e42f3f2440743c981dbc52ed0a" title="Configures which bits of the interrupt request register can trigger an interrupt event. ">Cy_CANFD_SetInterruptMask()</a> function. </dd>
 <dd>
-If the channel was disabled, call Cy_CANFD_Enable before calling Cy_CANFD_Init.</dd></dl>
+If the channel was disabled, call Cy_CANFD_Enable before calling Cy_CANFD_Init. </dd>
+<dd>
+Call this function only after all debug messages reception is completed.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">*base</td><td>The pointer to a CAN FD instance.</td></tr>
@@ -1452,7 +1454,9 @@ If the channel was disabled, call Cy_CANFD_Enable before calling Cy_CANFD_Init.<
 </div><div class="memdoc">
 
 <p>De-initializes the CAN FD block, returns registers values to default. </p>
-<dl class="section note"><dt>Note</dt><dd>Do not call Cy_CANFD_Disable before Cy_CANFD_DeInit.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Do not call Cy_CANFD_Disable before Cy_CANFD_DeInit. </dd>
+<dd>
+Call this function only after all debug messages reception is completed.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">*base</td><td>The pointer to a CAN FD instance.</td></tr>

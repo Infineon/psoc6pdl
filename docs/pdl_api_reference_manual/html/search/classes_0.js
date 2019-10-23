@@ -19,7 +19,6 @@ var searchData=
   ['cy_5fstc_5fcanfd_5ft1_5ft',['cy_stc_canfd_t1_t',['../structcy__stc__canfd__t1__t.html',1,'']]],
   ['cy_5fstc_5fcanfd_5ftransceiver_5fdelay_5fcompensation_5ft',['cy_stc_canfd_transceiver_delay_compensation_t',['../structcy__stc__canfd__transceiver__delay__compensation__t.html',1,'']]],
   ['cy_5fstc_5fcanfd_5ftx_5fbuffer_5ft',['cy_stc_canfd_tx_buffer_t',['../structcy__stc__canfd__tx__buffer__t.html',1,'']]],
-  ['cy_5fstc_5fclkhf_5fcsv_5fconfig_5ft',['cy_stc_clkhf_csv_config_t',['../structcy__stc__clkhf__csv__config__t.html',1,'']]],
   ['cy_5fstc_5fcrypto_5faes_5fbuffers_5ft',['cy_stc_crypto_aes_buffers_t',['../structcy__stc__crypto__aes__buffers__t.html',1,'']]],
   ['cy_5fstc_5fcrypto_5faes_5fstate_5ft',['cy_stc_crypto_aes_state_t',['../structcy__stc__crypto__aes__state__t.html',1,'']]],
   ['cy_5fstc_5fcrypto_5fconfig_5ft',['cy_stc_crypto_config_t',['../structcy__stc__crypto__config__t.html',1,'']]],
@@ -129,6 +128,5 @@ var searchData=
   ['cy_5fstc_5fusbfs_5fdev_5fdrv_5fconfig_5ft',['cy_stc_usbfs_dev_drv_config_t',['../structcy__stc__usbfs__dev__drv__config__t.html',1,'']]],
   ['cy_5fstc_5fusbfs_5fdev_5fdrv_5fcontext_5ft',['cy_stc_usbfs_dev_drv_context_t',['../structcy__stc__usbfs__dev__drv__context__t.html',1,'']]],
   ['cy_5fstc_5fusbfs_5fdev_5fdrv_5fdma_5fconfig_5ft',['cy_stc_usbfs_dev_drv_dma_config_t',['../structcy__stc__usbfs__dev__drv__dma__config__t.html',1,'']]],
-  ['cy_5fstc_5fwco_5fcsv_5fconfig_5ft',['cy_stc_wco_csv_config_t',['../structcy__stc__wco__csv__config__t.html',1,'']]],
   ['cyscb_5ftype',['CySCB_Type',['../struct_cy_s_c_b___type.html',1,'']]]
 ];

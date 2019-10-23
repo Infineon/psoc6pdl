@@ -295,7 +295,13 @@ Changelog</h1>
 <tr>
 <th>Version</th><th>Changes</th><th>Reason for Change </th></tr>
 <tr>
-<td>2.10 </td><td>Returns the data toggle bit into the previous state after detecting that the host is retrying an OUT transaction. </td><td>The device was not able to recover the data toggle bit and continues communication through the endpoint after the host retried the OUT transaction (the retried transaction has the same toggle bit as the previous had).   </td><td>2.0 </td><td>The list of changes to support the MBED-OS USB Device stack is provided below:<ul>
+<td rowspan="2">2.20 </td><td>Fix configuration register value restoring in resume routine after Deep Sleep.  </td><td>Fix issue that USB Device stops working in DMA modes after wake up from Deep Sleep.   </td></tr>
+<tr>
+<td>The LPM requests are ignored after wake up from Deep Sleep and the host starts sending SOFs. </td><td>Updated <a class="el" href="group__group__usbfs__dev__drv__functions__low__power.html#ga4f96e219508bc0ea6d645d79ebb75c34">Cy_USBFS_Dev_Drv_Resume</a> function to restore LPM control register after exit Deep Sleep.   </td></tr>
+<tr>
+<td>2.10 </td><td>Returns the data toggle bit into the previous state after detecting that the host is retrying an OUT transaction. </td><td>The device was not able to recover the data toggle bit and continues communication through the endpoint after the host retried the OUT transaction (the retried transaction has the same toggle bit as the previous had).   </td></tr>
+<tr>
+<td>2.0 </td><td>The list of changes to support the MBED-OS USB Device stack is provided below:<ul>
 <li>Changed the processing of the control transfers.</li>
 <li>Updated the endpoint 0 service functions to update the endpoint 0 registers before the function returns.</li>
 <li>Moved the set-device-address processing into the driver from the middleware.</li>

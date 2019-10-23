@@ -92,14 +92,11 @@ $(document).ready(function(){initNavTree('group__group__sysclk__wco.html','');})
 <div class="image">
 <img src="sysclk_backup.png" alt="sysclk_backup.png"/>
 </div>
-<p>The WCO requires the configuration of the dedicated WCO pins (SRSS_WCO_IN_PIN, SRSS_WCO_OUT_PIN). These must be configured as Analog Hi-Z drive modes and the HSIOM selection set to GPIO. The WCO can also be used in bypass mode, where an external 32.768 kHz square wave is brought in directly through the SRSS_WCO_OUT_PIN pin.</p>
-<p>Some devices support a built-in clock supervisor (CSV) in the WCO. The clock supervisor detects if the WCO has been lost; that is, the WCO is no longer producing clock pulses. The CSV does this by checking to ensure there is at least one WCO clock pulse within a certain time window. The ILO or PILO can be the supervising clock. Firmware can configure the CSV to trigger a fault, a reset, or both after specified cycles of the supervising clock. </p>
+<p>The WCO requires the configuration of the dedicated WCO pins (SRSS_WCO_IN_PIN, SRSS_WCO_OUT_PIN). These must be configured as Analog Hi-Z drive modes and the HSIOM selection set to GPIO. The WCO can also be used in bypass mode, where an external 32.768 kHz square wave is brought in directly through the SRSS_WCO_OUT_PIN pin. </p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
 API Reference</h2></td></tr>
 <tr class="memitem:group__group__sysclk__wco__funcs"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__sysclk__wco__funcs.html">Functions</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:group__group__sysclk__wco__structs"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__sysclk__wco__structs.html">Data Structures</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:group__group__sysclk__wco__enums"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__sysclk__wco__enums.html">Enumerated Types</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>

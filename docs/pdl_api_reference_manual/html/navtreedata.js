@@ -30,14 +30,14 @@ var NAVTREEINDEX =
 "group__group__sd__host__macros__present__status.html#ga2007c68ce4395e2dfbf9685f5a9543ee",
 "group__group__smartio__functions__lut.html#ga749724addbcf0a2ccd7f624e4c1dbddf",
 "group__group__smif__macros__sfdp.html#gae3608256a56ba53796f7e53480f19e76",
-"group__group__sysclk__fll.html",
-"group__group__syslib__macros__status__codes.html#ga089fd41c90ad2abcf6908c752b334e10",
-"group__group__tcpwm__counter__clk__prescalers.html#gaa957a777357c781e14545fa94050f676",
-"group__group__trigmux__macros.html#ga8e399e03f0175a2236eb170f5cb5bad8",
-"structcy__stc__canfd__f1__t.html#a70878983c9c65ef73cefdab49e1427f0",
-"structcy__stc__dmac__descriptor__config__t.html#a33ef66614f4911171513a63198e21c40",
-"structcy__stc__rtc__alarm__t.html#aeca6d31c59bed5f9de0d811a63a08430",
-"structcy__stc__smif__mem__device__cfg__t.html#a2b0704e5bdb427719203b8f3d175d219"
+"group__group__sysclk__fll__enums.html#gga777e08424e26c9cd8c2602b2114e716bacd71b0d705fcb6d646c7f439e6de3cf0",
+"group__group__syspm__data__enumerates.html#ga3917bcfb5a7b4151ec1b0fcd95c37d5a",
+"group__group__tcpwm__enums.html#ga236beaba02c8a2a1c4eec981501e7270",
+"group__group__usbfs__dev__drv__enums.html#gga3ad103323d30857a208f4108147b69c8a48229001a72d3cdc9a4fed705b9583dd",
+"structcy__stc__canfd__rx__buffer__t.html#a0db6cdd9b30082a0639b997703f2aec1",
+"structcy__stc__fault__frame__t.html#a4ca5ffae59e080db1d09b95232071753",
+"structcy__stc__sar__config__t.html#ac5fd152c99fa5d4eb5ad01586dc83f8b",
+"structcy__stc__syspm__backup__regs__t.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

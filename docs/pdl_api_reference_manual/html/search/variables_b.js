@@ -5,8 +5,6 @@ var searchData=
   ['lfsrinitval',['lfsrInitVal',['../structcy__stc__dma__crc__config__t.html#ad8cc4baa069f067285c9773ecc5102bc',1,'cy_stc_dma_crc_config_t']]],
   ['lockkey',['lockKey',['../structcy__stc__csd__context__t.html#a3d3718a12013b8dbe488bf031cd4eefa',1,'cy_stc_csd_context_t']]],
   ['locktolerance',['lockTolerance',['../structcy__stc__fll__manual__config__t.html#a99a5cde7d712e279f423ec34bac38ba7',1,'cy_stc_fll_manual_config_t']]],
-  ['lossaction',['lossAction',['../structcy__stc__wco__csv__config__t.html#a0c899fa7e06af9b603df34653498897d',1,'cy_stc_wco_csv_config_t::lossAction()'],['../structcy__stc__clkhf__csv__config__t.html#afc24c09285ca588b1df366dd30de9aa2',1,'cy_stc_clkhf_csv_config_t::lossAction()']]],
-  ['losswindow',['lossWindow',['../structcy__stc__wco__csv__config__t.html#a034061b50d8b3ba083746dd146cabead',1,'cy_stc_wco_csv_config_t::lossWindow()'],['../structcy__stc__clkhf__csv__config__t.html#a13ee031726497fe126a99e036be44a25',1,'cy_stc_clkhf_csv_config_t::lossWindow()']]],
   ['lowphasedutycycle',['lowPhaseDutyCycle',['../structcy__stc__scb__i2c__config__t.html#a8b742ccfd88a2a9216e9ad7b018a6d51',1,'cy_stc_scb_i2c_config_t']]],
   ['lowvoltagesignaling',['lowVoltageSignaling',['../structcy__stc__sd__host__sd__card__config__t.html#a100a6eaaadfd0c1736c8d3331a0f3d8b',1,'cy_stc_sd_host_sd_card_config_t']]],
   ['lr',['lr',['../structcy__stc__fault__frame__t.html#a2194671c2c38dc854a05b2851110aa0a',1,'cy_stc_fault_frame_t']]],

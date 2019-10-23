@@ -63,8 +63,6 @@ var searchData=
   ['subaddresssize',['subAddressSize',['../structcy__stc__scb__ezi2c__config__t.html#ac96d80c0b5ec65b2c1e64dc3b7fdf66b',1,'cy_stc_scb_ezi2c_config_t']]],
   ['submode',['subMode',['../structcy__stc__scb__spi__config__t.html#a75c45e3e4b63c4bba526de72ac9850ce',1,'cy_stc_scb_spi_config_t']]],
   ['subregions',['subregions',['../structcy__stc__mpu__cfg__t.html#ac853e6d3c82955fbf7c9395e838b8a58',1,'cy_stc_mpu_cfg_t::subregions()'],['../structcy__stc__smpu__cfg__t.html#a92b0e0d1c87b57520a0129e869ad3da8',1,'cy_stc_smpu_cfg_t::subregions()'],['../structcy__stc__ppu__prog__cfg__t.html#ae2cf0dcda80e84268abd5ffc34c5d53f',1,'cy_stc_ppu_prog_cfg_t::subregions()']]],
-  ['supervisingwindow',['supervisingWindow',['../structcy__stc__clkhf__csv__config__t.html#a55cb40f84ff83e656f08f5ac60b3a962',1,'cy_stc_clkhf_csv_config_t']]],
-  ['supervisorclock',['supervisorClock',['../structcy__stc__wco__csv__config__t.html#a2f425dd100561b65315cf9e7752cffca',1,'cy_stc_wco_csv_config_t::supervisorClock()'],['../structcy__stc__clkhf__csv__config__t.html#a311570a3ded15ac531c09a01a63caf6a',1,'cy_stc_clkhf_csv_config_t::supervisorClock()']]],
   ['swamuxbufsel',['swAmuxbufSel',['../structcy__stc__csd__config__t.html#a6823d4dcea5a4d140f2c68e24cf0d65c',1,'cy_stc_csd_config_t']]],
   ['swapinput',['swapInput',['../structcy__stc__tcpwm__pwm__config__t.html#a9dab503096fd210a7b909a4091676109',1,'cy_stc_tcpwm_pwm_config_t']]],
   ['swapinputmode',['swapInputMode',['../structcy__stc__tcpwm__pwm__config__t.html#a54e92c1a3430ac9eec906f281f55e71e',1,'cy_stc_tcpwm_pwm_config_t']]],

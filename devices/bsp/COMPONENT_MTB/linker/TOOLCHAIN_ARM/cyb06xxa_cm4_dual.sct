@@ -235,7 +235,7 @@ CYMETA 0x90500000
 /* The following symbols used by the cymcuelftool. */
 /* Flash */
 #define __cy_memory_0_start 0x10000000
-#define __cy_memory_0_length  0x00200000
+#define __cy_memory_0_length  0x001D0000
 #define __cy_memory_0_row_size 0x200
 
 /* Emulated EEPROM Flash area */

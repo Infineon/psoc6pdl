@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('group__group__flash.html','');});
 <p>Flash memory in PSoC devices provides non-volatile storage for user firmware, user configuration data, and bulk data storage.</p>
 <p>Flash operations are implemented as system calls. System calls are executed out of SROM in the privileged mode of operation. Users have no access to read or modify the SROM code. The driver API requests the system call by acquiring the Inter-processor communication (IPC) and writing the SROM function opcode and parameters to its input registers. As a result, an NMI interrupt is invoked and the requested SROM API is executed. The operation status is returned to the driver context and a release interrupt is triggered.</p>
 <p>Writing to flash can take up to 20 milliseconds. During this time, the device should not be reset (including XRES pin, software reset, and watchdog) or unexpected changes may be made to portions of the flash. Also, the low-voltage detect circuits should be configured to generate an interrupt instead of a reset.</p>
-<p>A Read while Write violation occurs when a flash Read operation is initiated in the same or neighboring flash sector where the flash Write, Erase, or Program operation is working. This violation may cause a HardFault exception. To avoid the Read while Write violation, the user must carefully split the Read and Write operation on flash sectors which are not neighboring, considering both cores in the multi-processor device. The flash is divided into four equal sectors. You may edit the linker script to place the code into neighboring sectors. For example, use sectors number 0 and 1 for code and sectors 2 and 3 for data storage.</p>
+<p>A Read while Write violation occurs when a flash Read operation is initiated in the same or neighboring (neighboring restriction is applicable just for the CY8C6xx6, CY8C6xx7 devices) flash sector where the flash Write, Erase, or Program operation is working. This violation may cause a HardFault exception. To avoid the Read while Write violation, the user must carefully split the Read and Write operation on flash sectors which are not neighboring, considering both cores in the multi-processor device. If the flash is divided into four equal sectors, you may edit the linker script to place the code into neighboring sectors. For example, use sectors number 0 and 1 for code and sectors 2 and 3 for data storage.</p>
 <h1><a class="anchor" id="group_flash_configuration"></a>
 Configuration Considerations</h1>
 <h2><a class="anchor" id="group_flash_config_intro"></a>
@@ -205,6 +205,8 @@ Changelog</h1>
 <table class="doxtable">
 <tr>
 <th>Version</th><th style="width: 52%;">Changes</th><th>Reason for Change </th></tr>
+<tr>
+<td rowspan="1">3.30.2 </td><td>Updated documentation to limit devices with the neighboring restriction. </td><td>User experience enhancement.  </td></tr>
 <tr>
 <td rowspan="1">3.30.1 </td><td>Used the CY_RAMFUNC_BEGIN and CY_RAMFUNC_END macros that allocate the function in RAM instead of using the CY_SECTION(".cy_ramfunc") macros. </td><td>Removed the code duplication.  </td></tr>
 <tr>

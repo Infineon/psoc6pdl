@@ -422,7 +422,7 @@ SECTIONS
 /* The following symbols used by the cymcuelftool. */
 /* Flash */
 __cy_memory_0_start    = 0x10000000;
-__cy_memory_0_length   = 0x00100000;
+__cy_memory_0_length   = 0x000D0000;
 __cy_memory_0_row_size = 0x200;
 
 /* Emulated EEPROM Flash area */
