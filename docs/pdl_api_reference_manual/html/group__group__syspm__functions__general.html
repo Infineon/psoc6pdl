@@ -94,10 +94,10 @@ Functions</h2></td></tr>
 <tr class="memdesc:gaf98b0b378f526cf5542b946c8dcf74ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that changes the voltage setting for flash.  <a href="#gaf98b0b378f526cf5542b946c8dcf74ee">More...</a><br /></td></tr>
 <tr class="separator:gaf98b0b378f526cf5542b946c8dcf74ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad4960d176e56bce8631015843a143e1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__syspm__functions__general.html#gad4960d176e56bce8631015843a143e1b">Cy_SysPm_SaveRegisters</a> (<a class="el" href="structcy__stc__syspm__backup__regs__t.html">cy_stc_syspm_backup_regs_t</a> *regs)</td></tr>
-<tr class="memdesc:gad4960d176e56bce8631015843a143e1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves non-retained UDB registers before system entering system Deep Sleep.  <a href="#gad4960d176e56bce8631015843a143e1b">More...</a><br /></td></tr>
+<tr class="memdesc:gad4960d176e56bce8631015843a143e1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves non-retained UDB registers and the slow and fast clock dividers before system entering system Deep Sleep.  <a href="#gad4960d176e56bce8631015843a143e1b">More...</a><br /></td></tr>
 <tr class="separator:gad4960d176e56bce8631015843a143e1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga300fc24bbd19d12771dc2dd472658ab7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__syspm__functions__general.html#ga300fc24bbd19d12771dc2dd472658ab7">Cy_SysPm_RestoreRegisters</a> (<a class="el" href="structcy__stc__syspm__backup__regs__t.html">cy_stc_syspm_backup_regs_t</a> const *regs)</td></tr>
-<tr class="memdesc:ga300fc24bbd19d12771dc2dd472658ab7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores non-retained UDB registers before system entering system Deep Sleep.  <a href="#ga300fc24bbd19d12771dc2dd472658ab7">More...</a><br /></td></tr>
+<tr class="memdesc:ga300fc24bbd19d12771dc2dd472658ab7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores non-retained UDB registers and the slow and fast clock dividers before system entering system Deep Sleep.  <a href="#ga300fc24bbd19d12771dc2dd472658ab7">More...</a><br /></td></tr>
 <tr class="separator:ga300fc24bbd19d12771dc2dd472658ab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -130,7 +130,7 @@ Functions</h2></td></tr>
 <li>CY_SYSPM_CANCELED - Operation was canceled. Call the function again until the function returns CY_SYSPM_SUCCESS. See <a class="el" href="group__group__syspm__data__enumerates.html#ga601b1cb722cb091133caf33d8ab235ca">cy_en_syspm_status_t</a>.</li>
 </ul>
 </dd></dl>
-<dl class="section user"><dt>Function Usage</dt><dd><div class="fragment"><div class="line">    </div><div class="line">    <span class="comment">/* The system may continue operating while the voltage on Vccd </span></div><div class="line"><span class="comment">    * discharges to the new voltage. The time it takes to reach the </span></div><div class="line"><span class="comment">    * new voltage depends on operating conditions, including the load current</span></div><div class="line"><span class="comment">    * on Vccd and external capacitor size.</span></div><div class="line"><span class="comment">    */</span></div><div class="line">    SRSS_PWR_BUCK_CTL = </div><div class="line">    <a class="code" href="group__group__syslib__macros.html#ga7dfff5dad289133d84f2c1caddd0382e">_CLR_SET_FLD32U</a>((SRSS_PWR_BUCK_CTL), SRSS_PWR_BUCK_CTL_BUCK_OUT1_SEL, (uint32_t) <a class="code" href="group__group__syspm__data__enumerates.html#gga3917bcfb5a7b4151ec1b0fcd95c37d5aa0009b3f9bef2d360c1b221cd8c801650">CY_SYSPM_BUCK_OUT1_VOLTAGE_ULP</a>);</div><div class="line"></div></div><!-- fragment --></dd></dl>
+<dl class="section user"><dt>Function Usage</dt><dd><div class="fragment"><div class="line">    </div><div class="line">    <span class="comment">/* The system may continue operating while the voltage on Vccd </span></div><div class="line"><span class="comment">    * discharges to the new voltage. The time it takes to reach the </span></div><div class="line"><span class="comment">    * new voltage depends on operating conditions, including the load current</span></div><div class="line"><span class="comment">    * on Vccd and external capacitor size.</span></div><div class="line"><span class="comment">    */</span></div><div class="line">    SRSS_PWR_BUCK_CTL = </div><div class="line">    _CLR_SET_FLD32U((SRSS_PWR_BUCK_CTL), SRSS_PWR_BUCK_CTL_BUCK_OUT1_SEL, (uint32_t) <a class="code" href="group__group__syspm__data__enumerates.html#gga3917bcfb5a7b4151ec1b0fcd95c37d5aa0009b3f9bef2d360c1b221cd8c801650">CY_SYSPM_BUCK_OUT1_VOLTAGE_ULP</a>);</div><div class="line"></div></div><!-- fragment --></dd></dl>
 
 </div>
 </div>
@@ -150,10 +150,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Saves non-retained UDB registers before system entering system Deep Sleep. </p>
+<p>Saves non-retained UDB registers and the slow and fast clock dividers before system entering system Deep Sleep. </p>
 <p>Must be called if programmable logic or function are implemented in the UDB array.</p>
-<dl class="section warning"><dt>Warning</dt><dd>Only one CPU on dual CPU devices should call this function. If both CPUs call this function the UDB state restored may be inconsistent with the expected state when restored.</dd></dl>
-<p>Cypress ID #280370.</p>
+<p>Cypress ID #280370, #1451.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">regs</td><td>The structure where the registers are saved.</td></tr>
@@ -180,13 +179,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Restores non-retained UDB registers before system entering system Deep Sleep. </p>
+<p>Restores non-retained UDB registers and the slow and fast clock dividers before system entering system Deep Sleep. </p>
 <p>Must be called if programmable logic or function are implemented in the UDB array.</p>
-<dl class="section warning"><dt>Warning</dt><dd>Only one CPU on dual CPU devices should call this function. If both CPUs call this function the UDB state restored may be inconsistent with the expected state when restored.</dd></dl>
-<p>Cypress ID #280370.</p>
+<p>Cypress ID #280370, #1451.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">regs</td><td>The structure with data stored (using <a class="el" href="group__group__syspm__functions__general.html#gad4960d176e56bce8631015843a143e1b" title="Saves non-retained UDB registers before system entering system Deep Sleep. ">Cy_SysPm_SaveRegisters()</a>) into the required non-retained registers after Deep Sleep.</td></tr>
+    <tr><td class="paramname">regs</td><td>The structure with data stored (using <a class="el" href="group__group__syspm__functions__general.html#gad4960d176e56bce8631015843a143e1b" title="Saves non-retained UDB registers and the slow and fast clock dividers before system entering system D...">Cy_SysPm_SaveRegisters()</a>) into the required registers after Deep Sleep.</td></tr>
   </table>
   </dd>
 </dl>

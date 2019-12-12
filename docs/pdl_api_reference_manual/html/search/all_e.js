@@ -1,6 +1,7 @@
 var searchData=
 [
   ['offset_20and_20slope_20trim_20functions',['Offset and Slope Trim Functions',['../group__group__ctb__functions__trim.html',1,'']]],
+  ['one_2dto_2done_20trigger_20lines',['One-To-One Trigger Lines',['../group__group__trigmux__1to1__enums.html',1,'']]],
   ['oa0compbypass',['oa0CompBypass',['../structcy__stc__ctb__config__t.html#a0e9d958bf458e55181b0fb3504ad0da1',1,'cy_stc_ctb_config_t']]],
   ['oa0compedge',['oa0CompEdge',['../structcy__stc__ctb__config__t.html#af03556c02f77cfe5b8f0298f9da468d1',1,'cy_stc_ctb_config_t']]],
   ['oa0comphyst',['oa0CompHyst',['../structcy__stc__ctb__config__t.html#adb1672b80a657a3db46054a8ca300322',1,'cy_stc_ctb_config_t']]],

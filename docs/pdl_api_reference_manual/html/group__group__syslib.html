@@ -108,8 +108,8 @@ $(document).ready(function(){initNavTree('group__group__syslib.html','');});
 <h1><a class="anchor" id="group_syslib_configuration"></a>
 Configuration Considerations</h1>
 <p><b> Assertion Usage </b> <br />
- Use the <a class="el" href="group__group__syslib__macros.html#gab333fce69ffe5eef183d190d37cc04db" title="The macro that evaluates the expression and, if it is false (evaluates to 0), the processor is halted...">CY_ASSERT()</a> macro to check expressions that must be true as long as the program is running correctly. It is a convenient way to insert sanity checks. The <a class="el" href="group__group__syslib__macros.html#gab333fce69ffe5eef183d190d37cc04db" title="The macro that evaluates the expression and, if it is false (evaluates to 0), the processor is halted...">CY_ASSERT()</a> macro is defined in the cy_syslib.h file which is part of the PDL library. The behavior of the macro is as follows: if the expression passed to the macro is false, output an error message that includes the file name and line number, and then halts the CPU. <br />
-In case of fault, the <a class="el" href="group__group__syslib__macros.html#gab333fce69ffe5eef183d190d37cc04db" title="The macro that evaluates the expression and, if it is false (evaluates to 0), the processor is halted...">CY_ASSERT()</a> macro calls the <a class="el" href="group__group__syslib__functions.html#ga0fe70e0948f5d2b2fb1615b85b0d7d7a" title="This function stores the ASSERT location of the file name (including path to file) and line number in...">Cy_SysLib_AssertFailed()</a> function. This is a weakly linked function. The default implementation stores the file name and line number of the ASSERT into global variables, cy_assertFileName and cy_assertLine . It then calls the <a class="el" href="group__group__syslib__functions.html#gaaf5ef74a64fe1abbc195da55e4acf075" title="This function halts the CPU but only the CPU which calls the function. ">Cy_SysLib_Halt()</a> function. </p><dl class="section note"><dt>Note</dt><dd>Firmware can redefine the <a class="el" href="group__group__syslib__functions.html#ga0fe70e0948f5d2b2fb1615b85b0d7d7a" title="This function stores the ASSERT location of the file name (including path to file) and line number in...">Cy_SysLib_AssertFailed()</a> function for custom processing.</dd></dl>
+ Use the CY_ASSERT() macro to check expressions that must be true as long as the program is running correctly. It is a convenient way to insert sanity checks. The CY_ASSERT() macro is defined in the cy_syslib.h file which is part of the PDL library. The behavior of the macro is as follows: if the expression passed to the macro is false, output an error message that includes the file name and line number, and then halts the CPU. <br />
+In case of fault, the CY_ASSERT() macro calls the <a class="el" href="group__group__syslib__functions.html#ga0fe70e0948f5d2b2fb1615b85b0d7d7a" title="This function stores the ASSERT location of the file name (including path to file) and line number in...">Cy_SysLib_AssertFailed()</a> function. This is a weakly linked function. The default implementation stores the file name and line number of the ASSERT into global variables, cy_assertFileName and cy_assertLine . It then calls the <a class="el" href="group__group__syslib__functions.html#gaaf5ef74a64fe1abbc195da55e4acf075" title="This function halts the CPU but only the CPU which calls the function. ">Cy_SysLib_Halt()</a> function. </p><dl class="section note"><dt>Note</dt><dd>Firmware can redefine the <a class="el" href="group__group__syslib__functions.html#ga0fe70e0948f5d2b2fb1615b85b0d7d7a" title="This function stores the ASSERT location of the file name (including path to file) and line number in...">Cy_SysLib_AssertFailed()</a> function for custom processing.</dd></dl>
 <p>The PDL source code uses this assert mechanism extensively. It is recommended that you enable asserts when debugging firmware. <br />
 <b> Assertion Classes and Levels </b> <br />
  The PDL defines three assert classes, which correspond to different kinds of parameters. There is a corresponding assert "level" for each class. </p><table class="doxtable">
@@ -134,21 +134,17 @@ MISRA-C Compliance</h1>
 <tr>
 <th>MISRA Rule </th><th>Rule Class (Required/Advisory) </th><th>Rule Description </th><th>Description of Deviation(s)  </th></tr>
 <tr>
-<td>1.2 </td><td>R </td><td>No reliance shall be placed on undefined or unspecified behaviour. </td><td>This specific behavior is explicitly covered in rule 20.1.  </td></tr>
-<tr>
 <td>2.1 </td><td>R </td><td>This function contains a mixture of in-line assembler statements and C statements. </td><td>This si required by design of the Cy_SysLib_Halt function.  </td></tr>
 <tr>
 <td>18.4 </td><td>R </td><td>Unions shall not be used. </td><td>The unions are used for CFSR, HFSR and SHCSR Fault Status Registers content access as a word in code and as a structure during debug.  </td></tr>
-<tr>
-<td>19.13 </td><td>A </td><td>The # and ## operators should not be used. </td><td>The ## preprocessor operator is used in macros to form the field mask.  </td></tr>
-<tr>
-<td>20.1 </td><td>R </td><td>Reserved identifiers, macros and functions in the standard library, shall not be defined, redefined or undefined. </td><td>The driver defines the macros with leading underscores (_CLR_SET_FLD/_BOOL2FLD/_FLD2BOOL) and therefore generates this MISRA violation.  </td></tr>
 </table>
 <h1><a class="anchor" id="group_syslib_changelog"></a>
 Changelog</h1>
 <table class="doxtable">
 <tr>
 <th>Version</th><th>Changes</th><th>Reason for Change </th></tr>
+<tr>
+<td>2.50 </td><td>Moved following macros to the core library: CY_LO8,CY_HI8,CY_LO16,CY_HI16,CY_SWAP_ENDIAN16,CY_SWAP_ENDIAN32, CY_SWAP_ENDIAN64,CY_GET_REG8,CY_SET_REG8,CY_GET_REG16,CY_SET_REG16, CY_GET_REG24,CY_SET_REG24,CY_GET_REG32,CY_SET_REG32,_CLR_SET_FLD32U, CY_REG32_CLR_SET,_CLR_SET_FLD16U,CY_REG16_CLR_SET,_CLR_SET_FLD8U, CY_REG8_CLR_SET,_BOOL2FLD,_FLD2BOOL,CY_SYSLIB_DIV_ROUND, CY_SYSLIB_DIV_ROUNDUP,CY_NOINIT,CY_SECTION,CY_UNUSED,CY_NOINLINE, CY_ALIGN,CY_RAMFUNC_BEGIN,CY_RAMFUNC_END. Use at least version 1.1 of the core library: <a href="https://github.com/cypresssemiconductorco/core-lib">https://github.com/cypresssemiconductorco/core-lib</a>. </td><td>Improve PDL code base.  </td></tr>
 <tr>
 <td>2.40.1 </td><td>Correct the CY_RAMFUNC_BEGIN macro for the IAR compiler. </td><td>Removed the IAR compiler warning.  </td></tr>
 <tr>
@@ -166,7 +162,7 @@ Changelog</h1>
 <tr>
 <td rowspan="4">2.10 </td><td>Flattened the organization of the driver source code into the single source directory and the single include directory. </td><td>Driver library directory-structure simplification.  </td></tr>
 <tr>
-<td>Added the following macros: <a class="el" href="group__group__syslib__macros.html#ga6873efbed50e1e0485e5f3279f193aa2">CY_REG32_CLR_SET</a>, <a class="el" href="group__group__syslib__macros.html#ga10a2bdfbcf75aed8d292209057b0ee6b">_CLR_SET_FLD16U</a>, <a class="el" href="group__group__syslib__macros.html#gab2b4fa8f484a8308eadec61e80e82623">CY_REG16_CLR_SET</a>, <a class="el" href="group__group__syslib__macros.html#ga5e3bafb985f38613bde1147dc73fcf65">_CLR_SET_FLD8U</a>, <a class="el" href="group__group__syslib__macros.html#gac927ea147352133e7a1ead8913247d90">CY_REG8_CLR_SET</a> </td><td>Register access simplification.  </td></tr>
+<td>Added the following macros: CY_REG32_CLR_SET, _CLR_SET_FLD16U, CY_REG16_CLR_SET, _CLR_SET_FLD8U, CY_REG8_CLR_SET </td><td>Register access simplification.  </td></tr>
 <tr>
 <td>Removed the Cy_SysLib_GetNumHfclkResetCause API function. </td><td>This feature is not supported by SRSS_ver1.  </td></tr>
 <tr>

@@ -207,14 +207,8 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section user"><dt>Side Effects</dt><dd>This side effect is applicable only for devices with a UDBs. You can obtain unpredictable behavior of the UDB block after the device wakeup from system Deep Sleep. Unpredictable behavior scenario:<ul>
-<li>The first CPU saves non-retained UDB configuration registers and goes into the CPU Deep Sleep (<a class="el" href="group__group__syspm__functions__power.html#ga5150c28fe4d2626720c1fbf74b3111ca" title="Sets executing CPU to the Deep Sleep mode. ">Cy_SysPm_CpuEnterDeepSleep()</a> function).</li>
-<li>These non-retained UDB configuration registers are modified in runtime by another (second) active CPU.</li>
-<li>The second CPU saves non-retained UDB configuration registers and goes into the CPU Deep Sleep (<a class="el" href="group__group__syspm__functions__power.html#ga5150c28fe4d2626720c1fbf74b3111ca" title="Sets executing CPU to the Deep Sleep mode. ">Cy_SysPm_CpuEnterDeepSleep()</a> function). These conditions save different values of the non-retained UDB configuration registers. On the first CPU wakeup (system wakeup from Deep Sleep), these registers are restored by the values saved on the first CPU. After the second CPU wakeup, these registers are "reconfigured" by the values saved on the second CPU. Be aware of this situation.</li>
-</ul>
-</dd></dl>
 <dl class="section user"><dt>Side Effects</dt><dd>For CY8C6xx6, CY8C6xx7 devices this function clears the Event Register of the CM4 CPU after wakeup from WFE.</dd></dl>
-<dl class="section user"><dt>Side Effects</dt><dd>This side effect is applicable only for rev-08 of the CY8CKIT-062. This function changes the slow and fast clock dividers to SYSPM_CLK_DIVIDER right before entering into system Deep Sleep and restores these dividers after wakeup.</dd></dl>
+<dl class="section user"><dt>Side Effects</dt><dd>This function changes the slow and fast clock dividers right before entering into system Deep Sleep and restores these dividers after wakeup.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>Entered status, see <a class="el" href="group__group__syspm__data__enumerates.html#ga601b1cb722cb091133caf33d8ab235ca">cy_en_syspm_status_t</a>.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The FLL/PLL are not restored right before the CPU(s) start executing the instructions after system Deep Sleep. This can affect the peripheral that is driven by PLL/FLL. Ensure that the PLL/FLL are properly restored (locked) after wakeup from System Deep Sleep. Refer to the <a class="el" href="group__group__sysclk.html">SysClk (System Clock)</a> driver documentation for information about how to read the PLL/FLL lock statuses.</dd>
 <dd>

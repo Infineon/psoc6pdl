@@ -230,6 +230,16 @@ Changelog</h1>
 <tr>
 <th>Version </th><th>Changes </th><th>Reason for Change  </th></tr>
 <tr>
+<td rowspan="5">2.70 </td><td>Updated <a class="el" href="group__group__system__config__system__functions.html#gae0c36a9591fe6e9c45ecb21a794f0f0f">SystemCoreClockUpdate()</a> implementation - The SysClk API is reused. </td><td>Code optimization.  </td></tr>
+<tr>
+<td>Updated <a class="el" href="group__group__system__config__system__functions.html#ga93f514700ccf00d08dbdcff7f1224eb2">SystemInit()</a> implementation - The IPC7 structure is initialized for both cores. </td><td>Provided support for SysPM driver updates.  </td></tr>
+<tr>
+<td>Updated the linker scripts. </td><td>Reserved FLASH area for the MCU boot headers.  </td></tr>
+<tr>
+<td>Added System Pipe initialization for all devices.  </td><td>Improved PDL usability according to user experience.  </td></tr>
+<tr>
+<td>Removed redundant legacy macros: CY_CLK_EXT_FREQ_HZ, CY_CLK_ECO_FREQ_HZ and CY_CLK_ALTHF_FREQ_HZ. Use <a class="el" href="group__group__sysclk__ext__funcs.html#gad4b77c61d47878007b5c50e3baf13e51">Cy_SysClk_ExtClkSetFrequency</a>, <a class="el" href="group__group__sysclk__eco__funcs.html#ga98d131a40b66646c6fa4c1c18d0720a9">Cy_SysClk_EcoConfigure</a> and <a class="el" href="group__group__ble__clk__functions.html#gae92f61cd532c63d9547c52ccd6757ff7">Cy_BLE_EcoConfigure</a> functions instead them.  </td><td>Defect fixing.  </td></tr>
+<tr>
 <td>2.60 </td><td>Updated linker scripts. </td><td>Provided support for new devices, updated usage of CM0p prebuilt image.  </td></tr>
 <tr>
 <td>2.50 </td><td>Updated assembler files, C files, linker scripts. </td><td>Dynamic allocated HEAP size for Arm Compiler 6, IAR 8.  </td></tr>

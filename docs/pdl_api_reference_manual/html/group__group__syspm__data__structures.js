@@ -21,7 +21,9 @@ var group__group__syspm__data__structures =
       [ "CY_SYSPM_UDB_BCTL_BOTSEL_U_REG", "structcy__stc__syspm__backup__regs__t.html#a04be592ea14d7b5e84bb8d92739fb8cb", null ],
       [ "CY_SYSPM_UDB_BCTL_QCLK_EN0_REG", "structcy__stc__syspm__backup__regs__t.html#a5068cbfd2936c39e7e7724378f266016", null ],
       [ "CY_SYSPM_UDB_BCTL_QCLK_EN1_REG", "structcy__stc__syspm__backup__regs__t.html#a8cc818e75611888adf64f5e0b20a3434", null ],
-      [ "CY_SYSPM_UDB_BCTL_QCLK_EN2_REG", "structcy__stc__syspm__backup__regs__t.html#a65d069c377b68b7d08385fcf58bfa05b", null ]
+      [ "CY_SYSPM_UDB_BCTL_QCLK_EN2_REG", "structcy__stc__syspm__backup__regs__t.html#a65d069c377b68b7d08385fcf58bfa05b", null ],
+      [ "CY_SYSPM_CM0_CLOCK_CTL_REG", "structcy__stc__syspm__backup__regs__t.html#a02e66f69904911561a3143bbcff5627f", null ],
+      [ "CY_SYSPM_CM4_CLOCK_CTL_REG", "structcy__stc__syspm__backup__regs__t.html#af4a272d28fb71f4f52b1eae964256d09", null ]
     ] ],
     [ "Cy_SysPmCallback", "group__group__syspm__data__structures.html#ga0b54e47bca8fb045d86884a9b3d12067", null ]
 ];

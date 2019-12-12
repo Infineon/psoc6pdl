@@ -126,6 +126,10 @@ Changelog</h1>
 <tr>
 <th>Version</th><th>Changes</th><th>Reason for Change </th></tr>
 <tr>
+<td rowspan="2">2.40 </td><td>Update level selection logic of RX FIFO trigger in the <a class="el" href="group__group__scb__uart__high__level__functions.html#gace7421c664f582ab4ad4bade0683f209" title="This function starts a UART receive operation. ">Cy_SCB_UART_Receive()</a>. </td><td>Fix possible stuck if the RTS level is less than the RX FIFO level.  </td></tr>
+<tr>
+<td>Exclude self-test assertion macros under release build profile. </td><td>Avoid dependency on CY_ASSERT macro implementation.  </td></tr>
+<tr>
 <td>2.30.1 </td><td>Added header guards CY_IP_MXSCB. </td><td>To enable the PDL compilation with wounded out IP blocks.  </td></tr>
 <tr>
 <td rowspan="5">2.30 </td><td>Fixed MISRA violation. </td><td>MISRA compliance.  </td></tr>

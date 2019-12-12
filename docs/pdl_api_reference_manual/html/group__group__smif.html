@@ -87,13 +87,13 @@ $(document).ready(function(){initNavTree('group__group__smif.html','');});
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">General Description</h2>
-<p>The SPI-based communication interface for external memory devices. </p>
+<p>The SPI-based communication interface to the external quad SPI (QSPI) high-speed memory devices. </p>
 <p>The functions and other declarations used in this driver are in cy_smif.h and cy_smif_memslot.h (if used). If you are using the ModusToolbox QSPI Configurator, also include cycfg_qspi_memslot.h.</p>
-<p>SMIF: Serial Memory Interface: This IP block implements an SPI-based communication interface for interfacing external memory devices to PSoC. The SMIF supports Octal-SPI, Dual Quad-SPI, Quad-SPI, Dual-SPI, and SPI.</p>
+<p><b>SMIF: Serial Memory Interface</b>: This IP block implements an SPI-based communication interface for interfacing external memory devices to PSoC. The SMIF supports SPI, dual SPI (DSPI), quad SPI (QSPI), dual QSPI and octal SPI.</p>
 <p>Features</p><ul>
 <li>Standard SPI Master interface</li>
-<li>Supports Single/Dual/Quad/Octal SPI Memories</li>
-<li>Supports Dual-Quad SPI mode</li>
+<li>Supports single/dual/quad/octal SPI memory devices</li>
+<li>Supports dual quad SPI mode</li>
 <li>Design-time configurable support for multiple (up to 4) external serial memory devices</li>
 <li>eXecute-In-Place (XIP) operation mode for both read and write accesses with 4KB XIP read cache and on-the-fly encryption and decryption</li>
 <li>Supports external serial memory initialization via <a href="https://www.jedec.org/standards-documents/docs/jesd216b" target="_blank">Serial Flash Discoverable Parameters (SFDP)</a> standard</li>
@@ -124,7 +124,7 @@ $(document).ready(function(){initNavTree('group__group__smif.html','');});
 Configuration Considerations</h1>
 <p>PDL API has common parameters: base, context, config described in <a class="el" href="page_getting_started.html#page_getting_started_pdl_design">PDL Design</a> section.</p>
 <p>See the documentation for <a class="el" href="group__group__smif__low__level__functions.html#gaea2684847f04e2e7e2c85cfe7fd37881" title="This function initializes the SMIF block as a communication block. ">Cy_SMIF_Init()</a> and <a class="el" href="group__group__smif__mem__slot__functions.html#ga6f38cc37ab0e6fcb97d2675d1ae11771" title="This function initializes the slots of the memory device in the SMIF configuration. ">Cy_SMIF_MemInit()</a> for details on the required configuration structures and other initialization topics.</p>
-<p>The normal (MMIO) mode is used for implementing a generic SPI/DSPI/QSPI/Dual Quad-SPI/Octal-SPI communication interface using the SMIF block. This interface can be used to implement special commands like Program/Erase of flash, memory device configuration, sleep mode entry for memory devices or other special commands specific to the memory device. The transfer width (SPI/DSP/Quad-SPI/Octal-SPI) of a transmission is a parameter set for each transmit/receive operation. So these can be changed at run time.</p>
+<p>The normal (MMIO) mode is used for implementing a generic SPI/DSPI/QSPI/dual QSPI/octal SPI communication interface using the SMIF block. This interface can be used to implement special commands like Program/Erase of flash, memory device configuration, sleep mode entry for memory devices or other special commands specific to the memory device. The transfer width (SPI/DSPI/QSPI/octal SPI) of a transmission is a parameter set for each transmit/receive operation. So these can be changed at run time.</p>
 <p>In a typical memory interface with flash memory, the SMIF is used in the memory mode when reading from the memory and it switches to the normal mode when writing to flash memory. A typical memory device has multiple types of commands.</p>
 <p>The SMIF interface can be used to transmit different types of commands. Each command has different phases: command, dummy cycles, and transmit and receive data which require separate APIs.</p>
 <h2><a class="anchor" id="group_smif_init"></a>
@@ -158,6 +158,10 @@ Changelog</h1>
 <table class="doxtable">
 <tr>
 <th>Version</th><th>Changes</th><th>Reason for Change </th></tr>
+<tr>
+<td rowspan="2">1.40.1 </td><td>The <a class="el" href="group__group__smif__mem__slot__functions.html#ga6f38cc37ab0e6fcb97d2675d1ae11771">Cy_SMIF_MemInit</a> is changed.  </td><td>Corrected a false assertion during initialization in SFDP mode.  </td></tr>
+<tr>
+<td>Minor documentation updates.  </td><td></td></tr>
 <tr>
 <td rowspan="5">1.40 </td><td>The following functions are renamed:<br />
  Cy_SMIF_GetTxfrStatus into Cy_SMIF_GetTransferStatus;<br />

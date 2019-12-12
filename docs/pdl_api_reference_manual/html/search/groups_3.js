@@ -50,6 +50,9 @@ var searchData=
   ['data_20structures',['Data Structures',['../group__group__tcpwm__data__structures__pwm.html',1,'']]],
   ['data_20structures',['Data Structures',['../group__group__tcpwm__data__structures__quaddec.html',1,'']]],
   ['default_20registers_20constants',['Default registers constants',['../group__group__tcpwm__reg__const.html',1,'']]],
+  ['distribution_20trigger_20mutiplexers',['Distribution Trigger Mutiplexers',['../group__group__trigmux__dst__enums.html',1,'']]],
+  ['distribution_20trigger_20mutiplexer_20inputs',['Distribution Trigger Mutiplexer Inputs',['../group__group__trigmux__dst__in__enums.html',1,'']]],
+  ['distribution_20trigger_20mutiplexer_20outputs',['Distribution Trigger Mutiplexer Outputs',['../group__group__trigmux__dst__out__enums.html',1,'']]],
   ['data_20structures',['Data Structures',['../group__group__usbfs__dev__drv__data__structures.html',1,'']]],
   ['data_20endpoint_20transfer_20functions',['Data Endpoint Transfer Functions',['../group__group__usbfs__dev__hal__functions__data__xfer.html',1,'']]],
   ['data_20endpoint_20configuration_20functions',['Data Endpoint Configuration Functions',['../group__group__usbfs__dev__hal__functions__endpoint__config.html',1,'']]]

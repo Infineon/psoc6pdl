@@ -13,5 +13,6 @@ var group__group__wdt__functions =
     [ "Cy_WDT_MaskInterrupt", "group__group__wdt__functions.html#gab6caa17bf5bcb0c365f60e602e653fed", null ],
     [ "Cy_WDT_UnmaskInterrupt", "group__group__wdt__functions.html#ga38c69c98675d6024a7d73acb41b24399", null ],
     [ "Cy_WDT_ClearInterrupt", "group__group__wdt__functions.html#ga727d9ae6fdba36809bf631985a3eb987", null ],
-    [ "Cy_WDT_ClearWatchdog", "group__group__wdt__functions.html#ga5aafcfb34e8078ae911bb42be76a8f18", null ]
+    [ "Cy_WDT_ClearWatchdog", "group__group__wdt__functions.html#ga5aafcfb34e8078ae911bb42be76a8f18", null ],
+    [ "Cy_WDT_IsEnabled", "group__group__wdt__functions.html#ga05f8bb5603ce46caf842bd0ad254f604", null ]
 ];

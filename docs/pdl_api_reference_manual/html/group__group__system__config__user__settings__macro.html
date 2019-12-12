@@ -90,15 +90,6 @@ $(document).ready(function(){initNavTree('group__group__system__config__user__se
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ga68b1d4de81705b744e20077214d0ee0f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__system__config__user__settings__macro.html#ga68b1d4de81705b744e20077214d0ee0f">CY_CLK_EXT_FREQ_HZ</a>&#160;&#160;&#160;(24000000UL)    /* &lt;&lt;&lt; 24 MHz */</td></tr>
-<tr class="memdesc:ga68b1d4de81705b744e20077214d0ee0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">External Clock Frequency (in Hz, [value]UL).  <a href="#ga68b1d4de81705b744e20077214d0ee0f">More...</a><br /></td></tr>
-<tr class="separator:ga68b1d4de81705b744e20077214d0ee0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf3297c4e17f62809637ebca6b2300ece"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__system__config__user__settings__macro.html#gaf3297c4e17f62809637ebca6b2300ece">CY_CLK_ECO_FREQ_HZ</a>&#160;&#160;&#160;(24000000UL)    /* &lt;&lt;&lt; 24 MHz */</td></tr>
-<tr class="memdesc:gaf3297c4e17f62809637ebca6b2300ece"><td class="mdescLeft">&#160;</td><td class="mdescRight">External crystal oscillator frequency (in Hz, [value]UL).  <a href="#gaf3297c4e17f62809637ebca6b2300ece">More...</a><br /></td></tr>
-<tr class="separator:gaf3297c4e17f62809637ebca6b2300ece"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf28e415dd4583e036b363e1b514dccf9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__system__config__user__settings__macro.html#gaf28e415dd4583e036b363e1b514dccf9">CY_CLK_ALTHF_FREQ_HZ</a>&#160;&#160;&#160;(32000000UL)    /* &lt;&lt;&lt; 32 MHz */</td></tr>
-<tr class="memdesc:gaf28e415dd4583e036b363e1b514dccf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alternate high frequency (in Hz, [value]UL).  <a href="#gaf28e415dd4583e036b363e1b514dccf9">More...</a><br /></td></tr>
-<tr class="separator:gaf28e415dd4583e036b363e1b514dccf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga54e255e631cab1db862ff92646e54c51"><td class="memItemLeft" align="right" valign="top"><a id="ga54e255e631cab1db862ff92646e54c51"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__system__config__user__settings__macro.html#ga54e255e631cab1db862ff92646e54c51">CY_CORTEX_M4_APPL_ADDR</a>&#160;&#160;&#160;(CY_FLASH_BASE + 0x2000U)   /* &lt;&lt;&lt; 8 kB of flash is reserved for the Cortex-M0+ application */</td></tr>
 <tr class="memdesc:ga54e255e631cab1db862ff92646e54c51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start address of the Cortex-M4 application ([address]UL) <em>(USER SETTING)</em> <br /></td></tr>
@@ -111,57 +102,6 @@ Macros</h2></td></tr>
 <tr class="separator:ga26b976c68c4fc4e45bc7f400e97c8495"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ga68b1d4de81705b744e20077214d0ee0f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga68b1d4de81705b744e20077214d0ee0f">&#9670;&nbsp;</a></span>CY_CLK_EXT_FREQ_HZ</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CY_CLK_EXT_FREQ_HZ&#160;&#160;&#160;(24000000UL)    /* &lt;&lt;&lt; 24 MHz */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>External Clock Frequency (in Hz, [value]UL). </p>
-<p>If compiled within PSoC Creator and the clock is enabled in the DWR, the value from DWR used. Otherwise, edit the value below. <em>(USER SETTING)</em> </p>
-
-</div>
-</div>
-<a id="gaf3297c4e17f62809637ebca6b2300ece"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf3297c4e17f62809637ebca6b2300ece">&#9670;&nbsp;</a></span>CY_CLK_ECO_FREQ_HZ</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CY_CLK_ECO_FREQ_HZ&#160;&#160;&#160;(24000000UL)    /* &lt;&lt;&lt; 24 MHz */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>External crystal oscillator frequency (in Hz, [value]UL). </p>
-<p>If compiled within PSoC Creator and the clock is enabled in the DWR, the value from DWR used. <em>(USER SETTING)</em> </p>
-
-</div>
-</div>
-<a id="gaf28e415dd4583e036b363e1b514dccf9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf28e415dd4583e036b363e1b514dccf9">&#9670;&nbsp;</a></span>CY_CLK_ALTHF_FREQ_HZ</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CY_CLK_ALTHF_FREQ_HZ&#160;&#160;&#160;(32000000UL)    /* &lt;&lt;&lt; 32 MHz */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Alternate high frequency (in Hz, [value]UL). </p>
-<p>If compiled within PSoC Creator and the clock is enabled in the DWR, the value from DWR used. Otherwise, edit the value below. <em>(USER SETTING)</em> </p>
-
-</div>
-</div>
 <a id="gaba78bac52ffcbd69ab531467fa3caa6d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaba78bac52ffcbd69ab531467fa3caa6d">&#9670;&nbsp;</a></span>CY_IPC_SEMA_COUNT</h2>
 

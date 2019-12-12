@@ -8,6 +8,8 @@ var searchData=
   ['timer_2fcounter_20_28tcpwm_29',['Timer/Counter (TCPWM)',['../group__group__tcpwm__counter.html',1,'']]],
   ['tcpwm_20input_20selection',['TCPWM Input Selection',['../group__group__tcpwm__input__selection.html',1,'']]],
   ['trigmux_20_20_20_20_20_20_28trigger_20multiplexer_29',['TrigMux      (Trigger Multiplexer)',['../group__group__trigmux.html',1,'']]],
+  ['trigger_20mutiplexer_20inputs',['Trigger Mutiplexer Inputs',['../group__group__trigmux__in__enums.html',1,'']]],
+  ['trigger_20mutiplexer_20outputs',['Trigger Mutiplexer Outputs',['../group__group__trigmux__out__enums.html',1,'']]],
   ['transfer_20errors',['Transfer Errors',['../group__group__usbfs__dev__drv__macros__ep__xfer__err.html',1,'']]],
   ['t0_5ff',['t0_f',['../structcy__stc__canfd__tx__buffer__t.html#abf34a8342fded952c54e85f3865ed1e5',1,'cy_stc_canfd_tx_buffer_t']]],
   ['t1_5ff',['t1_f',['../structcy__stc__canfd__tx__buffer__t.html#af3ed5987e09533673317136f35bd9a2c',1,'cy_stc_canfd_tx_buffer_t']]],

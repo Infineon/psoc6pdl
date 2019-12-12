@@ -480,7 +480,7 @@ Functions</h2></td></tr>
     <tr><td class="paramname">cmdParam</td><td>This is the pointer to an array that has bytes to be transmitted after the command byte. Typically, this field has the address bytes associated with the memory command.</td></tr>
     <tr><td class="paramname">paramSize</td><td>The size of the cmdParam array.</td></tr>
     <tr><td class="paramname">paramTxfrWidth</td><td>The width of parameter transfer <a class="el" href="group__group__smif__enums.html#gab71e4b1f4c80b3e8c82dd85570415e44">cy_en_smif_txfr_width_t</a>.</td></tr>
-    <tr><td class="paramname">slaveSelect</td><td>Denotes the number of the slave device to which the transfer is made. (0, 1, 2 or 4 - the bit defines which slave to enable) Two-bit enable is possible only for the Double Quad SPI mode.</td></tr>
+    <tr><td class="paramname">slaveSelect</td><td>Denotes the number of the slave device to which the transfer is made. (0, 1, 2 or 4 - the bit defines which slave to enable) Two-bit enable is possible only for the double quad SPI mode.</td></tr>
     <tr><td class="paramname">completeTxfr</td><td>Specifies if the slave select line must be de-asserted after transferring the last byte in the parameter array. Typically, this field is set to 0 when this function succeed through <a class="el" href="group__group__smif__low__level__functions.html#gae84cdf32e45e492e80dea38f9d3a7586">Cy_SMIF_TransmitData</a> or <a class="el" href="group__group__smif__low__level__functions.html#ga1b365e1400ccd6580533a0c92deb48c7">Cy_SMIF_ReceiveData</a>.</td></tr>
     <tr><td class="paramname">context</td><td>Passes a configuration structure that contains the transfer parameters of the SMIF block.</td></tr>
   </table>
