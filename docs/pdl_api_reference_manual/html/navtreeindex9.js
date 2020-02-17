@@ -1,5 +1,6 @@
 var NAVTREEINDEX9 =
 {
+"group__group__sar__sample__time__shift__enums.html":[2,20,4,2],
 "group__group__sar__sample__time__shift__enums.html#gac2dbd174d90a705e84237c67622da004":[2,20,4,2,0],
 "group__group__sar__sample__time__shift__enums.html#ggac2dbd174d90a705e84237c67622da004a09caf806c62a02850f0bb8712af5cd31":[2,20,4,2,0,0],
 "group__group__sar__sample__time__shift__enums.html#ggac2dbd174d90a705e84237c67622da004a142d6b9edbc1c44c55325354970f3ec3":[2,20,4,2,0,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX9 =
 "group__group__scb__i2c__master__low__level__functions.html#ga2177b4fb74cf33e57e6fa59d04bdfa7a":[2,21,2,1,3,1],
 "group__group__scb__i2c__master__low__level__functions.html#ga4b098cd781eaa5cd287ae33e05c86a0d":[2,21,2,1,3,2],
 "group__group__scb__i2c__master__low__level__functions.html#ga7eb0684e4d362668f0637d1e82405551":[2,21,2,1,3,4],
-"group__group__scb__i2c__slave__functions.html":[2,21,2,1,1],
-"group__group__scb__i2c__slave__functions.html#ga179b4495d7255567bb8b166e16e5a073":[2,21,2,1,1,0]
+"group__group__scb__i2c__slave__functions.html":[2,21,2,1,1]
 };

@@ -157,11 +157,11 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">base</td><td>The register base address of the protection structure is being configured.</td></tr>
-    <tr><td class="paramname">pcMask</td><td>The protection context mask. This is a 16-bit value of the allowed contexts, it is an OR'ed (|) field of the * provided defines in cy_prot.h. For example: (CY_PROT_PCMASK1 | CY_PROT_PCMASK3 | CY_PROT_PCMASK4). </td></tr>
+    <tr><td class="paramname">pcMask</td><td>The protection context mask. It specifies the protection context or a set of multiple protection contexts to be configured. It is a value of OR'd (|) items of <a class="el" href="group__group__prot__enums.html#ga4486bc74d6e98ad99c1ce4d532e48d0f">cy_en_prot_pcmask_t</a>. For example: (<a class="el" href="group__group__prot__enums.html#gga4486bc74d6e98ad99c1ce4d532e48d0fabf25e25bbce833636da932ce78e453e8">CY_PROT_PCMASK1</a> | <a class="el" href="group__group__prot__enums.html#gga4486bc74d6e98ad99c1ce4d532e48d0fa33b7e98df492418f5f7fa8882c27e2bd">CY_PROT_PCMASK3</a> | <a class="el" href="group__group__prot__enums.html#gga4486bc74d6e98ad99c1ce4d532e48d0fa2e5214be494696cd798202bc14b14029">CY_PROT_PCMASK4</a>). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>The function accepts pcMask values from CY_PROT_PCMASK1 to CY_PROT_PCMASK15. But each device has its own number of available protection contexts. That number is defined by PERI_PC_NR in the config file.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The function accepts pcMask values from <a class="el" href="group__group__prot__enums.html#gga4486bc74d6e98ad99c1ce4d532e48d0fabf25e25bbce833636da932ce78e453e8">CY_PROT_PCMASK1</a> to <a class="el" href="group__group__prot__enums.html#gga4486bc74d6e98ad99c1ce4d532e48d0fa839e450c014d2151df162ed6f5dc6aa0">CY_PROT_PCMASK15</a>. But each device has its own number of available protection contexts. That number is defined by PERI_PC_NR in the config file.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">userPermission</td><td>The user permission setting. The CY_PROT_PERM_R or CY_PROT_PERM_RW values are valid for the master.</td></tr>
@@ -297,11 +297,11 @@ PC0 accesses are read-only and are always enabled.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">base</td><td>The register base address of the protection structure is being configured.</td></tr>
-    <tr><td class="paramname">pcMask</td><td>The protection context mask. This is a 16-bit value of the allowed contexts, it is an OR'ed (|) field of the * provided defines in cy_prot.h. For example: (CY_PROT_PCMASK1 | CY_PROT_PCMASK3 | CY_PROT_PCMASK4). </td></tr>
+    <tr><td class="paramname">pcMask</td><td>The protection context mask. It specifies the protection context or a set of multiple protection contexts to be configured. It is a value of OR'd (|) items of <a class="el" href="group__group__prot__enums.html#ga4486bc74d6e98ad99c1ce4d532e48d0f">cy_en_prot_pcmask_t</a>. For example: (<a class="el" href="group__group__prot__enums.html#gga4486bc74d6e98ad99c1ce4d532e48d0fabf25e25bbce833636da932ce78e453e8">CY_PROT_PCMASK1</a> | <a class="el" href="group__group__prot__enums.html#gga4486bc74d6e98ad99c1ce4d532e48d0fa33b7e98df492418f5f7fa8882c27e2bd">CY_PROT_PCMASK3</a> | <a class="el" href="group__group__prot__enums.html#gga4486bc74d6e98ad99c1ce4d532e48d0fa2e5214be494696cd798202bc14b14029">CY_PROT_PCMASK4</a>). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>The function accepts pcMask values from CY_PROT_PCMASK1 to CY_PROT_PCMASK15. But each device has its own number of available protection contexts. That number is defined by PERI_PC_NR in the config file.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The function accepts pcMask values from <a class="el" href="group__group__prot__enums.html#gga4486bc74d6e98ad99c1ce4d532e48d0fabf25e25bbce833636da932ce78e453e8">CY_PROT_PCMASK1</a> to <a class="el" href="group__group__prot__enums.html#gga4486bc74d6e98ad99c1ce4d532e48d0fa839e450c014d2151df162ed6f5dc6aa0">CY_PROT_PCMASK15</a>. But each device has its own number of available protection contexts. That number is defined by PERI_PC_NR in the config file.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">userPermission</td><td>The user permission setting.</td></tr>

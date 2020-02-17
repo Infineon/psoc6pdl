@@ -39,6 +39,8 @@ var group__group__smif__enums =
       [ "CY_SMIF_NO_QE_BIT", "group__group__smif__enums.html#gga75fb83c49239ece738cfba778165cb41a45254a16fdf2e0a3ba0583430f1a9fc1", null ],
       [ "CY_SMIF_BAD_PARAM", "group__group__smif__enums.html#gga75fb83c49239ece738cfba778165cb41a858bf399de59819187ec0b3d8913107b", null ],
       [ "CY_SMIF_NO_SFDP_SUPPORT", "group__group__smif__enums.html#gga75fb83c49239ece738cfba778165cb41a82cad8a038846867d173ffca9592e66f", null ],
+      [ "CY_SMIF_NOT_HYBRID_MEM", "group__group__smif__enums.html#gga75fb83c49239ece738cfba778165cb41ad69a47ad9f7a4b47ef338af3c9b8bd42", null ],
+      [ "CY_SMIF_SFDP_CORRUPTED_TABLE", "group__group__smif__enums.html#gga75fb83c49239ece738cfba778165cb41a16f764d7f4502def3be5407179e2669e", null ],
       [ "CY_SMIF_SFDP_SS0_FAILED", "group__group__smif__enums.html#gga75fb83c49239ece738cfba778165cb41aab98f08cdd559a8220233078375b0319", null ],
       [ "CY_SMIF_SFDP_SS1_FAILED", "group__group__smif__enums.html#gga75fb83c49239ece738cfba778165cb41ad03d666d999e6622e94873469908702b", null ],
       [ "CY_SMIF_SFDP_SS2_FAILED", "group__group__smif__enums.html#gga75fb83c49239ece738cfba778165cb41ac7e1fa3b6e7239c7f349a6fb7f1bcffd", null ],

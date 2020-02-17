@@ -9,6 +9,13 @@ var group__group__smif__data__structures__memslot =
       [ "dummyCycles", "structcy__stc__smif__mem__cmd__t.html#abb0e73fe83948a117e3f1301c258d1d1", null ],
       [ "dataWidth", "structcy__stc__smif__mem__cmd__t.html#a5a240edc3870586228a47dcc9cfca6ee", null ]
     ] ],
+    [ "cy_stc_smif_hybrid_region_info_t", "structcy__stc__smif__hybrid__region__info__t.html", [
+      [ "regionAddress", "structcy__stc__smif__hybrid__region__info__t.html#aced799769c060352abbbbff1603c00d5", null ],
+      [ "sectorsCount", "structcy__stc__smif__hybrid__region__info__t.html#a8091f46b31b31c38e46fa7eec1e35cff", null ],
+      [ "eraseCmd", "structcy__stc__smif__hybrid__region__info__t.html#ab85285e79db802a1d10a3c057d5bbc68", null ],
+      [ "eraseSize", "structcy__stc__smif__hybrid__region__info__t.html#adfc0f4f12e086a45f53008ac2158c62a", null ],
+      [ "eraseTime", "structcy__stc__smif__hybrid__region__info__t.html#a09282d5a0e7c8b9e1614b9a8cc547a37", null ]
+    ] ],
     [ "cy_stc_smif_mem_device_cfg_t", "structcy__stc__smif__mem__device__cfg__t.html", [
       [ "numOfAddrBytes", "structcy__stc__smif__mem__device__cfg__t.html#a35330244a98f847507496b3f5cbff5aa", null ],
       [ "memSize", "structcy__stc__smif__mem__device__cfg__t.html#a6dabae268837d0cffde9c25b4efe455d", null ],
@@ -28,7 +35,9 @@ var group__group__smif__data__structures__memslot =
       [ "stsRegQuadEnableMask", "structcy__stc__smif__mem__device__cfg__t.html#a94531399701237a6c42b7ae8098f9c83", null ],
       [ "eraseTime", "structcy__stc__smif__mem__device__cfg__t.html#a04a86cf0c364f59439d81470051f216e", null ],
       [ "chipEraseTime", "structcy__stc__smif__mem__device__cfg__t.html#affa18792a98acafd3e86b5fafd6fc59c", null ],
-      [ "programTime", "structcy__stc__smif__mem__device__cfg__t.html#a5156e88b285cfe78f4ff4e42194a70c0", null ]
+      [ "programTime", "structcy__stc__smif__mem__device__cfg__t.html#a5156e88b285cfe78f4ff4e42194a70c0", null ],
+      [ "hybridRegionCount", "structcy__stc__smif__mem__device__cfg__t.html#af699412addf5631fb6e2d61ece8a89f0", null ],
+      [ "hybridRegionInfo", "structcy__stc__smif__mem__device__cfg__t.html#a989bd3b0d57035f44bd936d185afb7bf", null ]
     ] ],
     [ "cy_stc_smif_mem_config_t", "structcy__stc__smif__mem__config__t.html", [
       [ "slaveSelect", "structcy__stc__smif__mem__config__t.html#a1ddf064315a00cf0929f632835ad5508", null ],

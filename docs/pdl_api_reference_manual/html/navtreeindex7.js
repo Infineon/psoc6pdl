@@ -1,5 +1,6 @@
 var NAVTREEINDEX7 =
 {
+"group__group__prot__enums.html#gga618195213f866568fb71ed14af59cf6ca708d89430a48e4532de29651f570ae26":[2,18,3,4,3],
 "group__group__prot__enums.html#gga618195213f866568fb71ed14af59cf6ca998369ff660e71be8b1c81cbe4bb30cf":[2,18,3,4,1],
 "group__group__prot__enums.html#gga618195213f866568fb71ed14af59cf6ca9b41ba059d2baba289e8776d46cea7ef":[2,18,3,4,0],
 "group__group__prot__enums.html#gga618195213f866568fb71ed14af59cf6caa13aa84d3592145bcb1d189b59d2a8d8":[2,18,3,4,5],
@@ -130,8 +131,6 @@ var NAVTREEINDEX7 =
 "group__group__rtc__days__in__month.html#gac7ef33d076e8f5bb9241002478e98304":[2,19,0,3,4],
 "group__group__rtc__days__in__month.html#gaf7a184bda82b37eb58beb0ebcd4b62a1":[2,19,0,3,3],
 "group__group__rtc__dst__functions.html":[2,19,1,2],
-"group__group__rtc__dst__functions.html#ga37374ecb34a430c3735ef9ba585681b1":[2,19,1,2,1],
-"group__group__rtc__dst__functions.html#gae2d29ebc8c658ccfefcc2389d26d6bec":[2,19,1,2,2],
 "group__group__rtc__dst__functions.html#gafaa2c3a4ba08f8fa5050b42527680995":[2,19,1,2,0],
 "group__group__rtc__dst__week__of__month.html":[2,19,0,1],
 "group__group__rtc__dst__week__of__month.html#ga06e3b9f33e2e4d126df14ec2abe2b58f":[2,19,0,1,1],
@@ -191,6 +190,7 @@ var NAVTREEINDEX7 =
 "group__group__rtc__interrupt__functions.html#gaf2ab28f85a042dc1c68b35e0c809eade":[2,19,1,4,10],
 "group__group__rtc__low__level__functions.html":[2,19,1,3],
 "group__group__rtc__low__level__functions.html#ga2180730a17231f562c6db1dda94ae5a6":[2,19,1,3,9],
+"group__group__rtc__low__level__functions.html#ga37374ecb34a430c3735ef9ba585681b1":[2,19,1,3,12],
 "group__group__rtc__low__level__functions.html#ga3ca19fe52a0d3321de4c8ddce5b26c3f":[2,19,1,3,6],
 "group__group__rtc__low__level__functions.html#ga749c1f8be6f66b49d7e9205449ac3653":[2,19,1,3,10],
 "group__group__rtc__low__level__functions.html#ga7d79a94b5b584d933b012f11d34ac29e":[2,19,1,3,1],
@@ -199,6 +199,7 @@ var NAVTREEINDEX7 =
 "group__group__rtc__low__level__functions.html#gab52c64f8d94f511d74a9c420203b24a0":[2,19,1,3,8],
 "group__group__rtc__low__level__functions.html#gab5b39e5ed5d0ce574633c7008f07d093":[2,19,1,3,5],
 "group__group__rtc__low__level__functions.html#gaca23246d1ae0e7e6442215ef3d8ca068":[2,19,1,3,2],
+"group__group__rtc__low__level__functions.html#gae2d29ebc8c658ccfefcc2389d26d6bec":[2,19,1,3,13],
 "group__group__rtc__low__level__functions.html#gaef65b4e1818b36e57229ee4ff7a83784":[2,19,1,3,11],
 "group__group__rtc__low__level__functions.html#gaefa2dfda62dd0bd93a020a5f3f109f55":[2,19,1,3,0],
 "group__group__rtc__low__level__functions.html#gaf4ac08fe9e8eabc52d9f022cd3103e60":[2,19,1,3,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX7 =
 "group__group__sar__chan__config__register__enums.html#gga4536867f2568fc3a2724bf39a83ddf8eac34520b5cbde930ac8df2b4b83f6e3bf":[2,20,4,4,4,1],
 "group__group__sar__chan__config__register__enums.html#gga4536867f2568fc3a2724bf39a83ddf8eacbff124f9aa793dfe2a5d4cb8105e421":[2,20,4,4,4,3],
 "group__group__sar__chan__config__register__enums.html#gga57ec594c27e779c87f4132145357f267a0c85bb57124a121f86d4b81ba36da172":[2,20,4,4,1,1],
-"group__group__sar__chan__config__register__enums.html#gga57ec594c27e779c87f4132145357f267a1e670672bd9d8055b18d434fd2151a90":[2,20,4,4,1,2],
-"group__group__sar__chan__config__register__enums.html#gga57ec594c27e779c87f4132145357f267a51c6b1308be0596399c1dfe2e482fab3":[2,20,4,4,1,7]
+"group__group__sar__chan__config__register__enums.html#gga57ec594c27e779c87f4132145357f267a1e670672bd9d8055b18d434fd2151a90":[2,20,4,4,1,2]
 };

@@ -166,6 +166,16 @@ Changelog</h1>
 <tr>
 <th>Version</th><th>Changes</th><th>Reason for Change </th></tr>
 <tr>
+<td>2.30 </td><td><ul>
+<li>Corrected the <a class="el" href="group__group__rtc__low__level__functions.html#gae2d29ebc8c658ccfefcc2389d26d6bec" title="A low-level DST function returns the current DST status using given time information. ">Cy_RTC_GetDstStatus()</a> and <a class="el" href="group__group__rtc__low__level__functions.html#ga37374ecb34a430c3735ef9ba585681b1" title="A low-level DST function sets ALARM2 for a next DST event. ">Cy_RTC_SetNextDstTime()</a> documentation.</li>
+<li>Fixed the <a class="el" href="group__group__rtc__low__level__functions.html#gae2d29ebc8c658ccfefcc2389d26d6bec" title="A low-level DST function returns the current DST status using given time information. ">Cy_RTC_GetDstStatus()</a> behaviour in the 'an hour before/after the DST stop event' period.  </li>
+</ul>
+</td><td><ul>
+<li>Collateral Review: user experience enhancement.</li>
+<li>Bug fix.   </li>
+</ul>
+</td></tr>
+<tr>
 <td>2.20.1 </td><td>Modified header guard CY_IP_MXS40SRSS_RTC. </td><td>To enable the PDL compilation with wounded out IP blocks.  </td></tr>
 <tr>
 <td rowspan="3">2.20 </td><td>Flattened the organization of the driver source code into the single source directory and the single include directory.  </td><td>Driver library directory-structure simplification.  </td></tr>
@@ -175,12 +185,12 @@ Changelog</h1>
 <td>Documentation update. </td><td>Documentation enhancement.  </td></tr>
 <tr>
 <td>2.10 </td><td><ul>
-<li>Corrected <a class="el" href="group__group__rtc__general__functions.html#ga2f2ba9ba2a8e6434242134a1c1a55949" title="Sets the time and date values into the RTC_TIME and RTC_DATE registers using direct time parameters...">Cy_RTC_SetDateAndTimeDirect()</a>, <a class="el" href="group__group__rtc__dst__functions.html#ga37374ecb34a430c3735ef9ba585681b1" title="Set the next time of the DST. ">Cy_RTC_SetNextDstTime()</a> function.</li>
+<li>Corrected <a class="el" href="group__group__rtc__general__functions.html#ga2f2ba9ba2a8e6434242134a1c1a55949" title="Sets the time and date values into the RTC_TIME and RTC_DATE registers using direct time parameters...">Cy_RTC_SetDateAndTimeDirect()</a>, <a class="el" href="group__group__rtc__low__level__functions.html#ga37374ecb34a430c3735ef9ba585681b1" title="A low-level DST function sets ALARM2 for a next DST event. ">Cy_RTC_SetNextDstTime()</a> function.</li>
 <li>Corrected internal macro.</li>
 <li>Documentation updates.  </li>
 </ul>
 </td><td><ul>
-<li>Incorrect behavior of <a class="el" href="group__group__rtc__general__functions.html#ga2f2ba9ba2a8e6434242134a1c1a55949">Cy_RTC_SetDateAndTimeDirect()</a> and <a class="el" href="group__group__rtc__dst__functions.html#ga37374ecb34a430c3735ef9ba585681b1">Cy_RTC_SetNextDstTime()</a> work in debug mode.</li>
+<li>Incorrect behavior of <a class="el" href="group__group__rtc__general__functions.html#ga2f2ba9ba2a8e6434242134a1c1a55949">Cy_RTC_SetDateAndTimeDirect()</a> and <a class="el" href="group__group__rtc__low__level__functions.html#ga37374ecb34a430c3735ef9ba585681b1">Cy_RTC_SetNextDstTime()</a> work in debug mode.</li>
 <li>Debug assert correction in <a class="el" href="group__group__rtc__low__level__functions.html#gaefa2dfda62dd0bd93a020a5f3f109f55">Cy_RTC_ConvertDayOfWeek</a>, <a class="el" href="group__group__rtc__low__level__functions.html#ga7d79a94b5b584d933b012f11d34ac29e">Cy_RTC_IsLeapYear</a>, <a class="el" href="group__group__rtc__low__level__functions.html#gaca23246d1ae0e7e6442215ef3d8ca068">Cy_RTC_DaysInMonth</a>.   </li>
 </ul>
 </td></tr>

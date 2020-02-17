@@ -20,5 +20,6 @@ var searchData=
   ['autocommand',['autoCommand',['../structcy__stc__sd__host__data__config__t.html#add879461d35f90bda10ff1fa88e1dce2',1,'cy_stc_sd_host_data_config_t::autoCommand()'],['../structcy__stc__sd__host__write__read__config__t.html#ad3deb9b66da477a4db770342d9c53a6c',1,'cy_stc_sd_host_write_read_config_t::autoCommand()']]],
   ['asymmetric_20key_20algorithms_20_28rsa_2c_20ecp_2c_20ecdsa_29',['Asymmetric Key Algorithms (RSA, ECP, ECDSA)',['../group__group__crypto__lld__asymmetric.html',1,'']]],
   ['alarm',['Alarm',['../group__group__rtc__alarm__functions.html',1,'']]],
+  ['alternative_20high_2dfrequency_20clock',['Alternative High-Frequency Clock',['../group__group__sysclk__alt__hf.html',1,'']]],
   ['assert_20classes_20and_20levels',['Assert Classes and Levels',['../group__group__syslib__macros__assert.html',1,'']]]
 ];

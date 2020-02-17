@@ -18,6 +18,7 @@ var group__group__sysclk =
     [ "Peripheral Clock", "group__group__sysclk__clk__peri.html", "group__group__sysclk__clk__peri" ],
     [ "Peripherals Clock Dividers", "group__group__sysclk__clk__peripheral.html", "group__group__sysclk__clk__peripheral" ],
     [ "Slow Clock", "group__group__sysclk__clk__slow.html", "group__group__sysclk__clk__slow" ],
+    [ "Alternative High-Frequency Clock", "group__group__sysclk__alt__hf.html", "group__group__sysclk__alt__hf" ],
     [ "Low-Frequency Clock", "group__group__sysclk__clk__lf.html", "group__group__sysclk__clk__lf" ],
     [ "Timer Clock", "group__group__sysclk__clk__timer.html", "group__group__sysclk__clk__timer" ],
     [ "Pump Clock", "group__group__sysclk__clk__pump.html", "group__group__sysclk__clk__pump" ],

@@ -167,7 +167,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><ul>
-<li>CY_SYSPM_SUCCESS - The voltage is set.</li>
+<li>CY_SYSPM_SUCCESS - The voltage is set as requested. (There is no change if the new voltage is the same as the previous voltage.)</li>
 <li>CY_SYSPM_INVALID_STATE - The voltage was not set. The voltage cannot be set because the protection context value is higher than zero (PC &gt; 0) or the device revision does not support modifying registers via syscall.</li>
 <li>CY_SYSPM_CANCELED - Operation was canceled. Call the function again until the function returns CY_SYSPM_SUCCESS. See <a class="el" href="group__group__syspm__data__enumerates.html#ga601b1cb722cb091133caf33d8ab235ca">cy_en_syspm_status_t</a>.</li>
 </ul>

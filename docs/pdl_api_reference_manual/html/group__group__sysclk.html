@@ -97,7 +97,7 @@ $(document).ready(function(){initNavTree('group__group__sysclk.html','');});
 </ul>
 <p>Consult the Technical Reference Manual for your device for details of the clock system.</p>
 <p>The PDL defines clock system capabilities in:<br />
-devices&lt;family&gt;/&lt;series&gt;/include&lt;series&gt;_config.h. (E.g. devices/psoc6/include/psoc6_01_config.h). User-configurable clock speeds are defined in the file system_&lt;series&gt;.h.</p>
+devices/include/&lt;series&gt;_config.h. (E.g. devices/include/psoc6_01_config.h). User-configurable clock speeds are defined in the file system_&lt;series&gt;.h.</p>
 <p>As an illustration of the clocking system, the following diagram shows the PSoC 63 series clock tree. The actual tree may vary depending on the device series. Consult the Technical Reference Manual for your device for details. </p><div class="image">
 <img src="sysclk_tree.png" alt="sysclk_tree.png"/>
 </div>
@@ -126,6 +126,12 @@ Changelog</h1>
 <table class="doxtable">
 <tr>
 <th>Version</th><th>Changes</th><th>Reason for Change </th></tr>
+<tr>
+<td>1.60 </td><td>Added the following functions: <a class="el" href="group__group__sysclk__ext__funcs.html#ga164b8c0287b292af7bdab5e216831b9b">Cy_SysClk_ExtClkGetFrequency</a>, <a class="el" href="group__group__sysclk__eco__funcs.html#ga392db1f8d8504409017a3fedb95b8ee2">Cy_SysClk_EcoGetFrequency</a>,<br />
+ <a class="el" href="group__group__sysclk__path__src__funcs.html#ga1256c8a7290cecf2b9553a1df582e797">Cy_SysClk_ClkPathMuxGetFrequency</a>, <a class="el" href="group__group__sysclk__path__src__funcs.html#ga54c618c89782d227fb8f292d1dc15625">Cy_SysClk_ClkPathGetFrequency</a>, <a class="el" href="group__group__sysclk__ilo__funcs.html#ga544c284171c68dc5ef48bd24d2575952">Cy_SysClk_IloIsEnabled</a>.<br />
+ <a class="el" href="group__group__sysclk__pilo__funcs.html#ga5884a1be24c8d6680c80f4f857d31bb2">Cy_SysClk_PiloIsEnabled</a>, <a class="el" href="group__group__sysclk__alt__hf__funcs.html#gadc2dc91fa1f0686395f5a5e6059a1c27">Cy_SysClk_AltHfGetFrequency</a>, <a class="el" href="group__group__sysclk__clk__hf__funcs.html#ga90af05d8e5639f9b6222951ec078b179">Cy_SysClk_ClkHfIsEnabled</a>,<br />
+ <a class="el" href="group__group__sysclk__clk__timer__funcs.html#gac279297ec60963b2d56058dbce3fd9cc">Cy_SysClk_ClkTimerIsEnabled</a>, <a class="el" href="group__group__sysclk__clk__timer__funcs.html#gaa9fa2ca0beada63a72bdc86dae9e5896">Cy_SysClk_ClkTimerGetFrequency</a>, <a class="el" href="group__group__sysclk__clk__pump__funcs.html#gaac3ebeb3a6f959124d31fedf9f8966a2">Cy_SysClk_ClkPumpIsEnabled</a> and<br />
+ <a class="el" href="group__group__sysclk__clk__pump__funcs.html#ga002dc7aa774e9c51822de31c444bcbbb">Cy_SysClk_ClkPumpGetFrequency</a>. </td><td>API enhancement.  </td></tr>
 <tr>
 <td>1.50 </td><td><a class="el" href="group__group__sysclk__clk__hf__funcs.html#gafa8c21271b8cb1b1fd9f7fb489a8d2b3">Cy_SysClk_ClkHfGetFrequency</a> is updated to reuse the <a class="el" href="group__group__system__config__globals.html#gad6c61e43c7d81802c759a8f0046bdc12">cy_BleEcoClockFreqHz</a> global system variable. </td><td>API enhancement.  </td></tr>
 <tr>
@@ -243,6 +249,9 @@ API Reference</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:group__group__sysclk__clk__slow"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__sysclk__clk__slow.html">Slow Clock</a></td></tr>
 <tr class="memdesc:group__group__sysclk__clk__slow"><td class="mdescLeft">&#160;</td><td class="mdescRight">The slow clock is the source clock for the "slow" processor (e.g. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:group__group__sysclk__alt__hf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__sysclk__alt__hf.html">Alternative High-Frequency Clock</a></td></tr>
+<tr class="memdesc:group__group__sysclk__alt__hf"><td class="mdescLeft">&#160;</td><td class="mdescRight">In the BLE-enabled PSoC6 devices, the <a class="el" href="group__group__ble__clk.html">BLE ECO (BLE ECO Clock)</a> clock is connected to the system Alternative High-Frequency Clock input. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:group__group__sysclk__clk__lf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__sysclk__clk__lf.html">Low-Frequency Clock</a></td></tr>
 <tr class="memdesc:group__group__sysclk__clk__lf"><td class="mdescLeft">&#160;</td><td class="mdescRight">The low-frequency clock is the source clock for the <a class="el" href="group__group__mcwdt.html">MCWDT (Multi-Counter Watchdog)</a> and can be the source clock for <a class="el" href="group__group__sysclk__clk__bak.html">Backup Domain Clock</a>, which drives the <a class="el" href="group__group__rtc.html">RTC (Real-Time Clock)</a>. <br /></td></tr>

@@ -10,5 +10,7 @@ var searchData=
   ['hscmp',['hscmp',['../structcy__stc__csd__config__t.html#a6cda2035795ec00e3583d34dfc516411',1,'cy_stc_csd_config_t']]],
   ['hsiom',['hsiom',['../structcy__stc__gpio__pin__config__t.html#af8a4f6b10a8e655125dfafd511c7af6e',1,'cy_stc_gpio_pin_config_t']]],
   ['hwenabled',['hwEnabled',['../structcy__stc__sar__state__backup__t.html#a6ffea353bffaff5b3aff73a92c22d3d4',1,'cy_stc_sar_state_backup_t']]],
+  ['hybridregioncount',['hybridRegionCount',['../structcy__stc__smif__mem__device__cfg__t.html#af699412addf5631fb6e2d61ece8a89f0',1,'cy_stc_smif_mem_device_cfg_t']]],
+  ['hybridregioninfo',['hybridRegionInfo',['../structcy__stc__smif__mem__device__cfg__t.html#a989bd3b0d57035f44bd936d185afb7bf',1,'cy_stc_smif_mem_device_cfg_t']]],
   ['hysteresis',['hysteresis',['../structcy__stc__lpcomp__config__t.html#ad43e4f40af6d78d02b8c0a277cb10f96',1,'cy_stc_lpcomp_config_t']]]
 ];

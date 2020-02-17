@@ -46,6 +46,7 @@ var searchData=
   ['functions',['Functions',['../group__group__smartio__functions.html',1,'']]],
   ['functions',['Functions',['../group__group__smif__functions.html',1,'']]],
   ['functions',['Functions',['../group__group__sysanalog__functions.html',1,'']]],
+  ['functions',['Functions',['../group__group__sysclk__alt__hf__funcs.html',1,'']]],
   ['functions',['Functions',['../group__group__sysclk__calclk__funcs.html',1,'']]],
   ['functions',['Functions',['../group__group__sysclk__clk__bak__funcs.html',1,'']]],
   ['fast_20clock',['Fast Clock',['../group__group__sysclk__clk__fast.html',1,'']]],

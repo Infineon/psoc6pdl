@@ -112,6 +112,7 @@ var searchData=
   ['cy_5fstc_5fsmif_5fblock_5fconfig_5ft',['cy_stc_smif_block_config_t',['../structcy__stc__smif__block__config__t.html',1,'']]],
   ['cy_5fstc_5fsmif_5fconfig_5ft',['cy_stc_smif_config_t',['../structcy__stc__smif__config__t.html',1,'']]],
   ['cy_5fstc_5fsmif_5fcontext_5ft',['cy_stc_smif_context_t',['../structcy__stc__smif__context__t.html',1,'']]],
+  ['cy_5fstc_5fsmif_5fhybrid_5fregion_5finfo_5ft',['cy_stc_smif_hybrid_region_info_t',['../structcy__stc__smif__hybrid__region__info__t.html',1,'']]],
   ['cy_5fstc_5fsmif_5fmem_5fcmd_5ft',['cy_stc_smif_mem_cmd_t',['../structcy__stc__smif__mem__cmd__t.html',1,'']]],
   ['cy_5fstc_5fsmif_5fmem_5fconfig_5ft',['cy_stc_smif_mem_config_t',['../structcy__stc__smif__mem__config__t.html',1,'']]],
   ['cy_5fstc_5fsmif_5fmem_5fdevice_5fcfg_5ft',['cy_stc_smif_mem_device_cfg_t',['../structcy__stc__smif__mem__device__cfg__t.html',1,'']]],

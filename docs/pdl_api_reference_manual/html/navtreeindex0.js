@@ -26,6 +26,7 @@ var NAVTREEINDEX0 =
 "group__group__ble__clk__data__type.html#ggaa50dfcc9b2d385a197421f2262e462ffafb5022c788a9f7a2ac20bbb230f51553":[2,0,1,4,2],
 "group__group__ble__clk__functions.html":[2,0,0],
 "group__group__ble__clk__functions.html#ga16fab0f8f0dfb9ee67375a5607fef7bb":[2,0,0,1],
+"group__group__ble__clk__functions.html#gacb085ed4fdaa3bcf7b0582d72c9e7d2c":[2,0,0,2],
 "group__group__ble__clk__functions.html#gae92f61cd532c63d9547c52ccd6757ff7":[2,0,0,0],
 "group__group__ble__clk__macros.html":[2,0,2],
 "group__group__ble__clk__macros.html#ga878d8957d61686a3751b509f4c54cb07":[2,0,2,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "group__group__crypto__cli__functions.html#ga3c78c11d34fa63664275a7df5b35062c":[2,2,0,1,0,21],
 "group__group__crypto__cli__functions.html#ga50ce97ec1e079773c7ea32f4f94c7db3":[2,2,0,1,0,16],
 "group__group__crypto__cli__functions.html#ga516a14dbdb8e2bd757311017e5a7cf20":[2,2,0,1,0,29],
-"group__group__crypto__cli__functions.html#ga5936961e6910bfe13dc643b418abbc51":[2,2,0,1,0,1],
-"group__group__crypto__cli__functions.html#ga5a6972d7cac1b2af39017c3b814100df":[2,2,0,1,0,17]
+"group__group__crypto__cli__functions.html#ga5936961e6910bfe13dc643b418abbc51":[2,2,0,1,0,1]
 };

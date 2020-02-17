@@ -96,7 +96,6 @@ $(document).ready(function(){initNavTree('group__group__system__config.html','')
 </li>
 <li><a class="el" href="group__group__system__config.html#group_system_config_device_memory_definition">Device Memory Definition</a></li>
 <li><a class="el" href="group__group__system__config.html#group_system_config_heap_stack_config">Heap and Stack Configuration</a></li>
-<li><a class="el" href="group__group__system__config.html#group_system_config_merge_apps">Merging CM0+ and CM4 Executables</a></li>
 <li><a class="el" href="group__group__system__config.html#group_system_config_default_handlers">Default Interrupt Handlers Definition</a></li>
 <li><a class="el" href="group__group__system__config.html#group_system_config_device_vector_table">Vectors Table Copy from Flash to RAM</a></li>
 <li><a class="el" href="group__group__system__config__cm4__functions.html">Cortex-M4 Control</a></li>
@@ -106,44 +105,46 @@ Configuration Considerations</h1>
 <h2><a class="anchor" id="group_system_config_device_memory_definition"></a>
 Device Memory Definition</h2>
 <p>The flash and RAM allocation for each CPU is defined by the linker scripts. For dual-core devices, the physical flash and RAM memory is shared between the CPU cores. 2 KB of RAM (allocated at the end of RAM) are reserved for system use. For Single-Core devices the system reserves additional 80 bytes of RAM. Using the reserved memory area for other purposes will lead to unexpected behavior.</p>
-<dl class="section note"><dt>Note</dt><dd>The linker files provided with the PDL are generic and handle all common use cases. Your project may not use every section defined in the linker files. In that case you may see warnings during the build process. To eliminate build warnings in your project, you can simply comment out or remove the relevant code in the linker file.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The linker files provided with the PDL are generic and handle all common use cases. Your project may not use every section defined in the linker files. In that case you may see warnings during the build process. To eliminate build warnings in your project, you can simply comment out or remove the relevant code in the linker file.</dd>
+<dd>
+For the PSoC 64 Secure MCUs devices, refer to the following page: <a href="https://www.cypress.com/documentation/software-and-drivers/psoc-64-secure-mcu-secure-boot-sdk-user-guide">https://www.cypress.com/documentation/software-and-drivers/psoc-64-secure-mcu-secure-boot-sdk-user-guide</a></dd></dl>
 <p><b>ARM GCC</b><br />
- The flash and RAM sections for the CPU are defined in the linker files: 'xx_yy.ld', where 'xx' is the device group, and 'yy' is the target CPU; for example, 'cy8c6xx7_cm0plus.ld' and 'cy8c6xx7_cm4_dual.ld'. </p><dl class="section note"><dt>Note</dt><dd>If the start of the Cortex-M4 application image is changed, the value of the of the <a class="el" href="group__group__system__config__user__settings__macro.html#ga54e255e631cab1db862ff92646e54c51">CY_CORTEX_M4_APPL_ADDR</a> should also be changed. The <a class="el" href="group__group__system__config__user__settings__macro.html#ga54e255e631cab1db862ff92646e54c51">CY_CORTEX_M4_APPL_ADDR</a> macro should be used as the parameter for the <a class="el" href="group__group__system__config__cm4__functions.html#gac44c12fdb0562403fc055e4e8966b557" title="Sets vector table base address and enables the Cortex-M4 core. ">Cy_SysEnableCM4()</a> function call.</dd></dl>
+ The flash and RAM sections for the CPU are defined in the linker files: 'xx_yy.ld', where 'xx' is the device group, and 'yy' is the target CPU; for example, 'cy8c6xx7_cm0plus.ld' and 'cy8c6xx7_cm4_dual.ld'. </p><dl class="section note"><dt>Note</dt><dd>If the start of the Cortex-M4 application image is changed, the value of the <a class="el" href="group__group__system__config__user__settings__macro.html#ga54e255e631cab1db862ff92646e54c51">CY_CORTEX_M4_APPL_ADDR</a> should also be changed. The <a class="el" href="group__group__system__config__user__settings__macro.html#ga54e255e631cab1db862ff92646e54c51">CY_CORTEX_M4_APPL_ADDR</a> macro should be used as the parameter for the <a class="el" href="group__group__system__config__cm4__functions.html#gac44c12fdb0562403fc055e4e8966b557" title="Sets vector table base address and enables the Cortex-M4 core. ">Cy_SysEnableCM4()</a> function call. By default, the COMPONENT_CM0P_SLEEP prebuilt image is used for the CM0p core. More about CM0+ prebuilt images, see here: <a href="https://github.com/cypresssemiconductorco/psoc6cm0p">https://github.com/cypresssemiconductorco/psoc6cm0p</a></dd></dl>
 <p>Change the flash and RAM sizes by editing the macros value in the linker files for both CPUs:</p><ul>
-<li>'xx_cm0plus.ld', where 'xx' is the device group: <div class="fragment"><div class="line">flash       (rx)  : ORIGIN = 0x10000000, LENGTH = 0x00080000</div><div class="line">ram         (rwx) : ORIGIN = 0x08000000, LENGTH = 0x00024000</div></div><!-- fragment --></li>
-<li>'xx_cm4_dual.ld', where 'xx' is the device group: <div class="fragment"><div class="line">flash       (rx)  : ORIGIN = 0x10080000, LENGTH = 0x00080000</div><div class="line">ram         (rwx) : ORIGIN = 0x08024000, LENGTH = 0x00023800</div></div><!-- fragment --></li>
+<li>'xx_cm0plus.ld', where 'xx' is the device group: <div class="fragment"><div class="line">flash       (rx)  : ORIGIN = 0x10000000, LENGTH = 0x2000</div><div class="line">ram         (rwx) : ORIGIN = 0x08000000, LENGTH = 0x2000</div></div><!-- fragment --></li>
+<li>'xx_cm4_dual.ld', where 'xx' is the device group: <div class="fragment"><div class="line">flash       (rx)  : ORIGIN = 0x10000000, LENGTH = 0x100000</div><div class="line">ram         (rwx) : ORIGIN = 0x08002000, LENGTH = 0x45800</div></div><!-- fragment --></li>
 </ul>
-<p>Change the value of the <a class="el" href="group__group__system__config__user__settings__macro.html#ga54e255e631cab1db862ff92646e54c51">CY_CORTEX_M4_APPL_ADDR</a> macro to the rom ORIGIN's value in the 'xx_cm4_dual.ld' file, where 'xx' is the device group. Do this by either:</p><ul>
+<p>Change the value of the <a class="el" href="group__group__system__config__user__settings__macro.html#ga54e255e631cab1db862ff92646e54c51">CY_CORTEX_M4_APPL_ADDR</a> macro to the ROM ORIGIN's value (0x10000000) + FLASH_CM0P_SIZE value (0x2000, the size of a flash image of the Cortex-M0+ application should be the same value as the flash LENGTH in 'xx_cm0plus.ld') in the 'xx_cm4_dual.ld' file, where 'xx' is the device group. Do this by either:</p><ul>
 <li>Passing the following commands to the compiler:<br />
-<div class="fragment"><div class="line">-D <a class="code" href="group__group__system__config__user__settings__macro.html#ga54e255e631cab1db862ff92646e54c51">CY_CORTEX_M4_APPL_ADDR</a>=0x10080000 </div></div><!-- fragment --></li>
-<li>Editing the <a class="el" href="group__group__system__config__user__settings__macro.html#ga54e255e631cab1db862ff92646e54c51">CY_CORTEX_M4_APPL_ADDR</a> value in the 'system_xx.h', where 'xx' is device family:<br />
-<div class="fragment"><div class="line"><span class="preprocessor">#define CY_CORTEX_M4_APPL_ADDR (0x10080000u) </span></div></div><!-- fragment --></li>
+<div class="fragment"><div class="line">-D <a class="code" href="group__group__system__config__user__settings__macro.html#ga54e255e631cab1db862ff92646e54c51">CY_CORTEX_M4_APPL_ADDR</a>=0x10002000 </div></div><!-- fragment --> or</li>
+<li>Editing the <a class="el" href="group__group__system__config__user__settings__macro.html#ga54e255e631cab1db862ff92646e54c51">CY_CORTEX_M4_APPL_ADDR</a> value in the 'system_xx.h', where 'xx' is the device family:<br />
+<div class="fragment"><div class="line"><span class="preprocessor">#define CY_CORTEX_M4_APPL_ADDR (0x10002000u) </span></div></div><!-- fragment --></li>
 </ul>
-<p><b>ARM MDK</b><br />
- The flash and RAM sections for the CPU are defined in the linker files: 'xx_yy.scat', where 'xx' is the device group, and 'yy' is the target CPU; for example, 'cy8c6xx7_cm0plus.scat' and 'cy8c6xx7_cm4_dual.scat'. </p><dl class="section note"><dt>Note</dt><dd>If the start of the Cortex-M4 application image is changed, the value of the of the <a class="el" href="group__group__system__config__user__settings__macro.html#ga54e255e631cab1db862ff92646e54c51">CY_CORTEX_M4_APPL_ADDR</a> should also be changed. The <a class="el" href="group__group__system__config__user__settings__macro.html#ga54e255e631cab1db862ff92646e54c51">CY_CORTEX_M4_APPL_ADDR</a> macro should be used as the parameter for the <a class="el" href="group__group__system__config__cm4__functions.html#gac44c12fdb0562403fc055e4e8966b557">Cy_SysEnableCM4()</a> function call.</dd>
+<p><b>ARM Compiler</b><br />
+ The flash and RAM sections for the CPU are defined in the linker files: 'xx_yy.sct', where 'xx' is the device group, and 'yy' is the target CPU; for example 'cy8c6xx7_cm0plus.sct' and 'cy8c6xx7_cm4_dual.sct'. </p><dl class="section note"><dt>Note</dt><dd>If the start of the Cortex-M4 application image is changed, the value of the of the <a class="el" href="group__group__system__config__user__settings__macro.html#ga54e255e631cab1db862ff92646e54c51">CY_CORTEX_M4_APPL_ADDR</a> should also be changed. The <a class="el" href="group__group__system__config__user__settings__macro.html#ga54e255e631cab1db862ff92646e54c51">CY_CORTEX_M4_APPL_ADDR</a> macro should be used as the parameter for the <a class="el" href="group__group__system__config__cm4__functions.html#gac44c12fdb0562403fc055e4e8966b557">Cy_SysEnableCM4()</a> function call. By default, the COMPONENT_CM0P_SLEEP prebuilt image is used for the CM0p core. More about CM0+ prebuilt images, see here: <a href="https://github.com/cypresssemiconductorco/psoc6cm0p">https://github.com/cypresssemiconductorco/psoc6cm0p</a></dd>
 <dd>
 The linker files provided with the PDL are generic and handle all common use cases. Your project may not use every section defined in the linker files. In that case you may see the warnings during the build process: L6314W (no section matches pattern) and/or L6329W (pattern only matches removed unused sections). In your project, you can suppress the warning by passing the "--diag_suppress=L6314W,L6329W" option to the linker. You can also comment out or remove the relevant code in the linker file.</dd></dl>
 <p>Change the flash and RAM sizes by editing the macros value in the linker files for both CPUs:</p><ul>
-<li>'xx_cm0plus.scat', where 'xx' is the device group: <div class="fragment"><div class="line"><span class="preprocessor">#define FLASH_START 0x10000000</span></div><div class="line"><span class="preprocessor">#define FLASH_SIZE  0x00080000</span></div><div class="line"><span class="preprocessor">#define RAM_START   0x08000000</span></div><div class="line"><span class="preprocessor">#define RAM_SIZE    0x00024000</span></div></div><!-- fragment --></li>
-<li>'xx_cm4_dual.scat', where 'xx' is the device group: <div class="fragment"><div class="line"><span class="preprocessor">#define FLASH_START 0x10080000</span></div><div class="line"><span class="preprocessor">#define FLASH_SIZE  0x00080000</span></div><div class="line"><span class="preprocessor">#define RAM_START   0x08024000</span></div><div class="line"><span class="preprocessor">#define RAM_SIZE    0x00023800</span></div></div><!-- fragment --></li>
+<li>'xx_cm0plus.sct', where 'xx' is the device group: <div class="fragment"><div class="line"><span class="preprocessor">#define FLASH_START 0x10000000</span></div><div class="line"><span class="preprocessor">#define FLASH_SIZE  0x00002000</span></div><div class="line"><span class="preprocessor">#define RAM_START   0x08000000</span></div><div class="line"><span class="preprocessor">#define RAM_SIZE    0x00002000</span></div></div><!-- fragment --></li>
+<li>'xx_cm4_dual.sct', where 'xx' is the device group: <div class="fragment"><div class="line"><span class="preprocessor">#define FLASH_START 0x10000000</span></div><div class="line"><span class="preprocessor">#define FLASH_SIZE  0x00100000</span></div><div class="line"><span class="preprocessor">#define RAM_START   0x08002000</span></div><div class="line"><span class="preprocessor">#define RAM_SIZE    0x00045800</span></div></div><!-- fragment --></li>
 </ul>
-<p>Change the value of the <a class="el" href="group__group__system__config__user__settings__macro.html#ga54e255e631cab1db862ff92646e54c51">CY_CORTEX_M4_APPL_ADDR</a> macro to the FLASH_START value in the 'xx_cm4_dual.scat' file, where 'xx' is the device group. Do this by either:</p><ul>
+<p>Change the value of the <a class="el" href="group__group__system__config__user__settings__macro.html#ga54e255e631cab1db862ff92646e54c51">CY_CORTEX_M4_APPL_ADDR</a> macro to the FLASH_START value (0x10000000) + FLASH_CM0P_SIZE value (0x2000, the size of a flash image of the Cortex-M0+ application should be the same value as the FLASH_SIZE in the 'xx_cm0plus.sct') in the 'xx_cm4_dual.sct' file, where 'xx' is the device group. Do this by either:</p><ul>
 <li>Passing the following commands to the compiler:<br />
-<div class="fragment"><div class="line">-D CY_CORTEX_M4_APPL_ADDR=0x10080000 </div></div><!-- fragment --></li>
-<li>Editing the <a class="el" href="group__group__system__config__user__settings__macro.html#ga54e255e631cab1db862ff92646e54c51">CY_CORTEX_M4_APPL_ADDR</a> value in the 'system_xx.h', where 'xx' is device family:<br />
-<div class="fragment"><div class="line"><span class="preprocessor">#define CY_CORTEX_M4_APPL_ADDR (0x10080000u) </span></div></div><!-- fragment --></li>
+<div class="fragment"><div class="line">-D CY_CORTEX_M4_APPL_ADDR=0x10002000 </div></div><!-- fragment --> or</li>
+<li>Editing the <a class="el" href="group__group__system__config__user__settings__macro.html#ga54e255e631cab1db862ff92646e54c51">CY_CORTEX_M4_APPL_ADDR</a> value in the 'system_xx.h', where 'xx' is the device family:<br />
+<div class="fragment"><div class="line"><span class="preprocessor">#define CY_CORTEX_M4_APPL_ADDR (0x10002000u) </span></div></div><!-- fragment --></li>
 </ul>
 <p><b>IAR</b><br />
- The flash and RAM sections for the CPU are defined in the linker files: 'xx_yy.icf', where 'xx' is the device group, and 'yy' is the target CPU; for example, 'cy8c6xx7_cm0plus.icf' and 'cy8c6xx7_cm4_dual.icf'. </p><dl class="section note"><dt>Note</dt><dd>If the start of the Cortex-M4 application image is changed, the value of the of the <a class="el" href="group__group__system__config__user__settings__macro.html#ga54e255e631cab1db862ff92646e54c51">CY_CORTEX_M4_APPL_ADDR</a> should also be changed. The <a class="el" href="group__group__system__config__user__settings__macro.html#ga54e255e631cab1db862ff92646e54c51">CY_CORTEX_M4_APPL_ADDR</a> macro should be used as the parameter for the <a class="el" href="group__group__system__config__cm4__functions.html#gac44c12fdb0562403fc055e4e8966b557">Cy_SysEnableCM4()</a> function call.</dd></dl>
+ The flash and RAM sections for the CPU are defined in the linker files: 'xx_yy.icf', where 'xx' is the device group, and 'yy' is the target CPU; for example, 'cy8c6xx7_cm0plus.icf' and 'cy8c6xx7_cm4_dual.icf'. </p><dl class="section note"><dt>Note</dt><dd>If the start of the Cortex-M4 application image is changed, the value of the of the <a class="el" href="group__group__system__config__user__settings__macro.html#ga54e255e631cab1db862ff92646e54c51">CY_CORTEX_M4_APPL_ADDR</a> should also be changed. The <a class="el" href="group__group__system__config__user__settings__macro.html#ga54e255e631cab1db862ff92646e54c51">CY_CORTEX_M4_APPL_ADDR</a> macro should be used as the parameter for the <a class="el" href="group__group__system__config__cm4__functions.html#gac44c12fdb0562403fc055e4e8966b557">Cy_SysEnableCM4()</a> function call. By default, the COMPONENT_CM0P_SLEEP prebuilt image is used for the CM0p core. More about CM0+ prebuilt images, see here: <a href="https://github.com/cypresssemiconductorco/psoc6cm0p">https://github.com/cypresssemiconductorco/psoc6cm0p</a></dd></dl>
 <p>Change the flash and RAM sizes by editing the macros value in the linker files for both CPUs:</p><ul>
-<li>'xx_cm0plus.icf', where 'xx' is the device group: <div class="fragment"><div class="line">define symbol __ICFEDIT_region_IROM1_start__ = 0x10000000;</div><div class="line">define symbol __ICFEDIT_region_IROM1_end__   = 0x10080000;</div><div class="line">define symbol __ICFEDIT_region_IRAM1_start__ = 0x08000000;</div><div class="line">define symbol __ICFEDIT_region_IRAM1_end__   = 0x08024000;</div></div><!-- fragment --></li>
-<li>'xx_cm4_dual.icf', where 'xx' is the device group: <div class="fragment"><div class="line">define symbol __ICFEDIT_region_IROM1_start__ = 0x10080000;</div><div class="line">define symbol __ICFEDIT_region_IROM1_end__   = 0x10100000;</div><div class="line">define symbol __ICFEDIT_region_IRAM1_start__ = 0x08024000;</div><div class="line">define symbol __ICFEDIT_region_IRAM1_end__   = 0x08047800;</div></div><!-- fragment --></li>
+<li>'xx_cm0plus.icf', where 'xx' is the device group: <div class="fragment"><div class="line">define symbol __ICFEDIT_region_IROM1_start__ = 0x10000000;</div><div class="line">define symbol __ICFEDIT_region_IROM1_end__   = 0x10001FFF;</div><div class="line">define symbol __ICFEDIT_region_IRAM1_start__ = 0x08000000;</div><div class="line">define symbol __ICFEDIT_region_IRAM1_end__   = 0x08001FFF;</div></div><!-- fragment --></li>
+<li>'xx_cm4_dual.icf', where 'xx' is the device group: <div class="fragment"><div class="line">define symbol __ICFEDIT_region_IROM1_start__ = 0x10000000;</div><div class="line">define symbol __ICFEDIT_region_IROM1_end__   = 0x100FFFFF;</div><div class="line">define symbol __ICFEDIT_region_IRAM1_start__ = 0x08002000;</div><div class="line">define symbol __ICFEDIT_region_IRAM1_end__   = 0x080477FF;</div></div><!-- fragment --></li>
 </ul>
-<p>Change the value of the <a class="el" href="group__group__system__config__user__settings__macro.html#ga54e255e631cab1db862ff92646e54c51">CY_CORTEX_M4_APPL_ADDR</a> macro to the <b>ICFEDIT_region_IROM1_start</b> value in the 'xx_cm4_dual.icf' file, where 'xx' is the device group. Do this by either:</p><ul>
+<p>Change the value of the <a class="el" href="group__group__system__config__user__settings__macro.html#ga54e255e631cab1db862ff92646e54c51">CY_CORTEX_M4_APPL_ADDR</a> macro to the <b>ICFEDIT_region_IROM1_start</b> value (0x10000000) + FLASH_CM0P_SIZE value (0x2000, the size of a flash image of the Cortex-M0+ application) in the 'xx_cm4_dual.icf' file, where 'xx' is the device group. The sum result should be the same as (<b>ICFEDIT_region_IROM1_end</b> + 1) value in the 'xx_cm0plus.icf'. Do this by either:</p><ul>
 <li>Passing the following commands to the compiler:<br />
-<div class="fragment"><div class="line">-D CY_CORTEX_M4_APPL_ADDR=0x10080000 </div></div><!-- fragment --></li>
-<li>Editing the <a class="el" href="group__group__system__config__user__settings__macro.html#ga54e255e631cab1db862ff92646e54c51">CY_CORTEX_M4_APPL_ADDR</a> value in the 'system_xx.h', where 'xx' is device family:<br />
-<div class="fragment"><div class="line"><span class="preprocessor">#define CY_CORTEX_M4_APPL_ADDR (0x10080000u) </span></div></div><!-- fragment --></li>
+<div class="fragment"><div class="line">-D CY_CORTEX_M4_APPL_ADDR=0x10002000 </div></div><!-- fragment --> or</li>
+<li>Editing the <a class="el" href="group__group__system__config__user__settings__macro.html#ga54e255e631cab1db862ff92646e54c51">CY_CORTEX_M4_APPL_ADDR</a> value in the 'system_xx.h', where 'xx' is the device family:<br />
+<div class="fragment"><div class="line"><span class="preprocessor">#define CY_CORTEX_M4_APPL_ADDR (0x10002000u) </span></div></div><!-- fragment --></li>
 </ul>
 <h2><a class="anchor" id="group_system_config_device_initialization"></a>
 Device Initialization</h2>
@@ -160,42 +161,32 @@ Heap and Stack Configuration</h2>
 <li>Editing source code files</li>
 <li>Specifying via command line</li>
 </ol>
-<p>By default, the stack size is set to 0x00001000 and the heap size is set to 0x00000400.</p>
+<p>By default, the stack size is set to 0x00001000 and the heap size is allocated dynamically to the whole available free memory up to stack memory and it is set to the 0x00000400 (for ARM GCC and IAR compilers) as minimal value.</p>
 <h3><a class="anchor" id="group_system_config_heap_stack_config_gcc"></a>
 ARM GCC</h3>
 <ul>
 <li><b>Editing source code files</b><br />
  The heap and stack sizes are defined in the assembler startup files (e.g. startup_psoc6_01_cm0plus.S and startup_psoc6_01_cm4.S). Change the heap and stack sizes by modifying the following lines:<br />
-<div class="fragment"><div class="line">.equ  Stack_Size, 0x00001000 </div></div><!-- fragment --> <div class="fragment"><div class="line">.equ  Heap_Size,  0x00000400 </div></div><!-- fragment --></li>
-<li><b>Specifying via command line</b><br />
- Change the heap and stack sizes passing the following commands to the compiler:<br />
-<div class="fragment"><div class="line">-D __STACK_SIZE=0x000000400 </div></div><!-- fragment --> <div class="fragment"><div class="line">-D __HEAP_SIZE=0x000000100 </div></div><!-- fragment --></li>
+<div class="fragment"><div class="line">.equ  Stack_Size, 0x00001000 </div></div><!-- fragment --> <div class="fragment"><div class="line">.equ  Heap_Size,  0x00000400 </div></div><!-- fragment --> Also, the stack size is defined in the linker script files: 'xx_yy.ld', where 'xx' is the device family, and 'yy' is the target CPU; for example, cy8c6xx7_cm0plus.ld and cy8c6xx7_cm4_dual.ld. Change the stack size by modifying the following line:<br />
+<div class="fragment"><div class="line">STACK_SIZE = 0x1000; </div></div><!-- fragment --></li>
 </ul>
 <h3><a class="anchor" id="group_system_config_heap_stack_config_mdk"></a>
-ARM MDK</h3>
+ARM Compiler</h3>
 <ul>
 <li><b>Editing source code files</b><br />
- The heap and stack sizes are defined in the assembler startup files (e.g. startup_psoc6_01_cm0plus.s and startup_psoc6_01_cm4.s). Change the heap and stack sizes by modifying the following lines:<br />
-<div class="fragment"><div class="line">Stack_Size      EQU     0x00001000 </div></div><!-- fragment --> <div class="fragment"><div class="line">Heap_Size       EQU     0x00000400 </div></div><!-- fragment --></li>
-<li><b>Specifying via command line</b><br />
- Change the heap and stack sizes passing the following commands to the assembler:<br />
-<div class="fragment"><div class="line"><span class="stringliteral">&quot;--predefine=___STACK_SIZE SETA 0x000000400&quot;</span> </div></div><!-- fragment --> <div class="fragment"><div class="line"><span class="stringliteral">&quot;--predefine=__HEAP_SIZE SETA 0x000000100&quot;</span> </div></div><!-- fragment --></li>
+ The stack size is defined in the linker script files: 'xx_yy.sct', where 'xx' is the device family, and 'yy' is the target CPU; for example, cy8c6xx7_cm0plus.sct and cy8c6xx7_cm4_dual.sct. Change the stack size by modifying the following line:<br />
+<div class="fragment"><div class="line">STACK_SIZE = 0x1000; </div></div><!-- fragment --></li>
 </ul>
 <h3><a class="anchor" id="group_system_config_heap_stack_config_iar"></a>
 IAR</h3>
 <ul>
 <li><b>Editing source code files</b><br />
- The heap and stack sizes are defined in the linker scatter files: 'xx_yy.icf', where 'xx' is the device family, and 'yy' is the target CPU; for example, cy8c6xx7_cm0plus.icf and cy8c6xx7_cm4_dual.icf. Change the heap and stack sizes by modifying the following lines:<br />
+ The heap and stack sizes are defined in the linker script files: 'xx_yy.icf', where 'xx' is the device family, and 'yy' is the target CPU; for example, cy8c6xx7_cm0plus.icf and cy8c6xx7_cm4_dual.icf. Change the heap and stack sizes by modifying the following lines:<br />
 <div class="fragment"><div class="line">Stack_Size      EQU     0x00001000 </div></div><!-- fragment --> <div class="fragment"><div class="line">Heap_Size       EQU     0x00000400 </div></div><!-- fragment --></li>
 <li><b>Specifying via command line</b><br />
  Change the heap and stack sizes passing the following commands to the linker (including quotation marks):<br />
 <div class="fragment"><div class="line">--define_symbol __STACK_SIZE=0x000000400 </div></div><!-- fragment --> <div class="fragment"><div class="line">--define_symbol __HEAP_SIZE=0x000000100 </div></div><!-- fragment --></li>
 </ul>
-<h2><a class="anchor" id="group_system_config_merge_apps"></a>
-Merging CM0+ and CM4 Executables</h2>
-<p>The CM0+ project and linker script build the CM0+ application image. Similarly, the CM4 linker script builds the CM4 application image. Each specifies locations, sizes, and contents of sections in memory. See <a class="el" href="group__group__system__config.html#group_system_config_device_memory_definition">Device Memory Definition</a> for the symbols and default values.</p>
-<p>The cymcuelftool is invoked by a post-build command. The precise project setting is IDE-specific.</p>
-<p>The cymcuelftool combines the two executables. The tool examines the executables to ensure that memory regions either do not overlap, or contain identical bytes (shared). If there are no problems, it creates a new ELF file with the merged image, without changing any of the addresses or data.</p>
 <h2><a class="anchor" id="group_system_config_default_handlers"></a>
 Default Interrupt Handlers Definition</h2>
 <p>The default interrupt handler functions are defined as weak functions to a dummy handler in the startup file. The naming convention for the interrupt handler names is &lt;interrupt_name&gt;_IRQHandler. A default interrupt handler can be overwritten in user code by defining the handler function using the same name. For example: </p><div class="fragment"><div class="line"> <span class="keywordtype">void</span> scb_0_interrupt_IRQHandler(<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    ...</div><div class="line">}</div></div><!-- fragment --><h2><a class="anchor" id="group_system_config_device_vector_table"></a>
@@ -207,15 +198,12 @@ ARM GCC</h3>
  Copy interrupt vectors from flash to RAM: <br />
  From:</p><div class="fragment"><div class="line">LONG (<a class="code" href="group__group__sysint__globals.html#ga0b785674909134a8a4045949824befc8">__Vectors</a>) </div></div><!-- fragment --><p> To:</p><div class="fragment"><div class="line">LONG (__ram_vectors_start__) </div></div><!-- fragment --><p> Size:</p><div class="fragment"><div class="line">LONG (__Vectors_End - <a class="code" href="group__group__sysint__globals.html#ga0b785674909134a8a4045949824befc8">__Vectors</a>) </div></div><!-- fragment --><p> The vector table address (and the vector table itself) are defined in the assembler startup files (e.g. startup_psoc6_01_cm0plus.S and startup_psoc6_01_cm4.S). The code in these files copies the vector table from Flash to RAM. </p>
 <h3><a class="anchor" id="group_system_config_device_vector_table_mdk"></a>
-ARM MDK</h3>
-<p>The linker script file is 'xx_yy.scat', where 'xx' is the device family, and 'yy' is the target CPU; for example, cy8c6xx7_cm0plus.scat and cy8c6xx7_cm4_dual.scat. The linker script specifies that the vector table (RESET_RAM) shall be first in the RAM section.<br />
+ARM Compiler</h3>
+<p>The linker script file is 'xx_yy.sct', where 'xx' is the device family, and 'yy' is the target CPU; for example, cy8c6xx7_cm0plus.sct and cy8c6xx7_cm4_dual.sct. The linker script specifies that the vector table (RESET_RAM) shall be first in the RAM section.<br />
  RESET_RAM represents the vector table. It is defined in the assembler startup files (e.g. startup_psoc6_01_cm0plus.s and startup_psoc6_01_cm4.s). The code in these files copies the vector table from Flash to RAM.</p>
 <h3><a class="anchor" id="group_system_config_device_vector_table_iar"></a>
 IAR</h3>
 <p>The linker script file is 'xx_yy.icf', where 'xx' is the device family, and 'yy' is the target CPU; for example, cy8c6xx7_cm0plus.icf and cy8c6xx7_cm4_dual.icf. This file defines the .intvec_ram section and its location. </p><div class="fragment"><div class="line">place at start of IRAM1_region  { readwrite section .intvec_ram}; </div></div><!-- fragment --><p> The vector table address (and the vector table itself) are defined in the assembler startup files (e.g. startup_psoc6_01_cm0plus.s and startup_psoc6_01_cm4.s). The code in these files copies the vector table from Flash to RAM.</p>
-<h1><a class="anchor" id="group_system_config_more_information"></a>
-More Information</h1>
-<p>Refer to the <a href="..\..\pdl_user_guide.pdf">PDL User Guide</a> for the more details.</p>
 <h1><a class="anchor" id="group_system_config_MISRA"></a>
 MISRA Compliance</h1>
 <table class="doxtable">
@@ -229,6 +217,8 @@ Changelog</h1>
 <table class="doxtable">
 <tr>
 <th>Version </th><th>Changes </th><th>Reason for Change  </th></tr>
+<tr>
+<td>2.70.1 </td><td>Updated documentation for the better description of the existing startup implementation. </td><td>User experience enhancement.  </td></tr>
 <tr>
 <td rowspan="5">2.70 </td><td>Updated <a class="el" href="group__group__system__config__system__functions.html#gae0c36a9591fe6e9c45ecb21a794f0f0f">SystemCoreClockUpdate()</a> implementation - The SysClk API is reused. </td><td>Code optimization.  </td></tr>
 <tr>

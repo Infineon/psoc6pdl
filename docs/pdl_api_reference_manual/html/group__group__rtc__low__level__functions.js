@@ -11,5 +11,7 @@ var group__group__rtc__low__level__functions =
     [ "Cy_RTC_GetHoursFormat", "group__group__rtc__low__level__functions.html#gab52c64f8d94f511d74a9c420203b24a0", null ],
     [ "Cy_RTC_IsExternalResetOccurred", "group__group__rtc__low__level__functions.html#ga2180730a17231f562c6db1dda94ae5a6", null ],
     [ "Cy_RTC_SyncToRtcAhbDateAndTime", "group__group__rtc__low__level__functions.html#ga749c1f8be6f66b49d7e9205449ac3653", null ],
-    [ "Cy_RTC_SyncToRtcAhbAlarm", "group__group__rtc__low__level__functions.html#gaef65b4e1818b36e57229ee4ff7a83784", null ]
+    [ "Cy_RTC_SyncToRtcAhbAlarm", "group__group__rtc__low__level__functions.html#gaef65b4e1818b36e57229ee4ff7a83784", null ],
+    [ "Cy_RTC_SetNextDstTime", "group__group__rtc__low__level__functions.html#ga37374ecb34a430c3735ef9ba585681b1", null ],
+    [ "Cy_RTC_GetDstStatus", "group__group__rtc__low__level__functions.html#gae2d29ebc8c658ccfefcc2389d26d6bec", null ]
 ];

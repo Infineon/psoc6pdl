@@ -243,7 +243,7 @@ The Arm BSD assembly instruction is not required in this function because the fu
 <p>The return value from executed callback functions with the CY_SYSPM_CHECK_FAIL, CY_SYSPM_BEFORE_TRANSITION, and CY_SYSPM_AFTER_TRANSITION modes are ignored.</p>
 <p>To support control of callback execution order th following method is implemented. Callback function with the CY_SYSPM_CHECK_READY and CY_SYSPM_BEFORE_TRANSITION parameter are executed in the same order they are registered. Callback function with the CY_SYSPM_CHECK_FAIL and CY_SYSPM_AFTER_TRANSITION parameter are executed in the reverse order they are registered.</p>
 <dl class="section return"><dt>Returns</dt><dd><ul>
-<li>CY_SYSPM_SUCCESS - Entered the system LP mode.</li>
+<li>CY_SYSPM_SUCCESS - Entered the system LP mode or the device is already in LP mode.</li>
 <li>CY_SYSPM_INVALID_STATE - The system LP mode was not set. The system LP mode was not set because the protection context value is higher than zero (PC &gt; 0) or the device revision does not support modifying registers (to enter LP mode) via syscall.</li>
 <li>CY_SYSPM_CANCELED - Operation was canceled. Call the function again until the function returns CY_SYSPM_SUCCESS.</li>
 <li>CY_SYSPM_FAIL - The system LP mode is not entered.</li>
@@ -280,7 +280,7 @@ The Arm BSD assembly instruction is not required in this function because the fu
 <p>The return value from executed callback functions with the CY_SYSPM_CHECK_FAIL, CY_SYSPM_BEFORE_TRANSITION, and CY_SYSPM_AFTER_TRANSITION modes are ignored.</p>
 <p>To support control of callback execution order th following method is implemented. Callback function with the CY_SYSPM_CHECK_READY and CY_SYSPM_BEFORE_TRANSITION parameter are executed in the same order they are registered. Callback function with the CY_SYSPM_CHECK_FAIL and CY_SYSPM_AFTER_TRANSITION parameter are executed in the reverse order they are registered.</p>
 <dl class="section return"><dt>Returns</dt><dd><ul>
-<li>CY_SYSPM_SUCCESS - Entered system ULP mode.</li>
+<li>CY_SYSPM_SUCCESS - Entered the system ULP mode or the device is already in ULP mode.</li>
 <li>CY_SYSPM_INVALID_STATE - System ULP mode was not set. The ULP mode was not set because the protection context value is higher than zero (PC &gt; 0) or the device revision does not support modifying registers (to enter system ULP mode) via syscall.</li>
 <li>CY_SYSPM_CANCELED - Operation was canceled. Call the function again until the function returns CY_SYSPM_SUCCESS.</li>
 <li>CY_SYSPM_FAIL - The system ULP mode is not entered.</li>
