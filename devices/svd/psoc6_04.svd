@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator version: 1.6.0.82 -->
+<!-- Generator version: 1.6.0.111 -->
 <device schemaVersion="1.3" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="CMSIS-SVD.xsd">
   <vendor>Cypress Semiconductor</vendor>
   <vendorID>Cypress</vendorID>
@@ -7800,7 +7800,9 @@ Prefetching requires the cache to be enabled; i.e. ENABLED is '1'.</description>
               <name>VECTKEYSTAT</name>
               <description>Register key (to prevent accidental writes).
 - Should be written with a 0x05fa key value for the write to take effect.
-- Always reads as 0xfa05.</description>
+- Always reads as 0xfa05.
+
+Note: Although the SW attribute for this field says ''R', SW need to write the key 0x05fa in this field for this register write to happen. This is a built in protection provided to prevent accidental writes from SW.</description>
               <bitRange>[31:16]</bitRange>
               <access>read-only</access>
             </field>
@@ -7995,7 +7997,9 @@ Note: this field is independent of FLASH_CTL.MAIN_ERR_SILENT.</description>
               <name>VECTKEYSTAT</name>
               <description>Register key (to prevent accidental writes).
 - Should be written with a 0x05fa key value for the write to take effect.
-- Always reads as 0xfa05.</description>
+- Always reads as 0xfa05.
+
+Note: Although the SW attribute for this field says ''R', SW need to write the key 0x05fa in this field for this register write to happen. This is a built in protection provided to prevent accidental writes from SW.</description>
               <bitRange>[31:16]</bitRange>
               <access>read-only</access>
             </field>
@@ -14188,15 +14192,15 @@ HW sets this field to '0' on an error interrupt cause (the specific error is spe
               <field>
                 <name>INTR_CAUSE</name>
                 <description>Specifies the source of the interrupt cause:
-'0': NO_INTR
-'1': COMPLETION
-'2': SRC_BUS_ERROR
-'3': DST_BUS_ERROR
-'4': SRC_MISAL
-'5': DST_MISAL
-'6': CURR_PTR_NULL
-'7': ACTIVE_CH_DISABLED
-'8': DESCR_BUS_ERROR
+'0': No interrupt generated
+'1': Interrupt based on transfer complettion configuration based on INTR_TYPE
+'2': Source transfer bus error
+'3': Destination transfer bus error
+'4': Source address misalignment
+'5': Destination address misalignment
+'6': Current descriptor pointer is null
+'7': Active channel is disabled
+'8': Descriptor bus error
 '9'-'15': Not used.
 
 For error related interrupt causes (INTR_CAUSE is '2', '3', ..., '8'), the channel is disabled (HW sets CH_CTL.ENABLED to '0').</description>
@@ -17774,7 +17778,7 @@ e) VREF_SEL=10/11, VOH_SEL=[1-7]  -&gt; Input buffer functions as LVTTL input bu
           </register>
           <register>
             <name>CFG_IN_AUTOLVL</name>
-            <description>Port input buffer AUTOLVL configuration register for S40E GPIO</description>
+            <description>Port input buffer AUTOLVL configuration register</description>
             <addressOffset>0x58</addressOffset>
             <size>32</size>
             <access>read-write</access>
@@ -17783,7 +17787,7 @@ e) VREF_SEL=10/11, VOH_SEL=[1-7]  -&gt; Input buffer functions as LVTTL input bu
             <fields>
               <field>
                 <name>VTRIP_SEL0_1</name>
-                <description>Configures the input buffer mode (trip points and hysteresis) for S40E GPIO upper bit.  Lower bit is still selected by CFG_IN.VTRIP_SEL0_0 field.  This field is used along with CFG_IN.VTRIP_SEL0_0 field as below:
+                <description>Configures the input buffer mode (trip points and hysteresis) for GPIO upper bit.  Lower bit is still selected by CFG_IN.VTRIP_SEL0_0 field.  This field is used along with CFG_IN.VTRIP_SEL0_0 field as below:
 {CFG_IN_AUTOLVL.VTRIP_SEL0_1,CFG_IN.VTRIP_SEL0_0}:
 0,0: CMOS
 0,1: TTL
@@ -35336,8 +35340,7 @@ When this logic is disabled (F0TPE=0) a Read from this register returns undefine
           <fields>
             <field>
               <name>STOP_REQ</name>
-              <description>Clock Stop Request for each TTCAN IP .
-The m_ttcan_clkstop_req of each TTCAN IP is directly driven by these bits.</description>
+              <description>N/A</description>
               <bitRange>[7:0]</bitRange>
               <access>read-write</access>
             </field>
@@ -35349,7 +35352,7 @@ The m_ttcan_clkstop_req of each TTCAN IP is directly driven by these bits.</desc
 When the MRAM is off any access attempt to it is considered an address error (as if MRAM_SIZE=0).
 After switching the MRAM on again software needs to allow for a certain power up time before MRAM can be used, i.e. before STOP_REQ can be de-asserted. The power up time is equivalent to the system SRAM power up time specified in the CPUSS.RAM_PWR_DELAY_CTL register.
 
-To meet S8 platform requirements, MRAM_OFF should be set to 0 prior to transitioning to Hibernate mode.</description>
+MRAM_OFF should be set to 0 prior to transitioning to Hibernate mode.</description>
               <bitRange>[31:31]</bitRange>
               <access>read-write</access>
             </field>
@@ -39202,7 +39205,7 @@ add 0x800 to the 12-bit Value (=invert MSB), to convert the lowest signed number
       <name>SAR0</name>
       <description>SAR ADC with Sequencer</description>
       <headerStructName>SAR</headerStructName>
-      <baseAddress>0x409D0000</baseAddress>
+      <baseAddress>0x409B0000</baseAddress>
       <addressBlock>
         <offset>0</offset>
         <size>65536</size>
@@ -41238,7 +41241,7 @@ This bit can be cleared by changing the averaging mode to ACCUNDUMP or by disabl
     </peripheral>
     <peripheral derivedFrom="SAR0">
       <name>SAR1</name>
-      <baseAddress>0x409E0000</baseAddress>
+      <baseAddress>0x409C0000</baseAddress>
     </peripheral>
     <peripheral>
       <name>PASS</name>
@@ -41505,8 +41508,8 @@ This bit can be cleared by changing the averaging mode to ACCUNDUMP or by disabl
         <register>
           <dim>2</dim>
           <dimIncrement>4</dimIncrement>
-          <name>SAR_DPSLP_CONFIG[%s]</name>
-          <description>Deepsleep configuration for SARv3</description>
+          <name>SAR_CLOCK_SEL[%s]</name>
+          <description>Clock select for SARv3</description>
           <addressOffset>0x40</addressOffset>
           <size>32</size>
           <access>read-write</access>
@@ -41514,19 +41517,19 @@ This bit can be cleared by changing the averaging mode to ACCUNDUMP or by disabl
           <resetMask>0x40000000</resetMask>
           <fields>
             <field>
-              <name>DEEPSLEEP_ON</name>
-              <description>SAR Deepsleep control bit</description>
+              <name>CLOCK_SEL</name>
+              <description>SAR clock select</description>
               <bitRange>[30:30]</bitRange>
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>LEGACY</name>
-                  <description>- 0: legacy: SAR operational in ACTIVE mode only</description>
+                  <description>- 0: legacy: SAR clock source is CLK_PERI (SAR is only operational in chip ACTIVE mode)</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>DEEPSLEEP_ENABLED</name>
-                  <description>- 1: SAR operational in ACTIVE and DEEPSLEEP modes</description>
+                  <name>CLK_DPSLP</name>
+                  <description>- 1: SAR clock source is CLK_DPSLP (SAR can be operational in both chip ACTIVE and DEEPSLEEP modes)</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -41534,38 +41537,60 @@ This bit can be cleared by changing the averaging mode to ACCUNDUMP or by disabl
           </fields>
         </register>
         <register>
-          <name>SAR_HW_TR_SMP_CNT</name>
-          <description>SAR HW trigger sample control</description>
+          <dim>2</dim>
+          <dimIncrement>4</dimIncrement>
+          <name>SAR_TR_SCAN_CNT_STATUS[%s]</name>
+          <description>SAR trigger scan control status</description>
           <addressOffset>0x50</addressOffset>
           <size>32</size>
-          <access>read-write</access>
+          <access>read-only</access>
           <resetValue>0x0</resetValue>
-          <resetMask>0x3F</resetMask>
+          <resetMask>0xFF</resetMask>
           <fields>
             <field>
-              <name>SMP_CNT</name>
-              <description>SAR HW trigger sample counter. This field determines the number of samples a SAR will take when configured for level sensitive hardwire triggering.  The number os samples is SMP_COUNT+1.
-
-This feature can be enabled for individual SARs by setting the appropriate bit of SAR_HW_TR_CTRL.HW_TR_SMP_CNT_SEL.
-
-This feature can be enabled for simultaneously sampled SARs by setting SAR_SIMULT_HW_TR_CTRL.SIMULT_HW_TR_SMP_CNT_SEL.</description>
-              <bitRange>[5:0]</bitRange>
-              <access>read-write</access>
+              <name>SCAN_CNT_STATUS</name>
+              <description>A read from this register returns the current sample count (possible values are 1 through SCAN_TR_SCAN_CNT.SCAN_CNT+1).</description>
+              <bitRange>[7:0]</bitRange>
+              <access>read-only</access>
             </field>
           </fields>
         </register>
         <register>
-          <name>SAR_HW_TR_CTRL</name>
-          <description>SAR HW trigger override</description>
-          <addressOffset>0x54</addressOffset>
+          <name>SAR_TR_SCAN_CNT</name>
+          <description>SAR trigger scan control</description>
+          <addressOffset>0x60</addressOffset>
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x0</resetValue>
           <resetMask>0xFF</resetMask>
           <fields>
             <field>
+              <name>SCAN_CNT</name>
+              <description>SAR trigger sample counter. This field determines the number of samples a SAR will take when triggered.  The number of samples is SCAN_COUNT+1.
+
+This feature can be enabled for individual SARs by setting the appropriate bit of SAR_TR_CTRL.TR_SCAN_CNT_SEL.
+
+This feature can be enabled for simultaneously sampled SARs by setting SAR_SIMULT_TR_CTRL.SIMULT_TR_SCAN_CNT_SEL.
+
+If SAR.SAMPLE_CTRL.AVG_MODE is set to INTERLEAVED, the SCAN_CNT must be set an integer multiple of  (1&lt;&lt;AVG_CNTR+1).</description>
+              <bitRange>[7:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>SAR_OVR_CTRL</name>
+          <description>SAR HW trigger override</description>
+          <addressOffset>0x64</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x0</resetValue>
+          <resetMask>0xFFF</resetMask>
+          <fields>
+            <field>
               <name>HW_TR_TIMER_SEL</name>
-              <description>SAR hardware trigger source select (one bit per SAR)
+              <description>SAR hardware trigger source select (one bit per SAR). SAR must be configured for hardware triggering (SAR.SAMPLE_CTRL.DSI_TRIGGER_EN must be set to 1).
+
 -0: Legacy (tr_sar_in_&lt;N&gt;)
 -1: Timer trigger
 
@@ -41577,34 +41602,49 @@ This feature can be enabled for simultaneously sampled SARs by setting SAR_SIMUL
               <access>read-write</access>
             </field>
             <field>
-              <name>HW_TR_SMP_CNT_SEL</name>
-              <description>SAR Hardware trigger sample select (one bit per SAR)
--0: Disabled
--1: Enabled, SAR takes SAR_HW_TR_SMP_CNT per hardware trigger
+              <name>TR_SCAN_CNT_SEL</name>
+              <description>SAR trigger sample select (one bit per SAR).
 
-&lt;0&gt;: HW trigger sample select for SAR0
-&lt;1&gt;: HW trigger sample select for SAR1
-&lt;2&gt;: HW trigger sample select for SAR2
-&lt;3&gt;: HW trigger sample select for SAR3</description>
+-0: Disabled
+-1: Enabled, SAR takes SAR_TR_SCAN_CNT per trigger (valid for both Firmware and Edge Senstive Hardware triggering, but ignored for Level Sensitive Hardware triggering and CONTINUOUS triggering)
+
+&lt;0&gt;: trigger sample select for SAR0
+&lt;1&gt;: trigger sample select for SAR1
+&lt;2&gt;: trigger sample select for SAR2
+&lt;3&gt;: trigger sample select for SAR3</description>
               <bitRange>[7:4]</bitRange>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>EOS_INTR_SCAN_CNT_SEL</name>
+              <description>SAR EOS interrupt source select (one bit per SAR).
+
+-0: Legacy (SAR EOS is the source of the SAR EOS interrupt)
+-1: Enabled, SAR EOS interrupt only occurs for the EOS when sample=SAR_TR_SCAN_CNT.SCAN_CNT.
+
+&lt;0&gt;: EOS interrupt sample count select for SAR0
+&lt;1&gt;: EOS interrupt sample count select for SAR1
+&lt;2&gt;: EOS interrupt sample count select for SAR2
+&lt;3&gt;: EOS interrupt sample count select for SAR3</description>
+              <bitRange>[11:8]</bitRange>
               <access>read-write</access>
             </field>
           </fields>
         </register>
         <register>
-          <name>SAR_SIMULT_HW_TR_CTRL</name>
+          <name>SAR_SIMULT_CTRL</name>
           <description>SAR simultaneous trigger control</description>
-          <addressOffset>0x58</addressOffset>
+          <addressOffset>0x68</addressOffset>
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x80000</resetValue>
-          <resetMask>0x1C013F</resetMask>
+          <resetMask>0x3C013F</resetMask>
           <fields>
             <field>
               <name>SIMULT_HW_TR_EN</name>
-              <description>SAR simultaneous hwardware triggering enable (one bit per SAR)
+              <description>SAR simultaneous hardware triggering enable (one bit per SAR)
 -0: disabled
--1: SAR trigger override enabled (SAR trigger set by SAR_SIMULT_TR_CTRL register)
+-1: SAR trigger override enabled (SAR trigger set by SAR_HW_TR_CTRL register)
 
 &lt;0&gt;: Simultaneuous sampling enable for SAR0
 &lt;1&gt;: Simultaneuous sampling enable for SAR1
@@ -41667,11 +41707,20 @@ If less than two bits are set, this register will not affect SAR operation.</des
               <access>read-write</access>
             </field>
             <field>
-              <name>SIMULT_HW_TR_SMP_CNT_SEL</name>
-              <description>Simultaneous Hardware trigger sample select
+              <name>SIMULT_TR_SCAN_CNT_SEL</name>
+              <description>Simultaneous trigger sample select
 -0: Disabled
--1: Enabled, SAR takes SAR_HW_TR_SMP_CNT per hardware trigger</description>
+-1: Enabled, SAR takes SAR_TR_SCAN_CNT per trigger (valid for both Firmware and Edge Senstive Hardware triggering, but ignored for Level Sensitive Hardware triggering and CONTINUOUS triggering)</description>
               <bitRange>[20:20]</bitRange>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>SIMULT_EOS_INTR_SCAN_CNT_SEL</name>
+              <description>Simultaneous SAR EOS interrupt source select.
+
+-0: Legacy (SAR EOS is the source of the SAR EOS interrupt)
+-1: Enabled, SAR EOS interrupt only occurs for the EOS when sample=SAR_TR_SCAN_CNT.SCAN_CNT.</description>
+              <bitRange>[21:21]</bitRange>
               <access>read-write</access>
             </field>
           </fields>
@@ -41679,7 +41728,7 @@ If less than two bits are set, this register will not affect SAR operation.</des
         <register>
           <name>SAR_SIMULT_FW_START_CTRL</name>
           <description>SAR simultaneous start control</description>
-          <addressOffset>0x5C</addressOffset>
+          <addressOffset>0x6C</addressOffset>
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x0</resetValue>
@@ -41694,7 +41743,9 @@ If less than two bits are set, this register will not affect SAR operation.</des
 &lt;2&gt;: Firmware trigger for SAR2
 &lt;3&gt;: Firmware trigger for SAR3
 
-If less than two bits are set, this field has no effect.</description>
+If less than two bits are set, this field has no effect.
+
+When firmware writes to this field it will trigger the next scan of enabled channels, hardware clears this bit when the scan started with this trigger is completed. If scanning continuously the trigger is ignored and hardware clears this bit after the next scan is done. This bit is also cleared when the SAR is disabled.</description>
               <bitRange>[3:0]</bitRange>
               <access>read-write</access>
             </field>
@@ -41719,7 +41770,7 @@ If less than two bits are set, this field has no effect.</description>
         <register>
           <name>SAR_TR_OUT_CTRL</name>
           <description>SAR trigger out control</description>
-          <addressOffset>0x60</addressOffset>
+          <addressOffset>0x70</addressOffset>
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x0</resetValue>
@@ -41915,12 +41966,12 @@ If less than two bits are set, this field has no effect.</description>
                 <enumeratedValues>
                   <enumeratedValue>
                     <name>DUTYCYCLED</name>
-                    <description>LPOSC always on in deepsleep</description>
+                    <description>LPOSC enabled by TIMER trigger</description>
                     <value>0</value>
                   </enumeratedValue>
                   <enumeratedValue>
                     <name>ALWAYS_ON</name>
-                    <description>LPOSC enabled by TIMER trigger</description>
+                    <description>LPOSC always on in deepsleep</description>
                     <value>1</value>
                   </enumeratedValue>
                 </enumeratedValues>
@@ -41966,7 +42017,7 @@ If less than two bits are set, this field has no effect.</description>
             <fields>
               <field>
                 <name>ENABLED</name>
-                <description>Enable for SAR FIFO functionality:
+                <description>Enable for SAR FIFO functionality.  If CONFIG.CHAIN_TO_NXT is set, the ENABLED bit of the NEXT FIFO is set when FIFO[0] is enabled.
 - 0: FIFO disabled
 - 1: FIFO enabled</description>
                 <bitRange>[31:31]</bitRange>
@@ -41981,18 +42032,8 @@ If less than two bits are set, this field has no effect.</description>
             <size>32</size>
             <access>read-write</access>
             <resetValue>0x0</resetValue>
-            <resetMask>0x3FF</resetMask>
+            <resetMask>0x7</resetMask>
             <fields>
-              <field>
-                <name>LEVEL</name>
-                <description>FIFO level set.  A trigger (and optional interrupt) event occurs when STATUS.USED &gt;= LEVEL+1. 
-
-If CHAIN_EN is disabled, the Max LEVEL is limited to 63.  
-
-If CHAIN_EN is enabled, only FIFO[0].config.level should be configured and the Max LEVEL is set by the number of FIFOs in the chain.</description>
-                <bitRange>[7:0]</bitRange>
-                <access>read-write</access>
-              </field>
               <field>
                 <name>CHAN_ID_EN</name>
                 <description>channel number (ID) enable bit
@@ -42003,27 +42044,75 @@ If CHAIN_EN is enabled, only FIFO[0].config.level should be configured and the M
 
 
 If CHAIN_EN is enabled, only FIFO[0].config.chan_id_en should be configured and the other FIFOs in the chain will inherit the FIFO[0] config.</description>
-                <bitRange>[8:8]</bitRange>
+                <bitRange>[0:0]</bitRange>
                 <access>read-write</access>
               </field>
               <field>
-                <name>CHAIN_EN</name>
-                <description>Enable chaining of FIFOs.
-- 0: FIFO chain disabled. FIFO operates independently (FIFO depth of 64) and only operates on result data from  its associated SAR.
-- 1: FIFO chain enabled.  FIFO is part of a chain of FIFOs (effectively extending the FIFO depth beyond 64) and only operates on result data from SAR0.</description>
-                <bitRange>[9:9]</bitRange>
+                <name>CHAIN_TO_NXT</name>
+                <description>Chain FIFO to next FIFO (i.e. chain FIFO0 and FIFO1).
+- 0: FIFO not chained . FIFO operates independently (FIFO depth of 64) and only operates on result data from  its associated SAR.
+- 1: FIFO chained to next FIFO.  FIFO is part of a chain of FIFOs (effectively extending the FIFO depth beyond 64) and only operates on result data from SAR0.</description>
+                <bitRange>[1:1]</bitRange>
+                <access>read-write</access>
+              </field>
+              <field>
+                <name>TR_CLR_RD_EN</name>
+                <description>Enable for FIFO read clearing the FIFO level trigger.
+- 0: Disabled, FIFO trigger generation follows LEVEL.LEVEL.
+- 1: Enabled, after initial FIFO trigger generation, subsequent FIFO triggers are blocked until at least: FIFO.LEVEL+1 reads have occurred.
+
+If CHAIN_TO_NXT is enabled, only FIFO[0].CONFIG. TR_CLR_RD_EN should be configured.</description>
+                <bitRange>[2:2]</bitRange>
                 <access>read-write</access>
               </field>
             </fields>
           </register>
           <register>
-            <name>STATUS</name>
-            <description>FIFO status register</description>
+            <name>CLEAR</name>
+            <description>FIFO clear register</description>
             <addressOffset>0x8</addressOffset>
+            <size>32</size>
+            <access>read-write</access>
+            <resetValue>0x0</resetValue>
+            <resetMask>0x1</resetMask>
+            <fields>
+              <field>
+                <name>CLEAR</name>
+                <description>When firmware writes a 1 here it will trigger and clearing of the FIFO status registers (excluding interrupts), hardware clears this bit.</description>
+                <bitRange>[0:0]</bitRange>
+                <access>read-write</access>
+              </field>
+            </fields>
+          </register>
+          <register>
+            <name>LEVEL</name>
+            <description>FIFO level register</description>
+            <addressOffset>0xC</addressOffset>
+            <size>32</size>
+            <access>read-write</access>
+            <resetValue>0x0</resetValue>
+            <resetMask>0xFF</resetMask>
+            <fields>
+              <field>
+                <name>LEVEL</name>
+                <description>FIFO level set.  A trigger (and optional interrupt) event occurs when USED.USED &gt;= LEVEL+1.  (Trigger generation is also affect by CONFIG.TR_CLR_RD_EN). 
+
+If CHAIN_TO_NXT is disabled, the Max LEVEL is limited to 63.  
+
+If CHAIN_TO_NXT is enabled, only FIFO[0].config.level should be configured and the Max LEVEL is set by the number of FIFOs in the chain.</description>
+                <bitRange>[7:0]</bitRange>
+                <access>read-write</access>
+              </field>
+            </fields>
+          </register>
+          <register>
+            <name>USED</name>
+            <description>FIFO used register</description>
+            <addressOffset>0x10</addressOffset>
             <size>32</size>
             <access>read-only</access>
             <resetValue>0x0</resetValue>
-            <resetMask>0xFFFF00FF</resetMask>
+            <resetMask>0xFF</resetMask>
             <fields>
               <field>
                 <name>USED</name>
@@ -42031,18 +42120,29 @@ If CHAIN_EN is enabled, only FIFO[0].config.chan_id_en should be configured and 
 
 If CONFIG.CHAIN_EN is disabled, the field value is in the range [0, 64]. When '0', the FIFO is empty. When '64', the FIFO is full.  
 
-If CONFIG.CHAIN_EN is enabled, only FIFO[0].STATUS.USED should be read to detemine the used status.</description>
+If CONFIG.CHAIN_EN is enabled, only FIFO[0].USED.USED should be read to detemine the used status.</description>
                 <bitRange>[7:0]</bitRange>
                 <access>read-only</access>
               </field>
+            </fields>
+          </register>
+          <register>
+            <name>STATUS</name>
+            <description>FIFO status register</description>
+            <addressOffset>0x14</addressOffset>
+            <size>32</size>
+            <access>read-only</access>
+            <resetValue>0x0</resetValue>
+            <resetMask>0xFFFF</resetMask>
+            <fields>
               <field>
                 <name>RD_PTR</name>
                 <description>FIFO read pointer: FIFO location from which a data is read.
 
 Note: This functionality is intended for debugging purposes.
 
-If CONFIG.CHAIN_EN is enabled, only FIFO[0].STATUS.RD_PTR should be read to detemine the read pointer location of the chained FIFO.</description>
-                <bitRange>[23:16]</bitRange>
+If CONFIG.CHAIN_TO_NXT is enabled, only FIFO[0].STATUS.RD_PTR should be read to detemine the read pointer location of the chained FIFO.</description>
+                <bitRange>[7:0]</bitRange>
                 <access>read-only</access>
               </field>
               <field>
@@ -42051,8 +42151,8 @@ If CONFIG.CHAIN_EN is enabled, only FIFO[0].STATUS.RD_PTR should be read to dete
 
 Note: This functionality is intended for debugging purposes.
 
-If CONFIG.CHAIN_EN is enabled, only FIFO[0].STATUS.WR_PTR should be read to detemine the write pointer location of the chained FIFO.</description>
-                <bitRange>[31:24]</bitRange>
+If CONFIG.CHAIN_TO_NXT is enabled, only FIFO[0].STATUS.WR_PTR should be read to detemine the write pointer location of the chained FIFO.</description>
+                <bitRange>[15:8]</bitRange>
                 <access>read-only</access>
               </field>
             </fields>
@@ -42060,7 +42160,7 @@ If CONFIG.CHAIN_EN is enabled, only FIFO[0].STATUS.WR_PTR should be read to dete
           <register>
             <name>RD_DATA</name>
             <description>FIFO read data register</description>
-            <addressOffset>0xC</addressOffset>
+            <addressOffset>0x18</addressOffset>
             <size>32</size>
             <access>read-only</access>
             <resetValue>0x0</resetValue>
@@ -42070,7 +42170,7 @@ If CONFIG.CHAIN_EN is enabled, only FIFO[0].STATUS.WR_PTR should be read to dete
                 <name>RESULT</name>
                 <description>SAR result.  Results from all enabled channels are stored in the buffer. 
 
-If CONFIG.CHAIN_EN is enabled, only FIFO[0].RD_DATA.RESULT should be read.</description>
+If CONFIG.CHAIN_TO_NXT is enabled, only FIFO[0].RD_DATA.RESULT should be read.</description>
                 <bitRange>[15:0]</bitRange>
                 <access>read-only</access>
               </field>
@@ -42078,7 +42178,7 @@ If CONFIG.CHAIN_EN is enabled, only FIFO[0].RD_DATA.RESULT should be read.</desc
                 <name>CHAN_ID</name>
                 <description>Channel number for a given SAR result. Requires CTRL.CHAN_ID_EN to be set. 
 
-If CONFIG.CHAIN_EN is enabled, only FIFO[0].RD_DATA.CHAN_ID should be read.</description>
+If CONFIG.CHAIN_TO_NXT is enabled, only FIFO[0].RD_DATA.CHAN_ID should be read.</description>
                 <bitRange>[19:16]</bitRange>
                 <access>read-only</access>
               </field>
@@ -42087,7 +42187,7 @@ If CONFIG.CHAIN_EN is enabled, only FIFO[0].RD_DATA.CHAN_ID should be read.</des
           <register>
             <name>INTR</name>
             <description>Interrupt register</description>
-            <addressOffset>0x10</addressOffset>
+            <addressOffset>0x20</addressOffset>
             <size>32</size>
             <access>read-write</access>
             <resetValue>0x0</resetValue>
@@ -42097,7 +42197,7 @@ If CONFIG.CHAIN_EN is enabled, only FIFO[0].RD_DATA.CHAN_ID should be read.</des
                 <name>FIFO_LEVEL</name>
                 <description>HW sets this field to '1', when STATUS.USED &gt;= CTRL.LEVEL+1
 
-If CONFIG.CHAIN_EN is enabled, only FIFO[0].INTR.FIFO_LEVEL is updated by hardware.</description>
+If CONFIG.CHAIN_TO_NXT is enabled, only FIFO[0].INTR.FIFO_LEVEL is updated by hardware.</description>
                 <bitRange>[0:0]</bitRange>
                 <access>read-write</access>
               </field>
@@ -42105,7 +42205,7 @@ If CONFIG.CHAIN_EN is enabled, only FIFO[0].INTR.FIFO_LEVEL is updated by hardwa
                 <name>FIFO_OVERFLOW</name>
                 <description>HW sets this field to '1', when writing to a full FIFO (FIFO_STATUS.USED is '64').
 
-If CONFIG.CHAIN_EN is enabled, only FIFO[0].INTR.FIFO_OVERFLOW is updated by hardware.</description>
+If CONFIG.CHAIN_TO_NXT is enabled, only FIFO[0].INTR.FIFO_OVERFLOW is updated by hardware.</description>
                 <bitRange>[1:1]</bitRange>
                 <access>read-write</access>
               </field>
@@ -42113,7 +42213,7 @@ If CONFIG.CHAIN_EN is enabled, only FIFO[0].INTR.FIFO_OVERFLOW is updated by har
                 <name>FIFO_UNDERFLOW</name>
                 <description>HW sets this field to '1', when reading from an empty FIFO. HW tracks underflow after FIFO is being written to and FIFO_CTL.ENABLE==1.
 
-If CONFIG.CHAIN_EN is enabled, only FIFO[0].INTR.FIFO_UNDERFLOW is updated by hardware.</description>
+If CONFIG.CHAIN_TO_NXT is enabled, only FIFO[0].INTR.FIFO_UNDERFLOW is updated by hardware.</description>
                 <bitRange>[2:2]</bitRange>
                 <access>read-write</access>
               </field>
@@ -42122,7 +42222,7 @@ If CONFIG.CHAIN_EN is enabled, only FIFO[0].INTR.FIFO_UNDERFLOW is updated by ha
           <register>
             <name>INTR_SET</name>
             <description>Interrupt set register</description>
-            <addressOffset>0x14</addressOffset>
+            <addressOffset>0x24</addressOffset>
             <size>32</size>
             <access>read-write</access>
             <resetValue>0x0</resetValue>
@@ -42151,7 +42251,7 @@ If CONFIG.CHAIN_EN is enabled, only FIFO[0].INTR.FIFO_UNDERFLOW is updated by ha
           <register>
             <name>INTR_MASK</name>
             <description>Interrupt mask register</description>
-            <addressOffset>0x18</addressOffset>
+            <addressOffset>0x28</addressOffset>
             <size>32</size>
             <access>read-write</access>
             <resetValue>0x0</resetValue>
@@ -42161,7 +42261,7 @@ If CONFIG.CHAIN_EN is enabled, only FIFO[0].INTR.FIFO_UNDERFLOW is updated by ha
                 <name>FIFO_LEVEL</name>
                 <description>Mask for corresponding field in INTR register.
 
-If CONFIG.CHAIN_EN is enabled, only FIFO[0].INTR_MASK.FIFO_LEVEL should be set.</description>
+If CONFIG.CHAIN_TO_NXT is enabled, only FIFO[0].INTR_MASK.FIFO_LEVEL should be set.</description>
                 <bitRange>[0:0]</bitRange>
                 <access>read-write</access>
               </field>
@@ -42169,7 +42269,7 @@ If CONFIG.CHAIN_EN is enabled, only FIFO[0].INTR_MASK.FIFO_LEVEL should be set.<
                 <name>FIFO_OVERFLOW</name>
                 <description>Mask for corresponding field in INTR register.
 
-If CONFIG.CHAIN_EN is enabled, only FIFO[0].INTR_MASK.FIFO_OVERFLOW should be set.</description>
+If CONFIG.CHAIN_TO_NXT is enabled, only FIFO[0].INTR_MASK.FIFO_OVERFLOW should be set.</description>
                 <bitRange>[1:1]</bitRange>
                 <access>read-write</access>
               </field>
@@ -42177,7 +42277,7 @@ If CONFIG.CHAIN_EN is enabled, only FIFO[0].INTR_MASK.FIFO_OVERFLOW should be se
                 <name>FIFO_UNDERFLOW</name>
                 <description>Mask for corresponding field in INTR register.
 
-If CONFIG.CHAIN_EN is enabled, only FIFO[0].INTR_MASK.FIFO_UNDERFLOW should be set.</description>
+If CONFIG.CHAIN_TO_NXT is enabled, only FIFO[0].INTR_MASK.FIFO_UNDERFLOW should be set.</description>
                 <bitRange>[2:2]</bitRange>
                 <access>read-write</access>
               </field>
@@ -42186,7 +42286,7 @@ If CONFIG.CHAIN_EN is enabled, only FIFO[0].INTR_MASK.FIFO_UNDERFLOW should be s
           <register>
             <name>INTR_MASKED</name>
             <description>Interrupt masked register</description>
-            <addressOffset>0x1C</addressOffset>
+            <addressOffset>0x2C</addressOffset>
             <size>32</size>
             <access>read-only</access>
             <resetValue>0x0</resetValue>
@@ -42224,7 +42324,7 @@ If CONFIG.CHAIN_EN is enabled, only FIFO[0].INTR_MASK.FIFO_UNDERFLOW should be s
             <size>32</size>
             <access>read-write</access>
             <resetValue>0x0</resetValue>
-            <resetMask>0xF0F9FFFD</resetMask>
+            <resetMask>0xF039FFFD</resetMask>
             <fields>
               <field>
                 <name>AREF_MODE</name>
@@ -42338,22 +42438,6 @@ Bit 2: Manual enable of VBG offset correction DAC
                     <value>2</value>
                   </enumeratedValue>
                 </enumeratedValues>
-              </field>
-              <field>
-                <name>LP_VREF_EN</name>
-                <description>Enable low power voltage reference
-0: low power voltage reference is disabled
-1: low power voltage reference is enabled</description>
-                <bitRange>[22:22]</bitRange>
-                <access>read-write</access>
-              </field>
-              <field>
-                <name>IZTAT_SCALE</name>
-                <description>IZTAT current scaler.  This bit must be set in order to operate the SAR in the lowest power mode.  This bit is chip-wide (controls all AREF IZTAT references).
-0: 1uA
-1: 100nA</description>
-                <bitRange>[23:23]</bitRange>
-                <access>read-write</access>
               </field>
               <field>
                 <name>DEEPSLEEP_MODE</name>

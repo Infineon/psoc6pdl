@@ -1,5 +1,7 @@
 var NAVTREEINDEX17 =
 {
+"group__group__tcpwm__data__structures__common.html":[2,33,0,2],
+"group__group__tcpwm__data__structures__counter.html":[2,33,1,2],
 "group__group__tcpwm__data__structures__pwm.html":[2,33,2,2],
 "group__group__tcpwm__data__structures__quaddec.html":[2,33,3,2],
 "group__group__tcpwm__enums.html":[2,33,0,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX17 =
 "group__group__usbfs__dev__drv__data__structures.html#ga4a39fc4d08003009f3cb1287f13a854e":[2,35,2,4],
 "group__group__usbfs__dev__drv__data__structures.html#ga8f3d05a8716e5d7b1f208038882c8328":[2,35,2,5],
 "group__group__usbfs__dev__drv__data__structures.html#gaece00619a6241ca4ed9b05bd937269c1":[2,35,2,6],
-"group__group__usbfs__dev__drv__enums.html":[2,35,3],
-"group__group__usbfs__dev__drv__enums.html#ga332943f4c8b1dd76803ac661a276d0b5":[2,35,3,2],
-"group__group__usbfs__dev__drv__enums.html#ga3ad103323d30857a208f4108147b69c8":[2,35,3,4]
+"group__group__usbfs__dev__drv__enums.html":[2,35,3]
 };

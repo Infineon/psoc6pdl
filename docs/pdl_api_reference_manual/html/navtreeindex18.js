@@ -1,5 +1,7 @@
 var NAVTREEINDEX18 =
 {
+"group__group__usbfs__dev__drv__enums.html#ga332943f4c8b1dd76803ac661a276d0b5":[2,35,3,2],
+"group__group__usbfs__dev__drv__enums.html#ga3ad103323d30857a208f4108147b69c8":[2,35,3,4],
 "group__group__usbfs__dev__drv__enums.html#ga460ea6ba6179dd6fad514ba26c982e92":[2,35,3,6],
 "group__group__usbfs__dev__drv__enums.html#ga7e78856f9225afbd18151968ceefbe06":[2,35,3,7],
 "group__group__usbfs__dev__drv__enums.html#ga87ad7ab050630644b29d452ac9b9491f":[2,35,3,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX18 =
 "structcy__stc__canfd__global__filter__config__t.html#a7c90e10439cb1881407990c66e521fd3":[2,1,2,14,1],
 "structcy__stc__canfd__global__filter__config__t.html#abbd6e30ca429e9f46a03593f3a234042":[2,1,2,14,0],
 "structcy__stc__canfd__interrupt__handling__t.html":[2,1,2,17],
-"structcy__stc__canfd__interrupt__handling__t.html#a2906c6c00bef0226e1f76c5d7078519c":[2,1,2,17,0],
-"structcy__stc__canfd__interrupt__handling__t.html#a412f1033f57d13556c5bf5623ec8a854":[2,1,2,17,2],
-"structcy__stc__canfd__interrupt__handling__t.html#aabf9747bf6a7d283c117c37e6ee28966":[2,1,2,17,1]
+"structcy__stc__canfd__interrupt__handling__t.html#a2906c6c00bef0226e1f76c5d7078519c":[2,1,2,17,0]
 };

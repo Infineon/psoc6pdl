@@ -8,6 +8,8 @@ var group__group__sd__host__macros__general__purpose =
     [ "CY_SD_HOST_CLK_25M", "group__group__sd__host__macros__general__purpose.html#gaa05748a150a5904a69c084e798fa126c", null ],
     [ "CY_SD_HOST_CLK_50M", "group__group__sd__host__macros__general__purpose.html#ga95bf272bd4e2dd460dfe330557505c10", null ],
     [ "CY_SD_HOST_CLK_100M", "group__group__sd__host__macros__general__purpose.html#ga96a4333dde183a4825f3f7414db30f1b", null ],
+    [ "CY_SD_HOST_CLK_RAMP_UP_TIME_MS", "group__group__sd__host__macros__general__purpose.html#gaa56807ade05f5f8ff34fa71e8f1f8eb8", null ],
+    [ "CY_SD_HOST_CLK_RAMP_UP_TIME_MS_WAKEUP", "group__group__sd__host__macros__general__purpose.html#gadd91111c5e80b2cc62f1adf75de3183c", null ],
     [ "CY_SD_HOST_ADMA_NOP", "group__group__sd__host__macros__general__purpose.html#gaf84a4e57cec03657fee98b7643c23c19", null ],
     [ "CY_SD_HOST_ADMA_RSV", "group__group__sd__host__macros__general__purpose.html#gaaa71743bf44b0ca95198ac626797a673", null ],
     [ "CY_SD_HOST_ADMA_TRAN", "group__group__sd__host__macros__general__purpose.html#ga139636b3d397af09581d8e52eea267d1", null ],

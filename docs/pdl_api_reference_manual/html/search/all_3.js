@@ -2684,6 +2684,8 @@ var searchData=
   ['cy_5fsd_5fhost_5fclk_5f100m',['CY_SD_HOST_CLK_100M',['../group__group__sd__host__macros__general__purpose.html#ga96a4333dde183a4825f3f7414db30f1b',1,'cy_sd_host.h']]],
   ['cy_5fsd_5fhost_5fclk_5f25m',['CY_SD_HOST_CLK_25M',['../group__group__sd__host__macros__general__purpose.html#gaa05748a150a5904a69c084e798fa126c',1,'cy_sd_host.h']]],
   ['cy_5fsd_5fhost_5fclk_5f50m',['CY_SD_HOST_CLK_50M',['../group__group__sd__host__macros__general__purpose.html#ga95bf272bd4e2dd460dfe330557505c10',1,'cy_sd_host.h']]],
+  ['cy_5fsd_5fhost_5fclk_5framp_5fup_5ftime_5fms',['CY_SD_HOST_CLK_RAMP_UP_TIME_MS',['../group__group__sd__host__macros__general__purpose.html#gaa56807ade05f5f8ff34fa71e8f1f8eb8',1,'cy_sd_host.h']]],
+  ['cy_5fsd_5fhost_5fclk_5framp_5fup_5ftime_5fms_5fwakeup',['CY_SD_HOST_CLK_RAMP_UP_TIME_MS_WAKEUP',['../group__group__sd__host__macros__general__purpose.html#gadd91111c5e80b2cc62f1adf75de3183c',1,'cy_sd_host.h']]],
   ['cy_5fsd_5fhost_5fcmd13_5faddress_5ferror',['CY_SD_HOST_CMD13_ADDRESS_ERROR',['../group__group__sd__host__macros__card__status.html#ga7b11b0d8cce7284c6a7628fd2675cb8b',1,'cy_sd_host.h']]],
   ['cy_5fsd_5fhost_5fcmd13_5fake_5fseq_5ferror',['CY_SD_HOST_CMD13_AKE_SEQ_ERROR',['../group__group__sd__host__macros__card__status.html#gab3cb2578c9f18b85da3c184592c0f3eb',1,'cy_sd_host.h']]],
   ['cy_5fsd_5fhost_5fcmd13_5fapp_5fcmd',['CY_SD_HOST_CMD13_APP_CMD',['../group__group__sd__host__macros__card__status.html#ga131ce046b41fa05798b27fa900061070',1,'cy_sd_host.h']]],
