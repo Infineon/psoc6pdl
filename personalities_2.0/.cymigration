@@ -79,4 +79,7 @@
   <Source id="mxs40smif-1.1">
     <Destination id="mxs40smif-1.2" valid="true" message="Migration is successful" defaultMapping="true"/>
   </Source>
+  <Source id="mxs40eco-1.2">
+    <Destination id="mxs40eco-2.0" valid="true" message="Migration is successful" defaultMapping="true"/>
+  </Source>
 </Migration>

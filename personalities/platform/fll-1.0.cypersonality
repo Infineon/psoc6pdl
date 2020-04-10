@@ -76,7 +76,7 @@
     <!-- The FLL calculator takes into account whether the WCO is used as the reference clock for the FLL -->
     <ParamRange id="callSolverManual" name="callSolver" group="Internal" default="`${manConfig ? (runTool(cy_java_home() . &quot;/bin/java&quot;, &quot;-jar&quot;, &quot;clocksolver-1.0.jar&quot; , &quot;FLL&quot;, &quot;manual&quot;, sourceFrequency / 1000000.0, multiplier, reference, tolerance, path0ClkSource eq &quot;wco&quot;, sourceAccuracy)) : 0}`" min="0" max="200" resolution="1" visible="false" editable="false" desc="FLL clock solver" />
     
-    <ParamRange id="frequency" name="Frequency" group="Internal" default="`${sourceFrequency * multiplier / (srcNotUsed ? 1 : reference) / (enableOutputDiv ? 2 : 1)}`" min="`${srcNotUsed ? 0 : 24000000}`" max="100000000" resolution="1" visible="false" editable="false" desc="" />
+    <ParamRange id="frequency" name="Frequency" group="Internal" default="`${sourceFrequency * multiplier / (srcNotUsed ? 1 : reference) / (enableOutputDiv ? 2 : 1)}`" min="`${srcNotUsed ? 0 : 24000000}`" max="100000000" resolution="200000" visible="false" editable="false" desc="" />
     <ParamString id="solvedAccuracy" name="accuracy" group="Internal" default="`${accuracy}`" visible="false" editable="false" desc="" />
     <ParamString id="frequencyInfo" name="Actual Frequency" group="General" default="`${srcError ? formatFrequency(0,0) : formatFrequency(frequency,solvedAccuracy)}`" visible="true" editable="false" desc="The calculated resulting FLL output frequency" />
   </Parameters>

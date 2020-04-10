@@ -3650,7 +3650,7 @@ var searchData=
   ['cy_5fsysclk_5fdiv_5f8_5fbit',['CY_SYSCLK_DIV_8_BIT',['../group__group__sysclk__clk__peripheral__enums.html#gga06138349be16d91fd5d00ded2f4592b8ad2299deae6e36a070de5a60368b319ad',1,'cy_sysclk.h']]],
   ['cy_5fsysclk_5fdrv_5fversion_5fmajor',['CY_SYSCLK_DRV_VERSION_MAJOR',['../group__group__sysclk__macros.html#ga13952b966a0787ea58ca78dc5916d0df',1,'cy_sysclk.h']]],
   ['cy_5fsysclk_5fdrv_5fversion_5fminor',['CY_SYSCLK_DRV_VERSION_MINOR',['../group__group__sysclk__macros.html#gae92890ad068051d74200a1ffb67b74e2',1,'cy_sysclk.h']]],
-  ['cy_5fsysclk_5fecoconfigure',['Cy_SysClk_EcoConfigure',['../group__group__sysclk__eco__funcs.html#ga98d131a40b66646c6fa4c1c18d0720a9',1,'cy_sysclk.c']]],
+  ['cy_5fsysclk_5fecoconfigure',['Cy_SysClk_EcoConfigure',['../group__group__sysclk__eco__funcs.html#ga9d94ac55503404a0bdaf017fe33ecdbd',1,'cy_sysclk.c']]],
   ['cy_5fsysclk_5fecodisable',['Cy_SysClk_EcoDisable',['../group__group__sysclk__eco__funcs.html#ga98f834769978ac5618322721f6c2fa00',1,'cy_sysclk.h']]],
   ['cy_5fsysclk_5fecoenable',['Cy_SysClk_EcoEnable',['../group__group__sysclk__eco__funcs.html#gaadd2986e0b77ab0a714e4127ef1693f6',1,'cy_sysclk.c']]],
   ['cy_5fsysclk_5fecogetfrequency',['Cy_SysClk_EcoGetFrequency',['../group__group__sysclk__eco__funcs.html#ga392db1f8d8504409017a3fedb95b8ee2',1,'cy_sysclk.c']]],

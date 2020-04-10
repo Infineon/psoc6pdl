@@ -44,6 +44,7 @@
     <!-- For ULP mode, Ffll_max = 50 MHz. For LP mode, Ffll_max = 100 MHz or Fcpu_max (if Fcpu_max < 100 MHz) -->
     <ParamBool id="usingUlp" name="usingUlp" group="Internal" default="`${isBlockUsed(&quot;srss[0].power[0]&quot;) &amp;&amp; getExposedMember(&quot;srss[0].power[0]&quot;, &quot;usingUlp&quot;)}`" visible="false" editable="false" desc="" />
     <ParamString id="maxFrequency" name="Max Frequency (MHz)" group="Internal" default="`${getDeviceAttr(&quot;CPU_MAX_MHZ&quot;) &gt; 100 ? 100 : getDeviceAttr(&quot;CPU_MAX_MHZ&quot;)}`" visible="false" editable="false" desc="The maximum FLL frequency" />
+    <ParamString id="maxFreqHz" name="Max Frequency (Hz)" group="Internal" default="`${1000000 * maxFrequency}`" visible="false" editable="false" desc="The maximum FLL frequency" />
 
     <!-- FLL is on clock path 0 -->
     <ParamString id="sourceClockRsc" name="Source Clock" group="Internal" default="srss[0].clock[0].pathmux[0]" visible="false" editable="false" desc="" />
@@ -76,7 +77,7 @@
     
     <ParamString id="callSolver" name="callSolver" group="Internal" default="`${manConfig ? runTcl(&quot;fll_solver-2.0.tcl&quot; , &quot;manual&quot;, sourceFrequency / 1000000.0, multiplier, reference, tolerance, path0ClkSource eq &quot;wco&quot;, sourceAccuracy) : callSolverAuto}`" visible="false" editable="false" desc="FLL clock solver" />
 
-    <ParamRange id="frequency" name="Frequency" group="Internal" default="`${sourceFrequency * multiplier / (srcNotUsed ? 1 : reference) / (getTclVar(&quot;enableOutputDiv&quot;, callSolver) ? 2 : 1)}`" min="`${srcNotUsed ? 0 : 24000000}`" max="100000000" resolution="1" visible="false" editable="false" desc="" />
+    <ParamRange id="frequency" name="Frequency" group="Internal" default="`${sourceFrequency * multiplier / (srcNotUsed ? 1 : reference) / (getTclVar(&quot;enableOutputDiv&quot;, callSolver) ? 2 : 1)}`" min="`${srcNotUsed ? 0 : 24000000}`" max="`${maxFreqHz}`" resolution="200000" visible="false" editable="false" desc="" />
     <ParamString id="solvedAccuracy" name="accuracy" group="Internal" default="`${getTclVar(&quot;accuracy&quot;, callSolver)}`" visible="false" editable="false" desc="" />
     <ParamString id="frequencyInfo" name="Actual Frequency" group="General" default="`${srcError ? formatFrequency(0,0) : formatFrequency(frequency,solvedAccuracy)}`" visible="true" editable="false" desc="The calculated resulting FLL output frequency" />
   </Parameters>

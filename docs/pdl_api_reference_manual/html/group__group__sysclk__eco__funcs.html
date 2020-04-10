@@ -90,9 +90,9 @@ $(document).ready(function(){initNavTree('group__group__sysclk__eco__funcs.html'
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga98d131a40b66646c6fa4c1c18d0720a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__group__sysclk__returns.html#gad6699a184e2e3c01433251b0981558f3">cy_en_sysclk_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__sysclk__eco__funcs.html#ga98d131a40b66646c6fa4c1c18d0720a9">Cy_SysClk_EcoConfigure</a> (uint32_t freq, uint32_t cLoad, uint32_t esr, uint32_t driveLevel)</td></tr>
-<tr class="memdesc:ga98d131a40b66646c6fa4c1c18d0720a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the external crystal oscillator (ECO) trim bits based on crystal characteristics.  <a href="#ga98d131a40b66646c6fa4c1c18d0720a9">More...</a><br /></td></tr>
-<tr class="separator:ga98d131a40b66646c6fa4c1c18d0720a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9d94ac55503404a0bdaf017fe33ecdbd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__group__sysclk__returns.html#gad6699a184e2e3c01433251b0981558f3">cy_en_sysclk_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__sysclk__eco__funcs.html#ga9d94ac55503404a0bdaf017fe33ecdbd">Cy_SysClk_EcoConfigure</a> (uint32_t freq, uint32_t cSum, uint32_t esr, uint32_t driveLevel)</td></tr>
+<tr class="memdesc:ga9d94ac55503404a0bdaf017fe33ecdbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the external crystal oscillator (ECO) trim bits based on crystal characteristics.  <a href="#ga9d94ac55503404a0bdaf017fe33ecdbd">More...</a><br /></td></tr>
+<tr class="separator:ga9d94ac55503404a0bdaf017fe33ecdbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaadd2986e0b77ab0a714e4127ef1693f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__group__sysclk__returns.html#gad6699a184e2e3c01433251b0981558f3">cy_en_sysclk_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__sysclk__eco__funcs.html#gaadd2986e0b77ab0a714e4127ef1693f6">Cy_SysClk_EcoEnable</a> (uint32_t timeoutus)</td></tr>
 <tr class="memdesc:gaadd2986e0b77ab0a714e4127ef1693f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the external crystal oscillator (ECO).  <a href="#gaadd2986e0b77ab0a714e4127ef1693f6">More...</a><br /></td></tr>
 <tr class="separator:gaadd2986e0b77ab0a714e4127ef1693f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -107,8 +107,8 @@ Functions</h2></td></tr>
 <tr class="separator:ga68a1d35d52544f4bb5f51cdf21d57f7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ga98d131a40b66646c6fa4c1c18d0720a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga98d131a40b66646c6fa4c1c18d0720a9">&#9670;&nbsp;</a></span>Cy_SysClk_EcoConfigure()</h2>
+<a id="ga9d94ac55503404a0bdaf017fe33ecdbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9d94ac55503404a0bdaf017fe33ecdbd">&#9670;&nbsp;</a></span>Cy_SysClk_EcoConfigure()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -123,7 +123,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>cLoad</em>, </td>
+          <td class="paramname"><em>cSum</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -149,10 +149,10 @@ Functions</h2></td></tr>
 <p>This function should be called only when the ECO is disabled.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">freq</td><td>Operating frequency of the crystal in Hz.</td></tr>
-    <tr><td class="paramname">cLoad</td><td>Crystal load capacitance in pF.</td></tr>
-    <tr><td class="paramname">esr</td><td>Effective series resistance of the crystal in ohms.</td></tr>
-    <tr><td class="paramname">driveLevel</td><td>Crystal drive level in uW.</td></tr>
+    <tr><td class="paramname">freq</td><td>Operating frequency of the crystal in Hz. Valid range: 16000000...35000000 (16..35 MHz).</td></tr>
+    <tr><td class="paramname">cSum</td><td>The summary capacitance of C0 (the crystal itself shunt capacitance) and Cload (the parallel load capacitance), in pF. So cSum = C0 + Cload. Valid range: 1...100.</td></tr>
+    <tr><td class="paramname">esr</td><td>Effective series resistance of the crystal in Ohms. Valid range: 1...1000.</td></tr>
+    <tr><td class="paramname">driveLevel</td><td>Crystal drive level in uW. Valid range: 1...2000.</td></tr>
   </table>
   </dd>
 </dl>
@@ -160,43 +160,22 @@ Functions</h2></td></tr>
  CY_SYSCLK_SUCCESS - ECO configuration completed successfully <br />
  CY_SYSCLK_BAD_PARAM - One or more invalid parameters <br />
  CY_SYSCLK_INVALID_STATE - ECO already enabled</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The following calculations are implemented, generally in floating point:</dd></dl>
-<pre class="fragment">*   freqMHz = freq / 1000000
-*   max amplitude Vpp = 1000 * sqrt(drivelevel / 2 / esr) / 3.14 / freqMHz / cLoad
-*   gm_min mA/V = 5 * 4 * 3.14 * 3.14 * freqMhz^2 * cLoad^2 * 4 * esr / 1000000000
-*   Number of amplifier sections = INT(gm_min / 4.5)
+<dl class="section note"><dt>Note</dt><dd>The following calculations are implemented in the 32-bit integer math:</dd></dl>
+<pre class="fragment">*   freqKhz = freq / 1000
+*   maxAmpl = sqrt(drivelevel / 2 / esr) / 3.14 / freqKhz / cSum
+*   ampSect = INT(5 * 4 * 3.14^2 * freqKhz^2 * cSum^2 * 4 * esr / 1000000000 / 1000000 / 9)
 *
-*   As a result of the above calculations, max amplitude must be &gt;= 0.5, and the
+*   As a result of the above calculations, max amplitude must be &gt;= 0.65V, and the
 *   number of amplifier sections must be &lt;= 3, otherwise this function returns with
 *   a parameter error.
 *
-*   atrim = if (max amplitude &lt; 0.5) then error
-*           else 2 * the following:
-*                    max amplitude &lt; 0.6: 0
-*                    max amplitude &lt; 0.7: 1
-*                    max amplitude &lt; 0.8: 2
-*                    max amplitude &lt; 0.9: 3
-*                    max amplitude &lt; 1.15: 5
-*                    max amplitude &lt; 1.275: 6
-*                    max amplitude &gt;= 1.275: 7
-*   wdtrim = if (max amplitude &lt; 0.5) then error
-*            else 2 * the following:
-*                     max amplitude &lt; 1.2: INT(5 * max amplitude) - 2
-*                     max amplitude &gt;= 1.2: 3
-*   gtrim = if (number of amplifier sections &gt; 3) then error
-*           else the following:
-*                number of amplifier sections &gt; 1: number of amplifier sections
-*                number of amplifier sections = 1: 0
-*                number of amplifier sections &lt; 1: 1
-*   rtrim = if (gtrim = error) then error
-*           else the following:
-*                freqMHz &gt; 26.8: 0
-*                freqMHz &gt; 23.33: 1
-*                freqMHz &gt; 16.5: 2
-*                freqMHz &lt;= 16.5: 3
-*   ftrim = if (atrim = error) then error
-*           else INT(atrim / 2)
-* </pre><dl class="section user"><dt>Function Usage</dt><dd><div class="fragment"><div class="line">    <span class="comment">/* Scenario: ECO needs to be configured. The ECO pins are configured using</span></div><div class="line"><span class="comment">                 the gpio driver (SRSS_ECO_IN_PIN, SRSS_ECO_OUT_PIN). The ECO</span></div><div class="line"><span class="comment">                 crystal has the following characteristics:</span></div><div class="line"><span class="comment">                   Frequency: 17.2032 MHz</span></div><div class="line"><span class="comment">                   Parallel load crystal capacitance: 18 pF</span></div><div class="line"><span class="comment">                   Effective series resistance: 50 Ohm</span></div><div class="line"><span class="comment">                   Drive level: 100 uW */</span></div><div class="line"></div><div class="line">    <span class="comment">/* Disable the ECO before configuring */</span></div><div class="line">    <a class="code" href="group__group__sysclk__eco__funcs.html#ga98f834769978ac5618322721f6c2fa00">Cy_SysClk_EcoDisable</a>();</div><div class="line"></div><div class="line">    <span class="comment">/* Configure the ECO with its characteristics */</span></div><div class="line">    <span class="keywordflow">if</span>(<a class="code" href="group__group__sysclk__returns.html#ggad6699a184e2e3c01433251b0981558f3a1563f761f963757b339ff05eb5a690ec">CY_SYSCLK_SUCCESS</a> != <a class="code" href="group__group__sysclk__eco__funcs.html#ga98d131a40b66646c6fa4c1c18d0720a9">Cy_SysClk_EcoConfigure</a>(17203200UL,  <span class="comment">/* 17.2032 MHz */</span></div><div class="line">                                                    18UL,       <span class="comment">/* 18 pF */</span></div><div class="line">                                                    50UL,       <span class="comment">/* 50 Ohms */</span></div><div class="line">                                                    100UL))     <span class="comment">/* 100 uW */</span></div><div class="line">    {</div><div class="line">        <span class="comment">/* Insert error handling */</span></div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/* Enable the ECO with a timeout of 3000 microseconds */</span></div><div class="line">    <span class="keywordflow">if</span>(<a class="code" href="group__group__sysclk__returns.html#ggad6699a184e2e3c01433251b0981558f3a1563f761f963757b339ff05eb5a690ec">CY_SYSCLK_SUCCESS</a> != <a class="code" href="group__group__sysclk__eco__funcs.html#gaadd2986e0b77ab0a714e4127ef1693f6">Cy_SysClk_EcoEnable</a>(3000UL))</div><div class="line">    {</div><div class="line">        <span class="comment">/* Insert error handling */</span></div><div class="line">    }</div></div><!-- fragment --></dd></dl>
+*   atrim = 15
+*   agc_en = 1
+*   wdtrim = 7
+*   gtrim = ampSect &gt; 1 ? ampSect : ampSect == 1 ? 0 : 1
+*   rtrim = 0
+*   ftrim = 3
+* </pre><dl class="section user"><dt>Function Usage</dt><dd><div class="fragment"><div class="line">    <span class="comment">/* Scenario: ECO needs to be configured. The ECO pins are configured using</span></div><div class="line"><span class="comment">                 the gpio driver (SRSS_ECO_IN_PIN, SRSS_ECO_OUT_PIN). The ECO</span></div><div class="line"><span class="comment">                 crystal has the following characteristics:</span></div><div class="line"><span class="comment">                   Frequency: 17.2032 MHz</span></div><div class="line"><span class="comment">                   Parallel load crystal capacitance: 22 pF</span></div><div class="line"><span class="comment">                   Crystal shunt capacitance: 7 pF</span></div><div class="line"><span class="comment">                   Effective series resistance: 40 Ohm</span></div><div class="line"><span class="comment">                   Drive level: 500 uW */</span></div><div class="line"></div><div class="line">    <span class="comment">/* Disable the ECO before configuring */</span></div><div class="line">    <a class="code" href="group__group__sysclk__eco__funcs.html#ga98f834769978ac5618322721f6c2fa00">Cy_SysClk_EcoDisable</a>();</div><div class="line"></div><div class="line">    <span class="comment">/* Configure the ECO with its characteristics */</span></div><div class="line">    <span class="keywordflow">if</span>(<a class="code" href="group__group__sysclk__returns.html#ggad6699a184e2e3c01433251b0981558f3a1563f761f963757b339ff05eb5a690ec">CY_SYSCLK_SUCCESS</a> != <a class="code" href="group__group__sysclk__eco__funcs.html#ga9d94ac55503404a0bdaf017fe33ecdbd">Cy_SysClk_EcoConfigure</a>(17203200UL,  <span class="comment">/* 17.2032 MHz */</span></div><div class="line">                                                   29UL,        <span class="comment">/* 7 pF C0 + 22 pF Cload */</span></div><div class="line">                                                   40UL,        <span class="comment">/* 40 Ohms */</span></div><div class="line">                                                   500UL))      <span class="comment">/* 500 uW */</span></div><div class="line">    {</div><div class="line">        <span class="comment">/* Insert error handling */</span></div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/* Enable the ECO with a timeout of 3000 microseconds */</span></div><div class="line">    <span class="keywordflow">if</span>(<a class="code" href="group__group__sysclk__returns.html#ggad6699a184e2e3c01433251b0981558f3a1563f761f963757b339ff05eb5a690ec">CY_SYSCLK_SUCCESS</a> != <a class="code" href="group__group__sysclk__eco__funcs.html#gaadd2986e0b77ab0a714e4127ef1693f6">Cy_SysClk_EcoEnable</a>(3000UL))</div><div class="line">    {</div><div class="line">        <span class="comment">/* Insert error handling */</span></div><div class="line">    }</div></div><!-- fragment --></dd></dl>
 
 </div>
 </div>
@@ -217,7 +196,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Enables the external crystal oscillator (ECO). </p>
-<p>This function should be called after <a class="el" href="group__group__sysclk__eco__funcs.html#ga98d131a40b66646c6fa4c1c18d0720a9">Cy_SysClk_EcoConfigure</a>.</p>
+<p>This function should be called after <a class="el" href="group__group__sysclk__eco__funcs.html#ga9d94ac55503404a0bdaf017fe33ecdbd">Cy_SysClk_EcoConfigure</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">timeoutus</td><td>Amount of time in microseconds to wait for the ECO to stabilize. To avoid waiting for stabilization, set this parameter to 0.</td></tr>

@@ -1108,7 +1108,7 @@ var searchData=
   ['cy_5fsysclk_5fclktimersetdivider',['Cy_SysClk_ClkTimerSetDivider',['../group__group__sysclk__clk__timer__funcs.html#ga35c57655122dc43321c946cb9850e7ba',1,'cy_sysclk.h']]],
   ['cy_5fsysclk_5fclktimersetsource',['Cy_SysClk_ClkTimerSetSource',['../group__group__sysclk__clk__timer__funcs.html#ga57d72bc029cd9d5b7d85b7fb79c721a3',1,'cy_sysclk.h']]],
   ['cy_5fsysclk_5fdeepsleepcallback',['Cy_SysClk_DeepSleepCallback',['../group__group__sysclk__pm__funcs.html#ga34bd0e837cdf7d0953a7e0f5219905b5',1,'cy_sysclk.c']]],
-  ['cy_5fsysclk_5fecoconfigure',['Cy_SysClk_EcoConfigure',['../group__group__sysclk__eco__funcs.html#ga98d131a40b66646c6fa4c1c18d0720a9',1,'cy_sysclk.c']]],
+  ['cy_5fsysclk_5fecoconfigure',['Cy_SysClk_EcoConfigure',['../group__group__sysclk__eco__funcs.html#ga9d94ac55503404a0bdaf017fe33ecdbd',1,'cy_sysclk.c']]],
   ['cy_5fsysclk_5fecodisable',['Cy_SysClk_EcoDisable',['../group__group__sysclk__eco__funcs.html#ga98f834769978ac5618322721f6c2fa00',1,'cy_sysclk.h']]],
   ['cy_5fsysclk_5fecoenable',['Cy_SysClk_EcoEnable',['../group__group__sysclk__eco__funcs.html#gaadd2986e0b77ab0a714e4127ef1693f6',1,'cy_sysclk.c']]],
   ['cy_5fsysclk_5fecogetfrequency',['Cy_SysClk_EcoGetFrequency',['../group__group__sysclk__eco__funcs.html#ga392db1f8d8504409017a3fedb95b8ee2',1,'cy_sysclk.c']]],

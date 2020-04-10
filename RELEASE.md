@@ -1,35 +1,18 @@
-# PSoC 6 Peripheral Driver Library v1.5.0
+# PSoC 6 Peripheral Driver Library v1.5.1
 
 Please refer to the [README.md](./README.md) and the [PDL API Reference Manual](https://cypresssemiconductorco.github.io/psoc6pdl/pdl_api_reference_manual/html/index.html) for a complete description of the Peripheral Driver Library.
 
 ### New Features
 
-* Add support of Device Configurator 2.1
-* Add support of QSPI Configurator 2.1
-* Add PDL version macro
+* New ECO calculation algorithm
 
 ### Updated Personalities
 
-* Counter - minor parameter caption fix
-* CSD -  added core selection parameter
-* GPIO - minor personality style improvement
-* SegLCD - minor personality style improvement
-* USBFS - minor parameter validation improvements
+* ECO 2.0 - added new parameter C0; narrowed the frequency range to 16..35 MHz; updated the calculation algorithm per ECO Trimming section of the device TRM.
 
 ### Updated Drivers
 
-* [SD Host 1.40](https://cypresssemiconductorco.github.io/psoc6pdl/pdl_api_reference_manual/html/group__group__sd__host.html)
-
-### Drivers with patch version updates
-
-Minor document style changes:
-
-* CAN FD 1.10.1
-* Crypto 2.30.2
-* Flash 3.30.5
-* SCB 2.40.1
-* SegLCD 1.0.2
-* SysLib 2.50.1
+* [SysClk 2.0](https://cypresssemiconductorco.github.io/psoc6pdl/pdl_api_reference_manual/html/group__group__sysclk.html)
 
 ### Known Issues
 
@@ -43,15 +26,15 @@ See the Changelog section of each Driver in the [PDL API Reference](https://cypr
 
 This version of PDL was validated for compatibility with the following Software and Tools:
 
-| Software and Tools                                      | Version      |
-| :---                                                    | :----        |
+| Software and Tools                                                            | Version      |
+| :---                                                                          | :----        |
 | [Cypress Core Library](https://github.com/cypresssemiconductorco/core-lib)    | 1.1.2        |
 | [Cypress HAL](https://github.com/cypresssemiconductorco/psoc6hal)             | 1.2.0        |
-| CMSIS-Core(M)                                           | 5.2.1        |
-| GCC Compiler                                            | 9.2.1        |
-| IAR Compiler                                            | 8.42.2       |
-| ARM Compiler 6                                          | 6.13         |
-| FreeRTOS                                                | 10.0.1       |
+| CMSIS-Core(M)                                                                 | 5.2.1        |
+| GCC Compiler                                                                  | 9.2.1        |
+| IAR Compiler                                                                  | 8.42.2       |
+| ARM Compiler 6                                                                | 6.13         |
+| FreeRTOS                                                                      | 10.0.1       |
 
 ### More information
 
