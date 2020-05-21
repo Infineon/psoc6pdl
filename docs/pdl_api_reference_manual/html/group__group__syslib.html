@@ -123,7 +123,7 @@ In case of fault, the CY_ASSERT() macro calls the <a class="el" href="group__gro
 <td>CY_ASSERT_CLASS_3 </td><td>CY_ASSERT_L3 </td><td>A parameter that is an enum constant  </td></tr>
 </table>
 <p>Firmware defines which ASSERT class is enabled by defining CY_ASSERT_LEVEL. This is a compiler command line argument, similar to how the DEBUG / NDEBUG macro is passed. <br />
- Enabling any class also enables any lower-numbered class. CY_ASSERT_CLASS_3 is the default level, and it enables asserts for all three classes. The following example shows the command-line option to enable all the assert levels: </p><div class="fragment"><div class="line">-D <a class="code" href="group__group__syslib__macros__assert.html#gaac6d3358f192068b723bc4bb50a06967">CY_ASSERT_LEVEL</a>=<a class="code" href="group__group__syslib__macros__assert.html#ga519c4c299506f8a54e3a99e58a435f0a">CY_ASSERT_CLASS_3</a> </div></div><!-- fragment --> <dl class="section note"><dt>Note</dt><dd>The use of special characters, such as spaces, parenthesis, etc. must be protected with quotes.</dd></dl>
+Enabling any class also enables any lower-numbered class. CY_ASSERT_CLASS_3 is the default level, and it enables asserts for all three classes. The following example shows the command-line option to enable all the assert levels: </p><div class="fragment"><div class="line">-D <a class="code" href="group__group__syslib__macros__assert.html#gaac6d3358f192068b723bc4bb50a06967">CY_ASSERT_LEVEL</a>=<a class="code" href="group__group__syslib__macros__assert.html#ga519c4c299506f8a54e3a99e58a435f0a">CY_ASSERT_CLASS_3</a> </div></div><!-- fragment --> <dl class="section note"><dt>Note</dt><dd>The use of special characters, such as spaces, parenthesis, etc. must be protected with quotes.</dd></dl>
 <p>After CY_ASSERT_LEVEL is defined, firmware can use one of the three level macros to make an assertion. For example, if the parameter can vary between devices, firmware uses the L1 macro. </p><div class="fragment"><div class="line"><a class="code" href="group__group__syslib__macros__assert.html#gabb4e5c6e694fe418794cbd8f93301532">CY_ASSERT_L1</a>(clkPath &lt; SRSS_NUM_CLKPATH); </div></div><!-- fragment --><p> If the parameter has bounds, firmware uses L2. </p><div class="fragment"><div class="line"><a class="code" href="group__group__syslib__macros__assert.html#gae6c8c534d15ba72d74dc23b384a28bf0">CY_ASSERT_L2</a>(trim &lt;= CY_CTB_TRIM_VALUE_MAX); </div></div><!-- fragment --><p> If the parameter is an enum, firmware uses L3. </p><div class="fragment"><div class="line"><a class="code" href="group__group__syslib__macros__assert.html#gaea99c6824b32df70dbeb97d87d5410a1">CY_ASSERT_L3</a>(config-&gt;LossAction &lt;= CY_SYSCLK_CSV_ERROR_FAULT_RESET); </div></div><!-- fragment --><p> Each check uses the appropriate level macro for the kind of parameter being checked. If a particular assert class/level is not enabled, then the assert does nothing.</p>
 <h1><a class="anchor" id="group_syslib_more_information"></a>
 More Information</h1>
@@ -138,11 +138,21 @@ MISRA-C Compliance</h1>
 <tr>
 <td>18.4 </td><td>R </td><td>Unions shall not be used. </td><td>The unions are used for CFSR, HFSR and SHCSR Fault Status Registers content access as a word in code and as a structure during debug.  </td></tr>
 </table>
+<h1><a class="anchor" id="group_syslib_errata"></a>
+Known Issues</h1>
+<table class="doxtable">
+<tr>
+<th>Issue</th><th>Workaround </th></tr>
+<tr>
+<td>The function malloc() does not return an error when the allocation size is bigger than the heap size.  </td><td>PDL does not implement the _sbrk function. The user needs to add custom _sbrk function.   </td></tr>
+</table>
 <h1><a class="anchor" id="group_syslib_changelog"></a>
 Changelog</h1>
 <table class="doxtable">
 <tr>
 <th>Version</th><th>Changes</th><th>Reason for Change </th></tr>
+<tr>
+<td>2.50.3 </td><td>Add section Known Issues </td><td>Documentation update and clarification.  </td></tr>
 <tr>
 <td>2.50.1 </td><td>Used the core library defines for the message codes forming. </td><td>Improve PDL code base.  </td></tr>
 <tr>
