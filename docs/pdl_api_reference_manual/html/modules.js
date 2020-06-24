@@ -17,6 +17,7 @@ var modules =
     [ "LVD          (Low-Voltage-Detect)", "group__group__lvd.html", "group__group__lvd" ],
     [ "MCWDT        (Multi-Counter Watchdog)", "group__group__mcwdt.html", "group__group__mcwdt" ],
     [ "PDM_PCM      (PDM-PCM Converter)", "group__group__pdm__pcm.html", "group__group__pdm__pcm" ],
+    [ "PRA          (Protected Register Access)", "group__group__pra.html", "group__group__pra" ],
     [ "Profile      (Energy Profiler)", "group__group__energy__profiler.html", "group__group__energy__profiler" ],
     [ "Prot         (Protection Unit)", "group__group__prot.html", "group__group__prot" ],
     [ "RTC          (Real-Time Clock)", "group__group__rtc.html", "group__group__rtc" ],
@@ -36,5 +37,6 @@ var modules =
     [ "TCPWM        (Timer Counter PWM)", "group__group__tcpwm.html", "group__group__tcpwm" ],
     [ "TrigMux      (Trigger Multiplexer)", "group__group__trigmux.html", "group__group__trigmux" ],
     [ "USBFS        (USB Full-Speed Device)", "group__group__usbfs__dev__drv.html", "group__group__usbfs__dev__drv" ],
-    [ "WDT          (Watchdog Timer)", "group__group__wdt.html", "group__group__wdt" ]
+    [ "WDT          (Watchdog Timer)", "group__group__wdt.html", "group__group__wdt" ],
+    [ "Group_pra_data_structures_cfg", "group__group__pra__data__structures__cfg.html", "group__group__pra__data__structures__cfg" ]
 ];

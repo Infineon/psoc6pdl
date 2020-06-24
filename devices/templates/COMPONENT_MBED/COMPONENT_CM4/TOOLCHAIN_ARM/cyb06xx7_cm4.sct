@@ -4,7 +4,7 @@
 
 ;*******************************************************************************
 ;* \file cyb06xx7_cm4.sct
-;* \version 2.70.1
+;* \version 2.80
 ;*
 ;* Linker file for the ARMCC.
 ;*
@@ -43,7 +43,7 @@
 ;******************************************************************************/
 
 #if !defined(MBED_ROM_START)
-  #define MBED_ROM_START    0x10000000
+  #define MBED_ROM_START    0x10060000
 #endif
 
 ;* MBED_APP_START is being  used by the bootloader build script and
@@ -55,7 +55,7 @@
 #endif
 
 #if !defined(MBED_ROM_SIZE)
-  #define MBED_ROM_SIZE     0x000D0000
+  #define MBED_ROM_SIZE     0x00030000
 #endif
 
 ;* MBED_APP_SIZE is being  used by the bootloader build script and
@@ -67,11 +67,11 @@
 #endif
 
 #if !defined(MBED_RAM_START)
-  #define MBED_RAM_START    0x08000000
+  #define MBED_RAM_START    0x08001800
 #endif
 
 #if !defined(MBED_RAM_SIZE)
-  #define MBED_RAM_SIZE     0x0002A000
+  #define MBED_RAM_SIZE     0x0001E800
 #endif
 
 #if !defined(MBED_BOOT_STACK_SIZE)
@@ -134,9 +134,9 @@
 
 
 ; Cortex-M4 application flash area
-LR_IROM1 FLASH_START FLASH_SIZE
+LR_IROM1 (FLASH_START + BOOT_HEADER_SIZE) (FLASH_SIZE - BOOT_HEADER_SIZE)
 {
-    ER_FLASH_VECTORS +BOOT_HEADER_SIZE
+    ER_FLASH_VECTORS +0
     {
         * (RESET, +FIRST)
     }
@@ -167,14 +167,14 @@ LR_IROM1 FLASH_START FLASH_SIZE
 
     ; Application heap area (HEAP)
     ARM_LIB_HEAP  +0 EMPTY RAM_START+RAM_SIZE-STACK_SIZE-ImageLimit(RW_IRAM1)
-    { 
-    }
-    
-    ; Stack region growing down
-    ARM_LIB_STACK RAM_START+RAM_SIZE EMPTY -STACK_SIZE 
     {
-    }    
-    
+    }
+
+    ; Stack region growing down
+    ARM_LIB_STACK RAM_START+RAM_SIZE EMPTY -STACK_SIZE
+    {
+    }
+
     ; Used for the digital signature of the secure application and the
     ; Bootloader SDK application. The size of the section depends on the required
     ; data size.

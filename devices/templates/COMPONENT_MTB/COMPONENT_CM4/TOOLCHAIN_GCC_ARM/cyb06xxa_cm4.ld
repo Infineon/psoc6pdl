@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cyb06xxa_cm4.ld
-* \version 2.70.1
+* \version 2.80
 *
 * Linker file for the GNU C compiler.
 *
@@ -61,8 +61,8 @@ MEMORY
 {
     /* The ram and flash regions control RAM and flash memory allocation for the CM4 core.
      */
-    ram               (rwx)   : ORIGIN = 0x08000000, LENGTH = 0xEA000
-    flash             (rx)    : ORIGIN = 0x10000000, LENGTH = 0x1D0000
+    ram               (rwx)   : ORIGIN = 0x08001800, LENGTH = 0xDE800
+    flash             (rx)    : ORIGIN = 0x100E0000, LENGTH = 0x70000
 
     /* This is a 32K flash region used for EEPROM emulation. This region can also be used as the general purpose flash.
      * You can assign sections to this memory region for only one of the cores.

@@ -10,10 +10,12 @@ var searchData=
   ['blocksize',['blockSize',['../structcy__stc__sd__host__data__config__t.html#ae1cac2445bb6f9be1b0ede804e793f73',1,'cy_stc_sd_host_data_config_t']]],
   ['breakwidth',['breakWidth',['../structcy__stc__scb__uart__config__t.html#a923970897f4434aadda6bee185a2367d',1,'cy_stc_scb_uart_config_t']]],
   ['brs',['brs',['../structcy__stc__canfd__r1__t.html#ac30d64c756b0e2d8d5a71286d8d9c822',1,'cy_stc_canfd_r1_t::brs()'],['../structcy__stc__canfd__t1__t.html#a1575c20946ae223fff0be79d15e65e00',1,'cy_stc_canfd_t1_t::brs()']]],
+  ['buckvoltage',['buckVoltage',['../structcy__stc__pra__system__config__t.html#a449bd7d8fe6e4bf2f1e353ce2eff25bd',1,'cy_stc_pra_system_config_t']]],
   ['buffer',['buffer',['../structcy__stc__scb__i2c__master__xfer__config__t.html#a17fa9b9a817e002381f07c4982abaffa',1,'cy_stc_scb_i2c_master_xfer_config_t']]],
   ['bufferable',['bufferable',['../structcy__stc__dma__channel__config__t.html#aa40017613f97a28e2802e072fdf38817',1,'cy_stc_dma_channel_config_t::bufferable()'],['../structcy__stc__dmac__channel__config__t.html#ade9585ff561af6ad292932293e0bd15d',1,'cy_stc_dmac_channel_config_t::bufferable()']]],
   ['buffersize',['bufferSize',['../structcy__stc__scb__i2c__master__xfer__config__t.html#a4afeea04f622380e0c1113cc4bfbdea6',1,'cy_stc_scb_i2c_master_xfer_config_t::bufferSize()'],['../structcy__stc__usb__dev__ep__config__t.html#a55bbd3ae04492a97a780b06b2740b835',1,'cy_stc_usb_dev_ep_config_t::bufferSize()']]],
   ['buswidth',['busWidth',['../structcy__stc__sd__host__sd__card__config__t.html#a7f8cd8f8319737e1fe2598f552e2d56f',1,'cy_stc_sd_host_sd_card_config_t']]],
   ['busy',['busy',['../structcy__stc__ipc__pipe__ep__t.html#a40fd72621315edcdf6808c12e1df91d9',1,'cy_stc_ipc_pipe_ep_t']]],
+  ['bypassenable',['bypassEnable',['../structcy__stc__pra__system__config__t.html#a2f3c8b87509eec88a8d1ff107b04b0af',1,'cy_stc_pra_system_config_t']]],
   ['bypassmask',['bypassMask',['../structcy__stc__smartio__config__t.html#a4b9c0b1f5a84c0e4e078235901cf982d',1,'cy_stc_smartio_config_t']]]
 ];

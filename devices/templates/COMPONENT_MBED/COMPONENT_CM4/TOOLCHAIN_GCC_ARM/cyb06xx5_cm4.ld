@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cyb06xx5_cm4.ld
-* \version 2.70.1
+* \version 2.80
 *
 * Linker file for the GNU C compiler.
 *
@@ -41,7 +41,7 @@ GROUP(-lgcc -lc -lnosys)
 ENTRY(Reset_Handler)
 
 #if !defined(MBED_ROM_START)
-  #define MBED_ROM_START    0x10000000
+  #define MBED_ROM_START    0x10020000
 #endif
 
 /* MBED_APP_START is being  used by the bootloader build script and
@@ -53,7 +53,7 @@ ENTRY(Reset_Handler)
 #endif
 
 #if !defined(MBED_ROM_SIZE)
-  #define MBED_ROM_SIZE     0x00060000
+  #define MBED_ROM_SIZE     0x00020000
 #endif
 
 /* MBED_APP_SIZE is being  used by the bootloader build script and
@@ -65,11 +65,11 @@ ENTRY(Reset_Handler)
 #endif
 
 #if !defined(MBED_RAM_START)
-  #define MBED_RAM_START    0x08000000
+  #define MBED_RAM_START    0x08001800
 #endif
 
 #if !defined(MBED_RAM_SIZE)
-  #define MBED_RAM_SIZE     0x0002A000
+  #define MBED_RAM_SIZE     0x0001E800
 #endif
 
 #if !defined(MBED_BOOT_STACK_SIZE)

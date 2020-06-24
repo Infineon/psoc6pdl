@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cyb06xx7_cm0plus.ld
-* \version 2.70.1
+* \version 2.80
 *
 * Linker file for the GNU C compiler.
 *
@@ -46,6 +46,9 @@ STACK_SIZE = 0x1000;
 /* The size of the MCU boot header area at the start of FLASH */
 BOOT_HEADER_SIZE = 0x400;
 
+/* The size of the unprotected public RAM to place an objects that require a full access from both cores */
+PUBLIC_RAM_SIZE = 0x800;
+
 /* Force symbol to be entered in the output file as an undefined symbol. Doing
 * this may, for example, trigger linking of additional modules from standard
 * libraries. You may list several symbols for each EXTERN, and you may use
@@ -64,8 +67,9 @@ MEMORY
      * Your changes must be aligned with the corresponding memory regions for the CM4 core in 'xx_cm4_dual.ld',
      * where 'xx' is the device group; for example, 'cyb06xx7_cm4_dual.ld'.
      */
-    ram               (rwx)   : ORIGIN = 0x08000000, LENGTH = 0x10000
-    flash             (rx)    : ORIGIN = 0x10000000, LENGTH = 0x20000
+    public_ram        (rw)    : ORIGIN = 0x08000000, LENGTH = PUBLIC_RAM_SIZE
+    ram               (rwx)   : ORIGIN = 0x08020000, LENGTH = 0xC000
+    flash             (rx)    : ORIGIN = 0x10000000, LENGTH = 0x10000
 
     /* This is a 32K flash region used for EEPROM emulation. This region can also be used as the general purpose flash.
      * You can assign sections to this memory region for only one of the cores.
@@ -230,7 +234,9 @@ SECTIONS
         __data_start__ = .;
 
         *(vtable)
+        __sdata_start__ = .;
         *(.data*)
+        __sdata_end__ = .;
 
         . = ALIGN(4);
         /* preinit data */
@@ -304,6 +310,17 @@ SECTIONS
         . = ORIGIN(ram) + LENGTH(ram) - STACK_SIZE;
         __HeapLimit = .;
     } > ram
+
+
+    /* Unprotected public RAM */
+    .cy_sharedmem (NOLOAD):
+    {
+        . = ALIGN(4);
+        __public_ram_start__ = .;
+        KEEP(*(.cy_sharedmem))
+        . = ALIGN(4);
+        __public_ram_end__ = .;
+    } > public_ram
 
 
     /* .stack_dummy section doesn't contains any symbols. It is only

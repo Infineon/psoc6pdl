@@ -28,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="cypress_logo.png"/></a></td>
+  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="IFXCYP_one-line.png"/></a></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PSoC 6 Peripheral Driver Library</div>
   </td>
@@ -89,7 +89,7 @@ $(document).ready(function(){initNavTree('group__group__sysint.html','');});
 <a name="details" id="details"></a><h2 class="groupheader">General Description</h2>
 <p>The SysInt driver provides an API to configure the device peripheral interrupts. </p>
 <p>It provides a lightweight interface to complement the <a href="https://www.keil.com/pack/doc/CMSIS/Core/html/group__NVIC__gr.html">CMSIS core NVIC API</a>. The provided functions are applicable for all cores in a device and they can be used to configure and connect device peripheral interrupts to one or more cores.</p>
-<p>The functions and other declarations used in this driver are in cy_sysint.h. You can include cy_pdl.h (ModusToolbox only) to get access to all functions and declarations in the PDL.</p>
+<p>The functions and other declarations used in this driver are in cy_sysint.h. You can include cy_pdl.h to get access to all functions and declarations in the PDL.</p>
 <h1><a class="anchor" id="group_sysint_vector_table"></a>
 Vector Table</h1>
 <p>The vector table defines the entry addresses of the processor exceptions and the device specific interrupts. It is located at the start address of the flash and is copied by the startup code to RAM. The symbol code __Vectors is the address of the vector table in the startup code and the register SCB-&gt;VTOR holds the start address of the vector table. See <a class="el" href="group__group__system__config.html#group_system_config_device_vector_table">Vectors Table Copy from Flash to RAM</a> section for the implementation details.</p>
@@ -139,6 +139,8 @@ Changelog</h1>
 <table class="doxtable">
 <tr>
 <th>Version</th><th>Changes</th><th>Reason for Change </th></tr>
+<tr>
+<td>1.30.1 </td><td>Minor documentation updates. </td><td>Documentation enhancement.  </td></tr>
 <tr>
 <td>1.30 </td><td>The Cy_SysInt_SetNmiSource is updated with Protection Context check for CM0+. </td><td>User experience enhancement.  </td></tr>
 <tr>

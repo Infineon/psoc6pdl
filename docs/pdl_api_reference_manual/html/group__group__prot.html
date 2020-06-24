@@ -28,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="cypress_logo.png"/></a></td>
+  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="IFXCYP_one-line.png"/></a></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PSoC 6 Peripheral Driver Library</div>
   </td>
@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('group__group__prot.html','');});
 <li><b>Security requirements:</b> This includes the prevention of malicious attacks to access secure memory or peripherals.</li>
 <li><b>Safety requirements:</b> This includes detection of accidental (non-malicious) SW errors and random HW errors. It is important to enable failure analysis to investigate the root cause of a safety violation.</li>
 </ul>
-<p>The functions and other declarations used in this driver are in cy_prot.h. You can include cy_pdl.h (ModusToolbox only) to get access to all functions and declarations in the PDL.</p>
+<p>The functions and other declarations used in this driver are in cy_prot.h. You can include cy_pdl.h to get access to all functions and declarations in the PDL.</p>
 <h1><a class="anchor" id="group_prot_protection_type"></a>
 Protection Types</h1>
 <p>Protection units are hardware configuration structures that control bus accesses to the resources that they protect. By combining these individual configuration structures, a system is built to allow strict restrictions on the capabilities of individual bus masters (e.g. CM0+, CM4, Crypt) and their operating modes. This architecture can then be integrated into the overall security system of the end application. To build this system, 3 main protection unit types are available; MPU, SMPU and PPU. When a resource is accessed (memory/register), it must pass the evaluation performed for each category. These access evaluations are prioritized, where MPU has the highest priority, followed by SMPU, followed by PPU. i.e. if an SMPU and a PPU protect the same resource and if access is denied by the SMPU, then the PPU access evaluation is skipped. This can lead to a denial-of-service scenario and the application should pay special attention in taking ownership of the protection unit configurations.</p>
@@ -200,12 +200,16 @@ MISRA-C Compliance</h1>
 <th>MISRA Rule </th><th>Rule Class (Required/Advisory) </th><th>Rule Description </th><th>Description of Deviation(s)  </th></tr>
 <tr>
 <td>11.4 </td><td>A </td><td>A cast should not be performed between a pointer to object type and a different pointer to object type. </td><td>This piece of code is written for DW_V2_Type only and it will be never executed for DW_V1_Type (which is a default build option for <a class="el" href="struct_d_w___type.html" title="The struct type definition for the hardware register set contained in the block.  The address of a va...">DW_Type</a>).  </td></tr>
+<tr>
+<td>19.13 </td><td>A </td><td>The # and ## operators should not be used. </td><td>The ## preprocessor operator is used in macros to form the field mask.  </td></tr>
 </table>
 <h1><a class="anchor" id="group_prot_changelog"></a>
 Changelog</h1>
 <table class="doxtable">
 <tr>
 <th>Version</th><th>Changes</th><th>Reason for Change </th></tr>
+<tr>
+<td>1.30.3 </td><td>Minor documentation updates. </td><td>Documentation enhancement.  </td></tr>
 <tr>
 <td>1.30.2 </td><td>Clarified the description of the next API functions: <a class="el" href="group__group__prot__functions__ppu__prog__v2.html#gaa20aec5caa83d665c5a2afe241b6c69e">Cy_Prot_ConfigPpuProgMasterAtt</a>,<br />
  <a class="el" href="group__group__prot__functions__ppu__prog__v2.html#ga7941e969542970aedcb056f554b5383b">Cy_Prot_ConfigPpuProgSlaveAtt</a>, <a class="el" href="group__group__prot__functions__ppu__fixed__v2.html#gacc7dadd726bd53886aedfbfa1014ae9e">Cy_Prot_ConfigPpuFixedMasterAtt</a>, <a class="el" href="group__group__prot__functions__ppu__fixed__v2.html#ga6112f6eba93e5db763e8dc571a91740a">Cy_Prot_ConfigPpuFixedSlaveAtt</a>. </td><td>API enhancement based on usability feedback.  </td></tr>

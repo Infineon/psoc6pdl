@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cyb06xx5_cm4_dual.ld
-* \version 2.70.1
+* \version 2.80
 *
 * Linker file for the GNU C compiler.
 *
@@ -46,6 +46,9 @@ STACK_SIZE = 0x1000;
 /* The size of the MCU boot header area at the start of FLASH */
 BOOT_HEADER_SIZE = 0x400;
 
+/* The size of the Cortex-M0+ application image (including MCU boot header area) */
+FLASH_CM0P_SIZE  = 0x10000;
+
 /* Force symbol to be entered in the output file as an undefined symbol. Doing
 * this may, for example, trigger linking of additional modules from standard
 * libraries. You may list several symbols for each EXTERN, and you may use
@@ -64,8 +67,8 @@ MEMORY
      * Your changes must be aligned with the corresponding memory regions for CM0+ core in 'xx_cm0plus.ld',
      * where 'xx' is the device group; for example, 'cyb06xx7_cm0plus.ld'.
      */
-    ram               (rwx)   : ORIGIN = 0x08010000, LENGTH = 0x1A000
-    flash             (rx)    : ORIGIN = 0x10010000, LENGTH = 0x20000
+    ram               (rwx)   : ORIGIN = 0x08001800, LENGTH = 0x1E800
+    flash             (rx)    : ORIGIN = 0x10000000, LENGTH = 0x30000
 
 
     /* The following regions define device specific memory regions and must not be changed. */
@@ -117,8 +120,20 @@ GROUP(libgcc.a libc.a libm.a libnosys.a)
 
 SECTIONS
 {
+     /* Cortex-M0+ application flash image area */
+    .cy_m0p_image ORIGIN(flash) + BOOT_HEADER_SIZE :
+    {
+        . = ALIGN(4);
+        __cy_m0p_code_start = . ;
+        KEEP(*(.cy_m0p_image))
+        __cy_m0p_code_end = . ;
+    } > flash
+
+    /* Check if .cy_m0p_image size exceeds FLASH_CM0P_SIZE */
+    ASSERT(__cy_m0p_code_end <= ORIGIN(flash) + FLASH_CM0P_SIZE, "CM0+ flash image overflows with CM4, increase FLASH_CM0P_SIZE")
+
     /* Cortex-M4 application flash area */
-    .text ORIGIN(flash) + BOOT_HEADER_SIZE :
+    .text ORIGIN(flash) + FLASH_CM0P_SIZE :
     {
         . = ALIGN(4);
         __Vectors = . ;

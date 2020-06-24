@@ -28,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="cypress_logo.png"/></a></td>
+  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="IFXCYP_one-line.png"/></a></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PSoC 6 Peripheral Driver Library</div>
   </td>
@@ -84,7 +84,7 @@ $(document).ready(function(){initNavTree('page_getting_started.html','');});
 <div class="title">Getting Started </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>PDL depends on the Cypress Core Library. Download it from <a href="https://github.com/cypresssemiconductorco/core-lib">https://github.com/cypresssemiconductorco/core-lib</a> and add cy_utils.h to the include search path.</p>
+<div class="textblock"><p>PDL depends on the Core Library. Download it from <a href="https://github.com/cypresssemiconductorco/core-lib">https://github.com/cypresssemiconductorco/core-lib</a> and add cy_utils.h to the include search path.</p>
 <p>Include cy_pdl.h in your source code to use the library.</p>
 <p>To successfully develop software for the PSoC 6 family of devices, you must configure the peripherals to implement desired behavior. In addition, you must configure clocks, GPIO, and interrupts, as well as route signals from one peripheral to another.</p>
 <p>This introduction covers some high level concepts that help you understand and use the PDL to accomplish these tasks. The topics are:</p><ul>
@@ -142,9 +142,22 @@ $(document).ready(function(){initNavTree('page_getting_started.html','');});
 <tr>
 <td>Cy_&lt;Peripheral&gt;_Disable() </td><td>turn off the peripheral </td><td><a class="el" href="group__group__scb__uart__general__functions.html#ga2a07f58f9a898202d43bc3b14caab2de" title="Disables the SCB block and clears context statuses. ">Cy_SCB_UART_Disable()</a>  </td></tr>
 </table>
+<p><b>Return Status Code:</b> Each driver has a unique return status enumeration type - cy_en_&lt;peripheral&gt;_status_t. The type is used by functions within the driver to indicate the return status. Drivers return success status code with a value of 0. The status code consists of the following fields:</p>
+<div class="image">
+<img src="getting_started_return_status_code.png" alt="getting_started_return_status_code.png"/>
+</div>
+<ul>
+<li>The higher 14 bits identify the driver that is returning status.</li>
+<li>The 2 bits after, indicates the status type: 0 for information, 1 for warning, and 2 for error.</li>
+<li>The lower 16 bits contain the actual returned status.</li>
+</ul>
+<p>Example of return status type: </p><div class="image">
+<img src="getting_started_return_status_example.png" alt="getting_started_return_status_example.png"/>
+</div>
+<dl class="section note"><dt>Note</dt><dd>It is possible for one driver to call another driver and return the status code from that other driver. For instance, for PSoC 64 devices the SysPm and SysClk drivers use PRA driver functionality. If there is an error in the PRA driver, the SysPm or SysClk driver may return the PRA driver status. The value returned always identifies the driver that is the source of the error. Refer to the driver description for details.</dd></dl>
 <p><a class="anchor" id="page_getting_started_memory_allocation"></a></p><h1>Memory Allocation</h1>
 <p>A direct effect of the context structure described in the PDL Design section is that the PDL drivers do not dynamically allocate memory. The user allocates the memory required by the driver, by declaring a context structure.</p>
-<p><a class="anchor" id="page_getting_started_clk_and_periph"></a> </p><h1>Clocks and Peripherals</h1>
+<p><a class="anchor" id="page_getting_started_clk_and_periph"></a></p><h1>Clocks and Peripherals</h1>
 <p>PSoC 6 devices have several source clocks, a Frequency Lock Loop (FLL), and one or more phase lock loops (PLL). Firmware configures and enables the source clocks and clock dividers based on design requirements. The clocks and clock tree are fully documented in the <em>Clocking System</em> chapter of the <em>Technical Reference Manual</em> (TRM).</p>
 <p>A peripheral can only be clocked by a peripheral clock divider. For example, the PSoC 6 BLE has 29 peripheral clock dividers. CLK_PERI is the source clock for all programmable peripheral clock dividers. The output of any divider can be routed to any peripheral.</p>
 <div class="image">

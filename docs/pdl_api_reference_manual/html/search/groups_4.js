@@ -21,6 +21,7 @@ var searchData=
   ['enumerated_20types',['Enumerated Types',['../group__group__lvd__enums.html',1,'']]],
   ['enumerated_20types',['Enumerated Types',['../group__group__mcwdt__enums.html',1,'']]],
   ['enumerated_20types',['Enumerated Types',['../group__group__pdm__pcm__enums.html',1,'']]],
+  ['enumerated_20types',['Enumerated Types',['../group__group__pra__enums.html',1,'']]],
   ['enumerated_20types',['Enumerated Types',['../group__group__profile__enums.html',1,'']]],
   ['enumerated_20types',['Enumerated Types',['../group__group__prot__enums.html',1,'']]],
   ['enumerated_20types',['Enumerated Types',['../group__group__rtc__enums.html',1,'']]],

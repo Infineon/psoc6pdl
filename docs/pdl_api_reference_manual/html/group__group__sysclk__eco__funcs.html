@@ -28,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="cypress_logo.png"/></a></td>
+  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="IFXCYP_one-line.png"/></a></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PSoC 6 Peripheral Driver Library</div>
   </td>
@@ -159,8 +159,10 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Error / status code: <br />
  CY_SYSCLK_SUCCESS - ECO configuration completed successfully <br />
  CY_SYSCLK_BAD_PARAM - One or more invalid parameters <br />
- CY_SYSCLK_INVALID_STATE - ECO already enabled</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The following calculations are implemented in the 32-bit integer math:</dd></dl>
+ CY_SYSCLK_INVALID_STATE - ECO already enabled For the PSoC 64 devices there are possible situations when function returns the PRA error status code. This is because for PSoC 64 devices the function uses the PRA driver to change the protected registers. Refer to <a class="el" href="group__group__pra__enums.html#ga60be13e12e82986f8c0d6c6a6d4f12c5">cy_en_pra_status_t</a> for more details.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The following calculations are implemented in the 32-bit integer math:</dd>
+<dd>
+On PSoC 64 devices the configuration on the PRA driver will be reflected after <a class="el" href="group__group__sysclk__eco__funcs.html#gaadd2986e0b77ab0a714e4127ef1693f6">Cy_SysClk_EcoEnable</a> call.</dd></dl>
 <pre class="fragment">*   freqKhz = freq / 1000
 *   maxAmpl = sqrt(drivelevel / 2 / esr) / 3.14 / freqKhz / cSum
 *   ampSect = INT(5 * 4 * 3.14^2 * freqKhz^2 * cSum^2 * 4 * esr / 1000000000 / 1000000 / 9)
@@ -206,7 +208,7 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Error / status code: <br />
 CY_SYSCLK_SUCCESS - ECO locked <br />
 CY_SYSCLK_TIMEOUT - ECO timed out and did not lock <br />
-CY_SYSCLK_INVALID_STATE - ECO already enabled</dd></dl>
+CY_SYSCLK_INVALID_STATE - ECO already enabled For the PSoC 64 devices there are possible situations when function returns the PRA error status code. This is because for PSoC 64 devices the function uses the PRA driver to change the protected registers. Refer to <a class="el" href="group__group__pra__enums.html#ga60be13e12e82986f8c0d6c6a6d4f12c5">cy_en_pra_status_t</a> for more details.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Call <a class="el" href="group__group__system__config__system__functions.html#gae0c36a9591fe6e9c45ecb21a794f0f0f">SystemCoreClockUpdate</a> after this function calling if it affects the CLK_HF0 frequency.</dd></dl>
 <dl class="section user"><dt>Function Usage</dt><dd><div class="fragment"><div class="line">    <span class="comment">/* Scenario: ECO is successfully configured and needs to be enabled. The</span></div><div class="line"><span class="comment">                 ECO pins are configured using the gpio driver</span></div><div class="line"><span class="comment">                 (SRSS_ECO_IN_PIN, SRSS_ECO_OUT_PIN). */</span></div><div class="line">                 </div><div class="line">    uint32_t ecofreq = 0UL; <span class="comment">/* Variable to store the ECO frequency */</span></div><div class="line"></div><div class="line">    <span class="comment">/* Enable the ECO with a timeout of 1000 microseconds */</span></div><div class="line">    <span class="keywordflow">if</span>(<a class="code" href="group__group__sysclk__returns.html#ggad6699a184e2e3c01433251b0981558f3a1563f761f963757b339ff05eb5a690ec">CY_SYSCLK_SUCCESS</a> == <a class="code" href="group__group__sysclk__eco__funcs.html#gaadd2986e0b77ab0a714e4127ef1693f6">Cy_SysClk_EcoEnable</a>(1000UL))</div><div class="line">    {</div><div class="line">        ecofreq = <a class="code" href="group__group__sysclk__eco__funcs.html#ga392db1f8d8504409017a3fedb95b8ee2">Cy_SysClk_EcoGetFrequency</a>();</div><div class="line">        <span class="comment">/* Now ecofreq contains an actual ECO frequency */</span></div><div class="line">    }</div><div class="line">    <span class="keywordflow">else</span></div><div class="line">    {</div><div class="line">        <span class="comment">/* Insert error handling */</span></div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/* Set the path muxes and configure the downstream clocks. For example,</span></div><div class="line"><span class="comment">       the ECO can source the FLL through path 0 clock or it can source the PLL</span></div><div class="line"><span class="comment">       through path 1 clock. */</span></div></div><!-- fragment --></dd></dl>
 

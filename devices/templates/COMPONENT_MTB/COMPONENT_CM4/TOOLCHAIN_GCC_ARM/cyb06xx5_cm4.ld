@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cyb06xx5_cm4.ld
-* \version 2.70.1
+* \version 2.80
 *
 * Linker file for the GNU C compiler.
 *
@@ -61,8 +61,8 @@ MEMORY
 {
     /* The ram and flash regions control RAM and flash memory allocation for the CM4 core.
      */
-    ram               (rwx)   : ORIGIN = 0x08000000, LENGTH = 0x2A000
-    flash             (rx)    : ORIGIN = 0x10000000, LENGTH = 0x60000
+    ram               (rwx)   : ORIGIN = 0x08001800, LENGTH = 0x1E800
+    flash             (rx)    : ORIGIN = 0x10020000, LENGTH = 0x20000
 
 
     /* The following regions define device specific memory regions and must not be changed. */

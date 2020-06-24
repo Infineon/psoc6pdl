@@ -28,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="cypress_logo.png"/></a></td>
+  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="IFXCYP_one-line.png"/></a></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PSoC 6 Peripheral Driver Library</div>
   </td>
@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('group__group__syslib.html','');});
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">General Description</h2>
 <p>The system libraries provide APIs that can be called in the user application to handle the timing, logical checking or register. </p>
-<p>The functions and other declarations used in this driver are in cy_syslib.h. You can include cy_pdl.h (ModusToolbox only) to get access to all functions and declarations in the PDL.</p>
+<p>The functions and other declarations used in this driver are in cy_syslib.h. You can include cy_pdl.h to get access to all functions and declarations in the PDL.</p>
 <p>The SysLib driver contains a set of different system functions. These functions can be called in the application routine. Major features of the system library:</p><ul>
 <li>Delay functions</li>
 <li>The register Read/Write macro</li>
@@ -151,6 +151,10 @@ Changelog</h1>
 <table class="doxtable">
 <tr>
 <th>Version</th><th>Changes</th><th>Reason for Change </th></tr>
+<tr>
+<td rowspan="2">2.60 </td><td>Updated the following functions for the PSoC 64 devices: <a class="el" href="group__group__syslib__functions.html#ga1691f4df41994e7ed9c30ec6495d925f">Cy_SysLib_ClearFlashCacheAndBuffer</a>, <a class="el" href="group__group__syslib__functions.html#gaebb4e952584f0c428f58f7b4dbd3ceff">Cy_SysLib_ClearResetReason</a>, <a class="el" href="group__group__syslib__functions.html#ga8b897f8554957f9393f645d5ab1106c9">Cy_SysLib_SetWaitStates</a>. </td><td>Added PSoC 64 device support.  </td></tr>
+<tr>
+<td>Minor documentation updates. </td><td>Documentation enhancement.  </td></tr>
 <tr>
 <td>2.50.3 </td><td>Add section Known Issues </td><td>Documentation update and clarification.  </td></tr>
 <tr>

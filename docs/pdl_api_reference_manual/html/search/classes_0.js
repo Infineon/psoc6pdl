@@ -80,6 +80,7 @@ var searchData=
   ['cy_5fstc_5fppu_5fprog_5fcfg_5ft',['cy_stc_ppu_prog_cfg_t',['../structcy__stc__ppu__prog__cfg__t.html',1,'']]],
   ['cy_5fstc_5fppu_5frg_5fcfg_5ft',['cy_stc_ppu_rg_cfg_t',['../structcy__stc__ppu__rg__cfg__t.html',1,'']]],
   ['cy_5fstc_5fppu_5fsl_5fcfg_5ft',['cy_stc_ppu_sl_cfg_t',['../structcy__stc__ppu__sl__cfg__t.html',1,'']]],
+  ['cy_5fstc_5fpra_5fsystem_5fconfig_5ft',['cy_stc_pra_system_config_t',['../structcy__stc__pra__system__config__t.html',1,'']]],
   ['cy_5fstc_5fprofile_5fctr_5fctl_5ft',['cy_stc_profile_ctr_ctl_t',['../structcy__stc__profile__ctr__ctl__t.html',1,'']]],
   ['cy_5fstc_5fprofile_5fctr_5ft',['cy_stc_profile_ctr_t',['../structcy__stc__profile__ctr__t.html',1,'']]],
   ['cy_5fstc_5frtc_5falarm_5ft',['cy_stc_rtc_alarm_t',['../structcy__stc__rtc__alarm__t.html',1,'']]],

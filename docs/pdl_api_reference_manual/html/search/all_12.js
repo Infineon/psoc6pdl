@@ -70,7 +70,7 @@ var searchData=
   ['seqnormcnt',['seqNormCnt',['../structcy__stc__csd__config__t.html#a781be8f27110f61a446c858221181768',1,'cy_stc_csd_config_t']]],
   ['seqstart',['seqStart',['../structcy__stc__csd__config__t.html#a7ade567d6ee7189b392b98aadcece830',1,'cy_stc_csd_config_t']]],
   ['seqtime',['seqTime',['../structcy__stc__csd__config__t.html#aaa958f8272b5bbc4cf7032f9a5fb9df1',1,'cy_stc_csd_config_t']]],
-  ['settlingcount',['settlingCount',['../structcy__stc__fll__manual__config__t.html#add75a5aff415c2167ceabdf7021e8494',1,'cy_stc_fll_manual_config_t']]],
+  ['settlingcount',['settlingCount',['../structcy__stc__pra__system__config__t.html#ae2ed1d86e659708c0fff7b6048f81d9d',1,'cy_stc_pra_system_config_t::settlingCount()'],['../structcy__stc__fll__manual__config__t.html#add75a5aff415c2167ceabdf7021e8494',1,'cy_stc_fll_manual_config_t::settlingCount()']]],
   ['sfec',['sfec',['../structcy__stc__id__filter__t.html#ae49aa325f209d5b23cd03b49f5161b23',1,'cy_stc_id_filter_t']]],
   ['sfid1',['sfid1',['../structcy__stc__id__filter__t.html#a6f030ff362c3380842a2577f0072feec',1,'cy_stc_id_filter_t']]],
   ['sfid2',['sfid2',['../structcy__stc__id__filter__t.html#a177c81285fdaca0fb49a5f33a2c0abcf',1,'cy_stc_id_filter_t']]],

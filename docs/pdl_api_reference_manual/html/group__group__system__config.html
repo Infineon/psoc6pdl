@@ -28,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="cypress_logo.png"/></a></td>
+  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="IFXCYP_one-line.png"/></a></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PSoC 6 Peripheral Driver Library</div>
   </td>
@@ -217,6 +217,10 @@ Changelog</h1>
 <table class="doxtable">
 <tr>
 <th>Version </th><th>Changes </th><th>Reason for Change  </th></tr>
+<tr>
+<td rowspan="2">2.80 </td><td>Updated linker scripts for PSoC 64 Secure MCU devices. </td><td>Updated FLASH and SRAM memory area definitions in cyb0xxx linker script templates in accordance with the PSoC 64 Secure Boot SDK policies.  </td></tr>
+<tr>
+<td>Added <a class="el" href="group__group__pra__functions.html#ga93393c7e6e2ca124ac0b331dcee6e78b">Cy_PRA_Init()</a> call to <a class="el" href="group__group__system__config__system__functions.html#ga93f514700ccf00d08dbdcff7f1224eb2">SystemInit()</a> Cortex-M0+ and Cortex-M4 functions for PSoC 64 Secure MCU. </td><td>Updated PSoC 64 Secure MCU startup sequence to initialize the Protected Register Access driver.  </td></tr>
 <tr>
 <td>2.70.1 </td><td>Updated documentation for the better description of the existing startup implementation. </td><td>User experience enhancement.  </td></tr>
 <tr>

@@ -22,6 +22,7 @@ var searchData=
   ['mcwdt_20_20_20_20_20_20_20_20_28multi_2dcounter_20watchdog_29',['MCWDT        (Multi-Counter Watchdog)',['../group__group__mcwdt.html',1,'']]],
   ['macros',['Macros',['../group__group__mcwdt__macros.html',1,'']]],
   ['macros',['Macros',['../group__group__pdm__pcm__macros.html',1,'']]],
+  ['macros',['Macros',['../group__group__pra__macros.html',1,'']]],
   ['macros',['Macros',['../group__group__profile__macros.html',1,'']]],
   ['mpu_20functions',['MPU Functions',['../group__group__prot__functions__mpu.html',1,'']]],
   ['macros',['Macros',['../group__group__prot__macros.html',1,'']]],

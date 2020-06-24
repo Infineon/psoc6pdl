@@ -1,6 +1,7 @@
 var searchData=
 [
   ['value',['value',['../structcy__stc__ctdac__config__t.html#a480510a7247ef1aac46af3045b68dc7d',1,'cy_stc_ctdac_config_t']]],
+  ['vbackupvdddenable',['vBackupVDDDEnable',['../structcy__stc__pra__system__config__t.html#a76b55db0d1d075fca71d1c8b9211bd86',1,'cy_stc_pra_system_config_t']]],
   ['vohsel',['vohSel',['../structcy__stc__gpio__pin__config__t.html#a5af07673aa0c34dafa660f6975bad826',1,'cy_stc_gpio_pin_config_t']]],
   ['vref',['vref',['../structcy__stc__sysanalog__config__t.html#a050862f447c2f2b4f4f89fc260249242',1,'cy_stc_sysanalog_config_t']]],
   ['vrefmvvalue',['vrefMvValue',['../structcy__stc__sar__config__t.html#aa7279a82a2c0a4b3d95f970720cbbde3',1,'cy_stc_sar_config_t']]],

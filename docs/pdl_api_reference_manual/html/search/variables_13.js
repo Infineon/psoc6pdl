@@ -1,6 +1,7 @@
 var searchData=
 [
   ['uartmode',['uartMode',['../structcy__stc__scb__uart__config__t.html#ae3ffcd78ef51b5dd068bd87ef129d78e',1,'cy_stc_scb_uart_config_t']]],
+  ['ulpenable',['ulpEnable',['../structcy__stc__pra__system__config__t.html#afb72378080a3385a917c9644a4e26e3e',1,'cy_stc_pra_system_config_t']]],
   ['updatemode',['updateMode',['../structcy__stc__ctdac__config__t.html#a69522cfeec61c2287cd1a830d45c5d15',1,'cy_stc_ctdac_config_t']]],
   ['used',['used',['../structcy__stc__profile__ctr__t.html#a3eba8268772fd8b69da815f8075e8be2',1,'cy_stc_profile_ctr_t']]],
   ['usercompletecallback',['userCompleteCallback',['../structcy__stc__crypto__config__t.html#a52ff77b99e58e9f238f260a50740be7b',1,'cy_stc_crypto_config_t']]],

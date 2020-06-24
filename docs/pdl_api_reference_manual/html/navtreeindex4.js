@@ -42,7 +42,7 @@ var NAVTREEINDEX4 =
 "group__group__efuse__macros.html#gae0c3ba64424e5c138642546ffee03a92":[2,8,0,2],
 "group__group__efuse__macros.html#gae85a76aa290cafda151b263b7ee6cfd2":[2,8,0,0],
 "group__group__efuse__macros.html#gafc35b891a1ac0b60b4babf52bd4408eb":[2,8,0,1],
-"group__group__energy__profiler.html":[2,17],
+"group__group__energy__profiler.html":[2,18],
 "group__group__flash.html":[2,9],
 "group__group__flash__config__macros.html":[2,9,0,1],
 "group__group__flash__enumerated__types.html":[2,9,2],

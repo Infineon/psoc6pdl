@@ -28,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="cypress_logo.png"/></a></td>
+  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="IFXCYP_one-line.png"/></a></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PSoC 6 Peripheral Driver Library</div>
   </td>
@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('group__group__ctb.html','');});
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">General Description</h2>
 <p>This driver provides API functions to configure and use the analog CTB. </p>
-<p>The functions and other declarations used in this driver are in cy_ctb.h. You can include cy_pdl.h (ModusToolbox only) to get access to all functions and declarations in the PDL.</p>
+<p>The functions and other declarations used in this driver are in cy_ctb.h. You can include cy_pdl.h to get access to all functions and declarations in the PDL.</p>
 <p>The CTB comprises two identical opamps, a switch routing matrix, and a sample and hold (SH) circuit. The high level features are:</p>
 <ul>
 <li>Two highly configurable opamps<ul>
@@ -234,6 +234,10 @@ Changelog</h1>
 <table class="doxtable">
 <tr>
 <th>Version</th><th>Changes</th><th>Reason for Change </th></tr>
+<tr>
+<td>1.20 </td><td>Fixed the <a class="el" href="group__group__ctb__functions__init.html#gafa352730de040364974dc22bd3cec27f">Cy_CTB_OpampInit</a> function to do not affect another OpAmp instance. </td><td>Bug fixing.  </td></tr>
+<tr>
+<td>1.10.3 </td><td>Minor documentation updates. </td><td>Documentation enhancement.  </td></tr>
 <tr>
 <td>1.10.2 </td><td>The <a class="el" href="group__group__ctb__functions__init.html#ga11187bf8d766321decd675d3f666adb1">Cy_CTB_Init</a> function description is expanded with a clarification note. </td><td>Documentation enhancement based on a usability feedback.  </td></tr>
 <tr>

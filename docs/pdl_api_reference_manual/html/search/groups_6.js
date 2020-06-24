@@ -4,6 +4,7 @@ var searchData=
   ['global_20variables',['Global Variables',['../group__group__ctdac__globals.html',1,'']]],
   ['gpio_20_20_20_20_20_20_20_20_20_28general_20purpose_20input_20output_29',['GPIO         (General Purpose Input Output)',['../group__group__gpio.html',1,'']]],
   ['gpio_20functions',['GPIO Functions',['../group__group__gpio__functions__gpio.html',1,'']]],
+  ['group_5fpra_5fdata_5fstructures_5fcfg',['Group_pra_data_structures_cfg',['../group__group__pra__data__structures__cfg.html',1,'']]],
   ['general_20functions',['General Functions',['../group__group__profile__functions__general.html',1,'']]],
   ['general',['General',['../group__group__rtc__general__functions.html',1,'']]],
   ['global_20variables',['Global Variables',['../group__group__sar__globals.html',1,'']]],

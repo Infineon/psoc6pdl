@@ -28,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="cypress_logo.png"/></a></td>
+  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="IFXCYP_one-line.png"/></a></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PSoC 6 Peripheral Driver Library</div>
   </td>
@@ -105,6 +105,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ga51094ce9149f69553b6348eccbd89667"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__wdt__functions.html#ga51094ce9149f69553b6348eccbd89667">Cy_WDT_Unlock</a> (void)</td></tr>
 <tr class="memdesc:ga51094ce9149f69553b6348eccbd89667"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unlocks the Watchdog Timer configuration register.  <a href="#ga51094ce9149f69553b6348eccbd89667">More...</a><br /></td></tr>
 <tr class="separator:ga51094ce9149f69553b6348eccbd89667"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6a98fa4f1133264ca3add72381e7bb22"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__wdt__functions.html#ga6a98fa4f1133264ca3add72381e7bb22">Cy_WDT_Locked</a> (void)</td></tr>
+<tr class="memdesc:ga6a98fa4f1133264ca3add72381e7bb22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the WDT lock state.  <a href="#ga6a98fa4f1133264ca3add72381e7bb22">More...</a><br /></td></tr>
+<tr class="separator:ga6a98fa4f1133264ca3add72381e7bb22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1e7105cb2482131f03140a223caf5cc1"><td class="memItemLeft" align="right" valign="top">__STATIC_INLINE uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__wdt__functions.html#ga1e7105cb2482131f03140a223caf5cc1">Cy_WDT_GetCount</a> (void)</td></tr>
 <tr class="memdesc:ga1e7105cb2482131f03140a223caf5cc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the current WDT counter value.  <a href="#ga1e7105cb2482131f03140a223caf5cc1">More...</a><br /></td></tr>
 <tr class="separator:ga1e7105cb2482131f03140a223caf5cc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -241,6 +244,27 @@ Functions</h2></td></tr>
 
 <p>Unlocks the Watchdog Timer configuration register. </p>
 <dl class="section warning"><dt>Warning</dt><dd>The WDT lock state is not retained during system Deep Sleep. After the wakeup from system Deep Sleep the WDT is locked. </dd></dl>
+
+</div>
+</div>
+<a id="ga6a98fa4f1133264ca3add72381e7bb22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6a98fa4f1133264ca3add72381e7bb22">&#9670;&nbsp;</a></span>Cy_WDT_Locked()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Cy_WDT_Locked </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the WDT lock state. </p>
+<dl class="section return"><dt>Returns</dt><dd>True - if WDT is locked. False - if WDT is unlocked. </dd></dl>
 
 </div>
 </div>

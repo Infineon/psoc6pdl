@@ -1,6 +1,6 @@
 var NAVTREEINDEX0 =
 {
-"group__group__arm__system__timer.html":[2,32],
+"group__group__arm__system__timer.html":[2,33],
 "group__group__ble__clk.html":[2,0],
 "group__group__ble__clk__data__type.html":[2,0,1],
 "group__group__ble__clk__data__type.html#ga0b65a546765caf85918c9f06e66d25fb":[2,0,1,6],

@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cyb06xx7_cm0plus.ld
-* \version 2.70.1
+* \version 2.80
 *
 * Linker file for the GNU C compiler.
 *
@@ -53,7 +53,7 @@ ENTRY(Reset_Handler)
 #endif
 
 #if !defined(MBED_ROM_SIZE)
-  #define MBED_ROM_SIZE     0x80000
+  #define MBED_ROM_SIZE     0x00010000
 #endif
 
 /* MBED_APP_SIZE is being  used by the bootloader build script and
@@ -65,11 +65,11 @@ ENTRY(Reset_Handler)
 #endif
 
 #if !defined(MBED_RAM_START)
-  #define MBED_RAM_START    0x08000000
+  #define MBED_RAM_START    0x08020000
 #endif
 
 #if !defined(MBED_RAM_SIZE)
-  #define MBED_RAM_SIZE     0x00010000
+  #define MBED_RAM_SIZE     0x0000C000
 #endif
 
 #if !defined(MBED_PUBLIC_RAM_SIZE)

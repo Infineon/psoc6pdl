@@ -28,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="cypress_logo.png"/></a></td>
+  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="IFXCYP_one-line.png"/></a></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PSoC 6 Peripheral Driver Library</div>
   </td>
@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('group__group__wdt.html','');});
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">General Description</h2>
 <p>The Watchdog timer (WDT) has a 16-bit free-running up-counter. </p>
-<p>The functions and other declarations used in this driver are in cy_wdt.h. You can include cy_pdl.h (ModusToolbox only) to get access to all functions and declarations in the PDL.</p>
+<p>The functions and other declarations used in this driver are in cy_wdt.h. You can include cy_pdl.h to get access to all functions and declarations in the PDL.</p>
 <p>The WDT can issue counter match interrupts, and a device reset if its interrupts are not handled. Use the Watchdog timer for two main purposes:</p>
 <p>The <b> First use case </b> is recovering from a CPU or firmware failure. A timeout period is set up in the Watchdog timer, and if a timeout occurs, the device is reset (WRES). <br />
  The <b>Second use case</b> is to generate periodic interrupts. It is strongly recommended not to use the WDT for periodic interrupt generation. However, if absolutely required, see information below.</p>
@@ -137,6 +137,10 @@ Changelog</h1>
 <table class="doxtable">
 <tr>
 <th>Version</th><th>Changes</th><th>Reason for Change </th></tr>
+<tr>
+<td rowspan="2">1.30 </td><td>Updated the following functions for the PSoC 64 devices: <a class="el" href="group__group__wdt__functions.html#ga727d9ae6fdba36809bf631985a3eb987">Cy_WDT_ClearInterrupt()</a>, <a class="el" href="group__group__wdt__functions.html#gab6caa17bf5bcb0c365f60e602e653fed">Cy_WDT_MaskInterrupt()</a>, and <a class="el" href="group__group__wdt__functions.html#ga38c69c98675d6024a7d73acb41b24399">Cy_WDT_UnmaskInterrupt()</a>. </td><td>Added PSoC 64 device support.  </td></tr>
+<tr>
+<td>Minor documentation updates. </td><td>Documentation enhancement.  </td></tr>
 <tr>
 <td>1.20 </td><td>Added a new API function <a class="el" href="group__group__wdt__functions.html#ga05f8bb5603ce46caf842bd0ad254f604">Cy_WDT_IsEnabled()</a>  </td><td>Enhancement based on usability feedback.  </td></tr>
 <tr>

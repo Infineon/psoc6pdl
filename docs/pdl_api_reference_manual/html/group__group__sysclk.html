@@ -28,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="cypress_logo.png"/></a></td>
+  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="IFXCYP_one-line.png"/></a></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PSoC 6 Peripheral Driver Library</div>
   </td>
@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('group__group__sysclk.html','');});
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">General Description</h2>
 <p>The System Clock (SysClk) driver contains the API for configuring system and peripheral clocks. </p>
-<p>The functions and other declarations used in this driver are in cy_sysclk.h. You can include cy_pdl.h (ModusToolbox only) to get access to all functions and declarations in the PDL.</p>
+<p>The functions and other declarations used in this driver are in cy_sysclk.h. You can include cy_pdl.h to get access to all functions and declarations in the PDL.</p>
 <p>Firmware uses the API to configure , enable, or disable a clock.</p>
 <p>The clock system includes a variety of resources that can vary per device, including:</p><ul>
 <li>Internal clock sources such as internal oscillators</li>
@@ -104,7 +104,7 @@ devices/include/&lt;series&gt;_config.h. (E.g. devices/include/psoc6_01_config.h
 <p>The sysclk driver supports multiple peripheral clocks, as well as the fast clock, slow clock, backup domain clock, timer clock, and pump clock. The API for any given clock contains the functions to manage that clock. Functions for clock measurement and trimming are also provided.</p>
 <h1><a class="anchor" id="group_sysclk_configuration"></a>
 Configuration Considerations</h1>
-<p>The availability of clock functions depend on the availability of the chip resources that support those functions. Consult the device TRM before attempting to use these functions.</p>
+<p>The availability of clock functions depend on the availability of the chip resources that support those functions. Consult the device TRM before attempting to use these functions. For PSoC 64 devices the clocks configurations are restricted and limited. Refer to the PRA driver, and the TRM and datasheet for details.</p>
 <p>PSoC 6 power modes limit the maximum clock frequency. Refer to the SysPm driver and the TRM for details.</p>
 <h1><a class="anchor" id="group_sysclk_more_information"></a>
 More Information</h1>
@@ -121,11 +121,25 @@ MISRA-C Compliance</h1>
 <tr>
 <td>16.7 </td><td>R </td><td>The object addressed by the pointer parameter is not modified and so the pointer could be of type 'pointer to const'. </td><td>The callback function for system power management (SysPm) must be of generic callback type that contains non-const pointer parameter.  </td></tr>
 </table>
+<h1><a class="anchor" id="group_sysclk_errata"></a>
+Known Issues</h1>
+<table class="doxtable">
+<tr>
+<th>Issue</th><th>Workaround </th></tr>
+<tr>
+<td>The CLKLF does not work if after transition to the new clock source the previous one is immediately disabled.  </td><td>Wait 4 clock cycles of previous CLKLF clock source before disabling it.  </td></tr>
+</table>
 <h1><a class="anchor" id="group_sysclk_changelog"></a>
 Changelog</h1>
 <table class="doxtable">
 <tr>
 <th>Version</th><th>Changes</th><th>Reason for Change </th></tr>
+<tr>
+<td rowspan="3">2.10 </td><td>Updated SysClk functions for PSoC 64 devices. Now the SysClk functions can return PRA driver status value. </td><td>The SysClk driver uses the PRA driver to change the protected registers. A SysClk driver function that calls a PRA driver function will return the PRA error status code if the called PRA function returns an error. In these cases, refer to PRA return statuses. Refer to functions description for details.  </td></tr>
+<tr>
+<td>Updated the code of <a class="el" href="group__group__sysclk__path__src__funcs.html#ga54c618c89782d227fb8f292d1dc15625">Cy_SysClk_ClkPathGetFrequency</a> function. </td><td>Make the code more error-resistant to user errors for some corner cases.  </td></tr>
+<tr>
+<td>Minor documentation updates. </td><td>Documentation enhancement.  </td></tr>
 <tr>
 <td>2.0 </td><td>Updated the ECO trimming values calculation algorithm in the <a class="el" href="group__group__sysclk__eco__funcs.html#ga9d94ac55503404a0bdaf017fe33ecdbd">Cy_SysClk_EcoConfigure</a> implementation. <br />
  This change may invalidate the already used crystals, in cases: <br />

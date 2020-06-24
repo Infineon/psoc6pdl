@@ -31,6 +31,7 @@ var searchData=
   ['functions',['Functions',['../group__group__lvd__functions.html',1,'']]],
   ['functions',['Functions',['../group__group__mcwdt__functions.html',1,'']]],
   ['functions',['Functions',['../group__group__pdm__pcm__functions.html',1,'']]],
+  ['functions',['Functions',['../group__group__pra__functions.html',1,'']]],
   ['functions',['Functions',['../group__group__profile__functions.html',1,'']]],
   ['functions',['Functions',['../group__group__prot__functions.html',1,'']]],
   ['functions',['Functions',['../group__group__rtc__functions.html',1,'']]],

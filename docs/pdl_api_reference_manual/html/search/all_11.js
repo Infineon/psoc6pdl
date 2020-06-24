@@ -15,6 +15,7 @@ var searchData=
   ['reduction_20trigger_20mutiplexers',['Reduction Trigger Mutiplexers',['../group__group__trigmux__red__enums.html',1,'']]],
   ['reduction_20trigger_20mutiplexer_20inputs',['Reduction Trigger Mutiplexer Inputs',['../group__group__trigmux__red__in__enums.html',1,'']]],
   ['reduction_20trigger_20mutiplexer_20outputs',['Reduction Trigger Mutiplexer Outputs',['../group__group__trigmux__red__out__enums.html',1,'']]],
+  ['resources',['Resources',['../page_cypress_resources.html',1,'']]],
   ['rtos_20integration',['RTOS Integration',['../page_rtos_int.html',1,'']]],
   ['r0',['r0',['../structcy__stc__fault__frame__t.html#a1c9617d78d270cf3af98763f0bb5a47a',1,'cy_stc_fault_frame_t']]],
   ['r0_5ff',['r0_f',['../structcy__stc__canfd__rx__buffer__t.html#a602b97b15de68d54ccb557ed4c501e20',1,'cy_stc_canfd_rx_buffer_t']]],

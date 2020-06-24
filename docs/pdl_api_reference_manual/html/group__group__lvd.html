@@ -28,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="cypress_logo.png"/></a></td>
+  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="IFXCYP_one-line.png"/></a></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PSoC 6 Peripheral Driver Library</div>
   </td>
@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('group__group__lvd.html','');});
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">General Description</h2>
 <p>The LVD driver provides an API to manage the Low Voltage Detection block. </p>
-<p>The functions and other declarations used in this driver are in cy_lvd.h. You can include cy_pdl.h (ModusToolbox only) to get access to all functions and declarations in the PDL.</p>
+<p>The functions and other declarations used in this driver are in cy_lvd.h. You can include cy_pdl.h to get access to all functions and declarations in the PDL.</p>
 <p>The LVD block provides a status of currently observed VDDD voltage and triggers an interrupt when the observed voltage crosses an adjusted threshold.</p>
 <h1><a class="anchor" id="group_lvd_configuration_considerations"></a>
 Configuration Considerations</h1>
@@ -113,6 +113,8 @@ Changelog</h1>
 <table class="doxtable">
 <tr>
 <th>Version</th><th>Changes</th><th>Reason of Change </th></tr>
+<tr>
+<td>1.20 </td><td>Updated the following functions for the PSoC 64 devices: <a class="el" href="group__group__lvd__functions.html#ga855b38a29ad7ce794e38f09e546f14c4">Cy_LVD_Enable</a>, <a class="el" href="group__group__lvd__functions.html#ga3eba25c246f5977fca59309c198743a0">Cy_LVD_Disable</a>, <a class="el" href="group__group__lvd__functions.html#ga59ac02fec5dbbba9c16b7b72beaa91b8">Cy_LVD_SetThreshold</a>, <a class="el" href="group__group__lvd__functions.html#gaadd0bff934f82db8d5630ab9163fbf49">Cy_LVD_ClearInterrupt</a>, <a class="el" href="group__group__lvd__functions.html#ga7f875a2e19d66badf8736ffc75b96665">Cy_LVD_SetInterrupt</a>, <a class="el" href="group__group__lvd__functions.html#ga7f58d4e85f404434cf4f0b89c35143d2">Cy_LVD_SetInterruptMask</a>, <a class="el" href="group__group__lvd__functions.html#ga1de4327b866c4002806eb915023f438e">Cy_LVD_ClearInterruptMask</a>, and <a class="el" href="group__group__lvd__functions.html#gaf9f813c4673a427b7a8aa35447f91cf0">Cy_LVD_SetInterruptConfig</a>.  </td><td>Added PSoC 64 device support.  </td></tr>
 <tr>
 <td rowspan="2">1.10 </td><td>Flattened the organization of the driver source code into the single source directory and the single include directory.  </td><td>Driver library directory-structure simplification.  </td></tr>
 <tr>

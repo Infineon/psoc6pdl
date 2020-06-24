@@ -28,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="cypress_logo.png"/></a></td>
+  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="IFXCYP_one-line.png"/></a></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PSoC 6 Peripheral Driver Library</div>
   </td>
@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('group__group__ipc__pipe.html','');});
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">General Description</h2>
 <p>The Pipe functions provide a method to transfer one or more words of data between CPUs or tasks. </p>
-<p>Include cy_ipc_pipe.h. Alternatively include cy_pdl.h (ModusToolbox only) to get access to all functions and declarations in the PDL.</p>
+<p>Include cy_ipc_pipe.h. Alternatively include cy_pdl.h to get access to all functions and declarations in the PDL.</p>
 <p>The data can be defined as a single 32-bit unsigned word, an array of data, or a user-defined structure. The only limitation is that the first word in the array or structure must be a 32-bit unsigned word in which a client ID number is passed. The client ID dictates the callback function that will be called by the receiver of the message. After the callback function returns by the receiver, it will invoke a release callback function defined by the sender of the message.</p>
 <p>A User Pipe is provided for the user to transfer data between CPUs and tasks. </p>
 <table class="memberdecls">

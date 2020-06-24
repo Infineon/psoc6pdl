@@ -28,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="cypress_logo.png"/></a></td>
+  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="IFXCYP_one-line.png"/></a></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PSoC 6 Peripheral Driver Library</div>
   </td>
@@ -89,7 +89,7 @@ $(document).ready(function(){initNavTree('group__group__ipc.html','');});
 <a name="details" id="details"></a><h2 class="groupheader">General Description</h2>
 <p>The inter-processor communication (IPC) driver provides a safe and reliable method to transfer data between CPUs. </p>
 <p>Hardware locking ensures that only one device can acquire and transfer data at a time so no data is lost or overwritten by asynchronous processes or CPUs.</p>
-<p>Include either cy_ipc_pipe.h or cy_ipc_sema.h. Alternatively include cy_pdl.h (ModusToolbox only) to get access to all functions and declarations in the PDL.</p>
+<p>Include either cy_ipc_pipe.h or cy_ipc_sema.h. Alternatively include cy_pdl.h to get access to all functions and declarations in the PDL.</p>
 <p>There are three parts to the API:</p><ul>
 <li>Driver-level (DRV) API - used internally by Semaphore and Pipe levels</li>
 <li>Pipe-level (PIPE) API - establishes a communication channel between processors</li>
@@ -174,6 +174,8 @@ Changelog</h1>
 <table class="doxtable">
 <tr>
 <th>Version</th><th>Changes</th><th>Reason for Change </th></tr>
+<tr>
+<td>1.40.1 </td><td>Minor documentation updates. </td><td>Documentation enhancement.  </td></tr>
 <tr>
 <td rowspan="1">1.40 </td><td>Moved cy_semaData structure to the RAM section called ".cy_sharedmem". </td><td>Support Secure Boot devices.  </td></tr>
 <tr>

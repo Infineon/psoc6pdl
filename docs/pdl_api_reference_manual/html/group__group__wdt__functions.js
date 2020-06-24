@@ -5,6 +5,7 @@ var group__group__wdt__functions =
     [ "Cy_WDT_Disable", "group__group__wdt__functions.html#ga709f597d56e7f7fb6717d5ff671491fa", null ],
     [ "Cy_WDT_Lock", "group__group__wdt__functions.html#gaec9bd8d1439389a46cdd2dcadc8e987d", null ],
     [ "Cy_WDT_Unlock", "group__group__wdt__functions.html#ga51094ce9149f69553b6348eccbd89667", null ],
+    [ "Cy_WDT_Locked", "group__group__wdt__functions.html#ga6a98fa4f1133264ca3add72381e7bb22", null ],
     [ "Cy_WDT_GetCount", "group__group__wdt__functions.html#ga1e7105cb2482131f03140a223caf5cc1", null ],
     [ "Cy_WDT_SetMatch", "group__group__wdt__functions.html#ga1e707a8236e6dcd90eede7e726a2648f", null ],
     [ "Cy_WDT_GetMatch", "group__group__wdt__functions.html#ga77552627bbcbe8ded86f52b67f5f12b3", null ],

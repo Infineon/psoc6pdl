@@ -28,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="cypress_logo.png"/></a></td>
+  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="IFXCYP_one-line.png"/></a></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PSoC 6 Peripheral Driver Library</div>
   </td>
@@ -188,7 +188,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="group__group__seglcd__enums.html#gaf81660a051e97187b6617ae3f709b047">cy_en_seglcd_status_t</a>.</dd></dl>
-<dl class="section user"><dt>Function Usage</dt><dd><div class="fragment"><div class="line">    <span class="comment">/* Scenario: Toggle the state of each pixel to opposite: */</span></div><div class="line">    <span class="keywordflow">if</span> (<a class="code" href="group__group__seglcd__enums.html#ggaf81660a051e97187b6617ae3f709b047a3fac00a061e1cd84f5e0e13289944cb7">CY_SEGLCD_SUCCESS</a> != <a class="code" href="group__group__seglcd__functions__frame.html#ga85e7982228c5bc991d43bbfbdb138d5c">Cy_SegLCD_InvFrame</a>(LCD0, commons))</div><div class="line">    {</div><div class="line">        <span class="comment">/* error handling */</span></div><div class="line">    }</div><div class="line">    <span class="comment">/* Now all the pixels are inverted statically, however the display/character</span></div><div class="line"><span class="comment">     * management API functions will remain to write symbols non-inverted</span></div><div class="line"><span class="comment">     * until the correspondent display property is also inverted:</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    display.<a class="code" href="structcy__stc__seglcd__disp__t.html#a05ed7ce4a52b244a0f226a2a2a33ee1e">invert</a> = !display.<a class="code" href="structcy__stc__seglcd__disp__t.html#a05ed7ce4a52b244a0f226a2a2a33ee1e">invert</a>;</div></div><!-- fragment --></dd></dl>
+<dl class="section user"><dt>Function Usage</dt><dd><div class="fragment"><div class="line">    <span class="comment">/* Scenario: Toggle the state of each pixel to opposite: */</span></div><div class="line">    <span class="keywordflow">if</span> (<a class="code" href="group__group__seglcd__enums.html#ggaf81660a051e97187b6617ae3f709b047a3fac00a061e1cd84f5e0e13289944cb7">CY_SEGLCD_SUCCESS</a> != <a class="code" href="group__group__seglcd__functions__frame.html#ga85e7982228c5bc991d43bbfbdb138d5c">Cy_SegLCD_InvFrame</a>(LCD0, commons))</div><div class="line">    {</div><div class="line">        <span class="comment">/* error handling */</span></div><div class="line">    }</div><div class="line">    <span class="comment">/* Now all the pixels are inverted statically, however the display/character</span></div><div class="line"><span class="comment">     * management API functions will remain to write symbols non-inverted</span></div><div class="line"><span class="comment">     * until the correspondent display property is also inverted:</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    display.invert = !display.invert;</div></div><!-- fragment --></dd></dl>
 
 </div>
 </div>

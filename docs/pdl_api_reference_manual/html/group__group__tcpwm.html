@@ -28,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="cypress_logo.png"/></a></td>
+  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="IFXCYP_one-line.png"/></a></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PSoC 6 Peripheral Driver Library</div>
   </td>
@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('group__group__tcpwm.html','');});
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">General Description</h2>
 <p>The TCPWM driver is a multifunction driver that implements Timer Counter, PWM, and Quadrature Decoder functionality using the TCPWM block. </p>
-<p>The functions and other declarations used in this driver are in cy_tcpwm_counter.h, cy_tcpwm_pwm.h, cy_tcpwm_quaddec.h respectively. Include cy_pdl.h (ModusToolbox only) to get access to all functions and declarations in the PDL.</p>
+<p>The functions and other declarations used in this driver are in cy_tcpwm_counter.h, cy_tcpwm_pwm.h, cy_tcpwm_quaddec.h respectively. Include cy_pdl.h to get access to all functions and declarations in the PDL.</p>
 <p>Each TCPWM block is a collection of counters that can all be triggered simultaneously. For each function call, the base register address of the TCPWM being used must be passed first, followed by the index of the counter you want to touch next. For some functions, you can manage multiple counters simultaneously. You provide a bit field representing each counter, rather than the single counter index).</p>
 <p>The TCPWM supports three operating modes:</p><ul>
 <li>Timer/Counter</li>
@@ -176,6 +176,8 @@ Changelog</h1>
 <table class="doxtable">
 <tr>
 <th>Version</th><th>Changes</th><th>Reason for Change </th></tr>
+<tr>
+<td>1.10.2 </td><td>Minor documentation updates. </td><td>Documentation enhancement.  </td></tr>
 <tr>
 <td>1.10.1 </td><td>Added header guards CY_IP_MXTCPWM. </td><td>To enable the PDL compilation with wounded out IP blocks.  </td></tr>
 <tr>
