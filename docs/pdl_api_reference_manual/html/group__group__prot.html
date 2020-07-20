@@ -209,6 +209,12 @@ Changelog</h1>
 <tr>
 <th>Version</th><th>Changes</th><th>Reason for Change </th></tr>
 <tr>
+<td>1.40 </td><td><ul>
+<li>Updated the <a class="el" href="group__group__prot__functions__busmaster.html#ga2d3a54039578a9fae98f6c7b4c4cff41">Cy_Prot_SetActivePC()</a> function to report an error when called on the secure CYB06xx7 devices as no access privileges are available.</li>
+<li>Updated the <a class="el" href="group__group__prot__functions__busmaster.html#gac6af4217bc8ac5517edb39ebe11e91ec">Cy_Prot_GetActivePC()</a> function for the secure CYB06xx7 devices to access the protected registers via the <a class="el" href="group__group__pra.html">PRA (Protected Register Access)</a> driver.  </li>
+</ul>
+</td><td>Added PSoC 64 devices support.  </td></tr>
+<tr>
 <td>1.30.3 </td><td>Minor documentation updates. </td><td>Documentation enhancement.  </td></tr>
 <tr>
 <td>1.30.2 </td><td>Clarified the description of the next API functions: <a class="el" href="group__group__prot__functions__ppu__prog__v2.html#gaa20aec5caa83d665c5a2afe241b6c69e">Cy_Prot_ConfigPpuProgMasterAtt</a>,<br />

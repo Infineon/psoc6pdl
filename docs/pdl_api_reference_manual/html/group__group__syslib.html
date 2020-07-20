@@ -108,11 +108,10 @@ $(document).ready(function(){initNavTree('group__group__syslib.html','');});
 <h1><a class="anchor" id="group_syslib_configuration"></a>
 Configuration Considerations</h1>
 <p><b> Assertion Usage </b> <br />
- Use the CY_ASSERT() macro to check expressions that must be true as long as the program is running correctly. It is a convenient way to insert sanity checks. The CY_ASSERT() macro is defined in the cy_syslib.h file which is part of the PDL library. The behavior of the macro is as follows: if the expression passed to the macro is false, output an error message that includes the file name and line number, and then halts the CPU. <br />
-In case of fault, the CY_ASSERT() macro calls the <a class="el" href="group__group__syslib__functions.html#ga0fe70e0948f5d2b2fb1615b85b0d7d7a" title="This function stores the ASSERT location of the file name (including path to file) and line number in...">Cy_SysLib_AssertFailed()</a> function. This is a weakly linked function. The default implementation stores the file name and line number of the ASSERT into global variables, cy_assertFileName and cy_assertLine . It then calls the <a class="el" href="group__group__syslib__functions.html#gaaf5ef74a64fe1abbc195da55e4acf075" title="This function halts the CPU but only the CPU which calls the function. ">Cy_SysLib_Halt()</a> function. </p><dl class="section note"><dt>Note</dt><dd>Firmware can redefine the <a class="el" href="group__group__syslib__functions.html#ga0fe70e0948f5d2b2fb1615b85b0d7d7a" title="This function stores the ASSERT location of the file name (including path to file) and line number in...">Cy_SysLib_AssertFailed()</a> function for custom processing.</dd></dl>
-<p>The PDL source code uses this assert mechanism extensively. It is recommended that you enable asserts when debugging firmware. <br />
+ Use the CY_ASSERT() macro to check expressions that must be true if the program is running correctly. It is a convenient way to insert sanity checks. The CY_ASSERT() macro is defined in the cy_utils.h file, which is part of the <a href="https://github.com/cypresssemiconductorco/core-lib">Cypress Core Library (core-lib)</a>. The macro behavior is as follows: if the expression passed to the macro is false, the CPU is halted. <br />
+ The PDL source code uses this assert mechanism extensively. It is recommended that you enable asserts when debugging firmware. <br />
 <b> Assertion Classes and Levels </b> <br />
- The PDL defines three assert classes, which correspond to different kinds of parameters. There is a corresponding assert "level" for each class. </p><table class="doxtable">
+ The <a href="https://github.com/cypresssemiconductorco/core-lib">Cypress Core Library</a> defines three assert classes, which correspond to different kinds of parameters. There is a corresponding assert "level" for each class. </p><table class="doxtable">
 <tr>
 <th>Class Macro</th><th>Level Macro</th><th>Type of check </th></tr>
 <tr>
@@ -151,6 +150,8 @@ Changelog</h1>
 <table class="doxtable">
 <tr>
 <th>Version</th><th>Changes</th><th>Reason for Change </th></tr>
+<tr>
+<td>2.60.1 </td><td>Updated the Configuration Considerations section with the information that CY_ASSERT() macro is defined in the cy_utils.h file, which is part of the <a href="https://github.com/cypresssemiconductorco/core-lib">Cypress Core Library (core-lib)</a> </td><td>Documentation update and clarification.  </td></tr>
 <tr>
 <td rowspan="2">2.60 </td><td>Updated the following functions for the PSoC 64 devices: <a class="el" href="group__group__syslib__functions.html#ga1691f4df41994e7ed9c30ec6495d925f">Cy_SysLib_ClearFlashCacheAndBuffer</a>, <a class="el" href="group__group__syslib__functions.html#gaebb4e952584f0c428f58f7b4dbd3ceff">Cy_SysLib_ClearResetReason</a>, <a class="el" href="group__group__syslib__functions.html#ga8b897f8554957f9393f645d5ab1106c9">Cy_SysLib_SetWaitStates</a>. </td><td>Added PSoC 64 device support.  </td></tr>
 <tr>

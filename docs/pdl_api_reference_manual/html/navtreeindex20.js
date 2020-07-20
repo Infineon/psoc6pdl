@@ -1,5 +1,10 @@
 var NAVTREEINDEX20 =
 {
+"structcy__stc__ctb__opamp__config__t.html#acdbeb6ca145dcd83d0b598f2df611eb8":[2,4,3,2,5],
+"structcy__stc__ctb__opamp__config__t.html#ad33d6b5797035ce6fda1ecc140462340":[2,4,3,2,2],
+"structcy__stc__ctb__opamp__config__t.html#adf4b3ed72071b679a9f94d1ac021f945":[2,4,3,2,4],
+"structcy__stc__ctb__opamp__config__t.html#aef62aae08649c72b650d6c15f4e814a9":[2,4,3,2,1],
+"structcy__stc__ctdac__config__t.html":[2,5,3,1],
 "structcy__stc__ctdac__config__t.html#a06955a19ff939142f6b01cd0870b84ac":[2,5,3,1,10],
 "structcy__stc__ctdac__config__t.html#a1e0193a5e1c4bab69bf7ba379e5970e5":[2,5,3,1,0],
 "structcy__stc__ctdac__config__t.html#a1fe96ff8856cf4ba20f1037a73c6092c":[2,5,3,1,3],
@@ -244,10 +249,5 @@ var NAVTREEINDEX20 =
 "structcy__stc__pdm__pcm__config__t.html#a1597394c0da88d678f7b4405c64c98d4":[2,16,2,1,8],
 "structcy__stc__pdm__pcm__config__t.html#a1953184d9bc890c149d3cb8188fbfaf2":[2,16,2,1,13],
 "structcy__stc__pdm__pcm__config__t.html#a4993951ea6cba854859a905f05cbb076":[2,16,2,1,17],
-"structcy__stc__pdm__pcm__config__t.html#a4b1f76305638625b13b20fe78b4cbc3f":[2,16,2,1,9],
-"structcy__stc__pdm__pcm__config__t.html#a52af035a1c24528ccaac06fe22478dae":[2,16,2,1,6],
-"structcy__stc__pdm__pcm__config__t.html#a53ae73cac788873d873731714f206e8c":[2,16,2,1,18],
-"structcy__stc__pdm__pcm__config__t.html#a76cd8d97999381faa2d3c92cf44de697":[2,16,2,1,0],
-"structcy__stc__pdm__pcm__config__t.html#a8104ce4d0a012024f82e0fde64b3d8dd":[2,16,2,1,14],
-"structcy__stc__pdm__pcm__config__t.html#ab2ab60f66c03b9bfb896ee01deb5a34d":[2,16,2,1,12]
+"structcy__stc__pdm__pcm__config__t.html#a4b1f76305638625b13b20fe78b4cbc3f":[2,16,2,1,9]
 };

@@ -1,5 +1,10 @@
 var NAVTREEINDEX22 =
 {
+"structcy__stc__scb__i2c__config__t.html#a9074db87cce95b20f6adbaf905e05f98":[2,22,2,2,0,5],
+"structcy__stc__scb__i2c__config__t.html#a9e0bf167c747280bb8a1c2f4f134889b":[2,22,2,2,0,3],
+"structcy__stc__scb__i2c__config__t.html#ab317c1252433320bfd76d2b8629dac23":[2,22,2,2,0,0],
+"structcy__stc__scb__i2c__context__t.html":[2,22,2,2,1],
+"structcy__stc__scb__i2c__master__xfer__config__t.html":[2,22,2,2,2],
 "structcy__stc__scb__i2c__master__xfer__config__t.html#a17fa9b9a817e002381f07c4982abaffa":[2,22,2,2,2,1],
 "structcy__stc__scb__i2c__master__xfer__config__t.html#a2e158df2a2854d193d589021c2128aa4":[2,22,2,2,2,3],
 "structcy__stc__scb__i2c__master__xfer__config__t.html#a4afeea04f622380e0c1113cc4bfbdea6":[2,22,2,2,2,2],
@@ -244,10 +249,5 @@ var NAVTREEINDEX22 =
 "structcy__stc__syspm__callback__params__t.html#a56076e99358e2b7c99681312108b09af":[2,32,2,0,0],
 "structcy__stc__syspm__callback__params__t.html#abac771f244791efe23d4964a40bbf8c8":[2,32,2,0,1],
 "structcy__stc__syspm__callback__t.html":[2,32,2,1],
-"structcy__stc__syspm__callback__t.html#a13e6dfd81747d61783aac9ca28931fe4":[2,32,2,1,6],
-"structcy__stc__syspm__callback__t.html#a1b49c2454ac29e52261e28eb9071413b":[2,32,2,1,2],
-"structcy__stc__syspm__callback__t.html#a491e913ae8b54d0a61f2ac6959abf8ab":[2,32,2,1,5],
-"structcy__stc__syspm__callback__t.html#a497711725618616da0b168743702dc03":[2,32,2,1,3],
-"structcy__stc__syspm__callback__t.html#a566582fa98bed63f19108164d62e6c8f":[2,32,2,1,1],
-"structcy__stc__syspm__callback__t.html#ac4dd0cc8f5d4e92eefae3d10df920a56":[2,32,2,1,4]
+"structcy__stc__syspm__callback__t.html#a13e6dfd81747d61783aac9ca28931fe4":[2,32,2,1,6]
 };

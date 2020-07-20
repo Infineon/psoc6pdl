@@ -8,5 +8,6 @@ var group__group__sysclk__macros =
     [ "CY_SYSCLK_WCO_FREQ", "group__group__sysclk__macros.html#gae9d92355d0cb0762745ad11bbed1084f", null ],
     [ "CY_SYSCLK_PILO_FREQ", "group__group__sysclk__macros.html#gaffa481a00710a6d6dea53ad1e12266c3", null ],
     [ "CY_SYSCLK_IMO_FREQ", "group__group__sysclk__macros.html#ga9b98d83b0a60b378966d56f7636d85a6", null ],
-    [ "CY_SYSCLK_MFO_FREQ", "group__group__sysclk__macros.html#ga40dbc1d4deedd96abbaf1790bb96cee2", null ]
+    [ "CY_SYSCLK_MFO_FREQ", "group__group__sysclk__macros.html#ga40dbc1d4deedd96abbaf1790bb96cee2", null ],
+    [ "CY_SYSCLK_PILO_TRIM_STEP", "group__group__sysclk__macros.html#gaa43941ffce9db407916a2d0da03dad47", null ]
 ];

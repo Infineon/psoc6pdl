@@ -1,5 +1,10 @@
 var NAVTREEINDEX23 =
 {
+"structcy__stc__syspm__callback__t.html#a1b49c2454ac29e52261e28eb9071413b":[2,32,2,1,2],
+"structcy__stc__syspm__callback__t.html#a491e913ae8b54d0a61f2ac6959abf8ab":[2,32,2,1,5],
+"structcy__stc__syspm__callback__t.html#a497711725618616da0b168743702dc03":[2,32,2,1,3],
+"structcy__stc__syspm__callback__t.html#a566582fa98bed63f19108164d62e6c8f":[2,32,2,1,1],
+"structcy__stc__syspm__callback__t.html#ac4dd0cc8f5d4e92eefae3d10df920a56":[2,32,2,1,4],
 "structcy__stc__syspm__callback__t.html#afc2210e66cc5a0513e42761df9a2021a":[2,32,2,1,0],
 "structcy__stc__tcpwm__counter__config__t.html":[2,34,1,2,0],
 "structcy__stc__tcpwm__counter__config__t.html#a0f9abee99b3079bec330a6afdcb2bfe4":[2,34,1,2,0,18],

@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file system_psoc6.h
-* \version 2.80
+* \version 2.90
 *
 * \brief Device system header file.
 *
@@ -319,6 +319,11 @@
 *       <th>Version</th>
 *       <th>Changes</th>
 *       <th>Reason for Change</th>
+*   </tr>
+*   <tr>
+*     <td>2.90</td>
+*     <td>Updated linker scripts for PSoC 64 Secure MCU cyb06xx7 devices.</td>
+*     <td>Flash allocation adjustment.</td>
 *   </tr>
 *   <tr>
 *       <td rowspan="2">2.80</td>

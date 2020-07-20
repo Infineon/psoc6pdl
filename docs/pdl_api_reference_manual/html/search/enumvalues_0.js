@@ -460,6 +460,7 @@ var searchData=
   ['cy_5fpdm_5fpcm_5fwlen_5f20_5fbit',['CY_PDM_PCM_WLEN_20_BIT',['../group__group__pdm__pcm__enums.html#gga97622d82ab2e429e1b8486428f22e266a002f596bcfe821d6e35feca898f78fd5',1,'cy_pdm_pcm.h']]],
   ['cy_5fpdm_5fpcm_5fwlen_5f24_5fbit',['CY_PDM_PCM_WLEN_24_BIT',['../group__group__pdm__pcm__enums.html#gga97622d82ab2e429e1b8486428f22e266a6541319a5f711068e581161268e0b1fc',1,'cy_pdm_pcm.h']]],
   ['cy_5fpra_5fstatus_5faccess_5fdenied',['CY_PRA_STATUS_ACCESS_DENIED',['../group__group__pra__enums.html#gga60be13e12e82986f8c0d6c6a6d4f12c5ab0414ccc5b044571b3f885e53adead3b',1,'cy_pra.h']]],
+  ['cy_5fpra_5fstatus_5ferror_5fpra_5fversion',['CY_PRA_STATUS_ERROR_PRA_VERSION',['../group__group__pra__enums.html#gga60be13e12e82986f8c0d6c6a6d4f12c5a6104571f263a07692cca3977bde65d5b',1,'cy_pra.h']]],
   ['cy_5fpra_5fstatus_5ferror_5fprocessing',['CY_PRA_STATUS_ERROR_PROCESSING',['../group__group__pra__enums.html#gga60be13e12e82986f8c0d6c6a6d4f12c5ad31335b675dc22b8fdfb2e61b67680bb',1,'cy_pra.h']]],
   ['cy_5fpra_5fstatus_5ferror_5fprocessing_5falthf',['CY_PRA_STATUS_ERROR_PROCESSING_ALTHF',['../group__group__pra__enums.html#gga60be13e12e82986f8c0d6c6a6d4f12c5a40301096493ba154ac268bcdc3ef1f54',1,'cy_pra.h']]],
   ['cy_5fpra_5fstatus_5ferror_5fprocessing_5fclkbak',['CY_PRA_STATUS_ERROR_PROCESSING_CLKBAK',['../group__group__pra__enums.html#gga60be13e12e82986f8c0d6c6a6d4f12c5a391f5311fc188ec297eb5b612a576918',1,'cy_pra.h']]],

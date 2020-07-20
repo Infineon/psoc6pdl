@@ -8,6 +8,7 @@ var group__group__pra__enums =
       [ "CY_PRA_STATUS_REQUEST_SENT", "group__group__pra__enums.html#gga60be13e12e82986f8c0d6c6a6d4f12c5aef36392abb1ecb9b9f90de65aeefbb1a", null ],
       [ "CY_PRA_STATUS_ERROR_SYSPM_FAIL", "group__group__pra__enums.html#gga60be13e12e82986f8c0d6c6a6d4f12c5aae6d5eff9cde742a5d6bfb96bd0b6660", null ],
       [ "CY_PRA_STATUS_ERROR_SYSPM_TIMEOUT", "group__group__pra__enums.html#gga60be13e12e82986f8c0d6c6a6d4f12c5a5ff466d4c6811398d2dea0071d23133f", null ],
+      [ "CY_PRA_STATUS_ERROR_PRA_VERSION", "group__group__pra__enums.html#gga60be13e12e82986f8c0d6c6a6d4f12c5a6104571f263a07692cca3977bde65d5b", null ],
       [ "CY_PRA_STATUS_INVALID_PARAM_ECO", "group__group__pra__enums.html#gga60be13e12e82986f8c0d6c6a6d4f12c5a16f8f54089e63859f8c556c0c7545101", null ],
       [ "CY_PRA_STATUS_INVALID_PARAM_EXTCLK", "group__group__pra__enums.html#gga60be13e12e82986f8c0d6c6a6d4f12c5a9d14bd236caa45a6caab715fc4057423", null ],
       [ "CY_PRA_STATUS_INVALID_PARAM_ALTHF", "group__group__pra__enums.html#gga60be13e12e82986f8c0d6c6a6d4f12c5ae3a735f00bb0230d7d3ffd71f580d3f5", null ],

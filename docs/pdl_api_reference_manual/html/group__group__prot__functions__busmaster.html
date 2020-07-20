@@ -191,7 +191,9 @@ Functions</h2></td></tr>
 
 <p>Sets the current/active protection context of the specified bus master. </p>
 <p>Allowed PC values are 1-15. If this value is not inherited from another bus master, the value set through this function is used.</p>
-<dl class="section note"><dt>Note</dt><dd>This function is applicable for both CPUSS ver_1 and ver_2.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function is applicable for both CPUSS ver_1 and ver_2.</dd>
+<dd>
+The function does not have access and returns an error for the secure CYB06xx7 devices.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">busMaster</td><td>The bus master to configure. Refer to the CPUSS_MS_ID_X defines in the device config header file.</td></tr>

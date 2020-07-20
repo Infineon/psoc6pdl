@@ -1,4 +1,4 @@
-var group__group__pra__data__structures__cfg =
+var group__group__pra__stc =
 [
     [ "cy_stc_pra_system_config_t", "structcy__stc__pra__system__config__t.html", [
       [ "powerEnable", "structcy__stc__pra__system__config__t.html#ad8bd2e696d81a75161f4c6a105e46b3b", null ],
@@ -115,7 +115,7 @@ var group__group__pra__data__structures__cfg =
       [ "clkSrcAltSysTick", "structcy__stc__pra__system__config__t.html#a40f254fcafbef0edae68494021322d62", null ],
       [ "altHFcLoad", "structcy__stc__pra__system__config__t.html#af03bdcd914aaa17fc530c9c1264e46f7", null ],
       [ "altHFxtalStartUpTime", "structcy__stc__pra__system__config__t.html#a55ae459ce519c5b5124429ef7625ef73", null ],
-      [ "altHFfreq", "structcy__stc__pra__system__config__t.html#a7f04e5abd4f600b0166d768658a113de", null ],
+      [ "altHFclkFreq", "structcy__stc__pra__system__config__t.html#a6dd0cc3cdc69074a75f9335ca3a5ff70", null ],
       [ "altHFsysClkDiv", "structcy__stc__pra__system__config__t.html#a70301630eba570879b56a0859b4deda8", null ],
       [ "altHFvoltageReg", "structcy__stc__pra__system__config__t.html#aa1c196041d52fee999ec0a239d92388c", null ]
     ] ]

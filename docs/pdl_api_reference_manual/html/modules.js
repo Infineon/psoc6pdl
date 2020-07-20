@@ -37,6 +37,5 @@ var modules =
     [ "TCPWM        (Timer Counter PWM)", "group__group__tcpwm.html", "group__group__tcpwm" ],
     [ "TrigMux      (Trigger Multiplexer)", "group__group__trigmux.html", "group__group__trigmux" ],
     [ "USBFS        (USB Full-Speed Device)", "group__group__usbfs__dev__drv.html", "group__group__usbfs__dev__drv" ],
-    [ "WDT          (Watchdog Timer)", "group__group__wdt.html", "group__group__wdt" ],
-    [ "Group_pra_data_structures_cfg", "group__group__pra__data__structures__cfg.html", "group__group__pra__data__structures__cfg" ]
+    [ "WDT          (Watchdog Timer)", "group__group__wdt.html", "group__group__wdt" ]
 ];

@@ -1,5 +1,6 @@
 var NAVTREEINDEX14 =
 {
+"group__group__smif__macros__sfdp.html#ga238b651f7d106f5f08cb2b9e4d511517":[2,26,0,3,27],
 "group__group__smif__macros__sfdp.html#ga24378aa8c2c7a734fd12bc80cce55fe8":[2,26,0,3,95],
 "group__group__smif__macros__sfdp.html#ga251b89ab595cf308d4d2998ddf3bc66a":[2,26,0,3,48],
 "group__group__smif__macros__sfdp.html#ga265c08b6182889afadf26bc1629c2778":[2,26,0,3,72],
@@ -209,6 +210,7 @@ var NAVTREEINDEX14 =
 "group__group__sysclk__calclk__funcs.html#ga0a87e123411d5711344780ddfa492f37":[2,29,9,0,0],
 "group__group__sysclk__calclk__funcs.html#ga60a2cef8db1753b5fbc12e1067a71c25":[2,29,9,0,1],
 "group__group__sysclk__calclk__funcs.html#ga979f2ef437908618291bf3a935488412":[2,29,9,0,2],
+"group__group__sysclk__calclk__structs.html":[2,29,9,2],
 "group__group__sysclk__clk__bak.html":[2,29,22],
 "group__group__sysclk__clk__bak__enums.html":[2,29,22,1],
 "group__group__sysclk__clk__bak__enums.html#gae43abac127a973232c6e4c1adbde0497":[2,29,22,1,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX14 =
 "group__group__sysclk__clk__hf__enums.html#ggadfbf0caf87af7cd757648124fb17d1d4a996f9d53d3d78eda51e71dd65b1990c0":[2,29,13,1,1,0],
 "group__group__sysclk__clk__hf__enums.html#ggadfbf0caf87af7cd757648124fb17d1d4ab24eafa784b1cc50c94072e6be0dd4b8":[2,29,13,1,1,3],
 "group__group__sysclk__clk__hf__funcs.html":[2,29,13,0],
-"group__group__sysclk__clk__hf__funcs.html#ga2b8da7c11fcfdd0f02248df7535a50e6":[2,29,13,0,4],
-"group__group__sysclk__clk__hf__funcs.html#ga4d090b2e9716939fe4689fac77b05679":[2,29,13,0,3],
-"group__group__sysclk__clk__hf__funcs.html#ga5d84c32d84778dc99dcf38514ca73a80":[2,29,13,0,2]
+"group__group__sysclk__clk__hf__funcs.html#ga2b8da7c11fcfdd0f02248df7535a50e6":[2,29,13,0,4]
 };

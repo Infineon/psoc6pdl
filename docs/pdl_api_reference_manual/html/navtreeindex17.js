@@ -1,5 +1,10 @@
 var NAVTREEINDEX17 =
 {
+"group__group__syspm__return__status.html#gaa4676826fb292ff98352ea91a5f01d7f":[2,32,0,0,3],
+"group__group__syspm__return__status.html#gabd286c84a71ee94de1f9fddf072fa8e7":[2,32,0,0,0],
+"group__group__syspm__return__status.html#gacb5263908883e7a398818560761a2345":[2,32,0,0,2],
+"group__group__syspm__return__status.html#gad3ad8f600bce37ba71a645d8b2e00ac8":[2,32,0,0,6],
+"group__group__syspm__return__status.html#gaf0d14dba34bb4e36b3dc3a16fe0d1461":[2,32,0,0,1],
 "group__group__syspm__skip__callback__modes.html":[2,32,0,1],
 "group__group__syspm__skip__callback__modes.html#ga7080a9d98d07b0f7b44eda4899c1d26f":[2,32,0,1,0],
 "group__group__syspm__skip__callback__modes.html#ga77a2dc7326bb7e6cf893dc7b258b3a42":[2,32,0,1,2],
@@ -244,10 +249,5 @@ var NAVTREEINDEX17 =
 "group__group__tcpwm__reg__const.html#ga80df5bcd9b87aaa942fa34e6b5527d4a":[2,34,0,0,3,11],
 "group__group__tcpwm__reg__const.html#ga9cd46882fa15c42ffab53d2f976b5e75":[2,34,0,0,3,5],
 "group__group__tcpwm__reg__const.html#gacb1b7540dbdb055615314b3e3f8f6cdc":[2,34,0,0,3,10],
-"group__group__tcpwm__reg__const.html#gaf7f5f31d90d94c95069aa9ba2aa5af34":[2,34,0,0,3,9],
-"group__group__tcpwm__reg__const.html#gaf807fc443779425def0f2ac6eec4d7ff":[2,34,0,0,3,4],
-"group__group__trigmux.html":[2,35],
-"group__group__trigmux__1to1__enums.html":[2,35,2,4],
-"group__group__trigmux__1to1__enums.html#ga075c7d257be36f20ad981ecc71a36af1":[2,35,2,4,3],
-"group__group__trigmux__1to1__enums.html#ga0e136a305cfbf0583b63e22694e0b8d6":[2,35,2,4,2]
+"group__group__tcpwm__reg__const.html#gaf7f5f31d90d94c95069aa9ba2aa5af34":[2,34,0,0,3,9]
 };

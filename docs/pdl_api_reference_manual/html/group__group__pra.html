@@ -106,11 +106,13 @@ $(document).ready(function(){initNavTree('group__group__pra.html','');});
 <li><a class="el" href="group__group__arm__system__timer.html">SysTick (ARM System Timer)</a></li>
 <li><a class="el" href="group__group__wdt.html">WDT (Watchdog Timer)</a></li>
 <li><a class="el" href="group__group__flash.html">Flash (Flash System Routine)</a></li>
+<li><a class="el" href="group__group__sysint.html">SysInt (System Interrupt)</a> (PSoC 64 CYB06xx7 devices only)</li>
+<li><a class="el" href="group__group__prot.html">Prot (Protection Unit)</a> (PSoC 64 CYB06xx7 devices only)</li>
 </ul>
-<p>The execution time of the functions that access the protected registers is increased on the PSoC 64 devices because the access is performed on Cortex-M0+ via the IPC command:</p><ul>
-<li>The access to the protected register may take around by 20 times longer compared to unprotected one.</li>
-<li>The initial device configuration based on the device configuration depends on actual configuration, but may take up to 40 times longer.</li>
-<li>The transition Active to DeepSleep to Active may take 2 times longer.</li>
+<p>The execution time of the functions that access the protected registers is increased on the PSoC 64 devices because the access is performed on Cortex-M0+ via the IPC command (both CPU cores run at 8 MHz):</p><ul>
+<li>The access to the protected register may take about 50 us, while access to the unprotected one may take about 3 us.</li>
+<li>The initial device configuration may take up to 1.75 ms for PSoC 64 devices, while for the other devices it may take about 0.3 ms.</li>
+<li>The transition Active to DeepSleep to Active may take about 2 times longer.</li>
 </ul>
 <h1><a class="anchor" id="group_pra_basic_operation"></a>
 Basic Operation</h1>
@@ -125,7 +127,7 @@ Device Configuration</h1>
 <dl class="section warning"><dt>Warning</dt><dd>The external clocks (ECO, ALTHF, WCO, and EXTCLK) are not allowed to source CLK_HF0 (clocks both Cortex-M0+ and Cortex-M4 CPUs) in order to prevent clock tampering. The external clock support for CLK_HF0 feature is planned to be added and validated via secure policy statements in the future releases.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The internal low-frequency clocks (ILO and PILO) are not allowed to source the CLK_HF0 directly and through PLL or FLL.</dd>
 <dd>
-The clock source for Cortex-M4 SysTick cannot be configured with the Device Configurator. Enabling CLK_ALT_SYS_TICK will result in a compilation error. SysTick still can be configured in run-time with some limitations. For more details, refer to <a class="el" href="group__group__systick__functions.html#ga6d72adec7b58994ff9097bb4a301fa95">Cy_SysTick_GetClockSource()</a> in <a class="el" href="group__group__arm__system__timer.html">SysTick (ARM System Timer)</a>.</dd></dl>
+The clock source for Cortex-M4 SysTick cannot be configured with the Device Configurator. Enabling CLK_ALT_SYS_TICK will result in a compilation error. SysTick still can be configured in run-time with some limitations. For more details, refer to <a class="el" href="group__group__systick__functions.html#gaa8a72d8a278e4a3a970b4c4a021f3647">Cy_SysTick_SetClockSource()</a> in <a class="el" href="group__group__arm__system__timer.html">SysTick (ARM System Timer)</a>.</dd></dl>
 <h1><a class="anchor" id="group_pra_standalone"></a>
 Using without BSPs</h1>
 <p>If PDL is used in Standalone mode without Board Support Package (BSP), do the following:</p><ul>
@@ -157,6 +159,18 @@ Changelog</h1>
 <tr>
 <th>Version</th><th>Changes</th><th>Reason for Change </th></tr>
 <tr>
+<td rowspan="6">2.0 </td><td>Added PSoC 64 CYB06xx7 devices support. </td><td>New devices support.  </td></tr>
+<tr>
+<td>Updated <a class="el" href="group__group__pra__functions.html#ga93393c7e6e2ca124ac0b331dcee6e78b" title="Initializes the PRA driver: ">Cy_PRA_Init()</a> to compare the major and minor version of the PRA driver on the Cortex-M0+ and Cortex-M4 sides and halt Cortex-M4 if the versions are different.  </td><td>Ensure that the same PRA driver version is used on the Cortex-M0+ and Cortex-M4 sides.  </td></tr>
+<tr>
+<td>Fixed the location of the <a class="el" href="structcy__stc__pra__system__config__t.html">cy_stc_pra_system_config_t</a> description in the documentation.  </td><td>Documentation update.  </td></tr>
+<tr>
+<td>Corrected the reference to the <a class="el" href="group__group__arm__system__timer.html">SysTick (ARM System Timer)</a> function with the limitation description - <a class="el" href="group__group__systick__functions.html#gaa8a72d8a278e4a3a970b4c4a021f3647">Cy_SysTick_SetClockSource()</a>.  </td><td>Documentation update.  </td></tr>
+<tr>
+<td>The state of the following clocks changes only when the requested state differs from the actual state in the hardware: HF1-HF5, TIMER, PUMP, BLE_ECO, ILO, PILO, and WCO.  </td><td>Improved the <a class="el" href="group__group__pra__functions.html#ga9eb129562cf959674d91dc11d37c374a">Cy_PRA_SystemConfig()</a> function execution time.  </td></tr>
+<tr>
+<td>Renamed altHfFreq to altHFclkFreq in <a class="el" href="structcy__stc__pra__system__config__t.html">cy_stc_pra_system_config_t</a>. </td><td>Eliminated the naming conflict with the SysClk driver.  </td></tr>
+<tr>
 <td>1.0 </td><td>Initial version </td><td></td></tr>
 </table>
 <table class="memberdecls">
@@ -167,6 +181,8 @@ API Reference</h2></td></tr>
 <tr class="memitem:group__group__pra__functions"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pra__functions.html">Functions</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:group__group__pra__enums"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pra__enums.html">Enumerated Types</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:group__group__pra__stc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__pra__stc.html">Data Structures</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

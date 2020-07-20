@@ -148,10 +148,18 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">(void)<a class="code" href="group__group__pra__functions.html#ga0a1b71a4d148280527ca98aba144a6f4">Cy_PRA_SendCmd</a>(CY_PRA_MSG_TYPE_REG32_CLR_SET, \</div><div class="line">                              (regIndex), \</div><div class="line">                              ((uint32_t)(~(field ## _Msk))), \</div><div class="line">                              (_VAL2FLD(field, \</div><div class="line">                              (value))))</div><div class="ttc" id="group__group__pra__functions_html_ga0a1b71a4d148280527ca98aba144a6f4"><div class="ttname"><a href="group__group__pra__functions.html#ga0a1b71a4d148280527ca98aba144a6f4">Cy_PRA_SendCmd</a></div><div class="ttdeci">cy_en_pra_status_t Cy_PRA_SendCmd(uint16_t cmd, uint16_t regIndex, uint32_t clearMask, uint32_t setMask)</div><div class="ttdoc">Takes the parameters, passes them to the secure Cortex-M0+ via IPC, waits for Cortex-M0+ to finish an...</div><div class="ttdef"><b>Definition:</b> cy_pra.c:1549</div></div>
+<b>Value:</b><div class="fragment"><div class="line">(void)<a class="code" href="group__group__pra__functions.html#ga0a1b71a4d148280527ca98aba144a6f4">Cy_PRA_SendCmd</a>(CY_PRA_MSG_TYPE_REG32_CLR_SET, \</div><div class="line">                              (regIndex), \</div><div class="line">                              ((uint32_t)(~(field ## _Msk))), \</div><div class="line">                              (_VAL2FLD(field, \</div><div class="line">                              (value))))</div><div class="ttc" id="group__group__pra__functions_html_ga0a1b71a4d148280527ca98aba144a6f4"><div class="ttname"><a href="group__group__pra__functions.html#ga0a1b71a4d148280527ca98aba144a6f4">Cy_PRA_SendCmd</a></div><div class="ttdeci">cy_en_pra_status_t Cy_PRA_SendCmd(uint16_t cmd, uint16_t regIndex, uint32_t clearMask, uint32_t setMask)</div><div class="ttdoc">Takes the parameters, passes them to the secure Cortex-M0+ via IPC, waits for Cortex-M0+ to finish an...</div><div class="ttdef"><b>Definition:</b> cy_pra.c:1789</div></div>
 </div><!-- fragment -->
 <p>Provides get-clear-modify-write operations with a name field and value and writes a resulting value to the 32-bit register. </p>
-<dl class="section note"><dt>Note</dt><dd>An attempt to access not-supported registers (not secure and not listed in the TRM) results in an error. The list of the registers that can be accessed by the PRA driver directly is defined in the cy_pra.h file with the CY_PRA_INDX_ prefix. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>An attempt to access not-supported registers (not secure and not listed in the TRM) results in an error. The list of the registers that can be accessed by the PRA driver directly is defined in the cy_pra.h file with the CY_PRA_INDX_ prefix.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">regIndex</td><td>The register address index.</td></tr>
+    <tr><td class="paramname">field</td><td>The field to be updated.</td></tr>
+    <tr><td class="paramname">value</td><td>The value to write. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

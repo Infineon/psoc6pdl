@@ -83,7 +83,7 @@ $(document).ready(function(){initNavTree('structcy__stc__pra__system__config__t.
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
   <div class="headertitle">
-<div class="title">cy_stc_pra_system_config_t Struct Reference<div class="ingroups"><a class="el" href="group__group__pra__data__structures__cfg.html">Group_pra_data_structures_cfg</a></div></div>  </div>
+<div class="title">cy_stc_pra_system_config_t Struct Reference<div class="ingroups"><a class="el" href="group__group__pra.html">PRA          (Protected Register Access)</a> &raquo; <a class="el" href="group__group__pra__stc.html">Data Structures</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Description</h2>
@@ -544,10 +544,9 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcy__stc__pra__system__config__t.html#a55ae459ce519c5b5124429ef7625ef73">altHFxtalStartUpTime</a></td></tr>
 <tr class="memdesc:a55ae459ce519c5b5124429ef7625ef73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Startup Time (us) <br /></td></tr>
 <tr class="separator:a55ae459ce519c5b5124429ef7625ef73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f04e5abd4f600b0166d768658a113de"><td class="memItemLeft" align="right" valign="top"><a id="a7f04e5abd4f600b0166d768658a113de"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcy__stc__pra__system__config__t.html#a7f04e5abd4f600b0166d768658a113de">altHFfreq</a></td></tr>
-<tr class="memdesc:a7f04e5abd4f600b0166d768658a113de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output Frequency. <br /></td></tr>
-<tr class="separator:a7f04e5abd4f600b0166d768658a113de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dd0cc3cdc69074a75f9335ca3a5ff70"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcy__stc__pra__system__config__t.html#a6dd0cc3cdc69074a75f9335ca3a5ff70">altHFclkFreq</a></td></tr>
+<tr class="memdesc:a6dd0cc3cdc69074a75f9335ca3a5ff70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clock Frequency.  <a href="#a6dd0cc3cdc69074a75f9335ca3a5ff70">More...</a><br /></td></tr>
+<tr class="separator:a6dd0cc3cdc69074a75f9335ca3a5ff70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70301630eba570879b56a0859b4deda8"><td class="memItemLeft" align="right" valign="top"><a id="a70301630eba570879b56a0859b4deda8"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcy__stc__pra__system__config__t.html#a70301630eba570879b56a0859b4deda8">altHFsysClkDiv</a></td></tr>
 <tr class="memdesc:a70301630eba570879b56a0859b4deda8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clock Divider. <br /></td></tr>
@@ -606,6 +605,23 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 
 <p>Slow clock divider. </p>
 <p>User has to pass actual divider-1 </p>
+
+</div>
+</div>
+<a id="a6dd0cc3cdc69074a75f9335ca3a5ff70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dd0cc3cdc69074a75f9335ca3a5ff70">&#9670;&nbsp;</a></span>altHFclkFreq</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t cy_stc_pra_system_config_t::altHFclkFreq</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clock Frequency. </p>
+<p>0 -&gt; 16MHz and 1 -&gt; 32MHz. Any other value except 0 and 1 is invalid </p>
 
 </div>
 </div>

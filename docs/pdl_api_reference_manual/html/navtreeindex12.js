@@ -1,5 +1,6 @@
 var NAVTREEINDEX12 =
 {
+"group__group__sd__host__macros__card__status.html#gaec4baf12a3cee0c2bf553ca84e5ad8c5":[2,23,0,2,6],
 "group__group__sd__host__macros__card__status.html#gaee5cd8084c05e866556f44e9bfb92a9d":[2,23,0,2,3],
 "group__group__sd__host__macros__card__status.html#gaf1f9b81c2ae8d3bdf32b3e53236e8866":[2,23,0,2,13],
 "group__group__sd__host__macros__cid.html":[2,23,0,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX12 =
 "group__group__smartio__enums.html#gga539e453be0c4fdbcba47609451495f13a3c989447e4443a55373b6315142bf428":[2,25,3,0,2],
 "group__group__smartio__enums.html#gga539e453be0c4fdbcba47609451495f13aad3e7247e67326d3a2e7109b6c9ca7f8":[2,25,3,0,1],
 "group__group__smartio__enums.html#gga572df357a226e52ebe5c79b4684662a7a4876b8a69eb2097cf07756c1fad5e4a4":[2,25,3,6,2],
-"group__group__smartio__enums.html#gga572df357a226e52ebe5c79b4684662a7a6122170f60ef546a2eb10cf39f1444b7":[2,25,3,6,3],
-"group__group__smartio__enums.html#gga572df357a226e52ebe5c79b4684662a7a79cb6f265fd4ce09180e9399394c02ee":[2,25,3,6,0]
+"group__group__smartio__enums.html#gga572df357a226e52ebe5c79b4684662a7a6122170f60ef546a2eb10cf39f1444b7":[2,25,3,6,3]
 };
