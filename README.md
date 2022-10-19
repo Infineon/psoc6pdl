@@ -1,5 +1,9 @@
 # PSoC 6 Peripheral Driver Library
 
+```diff
+- This asset is now deprecated. Please use mtb-pdl-cat1 (https://github.com/Infineon/mtb-pdl-cat1)
+```
+
 ### Overview
 The Cypress PDL simplifies software development for PSoC 6 family of devices.
 The PDL integrates device header files, startup code, and 
