@@ -917,7 +917,7 @@ static void HandleAddress(CySCB_Type *base, cy_stc_scb_ezi2c_context_t *context)
             cmd = SCB_I2C_S_CMD_S_NACK_Msk;
 
             /* Disable the stop interrupt source */
-            Cy_SCB_SetI2CInterruptMask(base, CY_SCB_EZI2C_SLAVE_INTR_NO_STOP);
+            Cy_SCB_SetSlaveInterruptMask(base, CY_SCB_EZI2C_SLAVE_INTR_NO_STOP);
         }
     }
 
